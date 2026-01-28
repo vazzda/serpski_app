@@ -1,0 +1,68 @@
+{
+  "@@locale": "en",
+  "appTitle": "Srpski Card",
+  "groupWords": "Words (infinitive ↔ English)",
+  "groupEndingsImEAti": "Endings: -ATI (IM|E)",
+  "groupEndingsImEEti": "Endings: -ETI (IM|E)",
+  "groupEndingsImEIti": "Endings: -ITI (IM|E)",
+  "groupEndingsAmAju": "Endings: -ATI (AM|AJU)",
+  "groupEndingsEmUGati": "Endings: -GATI (EM|U)",
+  "groupEndingsEmUHati": "Endings: -HATI (EM|U)",
+  "groupEndingsEmUKati": "Endings: -KATI (EM|U)",
+  "groupEndingsEmUAvati": "Endings: -AVATI (EM|U)",
+  "groupEndingsEmUIvati": "Endings: -IVATI (EM|U)",
+  "groupEndingsEmUOvati": "Endings: -OVATI (EM|U)",
+  "groupEndingsEmUCi": "Endings: -ĆI (EM|U)",
+  "groupEndingsEmEju": "Endings: -ETI (EM|EJU)",
+  "chooseMode": "Choose mode",
+  "modeSerbianShown": "Serbian shown (pick English)",
+  "modeEnglishShown": "English shown (pick Serbian)",
+  "modeWrite": "Write (type Serbian)",
+  "chooseQuestionsCount": "How many questions?",
+  "questions5": "5",
+  "questions10": "10",
+  "questions20": "20",
+  "questions50": "50",
+  "start": "Start",
+  "cancel": "Cancel",
+  "next": "Next",
+  "submit": "Submit",
+  "yourAnswer": "Your answer",
+  "correct": "Correct",
+  "wrong": "Wrong",
+  "resultTitle": "Session result",
+  "correctCount": "Correct: {count}",
+  "@correctCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "wrongCount": "Wrong: {count}",
+  "@wrongCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "reviewWrongTitle": "Missed cards",
+  "reviewWrongSubtitle": "Cards you got wrong (Serbian → English)",
+  "done": "Done",
+  "backToGroups": "Back to groups",
+  "pageNotFound": "Page not found",
+  "loadError": "Could not load groups. Please try again.",
+  "correctAnswerLabel": "Correct answer:",
+  "questionsLeft": "Left: {count}",
+  "@questionsLeft": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "exitSession": "Exit session",
+  "exitSessionConfirm": "Exit session? Your progress will be lost.",
+  "exit": "Exit"
+}
