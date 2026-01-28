@@ -12,43 +12,46 @@ class AppLocalizationsEn extends AppLocalizations {
   String get appTitle => 'Srpski Card';
 
   @override
-  String get groupWords => 'Words (infinitive ↔ English)';
+  String get appBarTitle => 'Srpski';
 
   @override
-  String get groupEndingsImEAti => 'Endings: -ATI (IM|E)';
+  String get groupWords => 'Words, infinitive';
 
   @override
-  String get groupEndingsImEEti => 'Endings: -ETI (IM|E)';
+  String get groupEndingsImEAti => '-ATI (IM|E)';
 
   @override
-  String get groupEndingsImEIti => 'Endings: -ITI (IM|E)';
+  String get groupEndingsImEEti => '-ETI (IM|E)';
 
   @override
-  String get groupEndingsAmAju => 'Endings: -ATI (AM|AJU)';
+  String get groupEndingsImEIti => '-ITI (IM|E)';
 
   @override
-  String get groupEndingsEmUGati => 'Endings: -GATI (EM|U)';
+  String get groupEndingsAmAju => '-ATI (AM|AJU)';
 
   @override
-  String get groupEndingsEmUHati => 'Endings: -HATI (EM|U)';
+  String get groupEndingsEmUGati => '-GATI (EM|U)';
 
   @override
-  String get groupEndingsEmUKati => 'Endings: -KATI (EM|U)';
+  String get groupEndingsEmUHati => '-HATI (EM|U)';
 
   @override
-  String get groupEndingsEmUAvati => 'Endings: -AVATI (EM|U)';
+  String get groupEndingsEmUKati => '-KATI (EM|U)';
 
   @override
-  String get groupEndingsEmUIvati => 'Endings: -IVATI (EM|U)';
+  String get groupEndingsEmUAvati => '-AVATI (EM|U)';
 
   @override
-  String get groupEndingsEmUOvati => 'Endings: -OVATI (EM|U)';
+  String get groupEndingsEmUIvati => '-IVATI (EM|U)';
 
   @override
-  String get groupEndingsEmUCi => 'Endings: -ĆI (EM|U)';
+  String get groupEndingsEmUOvati => '-OVATI (EM|U)';
 
   @override
-  String get groupEndingsEmEju => 'Endings: -ETI (EM|EJU)';
+  String get groupEndingsEmUCi => '-ĆI (EM|U)';
+
+  @override
+  String get groupEndingsEmEju => '-ETI (EM|EJU)';
 
   @override
   String get chooseMode => 'Choose mode';

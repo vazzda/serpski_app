@@ -100,82 +100,88 @@ abstract class AppLocalizations {
   /// **'Srpski Card'**
   String get appTitle;
 
+  /// No description provided for @appBarTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Srpski'**
+  String get appBarTitle;
+
   /// No description provided for @groupWords.
   ///
   /// In en, this message translates to:
-  /// **'Words (infinitive ↔ English)'**
+  /// **'Words, infinitive'**
   String get groupWords;
 
   /// No description provided for @groupEndingsImEAti.
   ///
   /// In en, this message translates to:
-  /// **'Endings: -ATI (IM|E)'**
+  /// **'-ATI (IM|E)'**
   String get groupEndingsImEAti;
 
   /// No description provided for @groupEndingsImEEti.
   ///
   /// In en, this message translates to:
-  /// **'Endings: -ETI (IM|E)'**
+  /// **'-ETI (IM|E)'**
   String get groupEndingsImEEti;
 
   /// No description provided for @groupEndingsImEIti.
   ///
   /// In en, this message translates to:
-  /// **'Endings: -ITI (IM|E)'**
+  /// **'-ITI (IM|E)'**
   String get groupEndingsImEIti;
 
   /// No description provided for @groupEndingsAmAju.
   ///
   /// In en, this message translates to:
-  /// **'Endings: -ATI (AM|AJU)'**
+  /// **'-ATI (AM|AJU)'**
   String get groupEndingsAmAju;
 
   /// No description provided for @groupEndingsEmUGati.
   ///
   /// In en, this message translates to:
-  /// **'Endings: -GATI (EM|U)'**
+  /// **'-GATI (EM|U)'**
   String get groupEndingsEmUGati;
 
   /// No description provided for @groupEndingsEmUHati.
   ///
   /// In en, this message translates to:
-  /// **'Endings: -HATI (EM|U)'**
+  /// **'-HATI (EM|U)'**
   String get groupEndingsEmUHati;
 
   /// No description provided for @groupEndingsEmUKati.
   ///
   /// In en, this message translates to:
-  /// **'Endings: -KATI (EM|U)'**
+  /// **'-KATI (EM|U)'**
   String get groupEndingsEmUKati;
 
   /// No description provided for @groupEndingsEmUAvati.
   ///
   /// In en, this message translates to:
-  /// **'Endings: -AVATI (EM|U)'**
+  /// **'-AVATI (EM|U)'**
   String get groupEndingsEmUAvati;
 
   /// No description provided for @groupEndingsEmUIvati.
   ///
   /// In en, this message translates to:
-  /// **'Endings: -IVATI (EM|U)'**
+  /// **'-IVATI (EM|U)'**
   String get groupEndingsEmUIvati;
 
   /// No description provided for @groupEndingsEmUOvati.
   ///
   /// In en, this message translates to:
-  /// **'Endings: -OVATI (EM|U)'**
+  /// **'-OVATI (EM|U)'**
   String get groupEndingsEmUOvati;
 
   /// No description provided for @groupEndingsEmUCi.
   ///
   /// In en, this message translates to:
-  /// **'Endings: -ĆI (EM|U)'**
+  /// **'-ĆI (EM|U)'**
   String get groupEndingsEmUCi;
 
   /// No description provided for @groupEndingsEmEju.
   ///
   /// In en, this message translates to:
-  /// **'Endings: -ETI (EM|EJU)'**
+  /// **'-ETI (EM|EJU)'**
   String get groupEndingsEmEju;
 
   /// No description provided for @chooseMode.

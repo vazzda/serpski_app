@@ -53,7 +53,7 @@ class GroupListScreen extends ConsumerWidget {
     final asyncGroups = ref.watch(groupsProvider);
 
     return AppScaffold(
-      title: l10n.appTitle,
+      title: l10n.appBarTitle,
       child: asyncGroups.when(
         data: (groups) => ListView.builder(
           padding: const EdgeInsets.all(16),
@@ -100,16 +100,10 @@ class GroupListScreen extends ConsumerWidget {
   ) async {
     ref.read(selectedGroupProvider.notifier).state = group;
 
-    final mode = await showDialog<QuizMode>(
-      context: context,
-      builder: (context) => _ModeDialog(l10n: l10n),
-    );
+    final mode = await _showModeBottomSheet(context, l10n);
     if (mode == null || !context.mounted) return;
 
-    final count = await showDialog<int>(
-      context: context,
-      builder: (context) => _CountDialog(l10n: l10n),
-    );
+    final count = await _showCountBottomSheet(context, l10n);
     if (count == null || !context.mounted) return;
 
     ref.read(sessionProvider.notifier).start(
@@ -121,68 +115,106 @@ class GroupListScreen extends ConsumerWidget {
   }
 }
 
-class _ModeDialog extends StatelessWidget {
-  const _ModeDialog({required this.l10n});
-
-  final AppLocalizations l10n;
-
-  @override
-  Widget build(BuildContext context) {
-    return AlertDialog(
-      title: Text(l10n.chooseMode),
-      content: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          ListTile(
-            title: Text(l10n.modeSerbianShown),
-            onTap: () => Navigator.of(context).pop(QuizMode.serbianShown),
+Future<QuizMode?> _showModeBottomSheet(
+  BuildContext context,
+  AppLocalizations l10n,
+) {
+  final theme = Theme.of(context);
+  final noBorderListTileTheme = ListTileThemeData(
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+  );
+  return showModalBottomSheet<QuizMode>(
+    context: context,
+    backgroundColor: theme.colorScheme.surface,
+    builder: (context) => SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(24, 20, 24, 24),
+        child: Theme(
+          data: theme.copyWith(listTileTheme: noBorderListTileTheme),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(bottom: 16),
+                child: Text(
+                  l10n.chooseMode,
+                  style: theme.textTheme.titleLarge,
+                ),
+              ),
+              ListTile(
+                title: Text(l10n.modeSerbianShown),
+                onTap: () => Navigator.of(context).pop(QuizMode.serbianShown),
+              ),
+              ListTile(
+                title: Text(l10n.modeEnglishShown),
+                onTap: () => Navigator.of(context).pop(QuizMode.englishShown),
+              ),
+              ListTile(
+                title: Text(l10n.modeWrite),
+                onTap: () => Navigator.of(context).pop(QuizMode.write),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 16),
+                child: TextButton(
+                  onPressed: () => Navigator.of(context).pop(),
+                  child: Text(l10n.cancel),
+                ),
+              ),
+            ],
           ),
-          ListTile(
-            title: Text(l10n.modeEnglishShown),
-            onTap: () => Navigator.of(context).pop(QuizMode.englishShown),
-          ),
-          ListTile(
-            title: Text(l10n.modeWrite),
-            onTap: () => Navigator.of(context).pop(QuizMode.write),
-          ),
-        ],
-      ),
-      actions: [
-        TextButton(
-          onPressed: () => Navigator.of(context).pop(),
-          child: Text(l10n.cancel),
         ),
-      ],
-    );
-  }
+      ),
+    ),
+  );
 }
 
-class _CountDialog extends StatelessWidget {
-  const _CountDialog({required this.l10n});
-
-  final AppLocalizations l10n;
-
-  @override
-  Widget build(BuildContext context) {
-    final counts = [5, 10, 20, 50];
-    final labels = [l10n.questions5, l10n.questions10, l10n.questions20, l10n.questions50];
-    return AlertDialog(
-      title: Text(l10n.chooseQuestionsCount),
-      content: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: List.generate(4, (i) {
-          return ListTile(
-            title: Text(labels[i]),
-            onTap: () => Navigator.of(context).pop(counts[i]),
-          );
-        }),
-      ),
-      actions: [
-        TextButton(
-          onPressed: () => Navigator.of(context).pop(),
-          child: Text(l10n.cancel),
+Future<int?> _showCountBottomSheet(
+  BuildContext context,
+  AppLocalizations l10n,
+) {
+  final theme = Theme.of(context);
+  final noBorderListTileTheme = ListTileThemeData(
+    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+  );
+  final counts = [5, 10, 20, 50];
+  final labels = [l10n.questions5, l10n.questions10, l10n.questions20, l10n.questions50];
+  return showModalBottomSheet<int>(
+    context: context,
+    backgroundColor: theme.colorScheme.surface,
+    builder: (context) => SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(24, 20, 24, 24),
+        child: Theme(
+          data: theme.copyWith(listTileTheme: noBorderListTileTheme),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(bottom: 16),
+                child: Text(
+                  l10n.chooseQuestionsCount,
+                  style: theme.textTheme.titleLarge,
+                ),
+              ),
+              ...List.generate(4, (i) {
+                return ListTile(
+                  title: Text(labels[i]),
+                  onTap: () => Navigator.of(context).pop(counts[i]),
+                );
+              }),
+              Padding(
+                padding: const EdgeInsets.only(top: 16),
+                child: TextButton(
+                  onPressed: () => Navigator.of(context).pop(),
+                  child: Text(l10n.cancel),
+                ),
+              ),
+            ],
+          ),
         ),
-      ],
-    );
-  }
+      ),
+    ),
+  );
 }

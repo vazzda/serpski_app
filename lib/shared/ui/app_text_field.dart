@@ -32,7 +32,7 @@ class AppTextField extends StatelessWidget {
       decoration: InputDecoration(
         labelText: label,
         hintText: hint,
-        fillColor: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.3),
+        fillColor: theme.colorScheme.surface,
       ),
       onSubmitted: onSubmitted,
       autofocus: autofocus,

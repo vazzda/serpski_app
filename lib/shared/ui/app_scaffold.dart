@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../theme/app_theme.dart';
+
 /// Scaffold with app bar using theme. No direct colors.
 class AppScaffold extends StatelessWidget {
   const AppScaffold({
@@ -16,9 +18,17 @@ class AppScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       appBar: AppBar(
-        title: Text(title),
+        title: Text(title.toUpperCase()),
         actions: actions,
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(2),
+          child: Container(
+            height: 2,
+            color: AppTheme.borderBlack,
+          ),
+        ),
       ),
       body: SafeArea(child: child),
     );

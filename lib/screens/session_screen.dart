@@ -80,7 +80,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
     final theme = Theme.of(context);
 
     return AppScaffold(
-      title: l10n.appTitle,
+      title: l10n.appBarTitle,
       actions: [
         IconButton(
           icon: const Icon(Icons.close),
@@ -155,6 +155,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
               ),
             ] else ...[
               ..._buildOptions(
+                context,
                 session.mode,
                 correctAnswer,
                 group.cards,
@@ -174,28 +175,48 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
     AppLocalizations l10n,
   ) {
     final sessionContext = context;
-    showDialog<void>(
+    final theme = Theme.of(context);
+    showModalBottomSheet<void>(
       context: context,
-      builder: (dialogContext) => AlertDialog(
-        title: Text(l10n.exitSession),
-        content: Text(l10n.exitSessionConfirm),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(dialogContext).pop(),
-            child: Text(l10n.cancel),
+      backgroundColor: theme.colorScheme.surface,
+      builder: (sheetContext) => SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(24),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Text(
+                l10n.exitSession,
+                style: theme.textTheme.titleLarge,
+              ),
+              const SizedBox(height: 12),
+              Text(l10n.exitSessionConfirm, style: theme.textTheme.bodyMedium),
+              const SizedBox(height: 24),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  TextButton(
+                    onPressed: () => Navigator.of(sheetContext).pop(),
+                    child: Text(l10n.cancel),
+                  ),
+                  const SizedBox(width: 8),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(sheetContext).pop();
+                      ref.read(sessionProvider.notifier).endSession();
+                      ref.read(selectedGroupProvider.notifier).state = null;
+                      if (sessionContext.mounted) {
+                        sessionContext.go(AppRoutes.home);
+                      }
+                    },
+                    child: Text(l10n.exit),
+                  ),
+                ],
+              ),
+            ],
           ),
-          TextButton(
-            onPressed: () {
-              Navigator.of(dialogContext).pop();
-              ref.read(sessionProvider.notifier).endSession();
-              ref.read(selectedGroupProvider.notifier).state = null;
-              if (sessionContext.mounted) {
-                sessionContext.go(AppRoutes.home);
-              }
-            },
-            child: Text(l10n.exit),
-          ),
-        ],
+        ),
       ),
     );
   }
@@ -215,6 +236,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
   }
 
   List<Widget> _buildOptions(
+    BuildContext context,
     QuizMode mode,
     String correctAnswer,
     List<CardModel> allCards,
@@ -227,6 +249,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
       allCards: allCards,
       random: _random,
     );
+    final theme = Theme.of(context);
     return options
         .map(
           (opt) => Padding(
@@ -235,6 +258,11 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
               onPressed: () => _onOptionSelected(ref, correctAnswer, opt),
               style: OutlinedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(vertical: 16),
+                backgroundColor: theme.colorScheme.surface,
+                side: BorderSide(
+                  color: theme.colorScheme.onSurface,
+                  width: 2,
+                ),
               ),
               child: Text(opt),
             ),
