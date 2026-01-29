@@ -11,6 +11,15 @@
   "groupBasicVerbs04": "Basic verbs 04",
   "groupAdverbsOfTime": "Adverbs of time",
   "groupPrepositions": "Prepositions",
+  "groupPeople": "People",
+  "groupPlaces": "Places",
+  "groupDailyItemsAndObjects": "Daily Items & Objects",
+  "groupTimeAndNature": "Time & Nature",
+  "groupAbstractConcepts": "Abstract Concepts",
+  "groupGeneralQualities": "General Qualities",
+  "groupPeopleAndEmotions": "People & Emotions",
+  "groupSensesAndFeelings": "Senses & Feelings",
+  "groupColors": "Colors",
   "wordsCount": "{count} words",
   "@wordsCount": {
     "placeholders": {

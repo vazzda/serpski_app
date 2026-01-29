@@ -42,6 +42,33 @@ class AppLocalizationsEn extends AppLocalizations {
   String get groupPrepositions => 'Prepositions';
 
   @override
+  String get groupPeople => 'People';
+
+  @override
+  String get groupPlaces => 'Places';
+
+  @override
+  String get groupDailyItemsAndObjects => 'Daily Items & Objects';
+
+  @override
+  String get groupTimeAndNature => 'Time & Nature';
+
+  @override
+  String get groupAbstractConcepts => 'Abstract Concepts';
+
+  @override
+  String get groupGeneralQualities => 'General Qualities';
+
+  @override
+  String get groupPeopleAndEmotions => 'People & Emotions';
+
+  @override
+  String get groupSensesAndFeelings => 'Senses & Feelings';
+
+  @override
+  String get groupColors => 'Colors';
+
+  @override
   String wordsCount(int count) {
     return '$count words';
   }

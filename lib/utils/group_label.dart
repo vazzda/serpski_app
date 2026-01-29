@@ -18,6 +18,24 @@ String groupLabel(AppLocalizations l10n, String labelKey) {
       return l10n.groupAdverbsOfTime;
     case 'groupPrepositions':
       return l10n.groupPrepositions;
+    case 'groupPeople':
+      return l10n.groupPeople;
+    case 'groupPlaces':
+      return l10n.groupPlaces;
+    case 'groupDailyItemsAndObjects':
+      return l10n.groupDailyItemsAndObjects;
+    case 'groupTimeAndNature':
+      return l10n.groupTimeAndNature;
+    case 'groupAbstractConcepts':
+      return l10n.groupAbstractConcepts;
+    case 'groupGeneralQualities':
+      return l10n.groupGeneralQualities;
+    case 'groupPeopleAndEmotions':
+      return l10n.groupPeopleAndEmotions;
+    case 'groupSensesAndFeelings':
+      return l10n.groupSensesAndFeelings;
+    case 'groupColors':
+      return l10n.groupColors;
     case 'groupEndingsImEAti':
       return l10n.groupEndingsImEAti;
     case 'groupEndingsImEEti':

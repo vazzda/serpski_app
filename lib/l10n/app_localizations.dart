@@ -160,6 +160,60 @@ abstract class AppLocalizations {
   /// **'Prepositions'**
   String get groupPrepositions;
 
+  /// No description provided for @groupPeople.
+  ///
+  /// In en, this message translates to:
+  /// **'People'**
+  String get groupPeople;
+
+  /// No description provided for @groupPlaces.
+  ///
+  /// In en, this message translates to:
+  /// **'Places'**
+  String get groupPlaces;
+
+  /// No description provided for @groupDailyItemsAndObjects.
+  ///
+  /// In en, this message translates to:
+  /// **'Daily Items & Objects'**
+  String get groupDailyItemsAndObjects;
+
+  /// No description provided for @groupTimeAndNature.
+  ///
+  /// In en, this message translates to:
+  /// **'Time & Nature'**
+  String get groupTimeAndNature;
+
+  /// No description provided for @groupAbstractConcepts.
+  ///
+  /// In en, this message translates to:
+  /// **'Abstract Concepts'**
+  String get groupAbstractConcepts;
+
+  /// No description provided for @groupGeneralQualities.
+  ///
+  /// In en, this message translates to:
+  /// **'General Qualities'**
+  String get groupGeneralQualities;
+
+  /// No description provided for @groupPeopleAndEmotions.
+  ///
+  /// In en, this message translates to:
+  /// **'People & Emotions'**
+  String get groupPeopleAndEmotions;
+
+  /// No description provided for @groupSensesAndFeelings.
+  ///
+  /// In en, this message translates to:
+  /// **'Senses & Feelings'**
+  String get groupSensesAndFeelings;
+
+  /// No description provided for @groupColors.
+  ///
+  /// In en, this message translates to:
+  /// **'Colors'**
+  String get groupColors;
+
   /// No description provided for @wordsCount.
   ///
   /// In en, this message translates to:
