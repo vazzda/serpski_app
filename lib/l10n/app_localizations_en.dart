@@ -65,6 +65,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get groupEndingsEmEju => '-ETI (EM|EJU)';
 
   @override
+  String get groupIrregular => 'Irregular';
+
+  @override
   String get chooseMode => 'Choose mode';
 
   @override

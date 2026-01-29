@@ -41,6 +41,8 @@ String _groupLabel(AppLocalizations l10n, String labelKey) {
       return l10n.groupEndingsEmUCi;
     case 'groupEndingsEmEju':
       return l10n.groupEndingsEmEju;
+    case 'groupIrregular':
+      return l10n.groupIrregular;
     default:
       return labelKey;
   }

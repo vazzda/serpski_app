@@ -202,6 +202,12 @@ abstract class AppLocalizations {
   /// **'-ETI (EM|EJU)'**
   String get groupEndingsEmEju;
 
+  /// No description provided for @groupIrregular.
+  ///
+  /// In en, this message translates to:
+  /// **'Irregular'**
+  String get groupIrregular;
+
   /// No description provided for @chooseMode.
   ///
   /// In en, this message translates to:

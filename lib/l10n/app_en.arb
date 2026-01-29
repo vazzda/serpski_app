@@ -25,6 +25,7 @@
   "groupEndingsEmUOvati": "-OVATI (EM|U)",
   "groupEndingsEmUCi": "-ĆI (EM|U)",
   "groupEndingsEmEju": "-ETI (EM|EJU)",
+  "groupIrregular": "Irregular",
   "chooseMode": "Choose mode",
   "modeSerbianShown": "Serbian shown (pick English)",
   "modeEnglishShown": "English shown (pick Serbian)",
