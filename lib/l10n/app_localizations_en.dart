@@ -136,6 +136,18 @@ class AppLocalizationsEn extends AppLocalizations {
   String get correctAnswerLabel => 'Correct answer:';
 
   @override
+  String get youWrote => 'You wrote:';
+
+  @override
+  String get emptyAnswer => '(empty)';
+
+  @override
+  String get pronounYouInformal => 'you (informal, singular)';
+
+  @override
+  String get pronounYouFormal => 'you (formal, plural)';
+
+  @override
   String questionsLeft(int count) {
     return 'Left: $count';
   }

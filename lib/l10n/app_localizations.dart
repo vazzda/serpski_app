@@ -340,6 +340,30 @@ abstract class AppLocalizations {
   /// **'Correct answer:'**
   String get correctAnswerLabel;
 
+  /// No description provided for @youWrote.
+  ///
+  /// In en, this message translates to:
+  /// **'You wrote:'**
+  String get youWrote;
+
+  /// No description provided for @emptyAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'(empty)'**
+  String get emptyAnswer;
+
+  /// No description provided for @pronounYouInformal.
+  ///
+  /// In en, this message translates to:
+  /// **'you (informal, singular)'**
+  String get pronounYouInformal;
+
+  /// No description provided for @pronounYouFormal.
+  ///
+  /// In en, this message translates to:
+  /// **'you (formal, plural)'**
+  String get pronounYouFormal;
+
   /// No description provided for @questionsLeft.
   ///
   /// In en, this message translates to:

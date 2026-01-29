@@ -7,6 +7,7 @@ import 'package:go_router/go_router.dart';
 import '../data/models/card_model.dart';
 import '../data/models/group_model.dart';
 import '../l10n/app_localizations.dart';
+import '../quiz/display_english.dart';
 import '../quiz/quiz_mode.dart';
 import '../quiz/quiz_options.dart';
 import '../quiz/quiz_utils.dart';
@@ -30,6 +31,10 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
   final _random = Random();
   /// When non-null, user just answered wrong; show this correct answer and Next.
   String? _wrongFeedback;
+  /// Display form of correct answer (Ti/Vi expanded in English). Shown in UI.
+  String? _wrongFeedbackDisplay;
+  /// In Write mode, what the user typed when they got it wrong (for result screen).
+  String? _wrongUserTypedAnswer;
 
   @override
   void dispose() {
@@ -72,7 +77,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
       return const Scaffold(body: Center(child: CircularProgressIndicator()));
     }
 
-    final promptText = _buildPromptText(card, session.mode);
+    final promptText = _buildPromptText(card, session.mode, l10n);
     final correctAnswer = session.mode == QuizMode.serbianShown
         ? card.english
         : card.serbianAnswer;
@@ -128,7 +133,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
               ),
               const SizedBox(height: 8),
               Text(
-                '${l10n.correctAnswerLabel} $_wrongFeedback',
+                '${l10n.correctAnswerLabel} ${_wrongFeedbackDisplay ?? _wrongFeedback}',
                 style: theme.textTheme.bodyLarge,
               ),
               const SizedBox(height: 24),
@@ -144,19 +149,20 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
               const SizedBox(height: 8),
               AppTextField(
                 controller: _writeController,
-                onSubmitted: (_) => _submitWrite(ref),
+                onSubmitted: (_) => _submitWrite(context, ref),
                 autofocus: true,
                 textInputAction: TextInputAction.done,
               ),
               const SizedBox(height: 16),
               AppButton(
                 label: l10n.submit,
-                onPressed: () => _submitWrite(ref),
+                onPressed: () => _submitWrite(context, ref),
               ),
             ] else ...[
               ..._buildOptions(
                 context,
                 session.mode,
+                card,
                 correctAnswer,
                 group.cards,
                 ref,
@@ -222,15 +228,19 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
   }
 
   void _onNextAfterWrong(WidgetRef ref) {
-    ref.read(sessionProvider.notifier).answerWrong();
-    setState(() => _wrongFeedback = null);
+    ref.read(sessionProvider.notifier).answerWrong(userTypedAnswer: _wrongUserTypedAnswer);
+    setState(() {
+      _wrongFeedback = null;
+      _wrongFeedbackDisplay = null;
+      _wrongUserTypedAnswer = null;
+    });
   }
 
-  String _buildPromptText(CardModel card, QuizMode mode) {
+  String _buildPromptText(CardModel card, QuizMode mode, AppLocalizations l10n) {
     if (card is EndingCard) {
       return mode == QuizMode.serbianShown
           ? '${card.pronoun} ${card.serbian}'
-          : card.english;
+          : displayEnglishForCard(card, l10n);
     }
     return mode == QuizMode.serbianShown ? card.serbian : card.english;
   }
@@ -238,24 +248,51 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
   List<Widget> _buildOptions(
     BuildContext context,
     QuizMode mode,
+    CardModel correctCard,
     String correctAnswer,
     List<CardModel> allCards,
     WidgetRef ref,
     AppLocalizations l10n,
   ) {
+    final theme = Theme.of(context);
+    if (mode == QuizMode.serbianShown) {
+      final optionCards = buildMultipleChoiceOptionCards(
+        correctCard: correctCard,
+        allCards: allCards,
+        random: _random,
+      );
+      return optionCards
+          .map(
+            (optionCard) => Padding(
+              padding: const EdgeInsets.only(bottom: 8),
+              child: OutlinedButton(
+                onPressed: () => _onOptionSelectedSerbianShown(context, ref, correctCard, optionCard, l10n),
+                style: OutlinedButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  backgroundColor: theme.colorScheme.surface,
+                  side: BorderSide(
+                    color: theme.colorScheme.onSurface,
+                    width: 2,
+                  ),
+                ),
+                child: Text(displayEnglishForCard(optionCard, l10n)),
+              ),
+            ),
+          )
+          .toList();
+    }
     final options = buildMultipleChoiceOptions(
       mode: mode,
       correctAnswer: correctAnswer,
       allCards: allCards,
       random: _random,
     );
-    final theme = Theme.of(context);
     return options
         .map(
           (opt) => Padding(
             padding: const EdgeInsets.only(bottom: 8),
             child: OutlinedButton(
-              onPressed: () => _onOptionSelected(ref, correctAnswer, opt),
+              onPressed: () => _onOptionSelectedEnglishShown(context, ref, correctAnswer, opt, l10n),
               style: OutlinedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(vertical: 16),
                 backgroundColor: theme.colorScheme.surface,
@@ -271,15 +308,43 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
         .toList();
   }
 
-  void _onOptionSelected(WidgetRef ref, String correctAnswer, String chosen) {
-    if (chosen == correctAnswer) {
+  void _onOptionSelectedSerbianShown(
+    BuildContext context,
+    WidgetRef ref,
+    CardModel correctCard,
+    CardModel chosenCard,
+    AppLocalizations l10n,
+  ) {
+    if (identical(chosenCard, correctCard)) {
       ref.read(sessionProvider.notifier).answerCorrect();
     } else {
-      setState(() => _wrongFeedback = correctAnswer);
+      setState(() {
+        _wrongFeedback = correctCard.english;
+        _wrongFeedbackDisplay = displayEnglishForCard(correctCard, l10n);
+        _wrongUserTypedAnswer = null;
+      });
     }
   }
 
-  void _submitWrite(WidgetRef ref) {
+  void _onOptionSelectedEnglishShown(
+    BuildContext context,
+    WidgetRef ref,
+    String correctAnswer,
+    String chosen,
+    AppLocalizations l10n,
+  ) {
+    if (chosen == correctAnswer) {
+      ref.read(sessionProvider.notifier).answerCorrect();
+    } else {
+      setState(() {
+        _wrongFeedback = correctAnswer;
+        _wrongFeedbackDisplay = correctAnswer;
+        _wrongUserTypedAnswer = null;
+      });
+    }
+  }
+
+  void _submitWrite(BuildContext context, WidgetRef ref) {
     final session = ref.read(sessionProvider);
     if (session == null || session.currentCard == null) return;
     final card = session.currentCard!;
@@ -292,7 +357,15 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
     if (normalized == expected) {
       ref.read(sessionProvider.notifier).answerCorrect();
     } else {
-      setState(() => _wrongFeedback = correctAnswer);
+      final l10n = AppLocalizations.of(context)!;
+      final display = session.mode == QuizMode.serbianShown
+          ? displayEnglishForCard(card, l10n)
+          : correctAnswer;
+      setState(() {
+        _wrongFeedback = correctAnswer;
+        _wrongFeedbackDisplay = display;
+        _wrongUserTypedAnswer = raw;
+      });
     }
     _writeController.clear();
   }

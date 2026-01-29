@@ -42,14 +42,16 @@ class SessionNotifier extends StateNotifier<SessionState?> {
     );
   }
 
-  void answerWrong() {
+  /// [userTypedAnswer] optional; pass in Write mode to show "you wrote" on result screen.
+  void answerWrong({String? userTypedAnswer}) {
     if (state == null || state!.queue.isEmpty) return;
     final card = state!.queue.first;
     final rest = state!.queue.skip(1).toList();
+    final entry = MissedEntry(card: card, userTypedAnswer: userTypedAnswer);
     state = state!.copyWith(
       queue: [...rest, card],
       wrongCount: state!.wrongCount + 1,
-      missedCards: [...state!.missedCards, card],
+      missedEntries: [...state!.missedEntries, entry],
     );
   }
 

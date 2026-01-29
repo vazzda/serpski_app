@@ -1,6 +1,15 @@
 import '../data/models/card_model.dart';
 import 'quiz_mode.dart';
 
+/// One missed card; in Write mode [userTypedAnswer] is what the user wrongly typed.
+class MissedEntry {
+  const MissedEntry({required this.card, this.userTypedAnswer});
+
+  final CardModel card;
+  /// Non-null only in Write mode when we recorded the wrong typed answer.
+  final String? userTypedAnswer;
+}
+
 /// State of an active or finished quiz session.
 class SessionState {
   const SessionState({
@@ -10,7 +19,7 @@ class SessionState {
     this.queue = const [],
     this.correctCount = 0,
     this.wrongCount = 0,
-    this.missedCards = const [],
+    this.missedEntries = const [],
   });
 
   final String groupId;
@@ -23,8 +32,8 @@ class SessionState {
   final int correctCount;
   final int wrongCount;
 
-  /// Cards that were answered wrong (for review at end).
-  final List<CardModel> missedCards;
+  /// Entries that were answered wrong (for review at end). Write mode stores userTypedAnswer.
+  final List<MissedEntry> missedEntries;
 
   CardModel? get currentCard => queue.isNotEmpty ? queue.first : null;
 
@@ -34,7 +43,7 @@ class SessionState {
     List<CardModel>? queue,
     int? correctCount,
     int? wrongCount,
-    List<CardModel>? missedCards,
+    List<MissedEntry>? missedEntries,
   }) {
     return SessionState(
       groupId: groupId,
@@ -43,7 +52,7 @@ class SessionState {
       queue: queue ?? this.queue,
       correctCount: correctCount ?? this.correctCount,
       wrongCount: wrongCount ?? this.wrongCount,
-      missedCards: missedCards ?? this.missedCards,
+      missedEntries: missedEntries ?? this.missedEntries,
     );
   }
 }

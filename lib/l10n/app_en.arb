@@ -55,6 +55,10 @@
   "pageNotFound": "Page not found",
   "loadError": "Could not load groups. Please try again.",
   "correctAnswerLabel": "Correct answer:",
+  "youWrote": "You wrote:",
+  "emptyAnswer": "(empty)",
+  "pronounYouInformal": "you (informal, singular)",
+  "pronounYouFormal": "you (formal, plural)",
   "questionsLeft": "Left: {count}",
   "@questionsLeft": {
     "placeholders": {

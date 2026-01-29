@@ -28,3 +28,23 @@ List<String> buildMultipleChoiceOptions({
   final options = [correctAnswer, ...wrong]..shuffle(random);
   return options;
 }
+
+/// Builds 4 option cards for serbianShown mode (1 correct + 3 wrong). Use for display with displayEnglishForCard.
+List<CardModel> buildMultipleChoiceOptionCards({
+  required CardModel correctCard,
+  required List<CardModel> allCards,
+  required Random random,
+}) {
+  final correctAnswer = correctCard.english;
+  final wrongPool = allCards.where((c) => c.english != correctAnswer).toList();
+  final wrong = <CardModel>[];
+  while (wrong.length < 3 && wrongPool.isNotEmpty) {
+    wrongPool.shuffle(random);
+    wrong.add(wrongPool.removeAt(0));
+  }
+  while (wrong.length < 3) {
+    wrong.add(correctCard);
+  }
+  final options = [correctCard, ...wrong]..shuffle(random);
+  return options;
+}

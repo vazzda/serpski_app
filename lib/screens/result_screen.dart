@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../data/models/card_model.dart';
 import '../l10n/app_localizations.dart';
 import '../providers/groups_provider.dart';
+import '../quiz/display_english.dart';
+import '../quiz/quiz_mode.dart';
 import '../quiz/session_notifier.dart';
+import '../quiz/session_state.dart';
 import '../router/app_router.dart';
 import '../shared/ui/app_button.dart';
 import '../shared/ui/app_card.dart';
@@ -53,7 +55,7 @@ class ResultScreen extends ConsumerWidget {
                 ],
               ),
             ),
-            if (session.missedCards.isNotEmpty) ...[
+            if (session.missedEntries.isNotEmpty) ...[
               const SizedBox(height: 24),
               Text(
                 l10n.reviewWrongTitle,
@@ -65,7 +67,9 @@ class ResultScreen extends ConsumerWidget {
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
               const SizedBox(height: 12),
-              ...session.missedCards.map((card) => _MissedCardTile(card: card)),
+              ...session.missedEntries.map(
+                (entry) => _MissedEntryTile(entry: entry, mode: session.mode),
+              ),
             ],
             const SizedBox(height: 32),
             AppButton(
@@ -83,41 +87,65 @@ class ResultScreen extends ConsumerWidget {
   }
 }
 
-class _MissedCardTile extends StatelessWidget {
-  const _MissedCardTile({required this.card});
+class _MissedEntryTile extends StatelessWidget {
+  const _MissedEntryTile({required this.entry, required this.mode});
 
-  final CardModel card;
+  final MissedEntry entry;
+  final QuizMode mode;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
+    final card = entry.card;
+
+    final isWriteWithTyped = mode == QuizMode.write && entry.userTypedAnswer != null;
+
     return Padding(
       padding: const EdgeInsets.only(bottom: 8),
       child: AppCard(
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Expanded(
-              child: Text(
-                card.serbianAnswer,
-                style: theme.textTheme.bodyLarge?.copyWith(
-                  fontWeight: FontWeight.w600,
-                ),
+        child: isWriteWithTyped
+            ? Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    '${l10n.youWrote} ${entry.userTypedAnswer!.isEmpty ? l10n.emptyAnswer : entry.userTypedAnswer}',
+                    style: theme.textTheme.bodyLarge,
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    '${l10n.correctAnswerLabel} ${card.serbianAnswer} → ${displayEnglishForCard(card, l10n)}',
+                    style: theme.textTheme.bodyLarge?.copyWith(
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ],
+              )
+            : Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: Text(
+                      card.serbianAnswer,
+                      style: theme.textTheme.bodyLarge?.copyWith(
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                  Text(
+                    ' → ',
+                    style: theme.textTheme.bodyLarge,
+                  ),
+                  Expanded(
+                    child: Text(
+                      displayEnglishForCard(card, l10n),
+                      style: theme.textTheme.bodyLarge,
+                    ),
+                  ),
+                ],
               ),
-            ),
-            Text(
-              ' → ',
-              style: theme.textTheme.bodyLarge,
-            ),
-            Expanded(
-              child: Text(
-                card.english,
-                style: theme.textTheme.bodyLarge,
-              ),
-            ),
-          ],
-        ),
       ),
     );
   }
