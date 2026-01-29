@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../l10n/app_localizations.dart';
+import '../screens/agreement_group_list_screen.dart';
 import '../screens/group_list_screen.dart';
 import '../screens/result_screen.dart';
 import '../screens/session_screen.dart';
@@ -11,6 +12,7 @@ class AppRoutes {
   static const String home = '/';
   static const String vocabulary = '/vocabulary';
   static const String conjugations = '/conjugations';
+  static const String agreement = '/agreement';
   static const String session = '/session';
   static const String result = '/result';
 }
@@ -31,6 +33,10 @@ GoRouter createAppRouter() {
       GoRoute(
         path: AppRoutes.conjugations,
         builder: (context, state) => const ChildGroupListScreen(parent: ParentCategory.conjugations),
+      ),
+      GoRoute(
+        path: AppRoutes.agreement,
+        builder: (context, state) => const AgreementGroupListScreen(),
       ),
       GoRoute(
         path: AppRoutes.session,

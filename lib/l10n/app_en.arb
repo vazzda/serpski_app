@@ -4,6 +4,15 @@
   "appBarTitle": "Srpski",
   "parentVocabulary": "Vocabulary",
   "parentConjugations": "Conjugations",
+  "parentAgreement": "Gender agreements",
+  "agreementSessionGender": "Gender: {gender}",
+  "@agreementSessionGender": {
+    "placeholders": {
+      "gender": {
+        "type": "String"
+      }
+    }
+  },
   "groupWords": "Basic verbs",
   "groupBasicVerbs01": "Basic verbs 01",
   "groupBasicVerbs02": "Basic verbs 02",

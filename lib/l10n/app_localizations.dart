@@ -118,6 +118,18 @@ abstract class AppLocalizations {
   /// **'Conjugations'**
   String get parentConjugations;
 
+  /// No description provided for @parentAgreement.
+  ///
+  /// In en, this message translates to:
+  /// **'Gender agreements'**
+  String get parentAgreement;
+
+  /// No description provided for @agreementSessionGender.
+  ///
+  /// In en, this message translates to:
+  /// **'Gender: {gender}'**
+  String agreementSessionGender(String gender);
+
   /// No description provided for @groupWords.
   ///
   /// In en, this message translates to:

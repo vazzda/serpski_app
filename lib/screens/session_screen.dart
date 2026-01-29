@@ -76,25 +76,35 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
     final card = session.currentCard!;
     GroupModel? group;
     final groupsList = asyncGroups.valueOrNull;
-    if (groupsList != null) {
+    final lookupId = session.sessionType == SessionType.agreement
+        ? session.adjectiveGroupId
+        : session.groupId;
+    if (lookupId != null && groupsList != null) {
       try {
-        group = groupsList.firstWhere((g) => g.id == session.groupId);
+        group = groupsList.firstWhere((g) => g.id == lookupId);
       } catch (_) {
         group = null;
       }
     }
 
-    if (group == null) {
+    final bool needGroupForContent = session.sessionType != SessionType.agreement;
+    if (needGroupForContent && group == null) {
       return const Scaffold(body: Center(child: CircularProgressIndicator()));
     }
 
+    final theme = Theme.of(context);
+    final title = group != null
+        ? groupLabel(l10n, group.labelKey)
+        : (session.sessionType == SessionType.agreement
+            ? l10n.parentAgreement
+            : '');
+    final allCardsForOptions = session.sessionType == SessionType.agreement
+        ? session.queue
+        : (group!.cards);
     final promptText = _buildPromptText(card, session.mode, l10n);
     final correctAnswer = session.mode == QuizMode.serbianShown
         ? card.english
         : card.serbianAnswer;
-
-    final theme = Theme.of(context);
-    final title = groupLabel(l10n, group.labelKey);
 
     return AppScaffold(
       title: title,
@@ -176,7 +186,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
                 session.mode,
                 card,
                 correctAnswer,
-                group.cards,
+                allCardsForOptions,
                 ref,
                 l10n,
               ),

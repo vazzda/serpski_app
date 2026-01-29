@@ -21,6 +21,14 @@ class AppLocalizationsEn extends AppLocalizations {
   String get parentConjugations => 'Conjugations';
 
   @override
+  String get parentAgreement => 'Gender agreements';
+
+  @override
+  String agreementSessionGender(String gender) {
+    return 'Gender: $gender';
+  }
+
+  @override
   String get groupWords => 'Basic verbs';
 
   @override

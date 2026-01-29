@@ -83,6 +83,25 @@ class ResultScreen extends ConsumerWidget {
                       if (session == null) return;
                       final groups = ref.read(groupsProvider).valueOrNull;
                       if (groups == null) return;
+                      if (session.sessionType == SessionType.agreement) {
+                        final adjId = session.adjectiveGroupId;
+                        if (adjId == null) return;
+                        try {
+                          final adjGroup = groups.firstWhere(
+                            (g) => g.id == adjId,
+                          );
+                          ref.read(sessionProvider.notifier).startAgreement(
+                                adjectiveGroup: adjGroup,
+                                allGroups: groups,
+                                mode: session.mode,
+                                questionCount: session.requestedCount,
+                              );
+                          if (context.mounted) {
+                            context.go(AppRoutes.session);
+                          }
+                        } catch (_) {}
+                        return;
+                      }
                       try {
                         final group = groups.firstWhere(
                           (g) => g.id == session.groupId,

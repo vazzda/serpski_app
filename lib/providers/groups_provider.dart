@@ -10,3 +10,11 @@ final groupsProvider = FutureProvider<List<GroupModel>>((ref) async {
 
 /// Selected group (set when user taps a group). Used by mode/count and session screens.
 final selectedGroupProvider = StateProvider<GroupModel?>((ref) => null);
+
+/// Noun groups (for agreement sessions).
+List<GroupModel> nounGroups(List<GroupModel> all) =>
+    all.where((g) => g.category == GroupCategory.noun).toList();
+
+/// Adjective groups (for agreement group list).
+List<GroupModel> adjectiveGroups(List<GroupModel> all) =>
+    all.where((g) => g.category == GroupCategory.adjective).toList();

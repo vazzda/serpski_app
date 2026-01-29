@@ -5,13 +5,13 @@ import 'package:go_router/go_router.dart';
 import '../l10n/app_localizations.dart';
 import '../data/daily_activity_repository.dart';
 import '../data/models/group_model.dart';
-import '../quiz/quiz_mode.dart';
 import '../quiz/session_notifier.dart';
 import '../providers/daily_activity_provider.dart';
 import '../providers/groups_provider.dart';
 import '../router/app_router.dart';
 import '../shared/ui/app_card.dart';
 import '../shared/ui/app_scaffold.dart';
+import '../shared/ui/quiz_bottom_sheets.dart';
 import '../utils/group_label.dart';
 
 enum ParentCategory { vocabulary, conjugations }
@@ -120,6 +120,27 @@ class GroupListScreen extends ConsumerWidget {
                         Expanded(
                           child: Text(
                             l10n.parentConjugations,
+                            style: theme.textTheme.titleMedium,
+                          ),
+                        ),
+                        Icon(
+                          Icons.arrow_forward_ios,
+                          size: 16,
+                          color: theme.colorScheme.onSurface,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 12),
+                  child: AppCard(
+                    onTap: () => context.push(AppRoutes.agreement),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            l10n.parentAgreement,
                             style: theme.textTheme.titleMedium,
                           ),
                         ),
@@ -333,10 +354,10 @@ class ChildGroupListScreen extends ConsumerWidget {
   ) async {
     ref.read(selectedGroupProvider.notifier).state = group;
 
-    final mode = await _showModeBottomSheet(context, l10n);
+    final mode = await showModeBottomSheet(context, l10n);
     if (mode == null || !context.mounted) return;
 
-    final count = await _showCountBottomSheet(context, l10n);
+    final count = await showCountBottomSheet(context, l10n);
     if (count == null || !context.mounted) return;
 
     ref.read(sessionProvider.notifier).start(
@@ -346,108 +367,4 @@ class ChildGroupListScreen extends ConsumerWidget {
         );
     if (context.mounted) context.go(AppRoutes.session);
   }
-}
-
-Future<QuizMode?> _showModeBottomSheet(
-  BuildContext context,
-  AppLocalizations l10n,
-) {
-  final theme = Theme.of(context);
-  final noBorderListTileTheme = ListTileThemeData(
-    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-  );
-  return showModalBottomSheet<QuizMode>(
-    context: context,
-    backgroundColor: theme.colorScheme.surface,
-    builder: (context) => SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(24, 20, 24, 24),
-        child: Theme(
-          data: theme.copyWith(listTileTheme: noBorderListTileTheme),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(bottom: 16),
-                child: Text(
-                  l10n.chooseMode,
-                  style: theme.textTheme.titleLarge,
-                ),
-              ),
-              ListTile(
-                title: Text(l10n.modeSerbianShown),
-                onTap: () => Navigator.of(context).pop(QuizMode.serbianShown),
-              ),
-              ListTile(
-                title: Text(l10n.modeEnglishShown),
-                onTap: () => Navigator.of(context).pop(QuizMode.englishShown),
-              ),
-              ListTile(
-                title: Text(l10n.modeWrite),
-                onTap: () => Navigator.of(context).pop(QuizMode.write),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 16),
-                child: TextButton(
-                  onPressed: () => Navigator.of(context).pop(),
-                  child: Text(l10n.cancel),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    ),
-  );
-}
-
-Future<int?> _showCountBottomSheet(
-  BuildContext context,
-  AppLocalizations l10n,
-) {
-  final theme = Theme.of(context);
-  final noBorderListTileTheme = ListTileThemeData(
-    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-  );
-  final counts = [5, 10, 20, 50];
-  final labels = [l10n.questions5, l10n.questions10, l10n.questions20, l10n.questions50];
-  return showModalBottomSheet<int>(
-    context: context,
-    backgroundColor: theme.colorScheme.surface,
-    builder: (context) => SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(24, 20, 24, 24),
-        child: Theme(
-          data: theme.copyWith(listTileTheme: noBorderListTileTheme),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(bottom: 16),
-                child: Text(
-                  l10n.chooseQuestionsCount,
-                  style: theme.textTheme.titleLarge,
-                ),
-              ),
-              ...List.generate(4, (i) {
-                return ListTile(
-                  title: Text(labels[i]),
-                  onTap: () => Navigator.of(context).pop(counts[i]),
-                );
-              }),
-              Padding(
-                padding: const EdgeInsets.only(top: 16),
-                child: TextButton(
-                  onPressed: () => Navigator.of(context).pop(),
-                  child: Text(l10n.cancel),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    ),
-  );
 }

@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../data/models/card_model.dart';
 import '../data/models/group_model.dart';
+import 'agreement_session_builder.dart';
 import 'quiz_mode.dart';
 import 'session_state.dart';
 
@@ -39,10 +40,40 @@ class SessionNotifier extends StateNotifier<SessionState?> {
     required int questionCount,
   }) {
     final result = _buildQueueAndWordIds(group, questionCount);
+    final sessionType = group.type == GroupType.endings
+        ? SessionType.conjugations
+        : SessionType.vocabulary;
     state = SessionState(
       groupId: group.id,
       mode: mode,
       requestedCount: questionCount,
+      sessionType: sessionType,
+      queue: result.queue,
+      sessionWordIds: result.wordIds,
+    );
+  }
+
+  void startAgreement({
+    required GroupModel adjectiveGroup,
+    required List<GroupModel> allGroups,
+    required QuizMode mode,
+    required int questionCount,
+  }) {
+    final nounGroups = allGroups
+        .where((g) => g.category == GroupCategory.noun)
+        .toList();
+    final result = buildAgreementQueue(
+      adjectiveGroup: adjectiveGroup,
+      nounGroups: nounGroups,
+      count: questionCount,
+      random: Random(),
+    );
+    state = SessionState(
+      groupId: 'agreement:${adjectiveGroup.id}',
+      mode: mode,
+      requestedCount: questionCount,
+      sessionType: SessionType.agreement,
+      adjectiveGroupId: adjectiveGroup.id,
       queue: result.queue,
       sessionWordIds: result.wordIds,
     );

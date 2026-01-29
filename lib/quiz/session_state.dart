@@ -1,6 +1,9 @@
 import '../data/models/card_model.dart';
 import 'quiz_mode.dart';
 
+/// Type of session (for title, "Again", and options).
+enum SessionType { vocabulary, conjugations, agreement }
+
 /// One missed card; in Write mode [userTypedAnswer] is what the user wrongly typed.
 class MissedEntry {
   const MissedEntry({required this.card, this.userTypedAnswer});
@@ -16,6 +19,8 @@ class SessionState {
     required this.groupId,
     required this.mode,
     required this.requestedCount,
+    required this.sessionType,
+    this.adjectiveGroupId,
     this.queue = const [],
     this.correctCount = 0,
     this.wrongCount = 0,
@@ -26,6 +31,9 @@ class SessionState {
   final String groupId;
   final QuizMode mode;
   final int requestedCount;
+  final SessionType sessionType;
+  /// For agreement sessions: the adjective group id (without "agreement:" prefix).
+  final String? adjectiveGroupId;
 
   /// Remaining cards to answer (front = current). Wrong answers are moved to end.
   final List<CardModel> queue;
@@ -54,6 +62,8 @@ class SessionState {
       groupId: groupId,
       mode: mode,
       requestedCount: requestedCount,
+      sessionType: sessionType,
+      adjectiveGroupId: adjectiveGroupId,
       queue: queue ?? this.queue,
       correctCount: correctCount ?? this.correctCount,
       wrongCount: wrongCount ?? this.wrongCount,
