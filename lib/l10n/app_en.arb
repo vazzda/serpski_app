@@ -5,11 +5,26 @@
   "parentVocabulary": "Vocabulary",
   "parentConjugations": "Conjugations",
   "groupWords": "Basic verbs",
+  "groupBasicVerbs01": "Basic verbs 01",
+  "groupBasicVerbs02": "Basic verbs 02",
+  "groupBasicVerbs03": "Basic verbs 03",
+  "groupBasicVerbs04": "Basic verbs 04",
   "wordsCount": "{count} words",
   "@wordsCount": {
     "placeholders": {
       "count": {
         "type": "int"
+      }
+    }
+  },
+  "wordsCountWithPreview": "{count} words: {preview}",
+  "@wordsCountWithPreview": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "preview": {
+        "type": "String"
       }
     }
   },

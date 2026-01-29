@@ -1,7 +1,7 @@
 [
   {
-    "id": "words",
-    "labelKey": "groupWords",
+    "id": "basic_verbs_01",
+    "labelKey": "groupBasicVerbs01",
     "type": "words",
     "cards": [
       {"serbian": "brojati", "english": "count"},
@@ -24,7 +24,14 @@
       {"serbian": "nositi", "english": "wear"},
       {"serbian": "platiti", "english": "pay (pf.)"},
       {"serbian": "praviti", "english": "make"},
-      {"serbian": "raditi", "english": "work"},
+      {"serbian": "raditi", "english": "work"}
+    ]
+  },
+  {
+    "id": "basic_verbs_02",
+    "labelKey": "groupBasicVerbs02",
+    "type": "words",
+    "cards": [
       {"serbian": "učiti", "english": "learn"},
       {"serbian": "voziti", "english": "drive"},
       {"serbian": "zaboraviti", "english": "forget (pf.)"},
@@ -44,7 +51,14 @@
       {"serbian": "sanjati", "english": "dream"},
       {"serbian": "slušati", "english": "listen to"},
       {"serbian": "spavati", "english": "sleep"},
-      {"serbian": "studirati", "english": "study"},
+      {"serbian": "studirati", "english": "study"}
+    ]
+  },
+  {
+    "id": "basic_verbs_03",
+    "labelKey": "groupBasicVerbs03",
+    "type": "words",
+    "cards": [
       {"serbian": "sviđati se", "english": "like"},
       {"serbian": "svirati", "english": "play instrument"},
       {"serbian": "trenirati", "english": "train"},
@@ -64,7 +78,14 @@
       {"serbian": "prodavati", "english": "sell"},
       {"serbian": "očekivati", "english": "expect"},
       {"serbian": "doručkovati", "english": "eat breakfast"},
-      {"serbian": "kupovati", "english": "buy"},
+      {"serbian": "kupovati", "english": "buy"}
+    ]
+  },
+  {
+    "id": "basic_verbs_04",
+    "labelKey": "groupBasicVerbs04",
+    "type": "words",
+    "cards": [
       {"serbian": "poštovati", "english": "respect"},
       {"serbian": "putovati", "english": "travel"},
       {"serbian": "radovati se", "english": "be happy"},

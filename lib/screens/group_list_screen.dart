@@ -10,43 +10,9 @@ import '../providers/groups_provider.dart';
 import '../router/app_router.dart';
 import '../shared/ui/app_card.dart';
 import '../shared/ui/app_scaffold.dart';
+import '../utils/group_label.dart';
 
 enum ParentCategory { vocabulary, conjugations }
-
-String _groupLabel(AppLocalizations l10n, String labelKey) {
-  switch (labelKey) {
-    case 'groupWords':
-      return l10n.groupWords;
-    case 'groupEndingsImEAti':
-      return l10n.groupEndingsImEAti;
-    case 'groupEndingsImEEti':
-      return l10n.groupEndingsImEEti;
-    case 'groupEndingsImEIti':
-      return l10n.groupEndingsImEIti;
-    case 'groupEndingsAmAju':
-      return l10n.groupEndingsAmAju;
-    case 'groupEndingsEmUGati':
-      return l10n.groupEndingsEmUGati;
-    case 'groupEndingsEmUHati':
-      return l10n.groupEndingsEmUHati;
-    case 'groupEndingsEmUKati':
-      return l10n.groupEndingsEmUKati;
-    case 'groupEndingsEmUAvati':
-      return l10n.groupEndingsEmUAvati;
-    case 'groupEndingsEmUIvati':
-      return l10n.groupEndingsEmUIvati;
-    case 'groupEndingsEmUOvati':
-      return l10n.groupEndingsEmUOvati;
-    case 'groupEndingsEmUCi':
-      return l10n.groupEndingsEmUCi;
-    case 'groupEndingsEmEju':
-      return l10n.groupEndingsEmEju;
-    case 'groupIrregular':
-      return l10n.groupIrregular;
-    default:
-      return labelKey;
-  }
-}
 
 class _GroupTile extends StatelessWidget {
   const _GroupTile({
@@ -63,8 +29,12 @@ class _GroupTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final label = _groupLabel(l10n, group.labelKey);
+    final label = groupLabel(l10n, group.labelKey);
     final count = wordCount(group);
+    final preview = groupPreviewText(group);
+    final countText = preview.isNotEmpty
+        ? l10n.wordsCountWithPreview(count, preview)
+        : l10n.wordsCount(count);
     return AppCard(
       onTap: onTap,
       child: Row(
@@ -80,7 +50,9 @@ class _GroupTile extends StatelessWidget {
                 ),
                 const SizedBox(height: 2),
                 Text(
-                  l10n.wordsCount(count),
+                  countText,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                   style: theme.textTheme.bodySmall?.copyWith(
                     color: theme.colorScheme.onSurfaceVariant,
                   ),

@@ -124,11 +124,41 @@ abstract class AppLocalizations {
   /// **'Basic verbs'**
   String get groupWords;
 
+  /// No description provided for @groupBasicVerbs01.
+  ///
+  /// In en, this message translates to:
+  /// **'Basic verbs 01'**
+  String get groupBasicVerbs01;
+
+  /// No description provided for @groupBasicVerbs02.
+  ///
+  /// In en, this message translates to:
+  /// **'Basic verbs 02'**
+  String get groupBasicVerbs02;
+
+  /// No description provided for @groupBasicVerbs03.
+  ///
+  /// In en, this message translates to:
+  /// **'Basic verbs 03'**
+  String get groupBasicVerbs03;
+
+  /// No description provided for @groupBasicVerbs04.
+  ///
+  /// In en, this message translates to:
+  /// **'Basic verbs 04'**
+  String get groupBasicVerbs04;
+
   /// No description provided for @wordsCount.
   ///
   /// In en, this message translates to:
   /// **'{count} words'**
   String wordsCount(int count);
+
+  /// No description provided for @wordsCountWithPreview.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} words: {preview}'**
+  String wordsCountWithPreview(int count, String preview);
 
   /// No description provided for @groupEndingsImEAti.
   ///

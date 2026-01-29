@@ -15,6 +15,7 @@ import '../quiz/session_notifier.dart';
 import '../providers/groups_provider.dart';
 import '../router/app_router.dart';
 import '../shared/ui/app_button.dart';
+import '../utils/group_label.dart';
 import '../shared/ui/app_card.dart';
 import '../shared/ui/app_scaffold.dart';
 import '../shared/ui/app_text_field.dart';
@@ -83,9 +84,10 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
         : card.serbianAnswer;
 
     final theme = Theme.of(context);
+    final title = groupLabel(l10n, group.labelKey);
 
     return AppScaffold(
-      title: l10n.appBarTitle,
+      title: title,
       actions: [
         IconButton(
           icon: const Icon(Icons.close),

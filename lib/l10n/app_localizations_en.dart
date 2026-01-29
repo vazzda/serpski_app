@@ -24,8 +24,25 @@ class AppLocalizationsEn extends AppLocalizations {
   String get groupWords => 'Basic verbs';
 
   @override
+  String get groupBasicVerbs01 => 'Basic verbs 01';
+
+  @override
+  String get groupBasicVerbs02 => 'Basic verbs 02';
+
+  @override
+  String get groupBasicVerbs03 => 'Basic verbs 03';
+
+  @override
+  String get groupBasicVerbs04 => 'Basic verbs 04';
+
+  @override
   String wordsCount(int count) {
     return '$count words';
+  }
+
+  @override
+  String wordsCountWithPreview(int count, String preview) {
+    return '$count words: $preview';
   }
 
   @override
