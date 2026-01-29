@@ -7,12 +7,14 @@ import 'package:go_router/go_router.dart';
 import '../data/models/card_model.dart';
 import '../data/models/group_model.dart';
 import '../l10n/app_localizations.dart';
+import '../providers/groups_provider.dart';
 import '../quiz/display_english.dart';
 import '../quiz/quiz_mode.dart';
 import '../quiz/quiz_options.dart';
 import '../quiz/quiz_utils.dart';
+import '../quiz/session_finalize.dart';
 import '../quiz/session_notifier.dart';
-import '../providers/groups_provider.dart';
+import '../quiz/session_state.dart';
 import '../router/app_router.dart';
 import '../shared/ui/app_button.dart';
 import '../utils/group_label.dart';
@@ -30,6 +32,7 @@ class SessionScreen extends ConsumerStatefulWidget {
 class _SessionScreenState extends ConsumerState<SessionScreen> {
   final _writeController = TextEditingController();
   final _random = Random();
+  bool _hasFinalized = false;
   /// When non-null, user just answered wrong; show this correct answer and Next.
   String? _wrongFeedback;
   /// Display form of correct answer (Ti/Vi expanded in English). Shown in UI.
@@ -49,6 +52,16 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
     final session = ref.watch(sessionProvider);
     final asyncGroups = ref.watch(groupsProvider);
 
+    ref.listen<SessionState?>(sessionProvider, (prev, next) {
+      if (next != null && next.isFinished && !_hasFinalized) {
+        _hasFinalized = true;
+        WidgetsBinding.instance.addPostFrameCallback((_) async {
+          await persistSessionToDailyActivity(ref);
+          if (mounted) context.go(AppRoutes.result);
+        });
+      }
+    });
+
     if (session == null) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (mounted) context.go(AppRoutes.home);
@@ -57,9 +70,6 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
     }
 
     if (session.isFinished) {
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        if (mounted) context.go(AppRoutes.result);
-      });
       return const Scaffold(body: Center(child: CircularProgressIndicator()));
     }
 

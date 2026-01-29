@@ -7,12 +7,26 @@ import '../data/models/group_model.dart';
 import 'quiz_mode.dart';
 import 'session_state.dart';
 
-/// Builds initial queue: shuffle group cards and take [count].
-List<CardModel> _buildInitialQueue(List<CardModel> cards, int count) {
-  if (cards.isEmpty) return [];
-  final shuffled = List<CardModel>.from(cards)..shuffle(Random());
-  final take = count.clamp(1, shuffled.length);
-  return shuffled.take(take).toList();
+/// Builds initial queue and set of distinct word IDs for the session.
+/// Words group: wordId = groupId:serbian (infinitive). Endings: wordId = groupId:blockIndex.
+({List<CardModel> queue, Set<String> wordIds}) _buildQueueAndWordIds(
+  GroupModel group,
+  int count,
+) {
+  if (group.cards.isEmpty) return (queue: [], wordIds: {});
+  final indices = List.generate(group.cards.length, (i) => i)..shuffle(Random());
+  final take = count.clamp(1, indices.length);
+  final selected = indices.take(take).toList();
+  final queue = selected.map((i) => group.cards[i]).toList();
+  final wordIds = <String>{};
+  for (final i in selected) {
+    if (group.type == GroupType.words) {
+      wordIds.add('${group.id}:${group.cards[i].serbian}');
+    } else {
+      wordIds.add('${group.id}:${i ~/ 6}');
+    }
+  }
+  return (queue: queue, wordIds: wordIds);
 }
 
 /// Notifier that holds session state and applies answer (correct → remove from queue; wrong → move to end, add to missed).
@@ -24,12 +38,13 @@ class SessionNotifier extends StateNotifier<SessionState?> {
     required QuizMode mode,
     required int questionCount,
   }) {
-    final queue = _buildInitialQueue(group.cards, questionCount);
+    final result = _buildQueueAndWordIds(group, questionCount);
     state = SessionState(
       groupId: group.id,
       mode: mode,
       requestedCount: questionCount,
-      queue: queue,
+      queue: result.queue,
+      sessionWordIds: result.wordIds,
     );
   }
 

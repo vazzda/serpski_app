@@ -11,6 +11,7 @@ import '../quiz/session_state.dart';
 import '../router/app_router.dart';
 import '../shared/ui/app_button.dart';
 import '../shared/ui/app_card.dart';
+import '../shared/ui/app_outlined_button.dart';
 import '../shared/ui/app_scaffold.dart';
 
 class ResultScreen extends ConsumerWidget {
@@ -72,13 +73,46 @@ class ResultScreen extends ConsumerWidget {
               ),
             ],
             const SizedBox(height: 32),
-            AppButton(
-              label: l10n.backToGroups,
-              onPressed: () {
-                ref.read(sessionProvider.notifier).endSession();
-                ref.read(selectedGroupProvider.notifier).state = null;
-                context.go(AppRoutes.home);
-              },
+            Row(
+              children: [
+                Expanded(
+                  child: AppButton(
+                    label: l10n.again,
+                    onPressed: () {
+                      final session = ref.read(sessionProvider);
+                      if (session == null) return;
+                      final groups = ref.read(groupsProvider).valueOrNull;
+                      if (groups == null) return;
+                      try {
+                        final group = groups.firstWhere(
+                          (g) => g.id == session.groupId,
+                        );
+                        ref.read(sessionProvider.notifier).start(
+                              group: group,
+                              mode: session.mode,
+                              questionCount: session.requestedCount,
+                            );
+                        if (context.mounted) {
+                          context.go(AppRoutes.session);
+                        }
+                      } catch (_) {}
+                    },
+                  ),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: AppOutlinedButton(
+                    label: l10n.back,
+                    onPressed: () {
+                      ref.read(sessionProvider.notifier).endSession();
+                      ref.read(selectedGroupProvider.notifier).state = null;
+                      if (context.mounted) {
+                        context.go(AppRoutes.home);
+                      }
+                    },
+                  ),
+                ),
+              ],
             ),
           ],
         ),

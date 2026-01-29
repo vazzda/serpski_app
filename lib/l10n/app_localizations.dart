@@ -376,6 +376,18 @@ abstract class AppLocalizations {
   /// **'Back to groups'**
   String get backToGroups;
 
+  /// No description provided for @again.
+  ///
+  /// In en, this message translates to:
+  /// **'Again'**
+  String get again;
+
+  /// No description provided for @back.
+  ///
+  /// In en, this message translates to:
+  /// **'Back'**
+  String get back;
+
   /// No description provided for @pageNotFound.
   ///
   /// In en, this message translates to:
@@ -441,6 +453,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Exit'**
   String get exit;
+
+  /// No description provided for @dailyActivityTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Today'**
+  String get dailyActivityTitle;
+
+  /// No description provided for @dailyActivityEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No activity today'**
+  String get dailyActivityEmpty;
 }
 
 class _AppLocalizationsDelegate

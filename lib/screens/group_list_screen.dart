@@ -3,9 +3,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../l10n/app_localizations.dart';
+import '../data/daily_activity_repository.dart';
 import '../data/models/group_model.dart';
 import '../quiz/quiz_mode.dart';
 import '../quiz/session_notifier.dart';
+import '../providers/daily_activity_provider.dart';
 import '../providers/groups_provider.dart';
 import '../router/app_router.dart';
 import '../shared/ui/app_card.dart';
@@ -78,55 +80,135 @@ class GroupListScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context)!;
     final theme = Theme.of(context);
+    final asyncStats = ref.watch(dailyActivityProvider);
 
     return AppScaffold(
       title: l10n.appBarTitle,
-      child: ListView(
-        padding: const EdgeInsets.all(16),
+      child: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.only(bottom: 12),
-            child: AppCard(
-              onTap: () => context.push(AppRoutes.vocabulary),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Text(
-                      l10n.parentVocabulary,
-                      style: theme.textTheme.titleMedium,
+          Expanded(
+            child: ListView(
+              padding: const EdgeInsets.fromLTRB(16, 16, 16, 12),
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 12),
+                  child: AppCard(
+                    onTap: () => context.push(AppRoutes.vocabulary),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            l10n.parentVocabulary,
+                            style: theme.textTheme.titleMedium,
+                          ),
+                        ),
+                        Icon(
+                          Icons.arrow_forward_ios,
+                          size: 16,
+                          color: theme.colorScheme.onSurface,
+                        ),
+                      ],
                     ),
                   ),
-                  Icon(
-                    Icons.arrow_forward_ios,
-                    size: 16,
-                    color: theme.colorScheme.onSurface,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 12),
+                  child: AppCard(
+                    onTap: () => context.push(AppRoutes.conjugations),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            l10n.parentConjugations,
+                            style: theme.textTheme.titleMedium,
+                          ),
+                        ),
+                        Icon(
+                          Icons.arrow_forward_ios,
+                          size: 16,
+                          color: theme.colorScheme.onSurface,
+                        ),
+                      ],
+                    ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 12),
-            child: AppCard(
-              onTap: () => context.push(AppRoutes.conjugations),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Text(
-                      l10n.parentConjugations,
-                      style: theme.textTheme.titleMedium,
-                    ),
-                  ),
-                  Icon(
-                    Icons.arrow_forward_ios,
-                    size: 16,
-                    color: theme.colorScheme.onSurface,
-                  ),
-                ],
+          SafeArea(
+            top: false,
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
+              child: _DailyActivityWidget(
+                asyncStats: asyncStats,
+                l10n: l10n,
+                theme: theme,
               ),
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class _DailyActivityWidget extends StatelessWidget {
+  const _DailyActivityWidget({
+    required this.asyncStats,
+    required this.l10n,
+    required this.theme,
+  });
+
+  final AsyncValue<DailyActivityStats> asyncStats;
+  final AppLocalizations l10n;
+  final ThemeData theme;
+
+  @override
+  Widget build(BuildContext context) {
+    final headerStyle = theme.textTheme.titleMedium?.copyWith(
+      color: theme.colorScheme.onSurface,
+    );
+    final bodyStyle = theme.textTheme.bodySmall?.copyWith(
+      color: theme.colorScheme.onSurfaceVariant,
+    );
+    return AppCard(
+      child: SizedBox(
+        width: double.infinity,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              l10n.dailyActivityTitle,
+              style: headerStyle,
+            ),
+            const SizedBox(height: 4),
+            asyncStats.when(
+              data: (stats) {
+                final isEmpty = stats.correct == 0 &&
+                    stats.wrong == 0 &&
+                    stats.wordsTouched == 0;
+                return Text(
+                  isEmpty
+                      ? l10n.dailyActivityEmpty
+                      : '${l10n.correctCount(stats.correct)} · ${l10n.wrongCount(stats.wrong)} · ${l10n.wordsCount(stats.wordsTouched)}',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: bodyStyle,
+                );
+              },
+              loading: () => Text(
+                l10n.dailyActivityEmpty,
+                style: bodyStyle,
+              ),
+              // ignore: unnecessary_underscores
+              error: (_, __) => Text(
+                l10n.dailyActivityEmpty,
+                style: bodyStyle,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -148,32 +230,41 @@ class ChildGroupListScreen extends ConsumerWidget {
         ? GroupType.words
         : GroupType.endings;
 
-    return AppScaffold(
-      title: title,
-      child: asyncGroups.when(
-        data: (groups) {
-          final childGroups = groups.where((g) => g.type == filterType).toList();
-          final theme = Theme.of(context);
-          return ListView.builder(
-            padding: const EdgeInsets.all(16),
-            itemCount: childGroups.length,
-            itemBuilder: (context, index) {
-              final group = childGroups[index];
-              return Padding(
-                padding: const EdgeInsets.only(bottom: 12),
-                child: _GroupTile(
-                  group: group,
-                  l10n: l10n,
-                  theme: theme,
-                  onTap: () => _onGroupTap(context, ref, group, l10n),
-                ),
-              );
-            },
-          );
-        },
-        loading: () => const Center(child: CircularProgressIndicator()),
-        error: (e, st) => Center(
-          child: Text(l10n.loadError),
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, result) {
+        if (!didPop) context.go(AppRoutes.home);
+      },
+      child: AppScaffold(
+        title: title,
+        leading: BackButton(
+          onPressed: () => context.go(AppRoutes.home),
+        ),
+        child: asyncGroups.when(
+          data: (groups) {
+            final childGroups = groups.where((g) => g.type == filterType).toList();
+            final theme = Theme.of(context);
+            return ListView.builder(
+              padding: const EdgeInsets.all(16),
+              itemCount: childGroups.length,
+              itemBuilder: (context, index) {
+                final group = childGroups[index];
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 12),
+                  child: _GroupTile(
+                    group: group,
+                    l10n: l10n,
+                    theme: theme,
+                    onTap: () => _onGroupTap(context, ref, group, l10n),
+                  ),
+                );
+              },
+            );
+          },
+          loading: () => const Center(child: CircularProgressIndicator()),
+          error: (e, st) => Center(
+            child: Text(l10n.loadError),
+          ),
         ),
       ),
     );

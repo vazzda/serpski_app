@@ -78,6 +78,8 @@
   "reviewWrongSubtitle": "Cards you got wrong (Serbian → English)",
   "done": "Done",
   "backToGroups": "Back to groups",
+  "again": "Again",
+  "back": "Back",
   "pageNotFound": "Page not found",
   "loadError": "Could not load groups. Please try again.",
   "correctAnswerLabel": "Correct answer:",
@@ -95,5 +97,7 @@
   },
   "exitSession": "Exit session",
   "exitSessionConfirm": "Exit session? Your progress will be lost.",
-  "exit": "Exit"
+  "exit": "Exit",
+  "dailyActivityTitle": "Today",
+  "dailyActivityEmpty": "No activity today"
 }

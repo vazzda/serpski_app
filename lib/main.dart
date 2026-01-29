@@ -3,17 +3,27 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
+import 'data/daily_activity_repository.dart';
 import 'l10n/app_localizations.dart';
+import 'providers/daily_activity_provider.dart';
 import 'router/app_router.dart';
 import 'shared/theme/app_theme.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: WidgetsBinding.instance);
+  await Hive.initFlutter();
+  final box = await Hive.openBox('daily_activity');
   final router = createAppRouter();
   runApp(
     ProviderScope(
+      overrides: [
+        dailyActivityRepositoryProvider.overrideWith(
+          (ref) => DailyActivityRepository(box: box),
+        ),
+      ],
       child: SrpskiCardApp(router: router),
     ),
   );

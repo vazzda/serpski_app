@@ -158,6 +158,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get backToGroups => 'Back to groups';
 
   @override
+  String get again => 'Again';
+
+  @override
+  String get back => 'Back';
+
+  @override
   String get pageNotFound => 'Page not found';
 
   @override
@@ -191,4 +197,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get exit => 'Exit';
+
+  @override
+  String get dailyActivityTitle => 'Today';
+
+  @override
+  String get dailyActivityEmpty => 'No activity today';
 }

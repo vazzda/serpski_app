@@ -20,6 +20,7 @@ class SessionState {
     this.correctCount = 0,
     this.wrongCount = 0,
     this.missedEntries = const [],
+    this.sessionWordIds = const {},
   });
 
   final String groupId;
@@ -35,6 +36,9 @@ class SessionState {
   /// Entries that were answered wrong (for review at end). Write mode stores userTypedAnswer.
   final List<MissedEntry> missedEntries;
 
+  /// Distinct word IDs in this session (for daily "words touched").
+  final Set<String> sessionWordIds;
+
   CardModel? get currentCard => queue.isNotEmpty ? queue.first : null;
 
   bool get isFinished => queue.isEmpty;
@@ -44,6 +48,7 @@ class SessionState {
     int? correctCount,
     int? wrongCount,
     List<MissedEntry>? missedEntries,
+    Set<String>? sessionWordIds,
   }) {
     return SessionState(
       groupId: groupId,
@@ -53,6 +58,7 @@ class SessionState {
       correctCount: correctCount ?? this.correctCount,
       wrongCount: wrongCount ?? this.wrongCount,
       missedEntries: missedEntries ?? this.missedEntries,
+      sessionWordIds: sessionWordIds ?? this.sessionWordIds,
     );
   }
 }
