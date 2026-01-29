@@ -244,11 +244,66 @@ class ChildGroupListScreen extends ConsumerWidget {
           data: (groups) {
             final childGroups = groups.where((g) => g.type == filterType).toList();
             final theme = Theme.of(context);
+            if (filterType == GroupType.endings) {
+              return ListView.builder(
+                padding: const EdgeInsets.all(16),
+                itemCount: childGroups.length,
+                itemBuilder: (context, index) {
+                  final group = childGroups[index];
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: 12),
+                    child: _GroupTile(
+                      group: group,
+                      l10n: l10n,
+                      theme: theme,
+                      onTap: () => _onGroupTap(context, ref, group, l10n),
+                    ),
+                  );
+                },
+              );
+            }
+            // Vocabulary: sectioned list with headers
+            const sectionIds = [
+              ['basic_verbs_01', 'basic_verbs_02', 'basic_verbs_03', 'basic_verbs_04'],
+              ['adverbs_of_time', 'prepositions'],
+              ['people', 'places', 'daily_items_objects', 'time_nature', 'abstract_concepts'],
+              ['general_qualities', 'people_emotions', 'senses_feelings', 'colors'],
+            ];
+            final sectionHeaders = [
+              l10n.groupWords,
+              l10n.vocabSectionSettingWords,
+              l10n.vocabSectionBasicNouns,
+              l10n.vocabSectionBasicAdjectives,
+            ];
+            final idToGroup = {for (final g in childGroups) g.id: g};
+            final items = <Object>[];
+            for (var i = 0; i < sectionHeaders.length; i++) {
+              items.add(sectionHeaders[i]);
+              for (final id in sectionIds[i]) {
+                final group = idToGroup[id];
+                if (group != null) items.add(group);
+              }
+            }
             return ListView.builder(
               padding: const EdgeInsets.all(16),
-              itemCount: childGroups.length,
+              itemCount: items.length,
               itemBuilder: (context, index) {
-                final group = childGroups[index];
+                final item = items[index];
+                if (item is String) {
+                  return Padding(
+                    padding: EdgeInsets.only(
+                      top: index == 0 ? 0 : 12,
+                      bottom: 8,
+                    ),
+                    child: Text(
+                      item,
+                      style: theme.textTheme.titleMedium?.copyWith(
+                        color: theme.colorScheme.onSurface,
+                      ),
+                    ),
+                  );
+                }
+                final group = item as GroupModel;
                 return Padding(
                   padding: const EdgeInsets.only(bottom: 12),
                   child: _GroupTile(

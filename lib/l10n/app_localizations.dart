@@ -214,6 +214,24 @@ abstract class AppLocalizations {
   /// **'Colors'**
   String get groupColors;
 
+  /// No description provided for @vocabSectionSettingWords.
+  ///
+  /// In en, this message translates to:
+  /// **'Setting words'**
+  String get vocabSectionSettingWords;
+
+  /// No description provided for @vocabSectionBasicNouns.
+  ///
+  /// In en, this message translates to:
+  /// **'Basic nouns'**
+  String get vocabSectionBasicNouns;
+
+  /// No description provided for @vocabSectionBasicAdjectives.
+  ///
+  /// In en, this message translates to:
+  /// **'Basic adjectives'**
+  String get vocabSectionBasicAdjectives;
+
   /// No description provided for @wordsCount.
   ///
   /// In en, this message translates to:

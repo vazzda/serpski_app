@@ -69,6 +69,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get groupColors => 'Colors';
 
   @override
+  String get vocabSectionSettingWords => 'Setting words';
+
+  @override
+  String get vocabSectionBasicNouns => 'Basic nouns';
+
+  @override
+  String get vocabSectionBasicAdjectives => 'Basic adjectives';
+
+  @override
   String wordsCount(int count) {
     return '$count words';
   }

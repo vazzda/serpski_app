@@ -20,6 +20,9 @@
   "groupPeopleAndEmotions": "People & Emotions",
   "groupSensesAndFeelings": "Senses & Feelings",
   "groupColors": "Colors",
+  "vocabSectionSettingWords": "Setting words",
+  "vocabSectionBasicNouns": "Basic nouns",
+  "vocabSectionBasicAdjectives": "Basic adjectives",
   "wordsCount": "{count} words",
   "@wordsCount": {
     "placeholders": {
