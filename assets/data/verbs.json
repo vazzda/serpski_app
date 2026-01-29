@@ -102,6 +102,52 @@
     ]
   },
   {
+    "id": "adverbs_of_time",
+    "labelKey": "groupAdverbsOfTime",
+    "type": "words",
+    "cards": [
+      {"serbian": "sada", "english": "now"},
+      {"serbian": "tada", "english": "then (calendar)"},
+      {"serbian": "onda", "english": "then (event)"},
+      {"serbian": "danas", "english": "today"},
+      {"serbian": "večeras", "english": "tonight"},
+      {"serbian": "juče", "english": "yesterday"},
+      {"serbian": "sutra", "english": "tomorrow"},
+      {"serbian": "uskoro", "english": "soon"},
+      {"serbian": "kasnije", "english": "later"},
+      {"serbian": "ranije", "english": "earlier / previously"},
+      {"serbian": "nedavno", "english": "recently"},
+      {"serbian": "uvek", "english": "always"},
+      {"serbian": "često", "english": "often"},
+      {"serbian": "obično", "english": "usually"},
+      {"serbian": "ponekad", "english": "sometimes"},
+      {"serbian": "retko", "english": "rarely / seldom"},
+      {"serbian": "nikada", "english": "never"},
+      {"serbian": "već", "english": "already"},
+      {"serbian": "još", "english": "yet / still"},
+      {"serbian": "odmah", "english": "immediately"},
+      {"serbian": "pre", "english": "before"},
+      {"serbian": "posle", "english": "after"}
+    ]
+  },
+  {
+    "id": "prepositions",
+    "labelKey": "groupPrepositions",
+    "type": "words",
+    "cards": [
+      {"serbian": "ispod", "english": "under / below"},
+      {"serbian": "iznad", "english": "over / above"},
+      {"serbian": "iza", "english": "behind"},
+      {"serbian": "ispred", "english": "in front of"},
+      {"serbian": "između", "english": "between"},
+      {"serbian": "pored", "english": "beside / next to"},
+      {"serbian": "u", "english": "in"},
+      {"serbian": "unutra", "english": "inside"},
+      {"serbian": "na", "english": "on"},
+      {"serbian": "blizu", "english": "near / close to"}
+    ]
+  },
+  {
     "id": "endings_im_e_ati",
     "labelKey": "groupEndingsImEAti",
     "type": "endings",

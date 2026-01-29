@@ -9,6 +9,8 @@
   "groupBasicVerbs02": "Basic verbs 02",
   "groupBasicVerbs03": "Basic verbs 03",
   "groupBasicVerbs04": "Basic verbs 04",
+  "groupAdverbsOfTime": "Adverbs of time",
+  "groupPrepositions": "Prepositions",
   "wordsCount": "{count} words",
   "@wordsCount": {
     "placeholders": {

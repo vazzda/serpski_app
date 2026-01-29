@@ -14,6 +14,10 @@ String groupLabel(AppLocalizations l10n, String labelKey) {
       return l10n.groupBasicVerbs03;
     case 'groupBasicVerbs04':
       return l10n.groupBasicVerbs04;
+    case 'groupAdverbsOfTime':
+      return l10n.groupAdverbsOfTime;
+    case 'groupPrepositions':
+      return l10n.groupPrepositions;
     case 'groupEndingsImEAti':
       return l10n.groupEndingsImEAti;
     case 'groupEndingsImEEti':

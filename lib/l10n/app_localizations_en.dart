@@ -36,6 +36,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get groupBasicVerbs04 => 'Basic verbs 04';
 
   @override
+  String get groupAdverbsOfTime => 'Adverbs of time';
+
+  @override
+  String get groupPrepositions => 'Prepositions';
+
+  @override
   String wordsCount(int count) {
     return '$count words';
   }
