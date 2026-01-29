@@ -265,7 +265,7 @@ class ChildGroupListScreen extends ConsumerWidget {
             // Vocabulary: sectioned list with headers
             const sectionIds = [
               ['basic_verbs_01', 'basic_verbs_02', 'basic_verbs_03', 'basic_verbs_04'],
-              ['adverbs_of_time', 'prepositions'],
+              ['adverbs_of_time', 'prepositions', 'demonstrative_pronouns', 'relative_direction', 'degree_quantity'],
               ['people', 'places', 'daily_items_objects', 'time_nature', 'abstract_concepts'],
               ['general_qualities', 'people_emotions', 'senses_feelings', 'colors'],
             ];

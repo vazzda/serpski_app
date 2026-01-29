@@ -148,6 +148,67 @@
     ]
   },
   {
+    "id": "demonstrative_pronouns",
+    "labelKey": "groupDemonstrativePronouns",
+    "type": "words",
+    "cards": [
+      {"serbian": "ovaj", "english": "this (right here)"},
+      {"serbian": "taj", "english": "that (near you)"},
+      {"serbian": "onaj", "english": "that (over there/distant)"},
+      {"serbian": "ovakav", "english": "such / like this"},
+      {"serbian": "takav", "english": "such / like that"},
+      {"serbian": "onakav", "english": "such / like that (distant)"},
+      {"serbian": "ovoliki", "english": "this much / this big"},
+      {"serbian": "toliki", "english": "that much / that big"},
+      {"serbian": "ovoliko", "english": "this many / this much"},
+      {"serbian": "toliko", "english": "that many / that much"}
+    ]
+  },
+  {
+    "id": "relative_direction",
+    "labelKey": "groupRelativeDirection",
+    "type": "words",
+    "cards": [
+      {"serbian": "levo", "english": "left"},
+      {"serbian": "desno", "english": "right"},
+      {"serbian": "pravo", "english": "straight"},
+      {"serbian": "napred", "english": "forward"},
+      {"serbian": "nazad", "english": "backward"},
+      {"serbian": "gore", "english": "up / upwards"},
+      {"serbian": "dole", "english": "down / downwards"},
+      {"serbian": "preko", "english": "across / opposite"},
+      {"serbian": "sa strane", "english": "sideways"},
+      {"serbian": "svuda", "english": "everywhere"}
+    ]
+  },
+  {
+    "id": "degree_quantity",
+    "labelKey": "groupDegreeAndQuantity",
+    "type": "words",
+    "cards": [
+      {"serbian": "mnogo", "english": "much / many"},
+      {"serbian": "puno", "english": "a lot / full"},
+      {"serbian": "veoma", "english": "very (intense)"},
+      {"serbian": "vrlo", "english": "very (formal)"},
+      {"serbian": "previše", "english": "too (excessive)"},
+      {"serbian": "dovoljno", "english": "enough"},
+      {"serbian": "malo", "english": "little / bit"},
+      {"serbian": "skoro", "english": "almost"},
+      {"serbian": "više", "english": "more"},
+      {"serbian": "manje", "english": "less"},
+      {"serbian": "sasvim", "english": "completely / quite"},
+      {"serbian": "potpuno", "english": "totally / fully"},
+      {"serbian": "baš", "english": "exactly / really (the ultimate emphasis word)"},
+      {"serbian": "delimično", "english": "partially"},
+      {"serbian": "uglavnom", "english": "mostly"},
+      {"serbian": "samo", "english": "only"},
+      {"serbian": "jedva", "english": "hardly / barely"},
+      {"serbian": "dosta", "english": "sufficiently"},
+      {"serbian": "strašno", "english": "exceedingly / terribly (used like \"terribly good\" or \"terribly fast\")"},
+      {"serbian": "barem", "english": "at least"}
+    ]
+  },
+  {
     "id": "people",
     "labelKey": "groupPeople",
     "type": "words",

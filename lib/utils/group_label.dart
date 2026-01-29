@@ -18,6 +18,12 @@ String groupLabel(AppLocalizations l10n, String labelKey) {
       return l10n.groupAdverbsOfTime;
     case 'groupPrepositions':
       return l10n.groupPrepositions;
+    case 'groupDemonstrativePronouns':
+      return l10n.groupDemonstrativePronouns;
+    case 'groupRelativeDirection':
+      return l10n.groupRelativeDirection;
+    case 'groupDegreeAndQuantity':
+      return l10n.groupDegreeAndQuantity;
     case 'groupPeople':
       return l10n.groupPeople;
     case 'groupPlaces':

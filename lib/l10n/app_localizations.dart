@@ -160,6 +160,24 @@ abstract class AppLocalizations {
   /// **'Prepositions'**
   String get groupPrepositions;
 
+  /// No description provided for @groupDemonstrativePronouns.
+  ///
+  /// In en, this message translates to:
+  /// **'Demonstrative Pronouns'**
+  String get groupDemonstrativePronouns;
+
+  /// No description provided for @groupRelativeDirection.
+  ///
+  /// In en, this message translates to:
+  /// **'Relative Direction'**
+  String get groupRelativeDirection;
+
+  /// No description provided for @groupDegreeAndQuantity.
+  ///
+  /// In en, this message translates to:
+  /// **'Degree & Quantity'**
+  String get groupDegreeAndQuantity;
+
   /// No description provided for @groupPeople.
   ///
   /// In en, this message translates to:

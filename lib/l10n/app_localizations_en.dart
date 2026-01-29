@@ -42,6 +42,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get groupPrepositions => 'Prepositions';
 
   @override
+  String get groupDemonstrativePronouns => 'Demonstrative Pronouns';
+
+  @override
+  String get groupRelativeDirection => 'Relative Direction';
+
+  @override
+  String get groupDegreeAndQuantity => 'Degree & Quantity';
+
+  @override
   String get groupPeople => 'People';
 
   @override
