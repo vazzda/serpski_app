@@ -15,7 +15,18 @@ class AppLocalizationsEn extends AppLocalizations {
   String get appBarTitle => 'Srpski';
 
   @override
-  String get groupWords => 'Words, infinitive';
+  String get parentVocabulary => 'Vocabulary';
+
+  @override
+  String get parentConjugations => 'Conjugations';
+
+  @override
+  String get groupWords => 'Basic verbs';
+
+  @override
+  String wordsCount(int count) {
+    return '$count words';
+  }
 
   @override
   String get groupEndingsImEAti => '-ATI (IM|E)';

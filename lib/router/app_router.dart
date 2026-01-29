@@ -9,6 +9,8 @@ import '../screens/session_screen.dart';
 /// Route names/paths.
 class AppRoutes {
   static const String home = '/';
+  static const String vocabulary = '/vocabulary';
+  static const String conjugations = '/conjugations';
   static const String session = '/session';
   static const String result = '/result';
 }
@@ -21,6 +23,14 @@ GoRouter createAppRouter() {
       GoRoute(
         path: AppRoutes.home,
         builder: (context, state) => const GroupListScreen(),
+      ),
+      GoRoute(
+        path: AppRoutes.vocabulary,
+        builder: (context, state) => const ChildGroupListScreen(parent: ParentCategory.vocabulary),
+      ),
+      GoRoute(
+        path: AppRoutes.conjugations,
+        builder: (context, state) => const ChildGroupListScreen(parent: ParentCategory.conjugations),
       ),
       GoRoute(
         path: AppRoutes.session,

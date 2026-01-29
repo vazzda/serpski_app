@@ -11,6 +11,8 @@ import '../router/app_router.dart';
 import '../shared/ui/app_card.dart';
 import '../shared/ui/app_scaffold.dart';
 
+enum ParentCategory { vocabulary, conjugations }
+
 String _groupLabel(AppLocalizations l10n, String labelKey) {
   switch (labelKey) {
     case 'groupWords':
@@ -44,46 +46,157 @@ String _groupLabel(AppLocalizations l10n, String labelKey) {
   }
 }
 
+class _GroupTile extends StatelessWidget {
+  const _GroupTile({
+    required this.group,
+    required this.l10n,
+    required this.theme,
+    required this.onTap,
+  });
+
+  final GroupModel group;
+  final AppLocalizations l10n;
+  final ThemeData theme;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final label = _groupLabel(l10n, group.labelKey);
+    final count = wordCount(group);
+    return AppCard(
+      onTap: onTap,
+      child: Row(
+        children: [
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  label,
+                  style: theme.textTheme.titleMedium,
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  l10n.wordsCount(count),
+                  style: theme.textTheme.bodySmall?.copyWith(
+                    color: theme.colorScheme.onSurfaceVariant,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Icon(
+            Icons.arrow_forward_ios,
+            size: 16,
+            color: theme.colorScheme.onSurface,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 class GroupListScreen extends ConsumerWidget {
   const GroupListScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context)!;
-    final asyncGroups = ref.watch(groupsProvider);
+    final theme = Theme.of(context);
 
     return AppScaffold(
       title: l10n.appBarTitle,
-      child: asyncGroups.when(
-        data: (groups) => ListView.builder(
-          padding: const EdgeInsets.all(16),
-          itemCount: groups.length,
-          itemBuilder: (context, index) {
-            final group = groups[index];
-            final label = _groupLabel(l10n, group.labelKey);
-            return Padding(
-              padding: const EdgeInsets.only(bottom: 12),
-              child: AppCard(
-                onTap: () => _onGroupTap(context, ref, group, l10n),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Text(
-                        label,
-                        style: Theme.of(context).textTheme.titleMedium,
-                      ),
+      child: ListView(
+        padding: const EdgeInsets.all(16),
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(bottom: 12),
+            child: AppCard(
+              onTap: () => context.push(AppRoutes.vocabulary),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      l10n.parentVocabulary,
+                      style: theme.textTheme.titleMedium,
                     ),
-                    Icon(
-                      Icons.arrow_forward_ios,
-                      size: 16,
-                      color: Theme.of(context).colorScheme.onSurface,
-                    ),
-                  ],
-                ),
+                  ),
+                  Icon(
+                    Icons.arrow_forward_ios,
+                    size: 16,
+                    color: theme.colorScheme.onSurface,
+                  ),
+                ],
               ),
-            );
-          },
-        ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 12),
+            child: AppCard(
+              onTap: () => context.push(AppRoutes.conjugations),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      l10n.parentConjugations,
+                      style: theme.textTheme.titleMedium,
+                    ),
+                  ),
+                  Icon(
+                    Icons.arrow_forward_ios,
+                    size: 16,
+                    color: theme.colorScheme.onSurface,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class ChildGroupListScreen extends ConsumerWidget {
+  const ChildGroupListScreen({super.key, required this.parent});
+
+  final ParentCategory parent;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = AppLocalizations.of(context)!;
+    final asyncGroups = ref.watch(groupsProvider);
+    final title = parent == ParentCategory.vocabulary
+        ? l10n.parentVocabulary
+        : l10n.parentConjugations;
+    final filterType = parent == ParentCategory.vocabulary
+        ? GroupType.words
+        : GroupType.endings;
+
+    return AppScaffold(
+      title: title,
+      child: asyncGroups.when(
+        data: (groups) {
+          final childGroups = groups.where((g) => g.type == filterType).toList();
+          final theme = Theme.of(context);
+          return ListView.builder(
+            padding: const EdgeInsets.all(16),
+            itemCount: childGroups.length,
+            itemBuilder: (context, index) {
+              final group = childGroups[index];
+              return Padding(
+                padding: const EdgeInsets.only(bottom: 12),
+                child: _GroupTile(
+                  group: group,
+                  l10n: l10n,
+                  theme: theme,
+                  onTap: () => _onGroupTap(context, ref, group, l10n),
+                ),
+              );
+            },
+          );
+        },
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (e, st) => Center(
           child: Text(l10n.loadError),

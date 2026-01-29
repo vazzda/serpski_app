@@ -35,3 +35,10 @@ class GroupModel {
 }
 
 enum GroupType { words, endings }
+
+/// Number of distinct words in the group (not card count). Endings: 6 cards per verb.
+int wordCount(GroupModel g) {
+  return g.type == GroupType.words
+      ? g.cards.length
+      : g.cards.length ~/ 6;
+}

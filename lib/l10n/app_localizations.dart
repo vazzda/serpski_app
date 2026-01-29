@@ -106,11 +106,29 @@ abstract class AppLocalizations {
   /// **'Srpski'**
   String get appBarTitle;
 
+  /// No description provided for @parentVocabulary.
+  ///
+  /// In en, this message translates to:
+  /// **'Vocabulary'**
+  String get parentVocabulary;
+
+  /// No description provided for @parentConjugations.
+  ///
+  /// In en, this message translates to:
+  /// **'Conjugations'**
+  String get parentConjugations;
+
   /// No description provided for @groupWords.
   ///
   /// In en, this message translates to:
-  /// **'Words, infinitive'**
+  /// **'Basic verbs'**
   String get groupWords;
+
+  /// No description provided for @wordsCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} words'**
+  String wordsCount(int count);
 
   /// No description provided for @groupEndingsImEAti.
   ///

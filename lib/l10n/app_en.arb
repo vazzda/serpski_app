@@ -2,7 +2,17 @@
   "@@locale": "en",
   "appTitle": "Srpski Card",
   "appBarTitle": "Srpski",
-  "groupWords": "Words, infinitive",
+  "parentVocabulary": "Vocabulary",
+  "parentConjugations": "Conjugations",
+  "groupWords": "Basic verbs",
+  "wordsCount": "{count} words",
+  "@wordsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "groupEndingsImEAti": "-ATI (IM|E)",
   "groupEndingsImEEti": "-ETI (IM|E)",
   "groupEndingsImEIti": "-ITI (IM|E)",
