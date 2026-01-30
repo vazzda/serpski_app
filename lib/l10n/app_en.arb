@@ -126,5 +126,45 @@
   "exitSessionConfirm": "Exit session? Your progress will be lost.",
   "exit": "Exit",
   "dailyActivityTitle": "Today",
-  "dailyActivityEmpty": "No activity today"
+  "dailyActivityEmpty": "No activity today",
+  "trainHeader": "TRAIN",
+  "testHeader": "TESTING",
+  "modeEngCards": "ENG CARDS",
+  "modeSrpskiCards": "SRPSKI CARDS",
+  "modeWriting": "WRITING",
+  "modeTest": "TEST",
+  "relativeDateToday": "today",
+  "relativeDateYesterday": "yesterday",
+  "relativeDateDays": "{count}d ago",
+  "@relativeDateDays": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "relativeDateMonths": "{count}mo ago",
+  "@relativeDateMonths": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "relativeDateYears": "{count}y ago",
+  "@relativeDateYears": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "questionsAll": "ALL ({count})",
+  "@questionsAll": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  }
 }

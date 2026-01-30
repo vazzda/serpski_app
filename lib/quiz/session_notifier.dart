@@ -38,6 +38,9 @@ class SessionNotifier extends StateNotifier<SessionState?> {
     required GroupModel group,
     required QuizMode mode,
     required int questionCount,
+    required String originRoute,
+    double originScrollOffset = 0.0,
+    bool isTest = false,
   }) {
     final result = _buildQueueAndWordIds(group, questionCount);
     final sessionType = group.type == GroupType.endings
@@ -48,6 +51,9 @@ class SessionNotifier extends StateNotifier<SessionState?> {
       mode: mode,
       requestedCount: questionCount,
       sessionType: sessionType,
+      originRoute: originRoute,
+      originScrollOffset: originScrollOffset,
+      isTest: isTest,
       queue: result.queue,
       sessionWordIds: result.wordIds,
     );
@@ -58,6 +64,9 @@ class SessionNotifier extends StateNotifier<SessionState?> {
     required List<GroupModel> allGroups,
     required QuizMode mode,
     required int questionCount,
+    required String originRoute,
+    double originScrollOffset = 0.0,
+    bool isTest = false,
   }) {
     final nounGroups = allGroups
         .where((g) => g.category == GroupCategory.noun)
@@ -73,7 +82,10 @@ class SessionNotifier extends StateNotifier<SessionState?> {
       mode: mode,
       requestedCount: questionCount,
       sessionType: SessionType.agreement,
+      originRoute: originRoute,
+      originScrollOffset: originScrollOffset,
       adjectiveGroupId: adjectiveGroup.id,
+      isTest: isTest,
       queue: result.queue,
       sessionWordIds: result.wordIds,
     );

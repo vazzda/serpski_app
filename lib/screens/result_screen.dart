@@ -23,9 +23,7 @@ class ResultScreen extends ConsumerWidget {
     final session = ref.watch(sessionProvider);
 
     if (session == null) {
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        if (context.mounted) context.go(AppRoutes.home);
-      });
+      // Session ended - navigation should already be handled by Back/Again button
       return const Scaffold(body: Center(child: CircularProgressIndicator()));
     }
 
@@ -95,6 +93,7 @@ class ResultScreen extends ConsumerWidget {
                                 allGroups: groups,
                                 mode: session.mode,
                                 questionCount: session.requestedCount,
+                                originRoute: session.originRoute,
                               );
                           if (context.mounted) {
                             context.go(AppRoutes.session);
@@ -110,6 +109,7 @@ class ResultScreen extends ConsumerWidget {
                               group: group,
                               mode: session.mode,
                               questionCount: session.requestedCount,
+                              originRoute: session.originRoute,
                             );
                         if (context.mounted) {
                           context.go(AppRoutes.session);
@@ -123,10 +123,13 @@ class ResultScreen extends ConsumerWidget {
                   child: AppOutlinedButton(
                     label: l10n.back,
                     onPressed: () {
+                      final originRoute = session.originRoute;
+                      final scrollOffset = session.originScrollOffset;
+                      ref.read(scrollOffsetToRestoreProvider.notifier).state = scrollOffset;
                       ref.read(sessionProvider.notifier).endSession();
                       ref.read(selectedGroupProvider.notifier).state = null;
                       if (context.mounted) {
-                        context.go(AppRoutes.home);
+                        context.go(originRoute);
                       }
                     },
                   ),

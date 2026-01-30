@@ -265,4 +265,48 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get dailyActivityEmpty => 'No activity today';
+
+  @override
+  String get trainHeader => 'TRAIN';
+
+  @override
+  String get testHeader => 'TESTING';
+
+  @override
+  String get modeEngCards => 'ENG CARDS';
+
+  @override
+  String get modeSrpskiCards => 'SRPSKI CARDS';
+
+  @override
+  String get modeWriting => 'WRITING';
+
+  @override
+  String get modeTest => 'TEST';
+
+  @override
+  String get relativeDateToday => 'today';
+
+  @override
+  String get relativeDateYesterday => 'yesterday';
+
+  @override
+  String relativeDateDays(int count) {
+    return '${count}d ago';
+  }
+
+  @override
+  String relativeDateMonths(int count) {
+    return '${count}mo ago';
+  }
+
+  @override
+  String relativeDateYears(int count) {
+    return '${count}y ago';
+  }
+
+  @override
+  String questionsAll(int count) {
+    return 'ALL ($count)';
+  }
 }

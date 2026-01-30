@@ -42,6 +42,25 @@ class AppTheme {
   static const Color primaryContainer = Color(0xFFE0E0E0);
   static const Color onPrimaryContainer = Colors.black87;
 
+  // ─────────────────────────────────────────────────────────────────────────
+  // Test badge colors (for date labels based on how old the test is)
+  // ─────────────────────────────────────────────────────────────────────────
+
+  /// Badge background color.
+  static const Color testBadgeBackground = Colors.black;
+
+  /// Badge percentage text color.
+  static const Color testBadgePercentage = Colors.white;
+
+  /// Badge date text: recent (within 2 weeks).
+  static const Color testBadgeDateRecent = Color(0xFF9E9E9E);
+
+  /// Badge date text: stale (2 weeks to 1 month).
+  static const Color testBadgeDateStale = Colors.white;
+
+  /// Badge date text: old (over 1 month).
+  static const Color testBadgeDateOld = Color(0xFFC62828);
+
   static ColorScheme get _lightColorScheme =>
       ColorScheme.fromSeed(
         seedColor: Colors.black,

@@ -6,8 +6,10 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import 'data/daily_activity_repository.dart';
+import 'data/test_result_repository.dart';
 import 'l10n/app_localizations.dart';
 import 'providers/daily_activity_provider.dart';
+import 'providers/test_result_provider.dart';
 import 'router/app_router.dart';
 import 'shared/theme/app_theme.dart';
 
@@ -15,13 +17,17 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: WidgetsBinding.instance);
   await Hive.initFlutter();
-  final box = await Hive.openBox('daily_activity');
+  final dailyActivityBox = await Hive.openBox('daily_activity');
+  final testResultsBox = await Hive.openBox('test_results');
   final router = createAppRouter();
   runApp(
     ProviderScope(
       overrides: [
         dailyActivityRepositoryProvider.overrideWith(
-          (ref) => DailyActivityRepository(box: box),
+          (ref) => DailyActivityRepository(box: dailyActivityBox),
+        ),
+        testResultRepositoryProvider.overrideWith(
+          (ref) => TestResultRepository(box: testResultsBox),
         ),
       ],
       child: SrpskiCardApp(router: router),

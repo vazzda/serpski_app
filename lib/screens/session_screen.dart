@@ -65,9 +65,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
     });
 
     if (session == null) {
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        if (mounted) context.go(AppRoutes.home);
-      });
+      // Session ended - navigation should already be handled by exit button
       return const Scaffold(body: Center(child: CircularProgressIndicator()));
     }
 
@@ -213,6 +211,10 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
   ) {
     final sessionContext = context;
     final theme = Theme.of(context);
+    // Capture origin route and scroll offset before showing dialog (in case session is modified)
+    final session = ref.read(sessionProvider);
+    final originRoute = session?.originRoute ?? AppRoutes.home;
+    final scrollOffset = session?.originScrollOffset ?? 0.0;
     showModalBottomSheet<void>(
       context: context,
       backgroundColor: theme.colorScheme.surface,
@@ -241,10 +243,11 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
                   TextButton(
                     onPressed: () {
                       Navigator.of(sheetContext).pop();
+                      ref.read(scrollOffsetToRestoreProvider.notifier).state = scrollOffset;
                       ref.read(sessionProvider.notifier).endSession();
                       ref.read(selectedGroupProvider.notifier).state = null;
                       if (sessionContext.mounted) {
-                        sessionContext.go(AppRoutes.home);
+                        sessionContext.go(originRoute);
                       }
                     },
                     child: Text(l10n.exit),

@@ -585,6 +585,78 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No activity today'**
   String get dailyActivityEmpty;
+
+  /// No description provided for @trainHeader.
+  ///
+  /// In en, this message translates to:
+  /// **'TRAIN'**
+  String get trainHeader;
+
+  /// No description provided for @testHeader.
+  ///
+  /// In en, this message translates to:
+  /// **'TESTING'**
+  String get testHeader;
+
+  /// No description provided for @modeEngCards.
+  ///
+  /// In en, this message translates to:
+  /// **'ENG CARDS'**
+  String get modeEngCards;
+
+  /// No description provided for @modeSrpskiCards.
+  ///
+  /// In en, this message translates to:
+  /// **'SRPSKI CARDS'**
+  String get modeSrpskiCards;
+
+  /// No description provided for @modeWriting.
+  ///
+  /// In en, this message translates to:
+  /// **'WRITING'**
+  String get modeWriting;
+
+  /// No description provided for @modeTest.
+  ///
+  /// In en, this message translates to:
+  /// **'TEST'**
+  String get modeTest;
+
+  /// No description provided for @relativeDateToday.
+  ///
+  /// In en, this message translates to:
+  /// **'today'**
+  String get relativeDateToday;
+
+  /// No description provided for @relativeDateYesterday.
+  ///
+  /// In en, this message translates to:
+  /// **'yesterday'**
+  String get relativeDateYesterday;
+
+  /// No description provided for @relativeDateDays.
+  ///
+  /// In en, this message translates to:
+  /// **'{count}d ago'**
+  String relativeDateDays(int count);
+
+  /// No description provided for @relativeDateMonths.
+  ///
+  /// In en, this message translates to:
+  /// **'{count}mo ago'**
+  String relativeDateMonths(int count);
+
+  /// No description provided for @relativeDateYears.
+  ///
+  /// In en, this message translates to:
+  /// **'{count}y ago'**
+  String relativeDateYears(int count);
+
+  /// No description provided for @questionsAll.
+  ///
+  /// In en, this message translates to:
+  /// **'ALL ({count})'**
+  String questionsAll(int count);
 }
 
 class _AppLocalizationsDelegate

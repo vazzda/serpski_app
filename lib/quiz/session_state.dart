@@ -20,7 +20,10 @@ class SessionState {
     required this.mode,
     required this.requestedCount,
     required this.sessionType,
+    required this.originRoute,
+    this.originScrollOffset = 0.0,
     this.adjectiveGroupId,
+    this.isTest = false,
     this.queue = const [],
     this.correctCount = 0,
     this.wrongCount = 0,
@@ -32,8 +35,14 @@ class SessionState {
   final QuizMode mode;
   final int requestedCount;
   final SessionType sessionType;
+  /// Route to navigate back to when session ends or is cancelled.
+  final String originRoute;
+  /// Scroll offset to restore when navigating back to origin.
+  final double originScrollOffset;
   /// For agreement sessions: the adjective group id (without "agreement:" prefix).
   final String? adjectiveGroupId;
+  /// Whether this is a test session (result saved for progress tracking).
+  final bool isTest;
 
   /// Remaining cards to answer (front = current). Wrong answers are moved to end.
   final List<CardModel> queue;
@@ -63,7 +72,10 @@ class SessionState {
       mode: mode,
       requestedCount: requestedCount,
       sessionType: sessionType,
+      originRoute: originRoute,
+      originScrollOffset: originScrollOffset,
       adjectiveGroupId: adjectiveGroupId,
+      isTest: isTest,
       queue: queue ?? this.queue,
       correctCount: correctCount ?? this.correctCount,
       wrongCount: wrongCount ?? this.wrongCount,
