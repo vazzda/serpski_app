@@ -526,6 +526,12 @@ abstract class AppLocalizations {
   /// **'You wrote:'**
   String get youWrote;
 
+  /// No description provided for @youPicked.
+  ///
+  /// In en, this message translates to:
+  /// **'You picked:'**
+  String get youPicked;
+
   /// No description provided for @emptyAnswer.
   ///
   /// In en, this message translates to:

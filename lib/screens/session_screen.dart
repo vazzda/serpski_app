@@ -39,6 +39,8 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
   String? _wrongFeedbackDisplay;
   /// In Write mode, what the user typed when they got it wrong (for result screen).
   String? _wrongUserTypedAnswer;
+  /// Text to show as "the answer you gave" in wrong-feedback block (all modes).
+  String? _wrongUserAnswerDisplay;
 
   @override
   void dispose() {
@@ -155,6 +157,11 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
               ),
               const SizedBox(height: 8),
               Text(
+                '${session.mode == QuizMode.write ? l10n.youWrote : l10n.youPicked} ${(_wrongUserAnswerDisplay ?? '').isEmpty ? l10n.emptyAnswer : _wrongUserAnswerDisplay}',
+                style: theme.textTheme.bodyLarge,
+              ),
+              const SizedBox(height: 8),
+              Text(
                 '${l10n.correctAnswerLabel} ${_wrongFeedbackDisplay ?? _wrongFeedback}',
                 style: theme.textTheme.bodyLarge,
               ),
@@ -174,6 +181,8 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
                 onSubmitted: (_) => _submitWrite(context, ref),
                 autofocus: true,
                 textInputAction: TextInputAction.done,
+                autocorrect: false,
+                enableSuggestions: false,
               ),
               const SizedBox(height: 16),
               AppButton(
@@ -255,6 +264,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
       _wrongFeedback = null;
       _wrongFeedbackDisplay = null;
       _wrongUserTypedAnswer = null;
+      _wrongUserAnswerDisplay = null;
     });
   }
 
@@ -344,6 +354,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
         _wrongFeedback = correctCard.english;
         _wrongFeedbackDisplay = displayEnglishForCard(correctCard, l10n);
         _wrongUserTypedAnswer = null;
+        _wrongUserAnswerDisplay = displayEnglishForCard(chosenCard, l10n);
       });
     }
   }
@@ -362,6 +373,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
         _wrongFeedback = correctAnswer;
         _wrongFeedbackDisplay = correctAnswer;
         _wrongUserTypedAnswer = null;
+        _wrongUserAnswerDisplay = chosen;
       });
     }
   }
@@ -387,6 +399,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
         _wrongFeedback = correctAnswer;
         _wrongFeedbackDisplay = display;
         _wrongUserTypedAnswer = raw;
+        _wrongUserAnswerDisplay = raw;
       });
     }
     _writeController.clear();

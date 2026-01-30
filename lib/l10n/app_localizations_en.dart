@@ -235,6 +235,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get youWrote => 'You wrote:';
 
   @override
+  String get youPicked => 'You picked:';
+
+  @override
   String get emptyAnswer => '(empty)';
 
   @override

@@ -13,6 +13,8 @@ class AppTextField extends StatelessWidget {
     this.textInputAction = TextInputAction.done,
     this.keyboardType,
     this.inputFormatters,
+    this.autocorrect = true,
+    this.enableSuggestions = true,
   });
 
   final TextEditingController? controller;
@@ -23,6 +25,8 @@ class AppTextField extends StatelessWidget {
   final TextInputAction textInputAction;
   final TextInputType? keyboardType;
   final List<TextInputFormatter>? inputFormatters;
+  final bool autocorrect;
+  final bool enableSuggestions;
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +43,8 @@ class AppTextField extends StatelessWidget {
       textInputAction: textInputAction,
       keyboardType: keyboardType,
       inputFormatters: inputFormatters,
+      autocorrect: autocorrect,
+      enableSuggestions: enableSuggestions,
       style: theme.textTheme.bodyLarge?.copyWith(
         color: theme.colorScheme.onSurface,
       ),
