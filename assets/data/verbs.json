@@ -5,27 +5,86 @@
     "type": "words",
     "category": "verb",
     "cards": [
-      {"serbian": "brojati", "english": "count"},
-      {"serbian": "držati", "english": "hold"},
-      {"serbian": "ležati", "english": "lie down"},
-      {"serbian": "stajati", "english": "stand"},
-      {"serbian": "trčati", "english": "run"},
-      {"serbian": "mrzeti", "english": "hate"},
-      {"serbian": "sedeti", "english": "sit"},
-      {"serbian": "videti", "english": "see"},
-      {"serbian": "voleti", "english": "love"},
-      {"serbian": "želeti", "english": "wish"},
-      {"serbian": "živeti", "english": "live"},
-      {"serbian": "čistiti", "english": "clean"},
-      {"serbian": "dolaziti", "english": "arrive"},
-      {"serbian": "govoriti", "english": "speak"},
-      {"serbian": "koristiti", "english": "use"},
-      {"serbian": "kupiti", "english": "buy (pf.)"},
-      {"serbian": "misliti", "english": "think"},
-      {"serbian": "nositi", "english": "wear"},
-      {"serbian": "platiti", "english": "pay (pf.)"},
-      {"serbian": "praviti", "english": "make"},
-      {"serbian": "raditi", "english": "work"}
+      {
+        "serbian": "brojati",
+        "english": "to count"
+      },
+      {
+        "serbian": "držati",
+        "english": "to hold (grip)"
+      },
+      {
+        "serbian": "ležati",
+        "english": "to lie down"
+      },
+      {
+        "serbian": "stajati",
+        "english": "to stand (be upright)"
+      },
+      {
+        "serbian": "trčati",
+        "english": "to run (move fast)"
+      },
+      {
+        "serbian": "sedeti",
+        "english": "to sit (rest on seat)"
+      },
+      {
+        "serbian": "videti",
+        "english": "to see (use eyes)"
+      },
+      {
+        "serbian": "gledati",
+        "english": "to watch (observe)"
+      },
+      {
+        "serbian": "voleti",
+        "english": "to love (strong affection)"
+      },
+      {
+        "serbian": "želeti",
+        "english": "to wish (long for)"
+      },
+      {
+        "serbian": "živeti",
+        "english": "to live (dwell)"
+      },
+      {
+        "serbian": "dolaziti",
+        "english": "to arrive (reach destination)"
+      },
+      {
+        "serbian": "pričati",
+        "english": "to talk (converse)"
+      },
+      {
+        "serbian": "govoriti",
+        "english": "to speak (utter)"
+      },
+      {
+        "serbian": "koristiti",
+        "english": "to use (employ a tool)"
+      },
+      {
+        "serbian": "kupiti",
+        "english": "to buy (purchase) (pf.)"
+      },
+      {
+        "serbian": "misliti",
+        "english": "to think (mental action)"
+      },
+      {
+        "serbian": "platiti",
+        "english": "to pay (give money) (pf.)"
+      },
+      {
+        "serbian": "slušati",
+        "english": "to listen (pay attention to sound)"
+      },
+      {
+        "serbian": "raditi",
+        "english": "to work (labor/task)"
+      }
     ]
   },
   {
@@ -34,26 +93,86 @@
     "type": "words",
     "category": "verb",
     "cards": [
-      {"serbian": "učiti", "english": "learn"},
-      {"serbian": "voziti", "english": "drive"},
-      {"serbian": "zaboraviti", "english": "forget (pf.)"},
-      {"serbian": "čekati", "english": "wait"},
-      {"serbian": "čitati", "english": "read"},
-      {"serbian": "dati", "english": "give (pf.)"},
-      {"serbian": "gledati", "english": "watch"},
-      {"serbian": "igrati", "english": "play"},
-      {"serbian": "imati", "english": "have"},
-      {"serbian": "nemati", "english": "not have"},
-      {"serbian": "kuvati", "english": "cook"},
-      {"serbian": "morati", "english": "have to"},
-      {"serbian": "pevati", "english": "sing"},
-      {"serbian": "plivati", "english": "swim"},
-      {"serbian": "pričati", "english": "talk"},
-      {"serbian": "ručati", "english": "eat lunch"},
-      {"serbian": "sanjati", "english": "dream"},
-      {"serbian": "slušati", "english": "listen to"},
-      {"serbian": "spavati", "english": "sleep"},
-      {"serbian": "studirati", "english": "study"}
+      {
+        "serbian": "učiti",
+        "english": "to learn (gain knowledge)"
+      },
+      {
+        "serbian": "praviti",
+        "english": "to make (create/construct)"
+      },
+      {
+        "serbian": "voziti",
+        "english": "to drive (operate vehicle)"
+      },
+      {
+        "serbian": "zaboraviti",
+        "english": "to forget (pf.)"
+      },
+      {
+        "serbian": "mrzeti",
+        "english": "to hate"
+      },
+      {
+        "serbian": "čekati",
+        "english": "to wait (stay/pause)"
+      },
+      {
+        "serbian": "čitati",
+        "english": "to read (interpret text)"
+      },
+      {
+        "serbian": "dati",
+        "english": "to give (hand to someone) (pf.)"
+      },
+      {
+        "serbian": "igrati",
+        "english": "to play (recreation)"
+      },
+      {
+        "serbian": "imati",
+        "english": "to have (possess/own)"
+      },
+      {
+        "serbian": "nemati",
+        "english": "to not have"
+      },
+      {
+        "serbian": "kuvati",
+        "english": "to cook (prepare food)"
+      },
+      {
+        "serbian": "morati",
+        "english": "to have to (must)"
+      },
+      {
+        "serbian": "pevati",
+        "english": "to sing"
+      },
+      {
+        "serbian": "plivati",
+        "english": "to swim"
+      },
+      {
+        "serbian": "sanjati",
+        "english": "to dream"
+      },
+      {
+        "serbian": "spavati",
+        "english": "to sleep (rest)"
+      },
+      {
+        "serbian": "moći",
+        "english": "to can (be able to)"
+      },
+      {
+        "serbian": "nositi",
+        "english": "to wear"
+      },
+      {
+        "serbian": "studirati",
+        "english": "to study"
+      }
     ]
   },
   {
@@ -62,26 +181,86 @@
     "type": "words",
     "category": "verb",
     "cards": [
-      {"serbian": "sviđati se", "english": "like"},
-      {"serbian": "svirati", "english": "play instrument"},
-      {"serbian": "trenirati", "english": "train"},
-      {"serbian": "večerati", "english": "eat dinner"},
-      {"serbian": "znati", "english": "know"},
-      {"serbian": "lagati", "english": "lie"},
-      {"serbian": "pomagati", "english": "help"},
-      {"serbian": "pokazati", "english": "show (pf.)"},
-      {"serbian": "mahati", "english": "wave"},
-      {"serbian": "pisati", "english": "write"},
-      {"serbian": "plesati", "english": "dance"},
-      {"serbian": "plakati", "english": "cry"},
-      {"serbian": "skakati", "english": "jump"},
-      {"serbian": "vikati", "english": "shout"},
-      {"serbian": "davati", "english": "give"},
-      {"serbian": "predavati", "english": "teach"},
-      {"serbian": "prodavati", "english": "sell"},
-      {"serbian": "očekivati", "english": "expect"},
-      {"serbian": "doručkovati", "english": "eat breakfast"},
-      {"serbian": "kupovati", "english": "buy"}
+      {
+        "serbian": "sviđati se",
+        "english": "to like (enjoy)"
+      },
+      {
+        "serbian": "trenirati",
+        "english": "to train"
+      },
+      {
+        "serbian": "ručati",
+        "english": "to eat lunch (consume food)"
+      },
+      {
+        "serbian": "večerati",
+        "english": "to eat dinner (consume food)"
+      },
+      {
+        "serbian": "doručkovati",
+        "english": "to eat breakfast (consume food)"
+      },
+      {
+        "serbian": "znati",
+        "english": "to know (possess information)"
+      },
+      {
+        "serbian": "lagati",
+        "english": "to lie"
+      },
+      {
+        "serbian": "pomagati",
+        "english": "to help (assist)"
+      },
+      {
+        "serbian": "pokazati",
+        "english": "to show (display) (pf.)"
+      },
+      {
+        "serbian": "mahati",
+        "english": "to wave"
+      },
+      {
+        "serbian": "pisati",
+        "english": "to write (record text)"
+      },
+      {
+        "serbian": "plesati",
+        "english": "to dance"
+      },
+      {
+        "serbian": "plakati",
+        "english": "to cry"
+      },
+      {
+        "serbian": "skakati",
+        "english": "to jump"
+      },
+      {
+        "serbian": "vikati",
+        "english": "to shout"
+      },
+      {
+        "serbian": "davati",
+        "english": "to give (hand to someone)"
+      },
+      {
+        "serbian": "predavati",
+        "english": "to teach"
+      },
+      {
+        "serbian": "prodavati",
+        "english": "to sell (exchange for money)"
+      },
+      {
+        "serbian": "očekivati",
+        "english": "to expect (anticipate)"
+      },
+      {
+        "serbian": "kupovati",
+        "english": "to buy (purchase)"
+      }
     ]
   },
   {
@@ -90,19 +269,678 @@
     "type": "words",
     "category": "verb",
     "cards": [
-      {"serbian": "poštovati", "english": "respect"},
-      {"serbian": "putovati", "english": "travel"},
-      {"serbian": "radovati se", "english": "be happy"},
-      {"serbian": "doći", "english": "come (pf.)"},
-      {"serbian": "ići", "english": "go"},
-      {"serbian": "leći", "english": "lie down (pf.)"},
-      {"serbian": "peći", "english": "bake"},
-      {"serbian": "razumeti", "english": "understand"},
-      {"serbian": "smeti", "english": "be allowed to"},
-      {"serbian": "uspeti", "english": "succeed (pf.)"},
-      {"serbian": "biti", "english": "be"},
-      {"serbian": "hteti", "english": "want"},
-      {"serbian": "moći", "english": "can"}
+      {
+        "serbian": "poštovati",
+        "english": "to respect"
+      },
+      {
+        "serbian": "čistiti",
+        "english": "to clean"
+      },
+      {
+        "serbian": "putovati",
+        "english": "to travel"
+      },
+      {
+        "serbian": "radovati se",
+        "english": "to be happy"
+      },
+      {
+        "serbian": "doći",
+        "english": "to come (move toward) (pf.)"
+      },
+      {
+        "serbian": "ići",
+        "english": "to go (move to a place)"
+      },
+      {
+        "serbian": "leći",
+        "english": "to lie down (pf.)"
+      },
+      {
+        "serbian": "peći",
+        "english": "to bake"
+      },
+      {
+        "serbian": "razumeti",
+        "english": "to understand (comprehend)"
+      },
+      {
+        "serbian": "smeti",
+        "english": "to be allowed to"
+      },
+      {
+        "serbian": "uspeti",
+        "english": "to succeed (pf.)"
+      },
+      {
+        "serbian": "biti",
+        "english": "to be (exist/state)"
+      },
+      {
+        "serbian": "hteti",
+        "english": "to want (desire)"
+      },
+      {
+        "serbian": "stići",
+        "english": "to arrive (reach destination) (pf.)"
+      },
+      {
+        "serbian": "završiti",
+        "english": "to finish (complete) (pf.)"
+      },
+      {
+        "serbian": "odgovoriti",
+        "english": "to answer (respond) (pf.)"
+      },
+      {
+        "serbian": "prihvatiti",
+        "english": "to accept (take/agree) (pf.)"
+      },
+      {
+        "serbian": "podići",
+        "english": "to raise (lift up) (pf.)"
+      },
+      {
+        "serbian": "prodati",
+        "english": "to sell (exchange for money) (pf.)"
+      },
+      {
+        "serbian": "predložiti",
+        "english": "to suggest (propose idea) (pf.)"
+      }
+    ]
+  },
+  {
+    "id": "basic_verbs_05",
+    "labelKey": "groupBasicVerbs05",
+    "type": "words",
+    "category": "verb",
+    "cards": [
+      {
+        "serbian": "hodati",
+        "english": "to walk (step)"
+      },
+      {
+        "serbian": "leteti",
+        "english": "to fly"
+      },
+      {
+        "serbian": "stati",
+        "english": "to stop (cease) (pf.)"
+      },
+      {
+        "serbian": "pratiti",
+        "english": "to follow (go after)"
+      },
+      {
+        "serbian": "reći",
+        "english": "to say (speak words) (pf.)"
+      },
+      {
+        "serbian": "jesti",
+        "english": "to eat (consume food)"
+      },
+      {
+        "serbian": "piti",
+        "english": "to drink (consume liquid)"
+      },
+      {
+        "serbian": "ubiti",
+        "english": "to kill (cause death) (pf.)"
+      },
+      {
+        "serbian": "umreti",
+        "english": "to die (cease living) (pf.)"
+      },
+      {
+        "serbian": "smejati se",
+        "english": "to laugh (express mirth)"
+      },
+      {
+        "serbian": "nasmejati se",
+        "english": "to smile (facial expression) (pf.)"
+      },
+      {
+        "serbian": "čuti",
+        "english": "to hear (perceive sound)"
+      },
+      {
+        "serbian": "okusiti",
+        "english": "to taste (pf.)"
+      },
+      {
+        "serbian": "dodirnuti",
+        "english": "to touch (pf.)"
+      },
+      {
+        "serbian": "poljubiti",
+        "english": "to kiss (pf.)"
+      },
+      {
+        "serbian": "goreti",
+        "english": "to burn"
+      },
+      {
+        "serbian": "topiti se",
+        "english": "to melt"
+      },
+      {
+        "serbian": "kopati",
+        "english": "to dig"
+      },
+      {
+        "serbian": "eksplodirati",
+        "english": "to explode"
+      },
+      {
+        "serbian": "proći",
+        "english": "to pass (go by) (pf.)"
+      }
+    ]
+  },
+  {
+    "id": "basic_verbs_06",
+    "labelKey": "groupBasicVerbs06",
+    "type": "words",
+    "category": "verb",
+    "cards": [
+      {
+        "serbian": "seći",
+        "english": "to cut (divide with blade)"
+      },
+      {
+        "serbian": "boriti se",
+        "english": "to fight"
+      },
+      {
+        "serbian": "buditi se",
+        "english": "to wake up (stop sleeping)"
+      },
+      {
+        "serbian": "venčati se",
+        "english": "to marry"
+      },
+      {
+        "serbian": "moliti se",
+        "english": "to pray"
+      },
+      {
+        "serbian": "dobiti",
+        "english": "to win (be victorious) / to get (obtain/receive) (pf.)"
+      },
+      {
+        "serbian": "izgubiti",
+        "english": "to lose (misplace) (pf.)"
+      },
+      {
+        "serbian": "mešati",
+        "english": "to mix/stir"
+      },
+      {
+        "serbian": "saviti",
+        "english": "to bend (pf.)"
+      },
+      {
+        "serbian": "prati",
+        "english": "to wash"
+      },
+      {
+        "serbian": "otvoriti",
+        "english": "to open (unclose) (pf.)"
+      },
+      {
+        "serbian": "zatvoriti",
+        "english": "to close (pf.)"
+      },
+      {
+        "serbian": "zvati",
+        "english": "to call (telephone/shout)"
+      },
+      {
+        "serbian": "okrenuti",
+        "english": "to turn (rotate/change direction) (pf.)"
+      },
+      {
+        "serbian": "graditi",
+        "english": "to build (construct)"
+      },
+      {
+        "serbian": "rasti",
+        "english": "to grow (increase)"
+      },
+      {
+        "serbian": "crtati",
+        "english": "to draw"
+      },
+      {
+        "serbian": "hraniti",
+        "english": "to feed"
+      },
+      {
+        "serbian": "uhvatiti",
+        "english": "to catch (pf.)"
+      },
+      {
+        "serbian": "baciti",
+        "english": "to throw (pf.)"
+      }
+    ]
+  },
+  {
+    "id": "basic_verbs_07",
+    "labelKey": "groupBasicVerbs07",
+    "type": "words",
+    "category": "verb",
+    "cards": [
+      {
+        "serbian": "naći",
+        "english": "to find (locate) (pf.)"
+      },
+      {
+        "serbian": "pasti",
+        "english": "to fall (drop down) (pf.)"
+      },
+      {
+        "serbian": "gurati",
+        "english": "to push (press away)"
+      },
+      {
+        "serbian": "vući",
+        "english": "to pull (tug toward)"
+      },
+      {
+        "serbian": "nositi",
+        "english": "to carry (hold and move)"
+      },
+      {
+        "serbian": "slomiti",
+        "english": "to break (shatter/stop working) (pf.)"
+      },
+      {
+        "serbian": "obesiti",
+        "english": "to hang (pf.)"
+      },
+      {
+        "serbian": "tresti",
+        "english": "to shake"
+      },
+      {
+        "serbian": "potpisati",
+        "english": "to sign (pf.)"
+      },
+      {
+        "serbian": "udariti",
+        "english": "to beat (pf.)"
+      },
+      {
+        "serbian": "svirati",
+        "english": "to play instrument"
+      },
+      {
+        "serbian": "podići",
+        "english": "to lift (pf.)"
+      },
+      {
+        "serbian": "mirisati",
+        "english": "to smell"
+      },
+      {
+        "serbian": "pucati",
+        "english": "to shoot (a gun)"
+      },
+      {
+        "serbian": "izabrati",
+        "english": "to choose (select) (pf.)"
+      },
+      {
+        "serbian": "proveriti",
+        "english": "to check (verify) (pf.)"
+      },
+      {
+        "serbian": "ispitati",
+        "english": "to check out (examine/leave) (pf.)"
+      },
+      {
+        "serbian": "podržati",
+        "english": "to support (help/hold up) (pf.)"
+      },
+      {
+        "serbian": "brinuti se",
+        "english": "to care (feel concern)"
+      },
+      {
+        "serbian": "smešiti se",
+        "english": "to smile (facial expression)"
+      }
+    ]
+  },
+  {
+    "id": "basic_verbs_08",
+    "labelKey": "groupBasicVerbs08",
+    "type": "words",
+    "category": "verb",
+    "cards": [
+      {
+        "serbian": "uraditi",
+        "english": "to do (perform an action) (pf.)"
+      },
+      {
+        "serbian": "dobijati",
+        "english": "to get (obtain/receive)"
+      },
+      {
+        "serbian": "tražiti",
+        "english": "to look for (search for something)"
+      },
+      {
+        "serbian": "pogledati",
+        "english": "to look at (view/examine) (pf.)"
+      },
+      {
+        "serbian": "ustati",
+        "english": "to get up (rise from bed) (pf.)"
+      },
+      {
+        "serbian": "uzeti",
+        "english": "to take (move something/someone) (pf.)"
+      },
+      {
+        "serbian": "saznati",
+        "english": "to find out (discover information) (pf.)"
+      },
+      {
+        "serbian": "odustati",
+        "english": "to give up (quit/stop trying) (pf.)"
+      },
+      {
+        "serbian": "reći",
+        "english": "to tell (inform) (pf.)"
+      },
+      {
+        "serbian": "nazvati",
+        "english": "to call back (return a call) (pf.)"
+      },
+      {
+        "serbian": "pokušati",
+        "english": "to try (attempt) (pf.)"
+      },
+      {
+        "serbian": "probati",
+        "english": "to try on (test clothes) (pf.)"
+      },
+      {
+        "serbian": "pitati",
+        "english": "to ask (request info)"
+      },
+      {
+        "serbian": "trebati",
+        "english": "to need (require)"
+      },
+      {
+        "serbian": "osećati",
+        "english": "to feel (experience emotion/touch)"
+      },
+      {
+        "serbian": "postati",
+        "english": "to become (change state) (pf.)"
+      },
+      {
+        "serbian": "otići",
+        "english": "to leave (go away) (pf.)"
+      },
+      {
+        "serbian": "staviti",
+        "english": "to put (place somewhere) (pf.)"
+      },
+      {
+        "serbian": "obući",
+        "english": "to put on (dress yourself) (pf.)"
+      },
+      {
+        "serbian": "skinuti",
+        "english": "to take off (remove clothes/launch) (pf.)"
+      }
+    ]
+  },
+  {
+    "id": "basic_verbs_09",
+    "labelKey": "groupBasicVerbs09",
+    "type": "words",
+    "category": "verb",
+    "cards": [
+      {
+        "serbian": "značiti",
+        "english": "to mean (signify)"
+      },
+      {
+        "serbian": "zadržati",
+        "english": "to keep (continue/retain) (pf.)"
+      },
+      {
+        "serbian": "dopustiti",
+        "english": "to let (allow) (pf.)"
+      },
+      {
+        "serbian": "početi",
+        "english": "to begin (start) (pf.)"
+      },
+      {
+        "serbian": "činiti se",
+        "english": "to seem (appear to be)"
+      },
+      {
+        "serbian": "uključiti",
+        "english": "to turn on (operate power) (pf.)"
+      },
+      {
+        "serbian": "isključiti",
+        "english": "to turn off (operate power) (pf.)"
+      },
+      {
+        "serbian": "početi",
+        "english": "to start (begin) (pf.)"
+      },
+      {
+        "serbian": "kretati se",
+        "english": "to move (change position)"
+      },
+      {
+        "serbian": "useliti se",
+        "english": "to move in (change homes) (pf.)"
+      },
+      {
+        "serbian": "iseliti se",
+        "english": "to move out (change homes) (pf.)"
+      },
+      {
+        "serbian": "verovati",
+        "english": "to believe (trust)"
+      },
+      {
+        "serbian": "doneti",
+        "english": "to bring (carry to) (pf.)"
+      },
+      {
+        "serbian": "pomenuti",
+        "english": "to bring up (mention a topic) (pf.)"
+      },
+      {
+        "serbian": "desiti se",
+        "english": "to happen (occur) (pf.)"
+      },
+      {
+        "serbian": "sesti",
+        "english": "to sit down (take a seat) (pf.)"
+      },
+      {
+        "serbian": "ustati",
+        "english": "to stand up (rise to feet) (pf.)"
+      },
+      {
+        "serbian": "platiti za",
+        "english": "to pay for (purchase/suffer) (pf.)"
+      },
+      {
+        "serbian": "sresti",
+        "english": "to meet (encounter) (pf.)"
+      },
+      {
+        "serbian": "sastati se",
+        "english": "to meet up (social gathering) (pf.)"
+      }
+    ]
+  },
+  {
+    "id": "basic_verbs_10",
+    "labelKey": "groupBasicVerbs10",
+    "type": "words",
+    "category": "verb",
+    "cards": [
+      {
+        "serbian": "uključiti",
+        "english": "to include (add in) (pf.)"
+      },
+      {
+        "serbian": "nastaviti",
+        "english": "to continue (keep going) (pf.)"
+      },
+      {
+        "serbian": "postaviti",
+        "english": "to set (place/arrange) (pf.)"
+      },
+      {
+        "serbian": "organizovati",
+        "english": "to set up (organize/arrange)"
+      },
+      {
+        "serbian": "promeniti",
+        "english": "to change (alter) (pf.)"
+      },
+      {
+        "serbian": "voditi",
+        "english": "to lead (guide)"
+      },
+      {
+        "serbian": "paziti",
+        "english": "to watch out (be careful)"
+      },
+      {
+        "serbian": "kreirati",
+        "english": "to create (invent) (pf.)"
+      },
+      {
+        "serbian": "dopustiti",
+        "english": "to allow (permit) (pf.)"
+      },
+      {
+        "serbian": "dodati",
+        "english": "to add (join together) (pf.)"
+      },
+      {
+        "serbian": "trošiti",
+        "english": "to spend (use money/time)"
+      },
+      {
+        "serbian": "odrastati",
+        "english": "to grow up (mature)"
+      },
+      {
+        "serbian": "ponuditi",
+        "english": "to offer (propose) (pf.)"
+      },
+      {
+        "serbian": "setiti se",
+        "english": "to remember (recall) (pf.)"
+      },
+      {
+        "serbian": "razmotriti",
+        "english": "to consider (think about) (pf.)"
+      },
+      {
+        "serbian": "pojaviti se",
+        "english": "to appear (become visible) (pf.)"
+      },
+      {
+        "serbian": "čekati na",
+        "english": "to wait for (anticipate)"
+      },
+      {
+        "serbian": "služiti",
+        "english": "to serve (provide service)"
+      },
+      {
+        "serbian": "poslati",
+        "english": "to send (dispatch) (pf.)"
+      },
+      {
+        "serbian": "ostati",
+        "english": "to stay (remain) / to remain (stay behind) (pf.)"
+      }
+    ]
+  },
+  {
+    "id": "basic_verbs_11",
+    "labelKey": "groupBasicVerbs11",
+    "type": "words",
+    "category": "verb",
+    "cards": [
+      {
+        "serbian": "doseći",
+        "english": "to reach (arrive at/touch) (pf.)"
+      },
+      {
+        "serbian": "zahtevati",
+        "english": "to require (need)"
+      },
+      {
+        "serbian": "prijaviti",
+        "english": "to report (state facts) (pf.)"
+      },
+      {
+        "serbian": "odlučiti",
+        "english": "to decide (make a choice) (pf.)"
+      },
+      {
+        "serbian": "slomiti se",
+        "english": "to break down (fail mechanically) (pf.)"
+      },
+      {
+        "serbian": "složiti se",
+        "english": "to agree (concur) (pf.)"
+      },
+      {
+        "serbian": "objasniti",
+        "english": "to explain (clarify) (pf.)"
+      },
+      {
+        "serbian": "nadati se",
+        "english": "to hope (desire/expect)"
+      },
+      {
+        "serbian": "razviti",
+        "english": "to develop (evolve/build) (pf.)"
+      },
+      {
+        "serbian": "nastaviti",
+        "english": "to carry on (continue) (pf.)"
+      },
+      {
+        "serbian": "plašiti se",
+        "english": "to fear (be afraid)"
+      },
+      {
+        "serbian": "zahvaliti",
+        "english": "to thank (express gratitude) (pf.)"
+      },
+      {
+        "serbian": "primiti",
+        "english": "to receive (get) (pf.)"
+      },
+      {
+        "serbian": "pridružiti se",
+        "english": "to join (unite) (pf.)"
+      }
     ]
   },
   {
@@ -111,28 +949,94 @@
     "type": "words",
     "category": "other",
     "cards": [
-      {"serbian": "sada", "english": "now"},
-      {"serbian": "tada", "english": "then (calendar)"},
-      {"serbian": "onda", "english": "then (event)"},
-      {"serbian": "danas", "english": "today"},
-      {"serbian": "večeras", "english": "tonight"},
-      {"serbian": "juče", "english": "yesterday"},
-      {"serbian": "sutra", "english": "tomorrow"},
-      {"serbian": "uskoro", "english": "soon"},
-      {"serbian": "kasnije", "english": "later"},
-      {"serbian": "ranije", "english": "earlier / previously"},
-      {"serbian": "nedavno", "english": "recently"},
-      {"serbian": "uvek", "english": "always"},
-      {"serbian": "često", "english": "often"},
-      {"serbian": "obično", "english": "usually"},
-      {"serbian": "ponekad", "english": "sometimes"},
-      {"serbian": "retko", "english": "rarely / seldom"},
-      {"serbian": "nikada", "english": "never"},
-      {"serbian": "već", "english": "already"},
-      {"serbian": "još", "english": "yet / still"},
-      {"serbian": "odmah", "english": "immediately"},
-      {"serbian": "pre", "english": "before"},
-      {"serbian": "posle", "english": "after"}
+      {
+        "serbian": "sada",
+        "english": "now"
+      },
+      {
+        "serbian": "tada",
+        "english": "then (calendar)"
+      },
+      {
+        "serbian": "onda",
+        "english": "then (event)"
+      },
+      {
+        "serbian": "danas",
+        "english": "today"
+      },
+      {
+        "serbian": "večeras",
+        "english": "tonight"
+      },
+      {
+        "serbian": "juče",
+        "english": "yesterday"
+      },
+      {
+        "serbian": "sutra",
+        "english": "tomorrow"
+      },
+      {
+        "serbian": "uskoro",
+        "english": "soon"
+      },
+      {
+        "serbian": "kasnije",
+        "english": "later"
+      },
+      {
+        "serbian": "ranije",
+        "english": "earlier / previously"
+      },
+      {
+        "serbian": "nedavno",
+        "english": "recently"
+      },
+      {
+        "serbian": "uvek",
+        "english": "always"
+      },
+      {
+        "serbian": "često",
+        "english": "often"
+      },
+      {
+        "serbian": "obično",
+        "english": "usually"
+      },
+      {
+        "serbian": "ponekad",
+        "english": "sometimes"
+      },
+      {
+        "serbian": "retko",
+        "english": "rarely / seldom"
+      },
+      {
+        "serbian": "nikada",
+        "english": "never"
+      },
+      {
+        "serbian": "već",
+        "english": "already"
+      },
+      {
+        "serbian": "još",
+        "english": "yet / still"
+      },
+      {
+        "serbian": "odmah",
+        "english": "immediately"
+      },
+      {
+        "serbian": "pre",
+        "english": "before"
+      },
+      {
+        "serbian": "posle",
+        "english": "after"
+      }
     ]
   },
   {
@@ -141,16 +1045,46 @@
     "type": "words",
     "category": "other",
     "cards": [
-      {"serbian": "ispod", "english": "under / below"},
-      {"serbian": "iznad", "english": "over / above"},
-      {"serbian": "iza", "english": "behind"},
-      {"serbian": "ispred", "english": "in front of"},
-      {"serbian": "između", "english": "between"},
-      {"serbian": "pored", "english": "beside / next to"},
-      {"serbian": "u", "english": "in"},
-      {"serbian": "unutra", "english": "inside"},
-      {"serbian": "na", "english": "on"},
-      {"serbian": "blizu", "english": "near / close to"}
+      {
+        "serbian": "ispod",
+        "english": "under / below"
+      },
+      {
+        "serbian": "iznad",
+        "english": "over / above"
+      },
+      {
+        "serbian": "iza",
+        "english": "behind"
+      },
+      {
+        "serbian": "ispred",
+        "english": "in front of"
+      },
+      {
+        "serbian": "između",
+        "english": "between"
+      },
+      {
+        "serbian": "pored",
+        "english": "beside / next to"
+      },
+      {
+        "serbian": "u",
+        "english": "in"
+      },
+      {
+        "serbian": "unutra",
+        "english": "inside"
+      },
+      {
+        "serbian": "na",
+        "english": "on"
+      },
+      {
+        "serbian": "blizu",
+        "english": "near / close to"
+      }
     ]
   },
   {
@@ -159,16 +1093,46 @@
     "type": "words",
     "category": "other",
     "cards": [
-      {"serbian": "ovaj", "english": "this (right here)"},
-      {"serbian": "taj", "english": "that (near you)"},
-      {"serbian": "onaj", "english": "that (over there/distant)"},
-      {"serbian": "ovakav", "english": "such / like this"},
-      {"serbian": "takav", "english": "such / like that"},
-      {"serbian": "onakav", "english": "such / like that (distant)"},
-      {"serbian": "ovoliki", "english": "this much / this big"},
-      {"serbian": "toliki", "english": "that much / that big"},
-      {"serbian": "ovoliko", "english": "this many / this much"},
-      {"serbian": "toliko", "english": "that many / that much"}
+      {
+        "serbian": "ovaj",
+        "english": "this (right here)"
+      },
+      {
+        "serbian": "taj",
+        "english": "that (near you)"
+      },
+      {
+        "serbian": "onaj",
+        "english": "that (over there/distant)"
+      },
+      {
+        "serbian": "ovakav",
+        "english": "such / like this"
+      },
+      {
+        "serbian": "takav",
+        "english": "such / like that"
+      },
+      {
+        "serbian": "onakav",
+        "english": "such / like that (distant)"
+      },
+      {
+        "serbian": "ovoliki",
+        "english": "this much / this big"
+      },
+      {
+        "serbian": "toliki",
+        "english": "that much / that big"
+      },
+      {
+        "serbian": "ovoliko",
+        "english": "this many / this much"
+      },
+      {
+        "serbian": "toliko",
+        "english": "that many / that much"
+      }
     ]
   },
   {
@@ -177,16 +1141,46 @@
     "type": "words",
     "category": "other",
     "cards": [
-      {"serbian": "levo", "english": "left"},
-      {"serbian": "desno", "english": "right"},
-      {"serbian": "pravo", "english": "straight"},
-      {"serbian": "napred", "english": "forward"},
-      {"serbian": "nazad", "english": "backward"},
-      {"serbian": "gore", "english": "up / upwards"},
-      {"serbian": "dole", "english": "down / downwards"},
-      {"serbian": "preko", "english": "across / opposite"},
-      {"serbian": "sa strane", "english": "sideways"},
-      {"serbian": "svuda", "english": "everywhere"}
+      {
+        "serbian": "levo",
+        "english": "left"
+      },
+      {
+        "serbian": "desno",
+        "english": "right"
+      },
+      {
+        "serbian": "pravo",
+        "english": "straight"
+      },
+      {
+        "serbian": "napred",
+        "english": "forward"
+      },
+      {
+        "serbian": "nazad",
+        "english": "backward"
+      },
+      {
+        "serbian": "gore",
+        "english": "up / upwards"
+      },
+      {
+        "serbian": "dole",
+        "english": "down / downwards"
+      },
+      {
+        "serbian": "preko",
+        "english": "across / opposite"
+      },
+      {
+        "serbian": "sa strane",
+        "english": "sideways"
+      },
+      {
+        "serbian": "svuda",
+        "english": "everywhere"
+      }
     ]
   },
   {
@@ -195,26 +1189,86 @@
     "type": "words",
     "category": "other",
     "cards": [
-      {"serbian": "mnogo", "english": "much / many"},
-      {"serbian": "puno", "english": "a lot / full"},
-      {"serbian": "veoma", "english": "very (intense)"},
-      {"serbian": "vrlo", "english": "very (formal)"},
-      {"serbian": "previše", "english": "too (excessive)"},
-      {"serbian": "dovoljno", "english": "enough"},
-      {"serbian": "malo", "english": "little / bit"},
-      {"serbian": "skoro", "english": "almost"},
-      {"serbian": "više", "english": "more"},
-      {"serbian": "manje", "english": "less"},
-      {"serbian": "sasvim", "english": "completely / quite"},
-      {"serbian": "potpuno", "english": "totally / fully"},
-      {"serbian": "baš", "english": "exactly / really (the ultimate emphasis word)"},
-      {"serbian": "delimično", "english": "partially"},
-      {"serbian": "uglavnom", "english": "mostly"},
-      {"serbian": "samo", "english": "only"},
-      {"serbian": "jedva", "english": "hardly / barely"},
-      {"serbian": "dosta", "english": "sufficiently"},
-      {"serbian": "strašno", "english": "exceedingly / terribly (used like \"terribly good\" or \"terribly fast\")"},
-      {"serbian": "barem", "english": "at least"}
+      {
+        "serbian": "mnogo",
+        "english": "much / many"
+      },
+      {
+        "serbian": "puno",
+        "english": "a lot / full"
+      },
+      {
+        "serbian": "veoma",
+        "english": "very (intense)"
+      },
+      {
+        "serbian": "vrlo",
+        "english": "very (formal)"
+      },
+      {
+        "serbian": "previše",
+        "english": "too (excessive)"
+      },
+      {
+        "serbian": "dovoljno",
+        "english": "enough"
+      },
+      {
+        "serbian": "malo",
+        "english": "little / bit"
+      },
+      {
+        "serbian": "skoro",
+        "english": "almost"
+      },
+      {
+        "serbian": "više",
+        "english": "more"
+      },
+      {
+        "serbian": "manje",
+        "english": "less"
+      },
+      {
+        "serbian": "sasvim",
+        "english": "completely / quite"
+      },
+      {
+        "serbian": "potpuno",
+        "english": "totally / fully"
+      },
+      {
+        "serbian": "baš",
+        "english": "exactly / really (the ultimate emphasis word)"
+      },
+      {
+        "serbian": "delimično",
+        "english": "partially"
+      },
+      {
+        "serbian": "uglavnom",
+        "english": "mostly"
+      },
+      {
+        "serbian": "samo",
+        "english": "only"
+      },
+      {
+        "serbian": "jedva",
+        "english": "hardly / barely"
+      },
+      {
+        "serbian": "dosta",
+        "english": "sufficiently"
+      },
+      {
+        "serbian": "strašno",
+        "english": "exceedingly / terribly (used like \"terribly good\" or \"terribly fast\")"
+      },
+      {
+        "serbian": "barem",
+        "english": "at least"
+      }
     ]
   },
   {
@@ -223,22 +1277,86 @@
     "type": "words",
     "category": "noun",
     "cards": [
-      {"serbian": "osoba", "english": "person", "gender": "f"},
-      {"serbian": "čovek", "english": "man", "gender": "m"},
-      {"serbian": "žena", "english": "woman", "gender": "f"},
-      {"serbian": "dete", "english": "child", "gender": "n"},
-      {"serbian": "dečak", "english": "boy", "gender": "m"},
-      {"serbian": "devojka", "english": "girl", "gender": "f"},
-      {"serbian": "prijatelj", "english": "friend", "gender": "m"},
-      {"serbian": "porodica", "english": "family", "gender": "f"},
-      {"serbian": "otac", "english": "father", "gender": "m"},
-      {"serbian": "majka", "english": "mother", "gender": "f"},
-      {"serbian": "brat", "english": "brother", "gender": "m"},
-      {"serbian": "sestra", "english": "sister", "gender": "f"},
-      {"serbian": "muž", "english": "husband", "gender": "m"},
-      {"serbian": "žena", "english": "wife", "gender": "f"},
-      {"serbian": "doktor", "english": "doctor", "gender": "m"},
-      {"serbian": "policija", "english": "police", "gender": "f"}
+      {
+        "serbian": "osoba",
+        "english": "person",
+        "gender": "f"
+      },
+      {
+        "serbian": "čovek",
+        "english": "man",
+        "gender": "m"
+      },
+      {
+        "serbian": "žena",
+        "english": "woman",
+        "gender": "f"
+      },
+      {
+        "serbian": "dete",
+        "english": "child",
+        "gender": "n"
+      },
+      {
+        "serbian": "dečak",
+        "english": "boy",
+        "gender": "m"
+      },
+      {
+        "serbian": "devojka",
+        "english": "girl",
+        "gender": "f"
+      },
+      {
+        "serbian": "prijatelj",
+        "english": "friend",
+        "gender": "m"
+      },
+      {
+        "serbian": "porodica",
+        "english": "family",
+        "gender": "f"
+      },
+      {
+        "serbian": "otac",
+        "english": "father",
+        "gender": "m"
+      },
+      {
+        "serbian": "majka",
+        "english": "mother",
+        "gender": "f"
+      },
+      {
+        "serbian": "brat",
+        "english": "brother",
+        "gender": "m"
+      },
+      {
+        "serbian": "sestra",
+        "english": "sister",
+        "gender": "f"
+      },
+      {
+        "serbian": "muž",
+        "english": "husband",
+        "gender": "m"
+      },
+      {
+        "serbian": "žena",
+        "english": "wife",
+        "gender": "f"
+      },
+      {
+        "serbian": "doktor",
+        "english": "doctor",
+        "gender": "m"
+      },
+      {
+        "serbian": "policija",
+        "english": "police",
+        "gender": "f"
+      }
     ]
   },
   {
@@ -247,20 +1365,76 @@
     "type": "words",
     "category": "noun",
     "cards": [
-      {"serbian": "kuća", "english": "home", "gender": "f"},
-      {"serbian": "grad", "english": "city", "gender": "m"},
-      {"serbian": "ulica", "english": "street", "gender": "f"},
-      {"serbian": "škola", "english": "school", "gender": "f"},
-      {"serbian": "prodavnica", "english": "store", "gender": "f"},
-      {"serbian": "bolnica", "english": "hospital", "gender": "f"},
-      {"serbian": "park", "english": "park", "gender": "m"},
-      {"serbian": "zemlja", "english": "country", "gender": "f"},
-      {"serbian": "zemljište", "english": "land", "gender": "n"},
-      {"serbian": "svet", "english": "world", "gender": "m"},
-      {"serbian": "kancelarija", "english": "office", "gender": "f"},
-      {"serbian": "soba", "english": "room", "gender": "f"},
-      {"serbian": "stanica", "english": "station", "gender": "f"},
-      {"serbian": "aerodrom", "english": "airport", "gender": "m"}
+      {
+        "serbian": "kuća",
+        "english": "home",
+        "gender": "f"
+      },
+      {
+        "serbian": "grad",
+        "english": "city",
+        "gender": "m"
+      },
+      {
+        "serbian": "ulica",
+        "english": "street",
+        "gender": "f"
+      },
+      {
+        "serbian": "škola",
+        "english": "school",
+        "gender": "f"
+      },
+      {
+        "serbian": "prodavnica",
+        "english": "store",
+        "gender": "f"
+      },
+      {
+        "serbian": "bolnica",
+        "english": "hospital",
+        "gender": "f"
+      },
+      {
+        "serbian": "park",
+        "english": "park",
+        "gender": "m"
+      },
+      {
+        "serbian": "zemlja",
+        "english": "country",
+        "gender": "f"
+      },
+      {
+        "serbian": "zemljište",
+        "english": "land",
+        "gender": "n"
+      },
+      {
+        "serbian": "svet",
+        "english": "world",
+        "gender": "m"
+      },
+      {
+        "serbian": "kancelarija",
+        "english": "office",
+        "gender": "f"
+      },
+      {
+        "serbian": "soba",
+        "english": "room",
+        "gender": "f"
+      },
+      {
+        "serbian": "stanica",
+        "english": "station",
+        "gender": "f"
+      },
+      {
+        "serbian": "aerodrom",
+        "english": "airport",
+        "gender": "m"
+      }
     ]
   },
   {
@@ -269,25 +1443,101 @@
     "type": "words",
     "category": "noun",
     "cards": [
-      {"serbian": "stvar", "english": "thing", "gender": "f"},
-      {"serbian": "auto", "english": "car", "gender": "n"},
-      {"serbian": "autobus", "english": "bus", "gender": "m"},
-      {"serbian": "knjiga", "english": "book", "gender": "f"},
-      {"serbian": "novac", "english": "money", "gender": "m"},
-      {"serbian": "pare", "english": "money (slang, closer to cash)", "gender": "f"},
-      {"serbian": "voda", "english": "water", "gender": "f"},
-      {"serbian": "hrana", "english": "food", "gender": "f"},
-      {"serbian": "hleb", "english": "bread", "gender": "m"},
-      {"serbian": "kafa", "english": "coffee", "gender": "f"},
-      {"serbian": "telefon", "english": "phone", "gender": "m"},
-      {"serbian": "računar", "english": "computer", "gender": "m"},
-      {"serbian": "krevet", "english": "bed", "gender": "m"},
-      {"serbian": "vrata", "english": "door", "gender": "n"},
-      {"serbian": "prozor", "english": "window", "gender": "m"},
-      {"serbian": "sto", "english": "table", "gender": "m"},
-      {"serbian": "stolica", "english": "chair", "gender": "f"},
-      {"serbian": "torba", "english": "bag", "gender": "f"},
-      {"serbian": "odeća", "english": "clothing", "gender": "f"}
+      {
+        "serbian": "stvar",
+        "english": "thing",
+        "gender": "f"
+      },
+      {
+        "serbian": "auto",
+        "english": "car",
+        "gender": "n"
+      },
+      {
+        "serbian": "autobus",
+        "english": "bus",
+        "gender": "m"
+      },
+      {
+        "serbian": "knjiga",
+        "english": "book",
+        "gender": "f"
+      },
+      {
+        "serbian": "novac",
+        "english": "money",
+        "gender": "m"
+      },
+      {
+        "serbian": "pare",
+        "english": "money (slang, closer to cash)",
+        "gender": "f"
+      },
+      {
+        "serbian": "voda",
+        "english": "water",
+        "gender": "f"
+      },
+      {
+        "serbian": "hrana",
+        "english": "food",
+        "gender": "f"
+      },
+      {
+        "serbian": "hleb",
+        "english": "bread",
+        "gender": "m"
+      },
+      {
+        "serbian": "kafa",
+        "english": "coffee",
+        "gender": "f"
+      },
+      {
+        "serbian": "telefon",
+        "english": "phone",
+        "gender": "m"
+      },
+      {
+        "serbian": "računar",
+        "english": "computer",
+        "gender": "m"
+      },
+      {
+        "serbian": "krevet",
+        "english": "bed",
+        "gender": "m"
+      },
+      {
+        "serbian": "vrata",
+        "english": "door",
+        "gender": "n"
+      },
+      {
+        "serbian": "prozor",
+        "english": "window",
+        "gender": "m"
+      },
+      {
+        "serbian": "sto",
+        "english": "table",
+        "gender": "m"
+      },
+      {
+        "serbian": "stolica",
+        "english": "chair",
+        "gender": "f"
+      },
+      {
+        "serbian": "torba",
+        "english": "bag",
+        "gender": "f"
+      },
+      {
+        "serbian": "odeća",
+        "english": "clothing",
+        "gender": "f"
+      }
     ]
   },
   {
@@ -296,23 +1546,91 @@
     "type": "words",
     "category": "noun",
     "cards": [
-      {"serbian": "vreme", "english": "time", "gender": "n"},
-      {"serbian": "godina", "english": "year", "gender": "f"},
-      {"serbian": "mesec", "english": "month", "gender": "m"},
-      {"serbian": "nedelja", "english": "week", "gender": "f"},
-      {"serbian": "dan", "english": "day", "gender": "m"},
-      {"serbian": "noć", "english": "night", "gender": "f"},
-      {"serbian": "jutro", "english": "morning", "gender": "n"},
-      {"serbian": "veče", "english": "evening", "gender": "n"},
-      {"serbian": "sunce", "english": "sun", "gender": "n"},
-      {"serbian": "mesec", "english": "moon", "gender": "m"},
-      {"serbian": "nebo", "english": "sky", "gender": "n"},
-      {"serbian": "kiša", "english": "rain", "gender": "f"},
-      {"serbian": "drvo", "english": "tree", "gender": "n"},
-      {"serbian": "cvet", "english": "flower", "gender": "m"},
-      {"serbian": "životinja", "english": "animal", "gender": "f"},
-      {"serbian": "pas", "english": "dog", "gender": "m"},
-      {"serbian": "mačka", "english": "cat", "gender": "f"}
+      {
+        "serbian": "vreme",
+        "english": "time",
+        "gender": "n"
+      },
+      {
+        "serbian": "godina",
+        "english": "year",
+        "gender": "f"
+      },
+      {
+        "serbian": "mesec",
+        "english": "month",
+        "gender": "m"
+      },
+      {
+        "serbian": "nedelja",
+        "english": "week",
+        "gender": "f"
+      },
+      {
+        "serbian": "dan",
+        "english": "day",
+        "gender": "m"
+      },
+      {
+        "serbian": "noć",
+        "english": "night",
+        "gender": "f"
+      },
+      {
+        "serbian": "jutro",
+        "english": "morning",
+        "gender": "n"
+      },
+      {
+        "serbian": "veče",
+        "english": "evening",
+        "gender": "n"
+      },
+      {
+        "serbian": "sunce",
+        "english": "sun",
+        "gender": "n"
+      },
+      {
+        "serbian": "mesec",
+        "english": "moon",
+        "gender": "m"
+      },
+      {
+        "serbian": "nebo",
+        "english": "sky",
+        "gender": "n"
+      },
+      {
+        "serbian": "kiša",
+        "english": "rain",
+        "gender": "f"
+      },
+      {
+        "serbian": "drvo",
+        "english": "tree",
+        "gender": "n"
+      },
+      {
+        "serbian": "cvet",
+        "english": "flower",
+        "gender": "m"
+      },
+      {
+        "serbian": "životinja",
+        "english": "animal",
+        "gender": "f"
+      },
+      {
+        "serbian": "pas",
+        "english": "dog",
+        "gender": "m"
+      },
+      {
+        "serbian": "mačka",
+        "english": "cat",
+        "gender": "f"
+      }
     ]
   },
   {
@@ -321,19 +1639,71 @@
     "type": "words",
     "category": "noun",
     "cards": [
-      {"serbian": "život", "english": "life", "gender": "m"},
-      {"serbian": "ljubav", "english": "love", "gender": "f"},
-      {"serbian": "posao", "english": "work", "gender": "m"},
-      {"serbian": "rad", "english": "job", "gender": "m"},
-      {"serbian": "problem", "english": "problem", "gender": "m"},
-      {"serbian": "ideja", "english": "idea", "gender": "f"},
-      {"serbian": "reč", "english": "word", "gender": "f"},
-      {"serbian": "broj", "english": "number", "gender": "m"},
-      {"serbian": "ime", "english": "name", "gender": "n"},
-      {"serbian": "deo", "english": "part", "gender": "m"},
-      {"serbian": "pitanje", "english": "question", "gender": "n"},
-      {"serbian": "odgovor", "english": "answer", "gender": "m"},
-      {"serbian": "razlog", "english": "reason", "gender": "m"}
+      {
+        "serbian": "život",
+        "english": "life",
+        "gender": "m"
+      },
+      {
+        "serbian": "ljubav",
+        "english": "love",
+        "gender": "f"
+      },
+      {
+        "serbian": "posao",
+        "english": "work",
+        "gender": "m"
+      },
+      {
+        "serbian": "rad",
+        "english": "job",
+        "gender": "m"
+      },
+      {
+        "serbian": "problem",
+        "english": "problem",
+        "gender": "m"
+      },
+      {
+        "serbian": "ideja",
+        "english": "idea",
+        "gender": "f"
+      },
+      {
+        "serbian": "reč",
+        "english": "word",
+        "gender": "f"
+      },
+      {
+        "serbian": "broj",
+        "english": "number",
+        "gender": "m"
+      },
+      {
+        "serbian": "ime",
+        "english": "name",
+        "gender": "n"
+      },
+      {
+        "serbian": "deo",
+        "english": "part",
+        "gender": "m"
+      },
+      {
+        "serbian": "pitanje",
+        "english": "question",
+        "gender": "n"
+      },
+      {
+        "serbian": "odgovor",
+        "english": "answer",
+        "gender": "m"
+      },
+      {
+        "serbian": "razlog",
+        "english": "reason",
+        "gender": "m"
+      }
     ]
   },
   {
@@ -342,22 +1712,102 @@
     "type": "words",
     "category": "adjective",
     "cards": [
-      {"serbian": "dobar", "english": "good", "feminine": "dobra", "neuter": "dobro"},
-      {"serbian": "loš", "english": "bad", "feminine": "loša", "neuter": "loše"},
-      {"serbian": "lep", "english": "beautiful / nice", "feminine": "lepa", "neuter": "lepo"},
-      {"serbian": "ružan", "english": "ugly", "feminine": "ružna", "neuter": "ružno"},
-      {"serbian": "veliki", "english": "big / large", "feminine": "velika", "neuter": "veliko"},
-      {"serbian": "mali", "english": "small / little", "feminine": "mala", "neuter": "malo"},
-      {"serbian": "nov", "english": "new", "feminine": "nova", "neuter": "novo"},
-      {"serbian": "star", "english": "old", "feminine": "stara", "neuter": "staro"},
-      {"serbian": "jeftin", "english": "cheap", "feminine": "jeftina", "neuter": "jeftino"},
-      {"serbian": "skup", "english": "expensive", "feminine": "skupa", "neuter": "skupo"},
-      {"serbian": "lak", "english": "easy", "feminine": "laka", "neuter": "lako"},
-      {"serbian": "težak", "english": "difficult / heavy", "feminine": "teška", "neuter": "teško"},
-      {"serbian": "tačan", "english": "correct / right", "feminine": "tačna", "neuter": "tačno"},
-      {"serbian": "pogrešan", "english": "wrong / incorrect", "feminine": "pogrešna", "neuter": "pogrešno"},
-      {"serbian": "čist", "english": "clean", "feminine": "čista", "neuter": "čisto"},
-      {"serbian": "prljav", "english": "dirty", "feminine": "prljava", "neuter": "prljavo"}
+      {
+        "serbian": "dobar",
+        "english": "good",
+        "feminine": "dobra",
+        "neuter": "dobro"
+      },
+      {
+        "serbian": "loš",
+        "english": "bad",
+        "feminine": "loša",
+        "neuter": "loše"
+      },
+      {
+        "serbian": "lep",
+        "english": "beautiful / nice",
+        "feminine": "lepa",
+        "neuter": "lepo"
+      },
+      {
+        "serbian": "ružan",
+        "english": "ugly",
+        "feminine": "ružna",
+        "neuter": "ružno"
+      },
+      {
+        "serbian": "veliki",
+        "english": "big / large",
+        "feminine": "velika",
+        "neuter": "veliko"
+      },
+      {
+        "serbian": "mali",
+        "english": "small / little",
+        "feminine": "mala",
+        "neuter": "malo"
+      },
+      {
+        "serbian": "nov",
+        "english": "new",
+        "feminine": "nova",
+        "neuter": "novo"
+      },
+      {
+        "serbian": "star",
+        "english": "old",
+        "feminine": "stara",
+        "neuter": "staro"
+      },
+      {
+        "serbian": "jeftin",
+        "english": "cheap",
+        "feminine": "jeftina",
+        "neuter": "jeftino"
+      },
+      {
+        "serbian": "skup",
+        "english": "expensive",
+        "feminine": "skupa",
+        "neuter": "skupo"
+      },
+      {
+        "serbian": "lak",
+        "english": "easy",
+        "feminine": "laka",
+        "neuter": "lako"
+      },
+      {
+        "serbian": "težak",
+        "english": "difficult / heavy",
+        "feminine": "teška",
+        "neuter": "teško"
+      },
+      {
+        "serbian": "tačan",
+        "english": "correct / right",
+        "feminine": "tačna",
+        "neuter": "tačno"
+      },
+      {
+        "serbian": "pogrešan",
+        "english": "wrong / incorrect",
+        "feminine": "pogrešna",
+        "neuter": "pogrešno"
+      },
+      {
+        "serbian": "čist",
+        "english": "clean",
+        "feminine": "čista",
+        "neuter": "čisto"
+      },
+      {
+        "serbian": "prljav",
+        "english": "dirty",
+        "feminine": "prljava",
+        "neuter": "prljavo"
+      }
     ]
   },
   {
@@ -366,21 +1816,96 @@
     "type": "words",
     "category": "adjective",
     "cards": [
-      {"serbian": "srećan", "english": "happy", "feminine": "srećna", "neuter": "srećno"},
-      {"serbian": "tužan", "english": "sad", "feminine": "tužna", "neuter": "tužno"},
-      {"serbian": "gladan", "english": "hungry", "feminine": "gladna", "neuter": "gladno"},
-      {"serbian": "žedan", "english": "thirsty", "feminine": "žedna", "neuter": "žedno"},
-      {"serbian": "umoran", "english": "tired", "feminine": "umorna", "neuter": "umorno"},
-      {"serbian": "mlad", "english": "young", "feminine": "mlada", "neuter": "mlado"},
-      {"serbian": "bogat", "english": "rich", "feminine": "bogata", "neuter": "bogato"},
-      {"serbian": "siromašan", "english": "poor", "feminine": "siromašna", "neuter": "siromašno"},
-      {"serbian": "jak", "english": "strong", "feminine": "jaka", "neuter": "jako"},
-      {"serbian": "slab", "english": "weak", "feminine": "slaba", "neuter": "slabo"},
-      {"serbian": "pametan", "english": "smart", "feminine": "pametna", "neuter": "pametno"},
-      {"serbian": "hrabar", "english": "brave", "feminine": "hrabra", "neuter": "hrabro"},
-      {"serbian": "iskren", "english": "honest", "feminine": "iskrena", "neuter": "iskreno"},
-      {"serbian": "ljut", "english": "angry", "feminine": "ljuta", "neuter": "ljuto"},
-      {"serbian": "besan", "english": "furious", "feminine": "besna", "neuter": "besno"}
+      {
+        "serbian": "srećan",
+        "english": "happy",
+        "feminine": "srećna",
+        "neuter": "srećno"
+      },
+      {
+        "serbian": "tužan",
+        "english": "sad",
+        "feminine": "tužna",
+        "neuter": "tužno"
+      },
+      {
+        "serbian": "gladan",
+        "english": "hungry",
+        "feminine": "gladna",
+        "neuter": "gladno"
+      },
+      {
+        "serbian": "žedan",
+        "english": "thirsty",
+        "feminine": "žedna",
+        "neuter": "žedno"
+      },
+      {
+        "serbian": "umoran",
+        "english": "tired",
+        "feminine": "umorna",
+        "neuter": "umorno"
+      },
+      {
+        "serbian": "mlad",
+        "english": "young",
+        "feminine": "mlada",
+        "neuter": "mlado"
+      },
+      {
+        "serbian": "bogat",
+        "english": "rich",
+        "feminine": "bogata",
+        "neuter": "bogato"
+      },
+      {
+        "serbian": "siromašan",
+        "english": "poor",
+        "feminine": "siromašna",
+        "neuter": "siromašno"
+      },
+      {
+        "serbian": "jak",
+        "english": "strong",
+        "feminine": "jaka",
+        "neuter": "jako"
+      },
+      {
+        "serbian": "slab",
+        "english": "weak",
+        "feminine": "slaba",
+        "neuter": "slabo"
+      },
+      {
+        "serbian": "pametan",
+        "english": "smart",
+        "feminine": "pametna",
+        "neuter": "pametno"
+      },
+      {
+        "serbian": "hrabar",
+        "english": "brave",
+        "feminine": "hrabra",
+        "neuter": "hrabro"
+      },
+      {
+        "serbian": "iskren",
+        "english": "honest",
+        "feminine": "iskrena",
+        "neuter": "iskreno"
+      },
+      {
+        "serbian": "ljut",
+        "english": "angry",
+        "feminine": "ljuta",
+        "neuter": "ljuto"
+      },
+      {
+        "serbian": "besan",
+        "english": "furious",
+        "feminine": "besna",
+        "neuter": "besno"
+      }
     ]
   },
   {
@@ -389,21 +1914,96 @@
     "type": "words",
     "category": "adjective",
     "cards": [
-      {"serbian": "vruć", "english": "hot (temperature)", "feminine": "vruća", "neuter": "vruće"},
-      {"serbian": "topao", "english": "warm", "feminine": "topla", "neuter": "toplo"},
-      {"serbian": "hladan", "english": "cold", "feminine": "hladna", "neuter": "hladno"},
-      {"serbian": "sladak", "english": "sweet", "feminine": "slatka", "neuter": "slatko"},
-      {"serbian": "slan", "english": "salty", "feminine": "slana", "neuter": "slano"},
-      {"serbian": "kiseo", "english": "sour", "feminine": "kisela", "neuter": "kiselo"},
-      {"serbian": "gorak", "english": "bitter", "feminine": "gorka", "neuter": "gorko"},
-      {"serbian": "ljut", "english": "spicy / hot (taste)", "feminine": "ljuta", "neuter": "ljuto"},
-      {"serbian": "ukusan", "english": "delicious / tasty", "feminine": "ukusna", "neuter": "ukusno"},
-      {"serbian": "mekan", "english": "soft", "feminine": "mekana", "neuter": "mekano"},
-      {"serbian": "tvrd", "english": "hard", "feminine": "tvrda", "neuter": "tvrdo"},
-      {"serbian": "suv", "english": "dry", "feminine": "suva", "neuter": "suvo"},
-      {"serbian": "mokar", "english": "wet", "feminine": "mokra", "neuter": "mokro"},
-      {"serbian": "brz", "english": "fast", "feminine": "brza", "neuter": "brzo"},
-      {"serbian": "spor", "english": "slow", "feminine": "spora", "neuter": "sporo"}
+      {
+        "serbian": "vruć",
+        "english": "hot (temperature)",
+        "feminine": "vruća",
+        "neuter": "vruće"
+      },
+      {
+        "serbian": "topao",
+        "english": "warm",
+        "feminine": "topla",
+        "neuter": "toplo"
+      },
+      {
+        "serbian": "hladan",
+        "english": "cold",
+        "feminine": "hladna",
+        "neuter": "hladno"
+      },
+      {
+        "serbian": "sladak",
+        "english": "sweet",
+        "feminine": "slatka",
+        "neuter": "slatko"
+      },
+      {
+        "serbian": "slan",
+        "english": "salty",
+        "feminine": "slana",
+        "neuter": "slano"
+      },
+      {
+        "serbian": "kiseo",
+        "english": "sour",
+        "feminine": "kisela",
+        "neuter": "kiselo"
+      },
+      {
+        "serbian": "gorak",
+        "english": "bitter",
+        "feminine": "gorka",
+        "neuter": "gorko"
+      },
+      {
+        "serbian": "ljut",
+        "english": "spicy / hot (taste)",
+        "feminine": "ljuta",
+        "neuter": "ljuto"
+      },
+      {
+        "serbian": "ukusan",
+        "english": "delicious / tasty",
+        "feminine": "ukusna",
+        "neuter": "ukusno"
+      },
+      {
+        "serbian": "mekan",
+        "english": "soft",
+        "feminine": "mekana",
+        "neuter": "mekano"
+      },
+      {
+        "serbian": "tvrd",
+        "english": "hard",
+        "feminine": "tvrda",
+        "neuter": "tvrdo"
+      },
+      {
+        "serbian": "suv",
+        "english": "dry",
+        "feminine": "suva",
+        "neuter": "suvo"
+      },
+      {
+        "serbian": "mokar",
+        "english": "wet",
+        "feminine": "mokra",
+        "neuter": "mokro"
+      },
+      {
+        "serbian": "brz",
+        "english": "fast",
+        "feminine": "brza",
+        "neuter": "brzo"
+      },
+      {
+        "serbian": "spor",
+        "english": "slow",
+        "feminine": "spora",
+        "neuter": "sporo"
+      }
     ]
   },
   {
@@ -412,30 +2012,150 @@
     "type": "words",
     "category": "adjective",
     "cards": [
-      {"serbian": "beo", "english": "white", "feminine": "bela", "neuter": "belo"},
-      {"serbian": "crn", "english": "black", "feminine": "crna", "neuter": "crno"},
-      {"serbian": "crven", "english": "red", "feminine": "crvena", "neuter": "crveno"},
-      {"serbian": "plav", "english": "blue", "feminine": "plava", "neuter": "plavo"},
-      {"serbian": "zelen", "english": "green", "feminine": "zelena", "neuter": "zeleno"},
-      {"serbian": "žut", "english": "yellow", "feminine": "žuta", "neuter": "žuto"},
-      {"serbian": "siv", "english": "grey", "feminine": "siva", "neuter": "sivo"},
-      {"serbian": "braon", "english": "brown", "feminine": "braon", "neuter": "braon"},
-      {"serbian": "narandžast", "english": "orange", "feminine": "narandžasta", "neuter": "narandžasto"},
-      {"serbian": "roze", "english": "pink", "feminine": "roze", "neuter": "roze"},
-      {"serbian": "ljubičast", "english": "purple", "feminine": "ljubičasta", "neuter": "ljubičasto"},
-      {"serbian": "zlatan", "english": "gold", "feminine": "zlatna", "neuter": "zlatno"},
-      {"serbian": "srebran", "english": "silver", "feminine": "srebrna", "neuter": "srebrno"},
-      {"serbian": "bež", "english": "beige", "feminine": "bež", "neuter": "bež"},
-      {"serbian": "svetlo-", "english": "light (-color)", "feminine": "svetlo-", "neuter": "svetlo-"},
-      {"serbian": "tamno-", "english": "dark (-color)", "feminine": "tamno-", "neuter": "tamno-"},
-      {"serbian": "jark", "english": "bright", "feminine": "jarka", "neuter": "jarko"},
-      {"serbian": "šaren", "english": "colorful", "feminine": "šarena", "neuter": "šareno"},
-      {"serbian": "coloritan", "english": "vibrant", "feminine": "coloritna", "neuter": "coloritno"},
-      {"serbian": "bled", "english": "pale", "feminine": "bleda", "neuter": "bledo"},
-      {"serbian": "sjajan", "english": "shiny", "feminine": "sjajna", "neuter": "sjajno"},
-      {"serbian": "mat", "english": "matte", "feminine": "mat", "neuter": "mat"},
-      {"serbian": "providan", "english": "transparent", "feminine": "providna", "neuter": "providno"},
-      {"serbian": "višebojan", "english": "multicolor", "feminine": "višebojna", "neuter": "višebojno"}
+      {
+        "serbian": "beo",
+        "english": "white",
+        "feminine": "bela",
+        "neuter": "belo"
+      },
+      {
+        "serbian": "crn",
+        "english": "black",
+        "feminine": "crna",
+        "neuter": "crno"
+      },
+      {
+        "serbian": "crven",
+        "english": "red",
+        "feminine": "crvena",
+        "neuter": "crveno"
+      },
+      {
+        "serbian": "plav",
+        "english": "blue",
+        "feminine": "plava",
+        "neuter": "plavo"
+      },
+      {
+        "serbian": "zelen",
+        "english": "green",
+        "feminine": "zelena",
+        "neuter": "zeleno"
+      },
+      {
+        "serbian": "žut",
+        "english": "yellow",
+        "feminine": "žuta",
+        "neuter": "žuto"
+      },
+      {
+        "serbian": "siv",
+        "english": "grey",
+        "feminine": "siva",
+        "neuter": "sivo"
+      },
+      {
+        "serbian": "braon",
+        "english": "brown",
+        "feminine": "braon",
+        "neuter": "braon"
+      },
+      {
+        "serbian": "narandžast",
+        "english": "orange",
+        "feminine": "narandžasta",
+        "neuter": "narandžasto"
+      },
+      {
+        "serbian": "roze",
+        "english": "pink",
+        "feminine": "roze",
+        "neuter": "roze"
+      },
+      {
+        "serbian": "ljubičast",
+        "english": "purple",
+        "feminine": "ljubičasta",
+        "neuter": "ljubičasto"
+      },
+      {
+        "serbian": "zlatan",
+        "english": "gold",
+        "feminine": "zlatna",
+        "neuter": "zlatno"
+      },
+      {
+        "serbian": "srebran",
+        "english": "silver",
+        "feminine": "srebrna",
+        "neuter": "srebrno"
+      },
+      {
+        "serbian": "bež",
+        "english": "beige",
+        "feminine": "bež",
+        "neuter": "bež"
+      },
+      {
+        "serbian": "svetlo-",
+        "english": "light (-color)",
+        "feminine": "svetlo-",
+        "neuter": "svetlo-"
+      },
+      {
+        "serbian": "tamno-",
+        "english": "dark (-color)",
+        "feminine": "tamno-",
+        "neuter": "tamno-"
+      },
+      {
+        "serbian": "jark",
+        "english": "bright",
+        "feminine": "jarka",
+        "neuter": "jarko"
+      },
+      {
+        "serbian": "šaren",
+        "english": "colorful",
+        "feminine": "šarena",
+        "neuter": "šareno"
+      },
+      {
+        "serbian": "coloritan",
+        "english": "vibrant",
+        "feminine": "coloritna",
+        "neuter": "coloritno"
+      },
+      {
+        "serbian": "bled",
+        "english": "pale",
+        "feminine": "bleda",
+        "neuter": "bledo"
+      },
+      {
+        "serbian": "sjajan",
+        "english": "shiny",
+        "feminine": "sjajna",
+        "neuter": "sjajno"
+      },
+      {
+        "serbian": "mat",
+        "english": "matte",
+        "feminine": "mat",
+        "neuter": "mat"
+      },
+      {
+        "serbian": "providan",
+        "english": "transparent",
+        "feminine": "providna",
+        "neuter": "providno"
+      },
+      {
+        "serbian": "višebojan",
+        "english": "multicolor",
+        "feminine": "višebojna",
+        "neuter": "višebojno"
+      }
     ]
   },
   {
@@ -443,36 +2163,156 @@
     "labelKey": "groupEndingsImEAti",
     "type": "endings",
     "cards": [
-      {"pronoun": "ja", "serbian": "brojim", "english": "i count"},
-      {"pronoun": "ti", "serbian": "brojiš", "english": "you count"},
-      {"pronoun": "on", "serbian": "broji", "english": "he counts"},
-      {"pronoun": "mi", "serbian": "brojimo", "english": "we count"},
-      {"pronoun": "vi", "serbian": "brojite", "english": "you count"},
-      {"pronoun": "oni", "serbian": "broje", "english": "they count"},
-      {"pronoun": "ja", "serbian": "držim", "english": "i hold"},
-      {"pronoun": "ti", "serbian": "držiš", "english": "you hold"},
-      {"pronoun": "on", "serbian": "drži", "english": "he holds"},
-      {"pronoun": "mi", "serbian": "držimo", "english": "we hold"},
-      {"pronoun": "vi", "serbian": "držite", "english": "you hold"},
-      {"pronoun": "oni", "serbian": "drže", "english": "they hold"},
-      {"pronoun": "ja", "serbian": "ležim", "english": "i lie down"},
-      {"pronoun": "ti", "serbian": "ležiš", "english": "you lie down"},
-      {"pronoun": "on", "serbian": "leži", "english": "he lies down"},
-      {"pronoun": "mi", "serbian": "ležimo", "english": "we lie down"},
-      {"pronoun": "vi", "serbian": "ležite", "english": "you lie down"},
-      {"pronoun": "oni", "serbian": "leže", "english": "they lie down"},
-      {"pronoun": "ja", "serbian": "stojim", "english": "i stand"},
-      {"pronoun": "ti", "serbian": "stojiš", "english": "you stand"},
-      {"pronoun": "on", "serbian": "stoji", "english": "he stands"},
-      {"pronoun": "mi", "serbian": "stojimo", "english": "we stand"},
-      {"pronoun": "vi", "serbian": "stojite", "english": "you stand"},
-      {"pronoun": "oni", "serbian": "stoje", "english": "they stand"},
-      {"pronoun": "ja", "serbian": "trčim", "english": "i run"},
-      {"pronoun": "ti", "serbian": "trčiš", "english": "you run"},
-      {"pronoun": "on", "serbian": "trči", "english": "he runs"},
-      {"pronoun": "mi", "serbian": "trčimo", "english": "we run"},
-      {"pronoun": "vi", "serbian": "trčite", "english": "you run"},
-      {"pronoun": "oni", "serbian": "trče", "english": "they run"}
+      {
+        "pronoun": "ja",
+        "serbian": "brojim",
+        "english": "i count"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "brojiš",
+        "english": "you count"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "broji",
+        "english": "he counts"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "brojimo",
+        "english": "we count"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "brojite",
+        "english": "you count"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "broje",
+        "english": "they count"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "držim",
+        "english": "i hold"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "držiš",
+        "english": "you hold"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "drži",
+        "english": "he holds"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "držimo",
+        "english": "we hold"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "držite",
+        "english": "you hold"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "drže",
+        "english": "they hold"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "ležim",
+        "english": "i lie down"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "ležiš",
+        "english": "you lie down"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "leži",
+        "english": "he lies down"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "ležimo",
+        "english": "we lie down"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "ležite",
+        "english": "you lie down"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "leže",
+        "english": "they lie down"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "stojim",
+        "english": "i stand"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "stojiš",
+        "english": "you stand"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "stoji",
+        "english": "he stands"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "stojimo",
+        "english": "we stand"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "stojite",
+        "english": "you stand"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "stoje",
+        "english": "they stand"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "trčim",
+        "english": "i run"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "trčiš",
+        "english": "you run"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "trči",
+        "english": "he runs"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "trčimo",
+        "english": "we run"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "trčite",
+        "english": "you run"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "trče",
+        "english": "they run"
+      }
     ]
   },
   {
@@ -480,42 +2320,186 @@
     "labelKey": "groupEndingsImEEti",
     "type": "endings",
     "cards": [
-      {"pronoun": "ja", "serbian": "mrzim", "english": "i hate"},
-      {"pronoun": "ti", "serbian": "mrziš", "english": "you hate"},
-      {"pronoun": "on", "serbian": "mrzi", "english": "he hates"},
-      {"pronoun": "mi", "serbian": "mrzimo", "english": "we hate"},
-      {"pronoun": "vi", "serbian": "mrzite", "english": "you hate"},
-      {"pronoun": "oni", "serbian": "mrze", "english": "they hate"},
-      {"pronoun": "ja", "serbian": "sedim", "english": "i sit"},
-      {"pronoun": "ti", "serbian": "sediš", "english": "you sit"},
-      {"pronoun": "on", "serbian": "sedi", "english": "he sits"},
-      {"pronoun": "mi", "serbian": "sedimo", "english": "we sit"},
-      {"pronoun": "vi", "serbian": "sedite", "english": "you sit"},
-      {"pronoun": "oni", "serbian": "sede", "english": "they sit"},
-      {"pronoun": "ja", "serbian": "vidim", "english": "i see"},
-      {"pronoun": "ti", "serbian": "vidiš", "english": "you see"},
-      {"pronoun": "on", "serbian": "vidi", "english": "he sees"},
-      {"pronoun": "mi", "serbian": "vidimo", "english": "we see"},
-      {"pronoun": "vi", "serbian": "vidite", "english": "you see"},
-      {"pronoun": "oni", "serbian": "vide", "english": "they see"},
-      {"pronoun": "ja", "serbian": "volim", "english": "i love"},
-      {"pronoun": "ti", "serbian": "voliš", "english": "you love"},
-      {"pronoun": "on", "serbian": "voli", "english": "he loves"},
-      {"pronoun": "mi", "serbian": "volimo", "english": "we love"},
-      {"pronoun": "vi", "serbian": "volite", "english": "you love"},
-      {"pronoun": "oni", "serbian": "vole", "english": "they love"},
-      {"pronoun": "ja", "serbian": "želim", "english": "i wish"},
-      {"pronoun": "ti", "serbian": "želiš", "english": "you wish"},
-      {"pronoun": "on", "serbian": "želi", "english": "he wishes"},
-      {"pronoun": "mi", "serbian": "želimo", "english": "we wish"},
-      {"pronoun": "vi", "serbian": "želite", "english": "you wish"},
-      {"pronoun": "oni", "serbian": "žele", "english": "they wish"},
-      {"pronoun": "ja", "serbian": "živim", "english": "i live"},
-      {"pronoun": "ti", "serbian": "živiš", "english": "you live"},
-      {"pronoun": "on", "serbian": "živi", "english": "he lives"},
-      {"pronoun": "mi", "serbian": "živimo", "english": "we live"},
-      {"pronoun": "vi", "serbian": "živite", "english": "you live"},
-      {"pronoun": "oni", "serbian": "žive", "english": "they live"}
+      {
+        "pronoun": "ja",
+        "serbian": "mrzim",
+        "english": "i hate"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "mrziš",
+        "english": "you hate"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "mrzi",
+        "english": "he hates"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "mrzimo",
+        "english": "we hate"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "mrzite",
+        "english": "you hate"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "mrze",
+        "english": "they hate"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "sedim",
+        "english": "i sit"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "sediš",
+        "english": "you sit"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "sedi",
+        "english": "he sits"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "sedimo",
+        "english": "we sit"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "sedite",
+        "english": "you sit"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "sede",
+        "english": "they sit"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "vidim",
+        "english": "i see"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "vidiš",
+        "english": "you see"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "vidi",
+        "english": "he sees"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "vidimo",
+        "english": "we see"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "vidite",
+        "english": "you see"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "vide",
+        "english": "they see"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "volim",
+        "english": "i love"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "voliš",
+        "english": "you love"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "voli",
+        "english": "he loves"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "volimo",
+        "english": "we love"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "volite",
+        "english": "you love"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "vole",
+        "english": "they love"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "želim",
+        "english": "i wish"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "želiš",
+        "english": "you wish"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "želi",
+        "english": "he wishes"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "želimo",
+        "english": "we wish"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "želite",
+        "english": "you wish"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "žele",
+        "english": "they wish"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "živim",
+        "english": "i live"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "živiš",
+        "english": "you live"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "živi",
+        "english": "he lives"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "živimo",
+        "english": "we live"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "živite",
+        "english": "you live"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "žive",
+        "english": "they live"
+      }
     ]
   },
   {
@@ -523,84 +2507,396 @@
     "labelKey": "groupEndingsImEIti",
     "type": "endings",
     "cards": [
-      {"pronoun": "ja", "serbian": "čistim", "english": "i clean"},
-      {"pronoun": "ti", "serbian": "čistiš", "english": "you clean"},
-      {"pronoun": "on", "serbian": "čisti", "english": "he cleans"},
-      {"pronoun": "mi", "serbian": "čistimo", "english": "we clean"},
-      {"pronoun": "vi", "serbian": "čistite", "english": "you clean"},
-      {"pronoun": "oni", "serbian": "čiste", "english": "they clean"},
-      {"pronoun": "ja", "serbian": "dolazim", "english": "i arrive"},
-      {"pronoun": "ti", "serbian": "dolaziš", "english": "you arrive"},
-      {"pronoun": "on", "serbian": "dolazi", "english": "he arrives"},
-      {"pronoun": "mi", "serbian": "dolazimo", "english": "we arrive"},
-      {"pronoun": "vi", "serbian": "dolazite", "english": "you arrive"},
-      {"pronoun": "oni", "serbian": "dolaze", "english": "they arrive"},
-      {"pronoun": "ja", "serbian": "govorim", "english": "i speak"},
-      {"pronoun": "ti", "serbian": "govoriš", "english": "you speak"},
-      {"pronoun": "on", "serbian": "govori", "english": "he speaks"},
-      {"pronoun": "mi", "serbian": "govorimo", "english": "we speak"},
-      {"pronoun": "vi", "serbian": "govorite", "english": "you speak"},
-      {"pronoun": "oni", "serbian": "govore", "english": "they speak"},
-      {"pronoun": "ja", "serbian": "radim", "english": "i work"},
-      {"pronoun": "ti", "serbian": "radiš", "english": "you work"},
-      {"pronoun": "on", "serbian": "radi", "english": "he works"},
-      {"pronoun": "mi", "serbian": "radimo", "english": "we work"},
-      {"pronoun": "vi", "serbian": "radite", "english": "you work"},
-      {"pronoun": "oni", "serbian": "rade", "english": "they work"},
-      {"pronoun": "ja", "serbian": "koristim", "english": "i use"},
-      {"pronoun": "ti", "serbian": "koristiš", "english": "you use"},
-      {"pronoun": "on", "serbian": "koristi", "english": "he uses"},
-      {"pronoun": "mi", "serbian": "koristimo", "english": "we use"},
-      {"pronoun": "vi", "serbian": "koristite", "english": "you use"},
-      {"pronoun": "oni", "serbian": "koriste", "english": "they use"},
-      {"pronoun": "ja", "serbian": "kupim", "english": "i buy (pf.)"},
-      {"pronoun": "ti", "serbian": "kupiš", "english": "you buy (pf.)"},
-      {"pronoun": "on", "serbian": "kupi", "english": "he buys (pf.)"},
-      {"pronoun": "mi", "serbian": "kupimo", "english": "we buy (pf.)"},
-      {"pronoun": "vi", "serbian": "kupite", "english": "you buy (pf.)"},
-      {"pronoun": "oni", "serbian": "kupe", "english": "they buy (pf.)"},
-      {"pronoun": "ja", "serbian": "mislim", "english": "i think"},
-      {"pronoun": "ti", "serbian": "misliš", "english": "you think"},
-      {"pronoun": "on", "serbian": "misli", "english": "he thinks"},
-      {"pronoun": "mi", "serbian": "mislimo", "english": "we think"},
-      {"pronoun": "vi", "serbian": "mislite", "english": "you think"},
-      {"pronoun": "oni", "serbian": "misle", "english": "they think"},
-      {"pronoun": "ja", "serbian": "nosim", "english": "i wear"},
-      {"pronoun": "ti", "serbian": "nosiš", "english": "you wear"},
-      {"pronoun": "on", "serbian": "nosi", "english": "he wears"},
-      {"pronoun": "mi", "serbian": "nosimo", "english": "we wear"},
-      {"pronoun": "vi", "serbian": "nosite", "english": "you wear"},
-      {"pronoun": "oni", "serbian": "nose", "english": "they wear"},
-      {"pronoun": "ja", "serbian": "platim", "english": "i pay (pf.)"},
-      {"pronoun": "ti", "serbian": "platiš", "english": "you pay (pf.)"},
-      {"pronoun": "on", "serbian": "plati", "english": "he pays (pf.)"},
-      {"pronoun": "mi", "serbian": "platimo", "english": "we pay (pf.)"},
-      {"pronoun": "vi", "serbian": "platite", "english": "you pay (pf.)"},
-      {"pronoun": "oni", "serbian": "plate", "english": "they pay (pf.)"},
-      {"pronoun": "ja", "serbian": "pravim", "english": "i make"},
-      {"pronoun": "ti", "serbian": "praviš", "english": "you make"},
-      {"pronoun": "on", "serbian": "pravi", "english": "he makes"},
-      {"pronoun": "mi", "serbian": "pravimo", "english": "we make"},
-      {"pronoun": "vi", "serbian": "pravite", "english": "you make"},
-      {"pronoun": "oni", "serbian": "prave", "english": "they make"},
-      {"pronoun": "ja", "serbian": "učim", "english": "i learn"},
-      {"pronoun": "ti", "serbian": "učiš", "english": "you learn"},
-      {"pronoun": "on", "serbian": "uči", "english": "he learns"},
-      {"pronoun": "mi", "serbian": "učimo", "english": "we learn"},
-      {"pronoun": "vi", "serbian": "učite", "english": "you learn"},
-      {"pronoun": "oni", "serbian": "uče", "english": "they learn"},
-      {"pronoun": "ja", "serbian": "vozim", "english": "i drive"},
-      {"pronoun": "ti", "serbian": "voziš", "english": "you drive"},
-      {"pronoun": "on", "serbian": "vozi", "english": "he drives"},
-      {"pronoun": "mi", "serbian": "vozimo", "english": "we drive"},
-      {"pronoun": "vi", "serbian": "vozite", "english": "you drive"},
-      {"pronoun": "oni", "serbian": "voze", "english": "they drive"},
-      {"pronoun": "ja", "serbian": "zaboravim", "english": "i forget (pf.)"},
-      {"pronoun": "ti", "serbian": "zaboraviš", "english": "you forget (pf.)"},
-      {"pronoun": "on", "serbian": "zaboravi", "english": "he forgets (pf.)"},
-      {"pronoun": "mi", "serbian": "zaboravimo", "english": "we forget (pf.)"},
-      {"pronoun": "vi", "serbian": "zaboravite", "english": "you forget (pf.)"},
-      {"pronoun": "oni", "serbian": "zaborave", "english": "they forget (pf.)"}
+      {
+        "pronoun": "ja",
+        "serbian": "čistim",
+        "english": "i clean"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "čistiš",
+        "english": "you clean"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "čisti",
+        "english": "he cleans"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "čistimo",
+        "english": "we clean"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "čistite",
+        "english": "you clean"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "čiste",
+        "english": "they clean"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "dolazim",
+        "english": "i arrive"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "dolaziš",
+        "english": "you arrive"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "dolazi",
+        "english": "he arrives"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "dolazimo",
+        "english": "we arrive"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "dolazite",
+        "english": "you arrive"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "dolaze",
+        "english": "they arrive"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "govorim",
+        "english": "i speak"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "govoriš",
+        "english": "you speak"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "govori",
+        "english": "he speaks"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "govorimo",
+        "english": "we speak"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "govorite",
+        "english": "you speak"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "govore",
+        "english": "they speak"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "radim",
+        "english": "i work"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "radiš",
+        "english": "you work"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "radi",
+        "english": "he works"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "radimo",
+        "english": "we work"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "radite",
+        "english": "you work"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "rade",
+        "english": "they work"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "koristim",
+        "english": "i use"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "koristiš",
+        "english": "you use"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "koristi",
+        "english": "he uses"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "koristimo",
+        "english": "we use"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "koristite",
+        "english": "you use"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "koriste",
+        "english": "they use"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "kupim",
+        "english": "i buy (pf.)"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "kupiš",
+        "english": "you buy (pf.)"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "kupi",
+        "english": "he buys (pf.)"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "kupimo",
+        "english": "we buy (pf.)"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "kupite",
+        "english": "you buy (pf.)"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "kupe",
+        "english": "they buy (pf.)"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "mislim",
+        "english": "i think"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "misliš",
+        "english": "you think"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "misli",
+        "english": "he thinks"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "mislimo",
+        "english": "we think"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "mislite",
+        "english": "you think"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "misle",
+        "english": "they think"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "nosim",
+        "english": "i wear"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "nosiš",
+        "english": "you wear"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "nosi",
+        "english": "he wears"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "nosimo",
+        "english": "we wear"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "nosite",
+        "english": "you wear"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "nose",
+        "english": "they wear"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "platim",
+        "english": "i pay (pf.)"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "platiš",
+        "english": "you pay (pf.)"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "plati",
+        "english": "he pays (pf.)"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "platimo",
+        "english": "we pay (pf.)"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "platite",
+        "english": "you pay (pf.)"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "plate",
+        "english": "they pay (pf.)"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "pravim",
+        "english": "i make"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "praviš",
+        "english": "you make"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "pravi",
+        "english": "he makes"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "pravimo",
+        "english": "we make"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "pravite",
+        "english": "you make"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "prave",
+        "english": "they make"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "učim",
+        "english": "i learn"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "učiš",
+        "english": "you learn"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "uči",
+        "english": "he learns"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "učimo",
+        "english": "we learn"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "učite",
+        "english": "you learn"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "uče",
+        "english": "they learn"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "vozim",
+        "english": "i drive"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "voziš",
+        "english": "you drive"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "vozi",
+        "english": "he drives"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "vozimo",
+        "english": "we drive"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "vozite",
+        "english": "you drive"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "voze",
+        "english": "they drive"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "zaboravim",
+        "english": "i forget (pf.)"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "zaboraviš",
+        "english": "you forget (pf.)"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "zaboravi",
+        "english": "he forgets (pf.)"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "zaboravimo",
+        "english": "we forget (pf.)"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "zaboravite",
+        "english": "you forget (pf.)"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "zaborave",
+        "english": "they forget (pf.)"
+      }
     ]
   },
   {
@@ -608,138 +2904,666 @@
     "labelKey": "groupEndingsAmAju",
     "type": "endings",
     "cards": [
-      {"pronoun": "ja", "serbian": "čekam", "english": "i wait"},
-      {"pronoun": "ti", "serbian": "čekaš", "english": "you wait"},
-      {"pronoun": "on", "serbian": "čeka", "english": "he waits"},
-      {"pronoun": "mi", "serbian": "čekamo", "english": "we wait"},
-      {"pronoun": "vi", "serbian": "čekate", "english": "you wait"},
-      {"pronoun": "oni", "serbian": "čekaju", "english": "they wait"},
-      {"pronoun": "ja", "serbian": "čitam", "english": "i read"},
-      {"pronoun": "ti", "serbian": "čitaš", "english": "you read"},
-      {"pronoun": "on", "serbian": "čita", "english": "he reads"},
-      {"pronoun": "mi", "serbian": "čitamo", "english": "we read"},
-      {"pronoun": "vi", "serbian": "čitate", "english": "you read"},
-      {"pronoun": "oni", "serbian": "čitaju", "english": "they read"},
-      {"pronoun": "ja", "serbian": "imam", "english": "i have"},
-      {"pronoun": "ti", "serbian": "imaš", "english": "you have"},
-      {"pronoun": "on", "serbian": "ima", "english": "he has"},
-      {"pronoun": "mi", "serbian": "imamo", "english": "we have"},
-      {"pronoun": "vi", "serbian": "imate", "english": "you have"},
-      {"pronoun": "oni", "serbian": "imaju", "english": "they have"},
-      {"pronoun": "ja", "serbian": "spavam", "english": "i sleep"},
-      {"pronoun": "ti", "serbian": "spavaš", "english": "you sleep"},
-      {"pronoun": "on", "serbian": "spava", "english": "he sleeps"},
-      {"pronoun": "mi", "serbian": "spavamo", "english": "we sleep"},
-      {"pronoun": "vi", "serbian": "spavate", "english": "you sleep"},
-      {"pronoun": "oni", "serbian": "spavaju", "english": "they sleep"},
-      {"pronoun": "ja", "serbian": "znam", "english": "i know"},
-      {"pronoun": "ti", "serbian": "znaš", "english": "you know"},
-      {"pronoun": "on", "serbian": "zna", "english": "he knows"},
-      {"pronoun": "mi", "serbian": "znamo", "english": "we know"},
-      {"pronoun": "vi", "serbian": "znate", "english": "you know"},
-      {"pronoun": "oni", "serbian": "znaju", "english": "they know"},
-      {"pronoun": "ja", "serbian": "gledam", "english": "i watch"},
-      {"pronoun": "ti", "serbian": "gledaš", "english": "you watch"},
-      {"pronoun": "on", "serbian": "gleda", "english": "he watches"},
-      {"pronoun": "mi", "serbian": "gledamo", "english": "we watch"},
-      {"pronoun": "vi", "serbian": "gledate", "english": "you watch"},
-      {"pronoun": "oni", "serbian": "gledaju", "english": "they watch"},
-      {"pronoun": "ja", "serbian": "igram", "english": "i play"},
-      {"pronoun": "ti", "serbian": "igraš", "english": "you play"},
-      {"pronoun": "on", "serbian": "igra", "english": "he plays"},
-      {"pronoun": "mi", "serbian": "igramo", "english": "we play"},
-      {"pronoun": "vi", "serbian": "igrate", "english": "you play"},
-      {"pronoun": "oni", "serbian": "igraju", "english": "they play"},
-      {"pronoun": "ja", "serbian": "kuvam", "english": "i cook"},
-      {"pronoun": "ti", "serbian": "kuvaš", "english": "you cook"},
-      {"pronoun": "on", "serbian": "kuva", "english": "he cooks"},
-      {"pronoun": "mi", "serbian": "kuvamo", "english": "we cook"},
-      {"pronoun": "vi", "serbian": "kuvate", "english": "you cook"},
-      {"pronoun": "oni", "serbian": "kuvaju", "english": "they cook"},
-      {"pronoun": "ja", "serbian": "moram", "english": "i have to"},
-      {"pronoun": "ti", "serbian": "moraš", "english": "you have to"},
-      {"pronoun": "on", "serbian": "mora", "english": "he has to"},
-      {"pronoun": "mi", "serbian": "moramo", "english": "we have to"},
-      {"pronoun": "vi", "serbian": "morate", "english": "you have to"},
-      {"pronoun": "oni", "serbian": "moraju", "english": "they have to"},
-      {"pronoun": "ja", "serbian": "pevam", "english": "i sing"},
-      {"pronoun": "ti", "serbian": "pevaš", "english": "you sing"},
-      {"pronoun": "on", "serbian": "peva", "english": "he sings"},
-      {"pronoun": "mi", "serbian": "pevamo", "english": "we sing"},
-      {"pronoun": "vi", "serbian": "pevate", "english": "you sing"},
-      {"pronoun": "oni", "serbian": "pevaju", "english": "they sing"},
-      {"pronoun": "ja", "serbian": "plivam", "english": "i swim"},
-      {"pronoun": "ti", "serbian": "plivaš", "english": "you swim"},
-      {"pronoun": "on", "serbian": "pliva", "english": "he swims"},
-      {"pronoun": "mi", "serbian": "plivamo", "english": "we swim"},
-      {"pronoun": "vi", "serbian": "plivate", "english": "you swim"},
-      {"pronoun": "oni", "serbian": "plivaju", "english": "they swim"},
-      {"pronoun": "ja", "serbian": "pričam", "english": "i talk"},
-      {"pronoun": "ti", "serbian": "pričaš", "english": "you talk"},
-      {"pronoun": "on", "serbian": "priča", "english": "he talks"},
-      {"pronoun": "mi", "serbian": "pričamo", "english": "we talk"},
-      {"pronoun": "vi", "serbian": "pričate", "english": "you talk"},
-      {"pronoun": "oni", "serbian": "pričaju", "english": "they talk"},
-      {"pronoun": "ja", "serbian": "ručam", "english": "i eat lunch"},
-      {"pronoun": "ti", "serbian": "ručaš", "english": "you eat lunch"},
-      {"pronoun": "on", "serbian": "ruča", "english": "he eats lunch"},
-      {"pronoun": "mi", "serbian": "ručamo", "english": "we eat lunch"},
-      {"pronoun": "vi", "serbian": "ručate", "english": "you eat lunch"},
-      {"pronoun": "oni", "serbian": "ručaju", "english": "they eat lunch"},
-      {"pronoun": "ja", "serbian": "sanjam", "english": "i dream"},
-      {"pronoun": "ti", "serbian": "sanjaš", "english": "you dream"},
-      {"pronoun": "on", "serbian": "sanja", "english": "he dreams"},
-      {"pronoun": "mi", "serbian": "sanjamo", "english": "we dream"},
-      {"pronoun": "vi", "serbian": "sanjate", "english": "you dream"},
-      {"pronoun": "oni", "serbian": "sanjaju", "english": "they dream"},
-      {"pronoun": "ja", "serbian": "slušam", "english": "i listen to"},
-      {"pronoun": "ti", "serbian": "slušaš", "english": "you listen to"},
-      {"pronoun": "on", "serbian": "sluša", "english": "he listens to"},
-      {"pronoun": "mi", "serbian": "slušamo", "english": "we listen to"},
-      {"pronoun": "vi", "serbian": "slušate", "english": "you listen to"},
-      {"pronoun": "oni", "serbian": "slušaju", "english": "they listen to"},
-      {"pronoun": "ja", "serbian": "studiram", "english": "i study"},
-      {"pronoun": "ti", "serbian": "studiraš", "english": "you study"},
-      {"pronoun": "on", "serbian": "studira", "english": "he studies"},
-      {"pronoun": "mi", "serbian": "studiramo", "english": "we study"},
-      {"pronoun": "vi", "serbian": "studirate", "english": "you study"},
-      {"pronoun": "oni", "serbian": "studiraju", "english": "they study"},
-      {"pronoun": "ja", "serbian": "treniram", "english": "i train"},
-      {"pronoun": "ti", "serbian": "treniraš", "english": "you train"},
-      {"pronoun": "on", "serbian": "trenira", "english": "he trains"},
-      {"pronoun": "mi", "serbian": "treniramo", "english": "we train"},
-      {"pronoun": "vi", "serbian": "trenirate", "english": "you train"},
-      {"pronoun": "oni", "serbian": "treniraju", "english": "they train"},
-      {"pronoun": "ja", "serbian": "večeram", "english": "i eat dinner"},
-      {"pronoun": "ti", "serbian": "večeraš", "english": "you eat dinner"},
-      {"pronoun": "on", "serbian": "večera", "english": "he eats dinner"},
-      {"pronoun": "mi", "serbian": "večeramo", "english": "we eat dinner"},
-      {"pronoun": "vi", "serbian": "večerate", "english": "you eat dinner"},
-      {"pronoun": "oni", "serbian": "večeraju", "english": "they eat dinner"},
-      {"pronoun": "ja", "serbian": "nemam", "english": "i do not have"},
-      {"pronoun": "ti", "serbian": "nemaš", "english": "you do not have"},
-      {"pronoun": "on", "serbian": "nema", "english": "he does not have"},
-      {"pronoun": "mi", "serbian": "nemamo", "english": "we do not have"},
-      {"pronoun": "vi", "serbian": "nemate", "english": "you do not have"},
-      {"pronoun": "oni", "serbian": "nemaju", "english": "they do not have"},
-      {"pronoun": "ja", "serbian": "sviđam se", "english": "i like"},
-      {"pronoun": "ti", "serbian": "sviđaš se", "english": "you like"},
-      {"pronoun": "on", "serbian": "sviđa se", "english": "he likes"},
-      {"pronoun": "mi", "serbian": "sviđamo se", "english": "we like"},
-      {"pronoun": "vi", "serbian": "sviđate se", "english": "you like"},
-      {"pronoun": "oni", "serbian": "sviđaju se", "english": "they like"},
-      {"pronoun": "ja", "serbian": "sviram", "english": "i play instrument"},
-      {"pronoun": "ti", "serbian": "sviraš", "english": "you play instrument"},
-      {"pronoun": "on", "serbian": "svira", "english": "he plays instrument"},
-      {"pronoun": "mi", "serbian": "sviramo", "english": "we play instrument"},
-      {"pronoun": "vi", "serbian": "svirate", "english": "you play instrument"},
-      {"pronoun": "oni", "serbian": "sviraju", "english": "they play instrument"},
-      {"pronoun": "ja", "serbian": "dam", "english": "i give (pf.)"},
-      {"pronoun": "ti", "serbian": "daš", "english": "you give (pf.)"},
-      {"pronoun": "on", "serbian": "da", "english": "he gives (pf.)"},
-      {"pronoun": "mi", "serbian": "damo", "english": "we give (pf.)"},
-      {"pronoun": "vi", "serbian": "date", "english": "you give (pf.)"},
-      {"pronoun": "oni", "serbian": "daju", "english": "they give (pf.)"}
+      {
+        "pronoun": "ja",
+        "serbian": "čekam",
+        "english": "i wait"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "čekaš",
+        "english": "you wait"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "čeka",
+        "english": "he waits"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "čekamo",
+        "english": "we wait"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "čekate",
+        "english": "you wait"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "čekaju",
+        "english": "they wait"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "čitam",
+        "english": "i read"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "čitaš",
+        "english": "you read"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "čita",
+        "english": "he reads"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "čitamo",
+        "english": "we read"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "čitate",
+        "english": "you read"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "čitaju",
+        "english": "they read"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "imam",
+        "english": "i have"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "imaš",
+        "english": "you have"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "ima",
+        "english": "he has"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "imamo",
+        "english": "we have"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "imate",
+        "english": "you have"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "imaju",
+        "english": "they have"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "spavam",
+        "english": "i sleep"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "spavaš",
+        "english": "you sleep"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "spava",
+        "english": "he sleeps"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "spavamo",
+        "english": "we sleep"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "spavate",
+        "english": "you sleep"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "spavaju",
+        "english": "they sleep"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "znam",
+        "english": "i know"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "znaš",
+        "english": "you know"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "zna",
+        "english": "he knows"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "znamo",
+        "english": "we know"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "znate",
+        "english": "you know"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "znaju",
+        "english": "they know"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "gledam",
+        "english": "i watch"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "gledaš",
+        "english": "you watch"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "gleda",
+        "english": "he watches"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "gledamo",
+        "english": "we watch"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "gledate",
+        "english": "you watch"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "gledaju",
+        "english": "they watch"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "igram",
+        "english": "i play"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "igraš",
+        "english": "you play"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "igra",
+        "english": "he plays"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "igramo",
+        "english": "we play"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "igrate",
+        "english": "you play"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "igraju",
+        "english": "they play"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "kuvam",
+        "english": "i cook"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "kuvaš",
+        "english": "you cook"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "kuva",
+        "english": "he cooks"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "kuvamo",
+        "english": "we cook"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "kuvate",
+        "english": "you cook"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "kuvaju",
+        "english": "they cook"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "moram",
+        "english": "i have to"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "moraš",
+        "english": "you have to"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "mora",
+        "english": "he has to"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "moramo",
+        "english": "we have to"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "morate",
+        "english": "you have to"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "moraju",
+        "english": "they have to"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "pevam",
+        "english": "i sing"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "pevaš",
+        "english": "you sing"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "peva",
+        "english": "he sings"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "pevamo",
+        "english": "we sing"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "pevate",
+        "english": "you sing"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "pevaju",
+        "english": "they sing"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "plivam",
+        "english": "i swim"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "plivaš",
+        "english": "you swim"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "pliva",
+        "english": "he swims"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "plivamo",
+        "english": "we swim"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "plivate",
+        "english": "you swim"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "plivaju",
+        "english": "they swim"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "pričam",
+        "english": "i talk"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "pričaš",
+        "english": "you talk"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "priča",
+        "english": "he talks"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "pričamo",
+        "english": "we talk"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "pričate",
+        "english": "you talk"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "pričaju",
+        "english": "they talk"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "ručam",
+        "english": "i eat lunch"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "ručaš",
+        "english": "you eat lunch"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "ruča",
+        "english": "he eats lunch"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "ručamo",
+        "english": "we eat lunch"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "ručate",
+        "english": "you eat lunch"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "ručaju",
+        "english": "they eat lunch"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "sanjam",
+        "english": "i dream"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "sanjaš",
+        "english": "you dream"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "sanja",
+        "english": "he dreams"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "sanjamo",
+        "english": "we dream"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "sanjate",
+        "english": "you dream"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "sanjaju",
+        "english": "they dream"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "slušam",
+        "english": "i listen to"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "slušaš",
+        "english": "you listen to"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "sluša",
+        "english": "he listens to"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "slušamo",
+        "english": "we listen to"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "slušate",
+        "english": "you listen to"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "slušaju",
+        "english": "they listen to"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "studiram",
+        "english": "i study"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "studiraš",
+        "english": "you study"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "studira",
+        "english": "he studies"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "studiramo",
+        "english": "we study"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "studirate",
+        "english": "you study"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "studiraju",
+        "english": "they study"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "treniram",
+        "english": "i train"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "treniraš",
+        "english": "you train"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "trenira",
+        "english": "he trains"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "treniramo",
+        "english": "we train"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "trenirate",
+        "english": "you train"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "treniraju",
+        "english": "they train"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "večeram",
+        "english": "i eat dinner"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "večeraš",
+        "english": "you eat dinner"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "večera",
+        "english": "he eats dinner"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "večeramo",
+        "english": "we eat dinner"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "večerate",
+        "english": "you eat dinner"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "večeraju",
+        "english": "they eat dinner"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "nemam",
+        "english": "i do not have"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "nemaš",
+        "english": "you do not have"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "nema",
+        "english": "he does not have"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "nemamo",
+        "english": "we do not have"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "nemate",
+        "english": "you do not have"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "nemaju",
+        "english": "they do not have"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "sviđam se",
+        "english": "i like"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "sviđaš se",
+        "english": "you like"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "sviđa se",
+        "english": "he likes"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "sviđamo se",
+        "english": "we like"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "sviđate se",
+        "english": "you like"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "sviđaju se",
+        "english": "they like"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "sviram",
+        "english": "i play instrument"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "sviraš",
+        "english": "you play instrument"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "svira",
+        "english": "he plays instrument"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "sviramo",
+        "english": "we play instrument"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "svirate",
+        "english": "you play instrument"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "sviraju",
+        "english": "they play instrument"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "dam",
+        "english": "i give (pf.)"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "daš",
+        "english": "you give (pf.)"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "da",
+        "english": "he gives (pf.)"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "damo",
+        "english": "we give (pf.)"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "date",
+        "english": "you give (pf.)"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "daju",
+        "english": "they give (pf.)"
+      }
     ]
   },
   {
@@ -747,24 +3571,96 @@
     "labelKey": "groupEndingsEmUGati",
     "type": "endings",
     "cards": [
-      {"pronoun": "ja", "serbian": "lažem", "english": "i lie"},
-      {"pronoun": "ti", "serbian": "lažeš", "english": "you lie"},
-      {"pronoun": "on", "serbian": "laže", "english": "he lies"},
-      {"pronoun": "mi", "serbian": "lažemo", "english": "we lie"},
-      {"pronoun": "vi", "serbian": "lažete", "english": "you lie"},
-      {"pronoun": "oni", "serbian": "lažu", "english": "they lie"},
-      {"pronoun": "ja", "serbian": "pomažem", "english": "i help"},
-      {"pronoun": "ti", "serbian": "pomažeš", "english": "you help"},
-      {"pronoun": "on", "serbian": "pomaže", "english": "he helps"},
-      {"pronoun": "mi", "serbian": "pomažemo", "english": "we help"},
-      {"pronoun": "vi", "serbian": "pomažete", "english": "you help"},
-      {"pronoun": "oni", "serbian": "pomažu", "english": "they help"},
-      {"pronoun": "ja", "serbian": "pokažem", "english": "i show (pf.)"},
-      {"pronoun": "ti", "serbian": "pokažeš", "english": "you show (pf.)"},
-      {"pronoun": "on", "serbian": "pokaže", "english": "he shows (pf.)"},
-      {"pronoun": "mi", "serbian": "pokažemo", "english": "we show (pf.)"},
-      {"pronoun": "vi", "serbian": "pokažete", "english": "you show (pf.)"},
-      {"pronoun": "oni", "serbian": "pokažu", "english": "they show (pf.)"}
+      {
+        "pronoun": "ja",
+        "serbian": "lažem",
+        "english": "i lie"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "lažeš",
+        "english": "you lie"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "laže",
+        "english": "he lies"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "lažemo",
+        "english": "we lie"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "lažete",
+        "english": "you lie"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "lažu",
+        "english": "they lie"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "pomažem",
+        "english": "i help"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "pomažeš",
+        "english": "you help"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "pomaže",
+        "english": "he helps"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "pomažemo",
+        "english": "we help"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "pomažete",
+        "english": "you help"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "pomažu",
+        "english": "they help"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "pokažem",
+        "english": "i show (pf.)"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "pokažeš",
+        "english": "you show (pf.)"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "pokaže",
+        "english": "he shows (pf.)"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "pokažemo",
+        "english": "we show (pf.)"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "pokažete",
+        "english": "you show (pf.)"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "pokažu",
+        "english": "they show (pf.)"
+      }
     ]
   },
   {
@@ -772,24 +3668,96 @@
     "labelKey": "groupEndingsEmUHati",
     "type": "endings",
     "cards": [
-      {"pronoun": "ja", "serbian": "pišem", "english": "i write"},
-      {"pronoun": "ti", "serbian": "pišeš", "english": "you write"},
-      {"pronoun": "on", "serbian": "piše", "english": "he writes"},
-      {"pronoun": "mi", "serbian": "pišemo", "english": "we write"},
-      {"pronoun": "vi", "serbian": "pišete", "english": "you write"},
-      {"pronoun": "oni", "serbian": "pišu", "english": "they write"},
-      {"pronoun": "ja", "serbian": "plešem", "english": "i dance"},
-      {"pronoun": "ti", "serbian": "plešeš", "english": "you dance"},
-      {"pronoun": "on", "serbian": "pleše", "english": "he dances"},
-      {"pronoun": "mi", "serbian": "plešemo", "english": "we dance"},
-      {"pronoun": "vi", "serbian": "plešete", "english": "you dance"},
-      {"pronoun": "oni", "serbian": "plešu", "english": "they dance"},
-      {"pronoun": "ja", "serbian": "mašem", "english": "i wave"},
-      {"pronoun": "ti", "serbian": "mašeš", "english": "you wave"},
-      {"pronoun": "on", "serbian": "maše", "english": "he waves"},
-      {"pronoun": "mi", "serbian": "mašemo", "english": "we wave"},
-      {"pronoun": "vi", "serbian": "mašete", "english": "you wave"},
-      {"pronoun": "oni", "serbian": "mašu", "english": "they wave"}
+      {
+        "pronoun": "ja",
+        "serbian": "pišem",
+        "english": "i write"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "pišeš",
+        "english": "you write"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "piše",
+        "english": "he writes"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "pišemo",
+        "english": "we write"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "pišete",
+        "english": "you write"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "pišu",
+        "english": "they write"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "plešem",
+        "english": "i dance"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "plešeš",
+        "english": "you dance"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "pleše",
+        "english": "he dances"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "plešemo",
+        "english": "we dance"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "plešete",
+        "english": "you dance"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "plešu",
+        "english": "they dance"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "mašem",
+        "english": "i wave"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "mašeš",
+        "english": "you wave"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "maše",
+        "english": "he waves"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "mašemo",
+        "english": "we wave"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "mašete",
+        "english": "you wave"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "mašu",
+        "english": "they wave"
+      }
     ]
   },
   {
@@ -797,24 +3765,96 @@
     "labelKey": "groupEndingsEmUKati",
     "type": "endings",
     "cards": [
-      {"pronoun": "ja", "serbian": "plačem", "english": "i cry"},
-      {"pronoun": "ti", "serbian": "plačeš", "english": "you cry"},
-      {"pronoun": "on", "serbian": "plače", "english": "he cries"},
-      {"pronoun": "mi", "serbian": "plačemo", "english": "we cry"},
-      {"pronoun": "vi", "serbian": "plačete", "english": "you cry"},
-      {"pronoun": "oni", "serbian": "plaču", "english": "they cry"},
-      {"pronoun": "ja", "serbian": "skačem", "english": "i jump"},
-      {"pronoun": "ti", "serbian": "skačeš", "english": "you jump"},
-      {"pronoun": "on", "serbian": "skače", "english": "he jumps"},
-      {"pronoun": "mi", "serbian": "skačemo", "english": "we jump"},
-      {"pronoun": "vi", "serbian": "skačete", "english": "you jump"},
-      {"pronoun": "oni", "serbian": "skaču", "english": "they jump"},
-      {"pronoun": "ja", "serbian": "vičem", "english": "i shout"},
-      {"pronoun": "ti", "serbian": "vičeš", "english": "you shout"},
-      {"pronoun": "on", "serbian": "viče", "english": "he shouts"},
-      {"pronoun": "mi", "serbian": "vičemo", "english": "we shout"},
-      {"pronoun": "vi", "serbian": "vičete", "english": "you shout"},
-      {"pronoun": "oni", "serbian": "viču", "english": "they shout"}
+      {
+        "pronoun": "ja",
+        "serbian": "plačem",
+        "english": "i cry"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "plačeš",
+        "english": "you cry"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "plače",
+        "english": "he cries"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "plačemo",
+        "english": "we cry"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "plačete",
+        "english": "you cry"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "plaču",
+        "english": "they cry"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "skačem",
+        "english": "i jump"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "skačeš",
+        "english": "you jump"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "skače",
+        "english": "he jumps"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "skačemo",
+        "english": "we jump"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "skačete",
+        "english": "you jump"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "skaču",
+        "english": "they jump"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "vičem",
+        "english": "i shout"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "vičeš",
+        "english": "you shout"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "viče",
+        "english": "he shouts"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "vičemo",
+        "english": "we shout"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "vičete",
+        "english": "you shout"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "viču",
+        "english": "they shout"
+      }
     ]
   },
   {
@@ -822,24 +3862,96 @@
     "labelKey": "groupEndingsEmUAvati",
     "type": "endings",
     "cards": [
-      {"pronoun": "ja", "serbian": "dajem", "english": "i give"},
-      {"pronoun": "ti", "serbian": "daješ", "english": "you give"},
-      {"pronoun": "on", "serbian": "daje", "english": "he gives"},
-      {"pronoun": "mi", "serbian": "dajemo", "english": "we give"},
-      {"pronoun": "vi", "serbian": "dajete", "english": "you give"},
-      {"pronoun": "oni", "serbian": "daju", "english": "they give"},
-      {"pronoun": "ja", "serbian": "predajem", "english": "i teach"},
-      {"pronoun": "ti", "serbian": "predaješ", "english": "you teach"},
-      {"pronoun": "on", "serbian": "predaje", "english": "he teaches"},
-      {"pronoun": "mi", "serbian": "predajemo", "english": "we teach"},
-      {"pronoun": "vi", "serbian": "predajete", "english": "you teach"},
-      {"pronoun": "oni", "serbian": "predaju", "english": "they teach"},
-      {"pronoun": "ja", "serbian": "prodajem", "english": "i sell"},
-      {"pronoun": "ti", "serbian": "prodaješ", "english": "you sell"},
-      {"pronoun": "on", "serbian": "prodaje", "english": "he sells"},
-      {"pronoun": "mi", "serbian": "prodajemo", "english": "we sell"},
-      {"pronoun": "vi", "serbian": "prodajete", "english": "you sell"},
-      {"pronoun": "oni", "serbian": "prodaju", "english": "they sell"}
+      {
+        "pronoun": "ja",
+        "serbian": "dajem",
+        "english": "i give"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "daješ",
+        "english": "you give"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "daje",
+        "english": "he gives"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "dajemo",
+        "english": "we give"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "dajete",
+        "english": "you give"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "daju",
+        "english": "they give"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "predajem",
+        "english": "i teach"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "predaješ",
+        "english": "you teach"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "predaje",
+        "english": "he teaches"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "predajemo",
+        "english": "we teach"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "predajete",
+        "english": "you teach"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "predaju",
+        "english": "they teach"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "prodajem",
+        "english": "i sell"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "prodaješ",
+        "english": "you sell"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "prodaje",
+        "english": "he sells"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "prodajemo",
+        "english": "we sell"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "prodajete",
+        "english": "you sell"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "prodaju",
+        "english": "they sell"
+      }
     ]
   },
   {
@@ -847,24 +3959,96 @@
     "labelKey": "groupEndingsEmUIvati",
     "type": "endings",
     "cards": [
-      {"pronoun": "ja", "serbian": "kupujem", "english": "i buy"},
-      {"pronoun": "ti", "serbian": "kupuješ", "english": "you buy"},
-      {"pronoun": "on", "serbian": "kupuje", "english": "he buys"},
-      {"pronoun": "mi", "serbian": "kupujemo", "english": "we buy"},
-      {"pronoun": "vi", "serbian": "kupujete", "english": "you buy"},
-      {"pronoun": "oni", "serbian": "kupuju", "english": "they buy"},
-      {"pronoun": "ja", "serbian": "putujem", "english": "i travel"},
-      {"pronoun": "ti", "serbian": "putuješ", "english": "you travel"},
-      {"pronoun": "on", "serbian": "putuje", "english": "he travels"},
-      {"pronoun": "mi", "serbian": "putujemo", "english": "we travel"},
-      {"pronoun": "vi", "serbian": "putujete", "english": "you travel"},
-      {"pronoun": "oni", "serbian": "putuju", "english": "they travel"},
-      {"pronoun": "ja", "serbian": "očekujem", "english": "i expect"},
-      {"pronoun": "ti", "serbian": "očekuješ", "english": "you expect"},
-      {"pronoun": "on", "serbian": "očekuje", "english": "he expects"},
-      {"pronoun": "mi", "serbian": "očekujemo", "english": "we expect"},
-      {"pronoun": "vi", "serbian": "očekujete", "english": "you expect"},
-      {"pronoun": "oni", "serbian": "očekuju", "english": "they expect"}
+      {
+        "pronoun": "ja",
+        "serbian": "kupujem",
+        "english": "i buy"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "kupuješ",
+        "english": "you buy"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "kupuje",
+        "english": "he buys"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "kupujemo",
+        "english": "we buy"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "kupujete",
+        "english": "you buy"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "kupuju",
+        "english": "they buy"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "putujem",
+        "english": "i travel"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "putuješ",
+        "english": "you travel"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "putuje",
+        "english": "he travels"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "putujemo",
+        "english": "we travel"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "putujete",
+        "english": "you travel"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "putuju",
+        "english": "they travel"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "očekujem",
+        "english": "i expect"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "očekuješ",
+        "english": "you expect"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "očekuje",
+        "english": "he expects"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "očekujemo",
+        "english": "we expect"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "očekujete",
+        "english": "you expect"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "očekuju",
+        "english": "they expect"
+      }
     ]
   },
   {
@@ -872,24 +4056,96 @@
     "labelKey": "groupEndingsEmUOvati",
     "type": "endings",
     "cards": [
-      {"pronoun": "ja", "serbian": "poštujem", "english": "i respect"},
-      {"pronoun": "ti", "serbian": "poštuješ", "english": "you respect"},
-      {"pronoun": "on", "serbian": "poštuje", "english": "he respects"},
-      {"pronoun": "mi", "serbian": "poštujemo", "english": "we respect"},
-      {"pronoun": "vi", "serbian": "poštujete", "english": "you respect"},
-      {"pronoun": "oni", "serbian": "poštuju", "english": "they respect"},
-      {"pronoun": "ja", "serbian": "doručkujem", "english": "i eat breakfast"},
-      {"pronoun": "ti", "serbian": "doručkuješ", "english": "you eat breakfast"},
-      {"pronoun": "on", "serbian": "doručkuje", "english": "he eats breakfast"},
-      {"pronoun": "mi", "serbian": "doručkujemo", "english": "we eat breakfast"},
-      {"pronoun": "vi", "serbian": "doručkujete", "english": "you eat breakfast"},
-      {"pronoun": "oni", "serbian": "doručkuju", "english": "they eat breakfast"},
-      {"pronoun": "ja", "serbian": "radujem se", "english": "i am happy"},
-      {"pronoun": "ti", "serbian": "raduješ se", "english": "you are happy"},
-      {"pronoun": "on", "serbian": "raduje se", "english": "he is happy"},
-      {"pronoun": "mi", "serbian": "radujemo se", "english": "we are happy"},
-      {"pronoun": "vi", "serbian": "radujete se", "english": "you are happy"},
-      {"pronoun": "oni", "serbian": "raduju se", "english": "they are happy"}
+      {
+        "pronoun": "ja",
+        "serbian": "poštujem",
+        "english": "i respect"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "poštuješ",
+        "english": "you respect"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "poštuje",
+        "english": "he respects"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "poštujemo",
+        "english": "we respect"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "poštujete",
+        "english": "you respect"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "poštuju",
+        "english": "they respect"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "doručkujem",
+        "english": "i eat breakfast"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "doručkuješ",
+        "english": "you eat breakfast"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "doručkuje",
+        "english": "he eats breakfast"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "doručkujemo",
+        "english": "we eat breakfast"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "doručkujete",
+        "english": "you eat breakfast"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "doručkuju",
+        "english": "they eat breakfast"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "radujem se",
+        "english": "i am happy"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "raduješ se",
+        "english": "you are happy"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "raduje se",
+        "english": "he is happy"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "radujemo se",
+        "english": "we are happy"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "radujete se",
+        "english": "you are happy"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "raduju se",
+        "english": "they are happy"
+      }
     ]
   },
   {
@@ -897,30 +4153,126 @@
     "labelKey": "groupEndingsEmUCi",
     "type": "endings",
     "cards": [
-      {"pronoun": "ja", "serbian": "idem", "english": "i go"},
-      {"pronoun": "ti", "serbian": "ideš", "english": "you go"},
-      {"pronoun": "on", "serbian": "ide", "english": "he goes"},
-      {"pronoun": "mi", "serbian": "idemo", "english": "we go"},
-      {"pronoun": "vi", "serbian": "idete", "english": "you go"},
-      {"pronoun": "oni", "serbian": "idu", "english": "they go"},
-      {"pronoun": "ja", "serbian": "dođem", "english": "i come (pf.)"},
-      {"pronoun": "ti", "serbian": "dođeš", "english": "you come (pf.)"},
-      {"pronoun": "on", "serbian": "dođe", "english": "he comes (pf.)"},
-      {"pronoun": "mi", "serbian": "dođemo", "english": "we come (pf.)"},
-      {"pronoun": "vi", "serbian": "dođete", "english": "you come (pf.)"},
-      {"pronoun": "oni", "serbian": "dođu", "english": "they come (pf.)"},
-      {"pronoun": "ja", "serbian": "pečem", "english": "i bake"},
-      {"pronoun": "ti", "serbian": "pečeš", "english": "you bake"},
-      {"pronoun": "on", "serbian": "peče", "english": "he bakes"},
-      {"pronoun": "mi", "serbian": "pečemo", "english": "we bake"},
-      {"pronoun": "vi", "serbian": "pečete", "english": "you bake"},
-      {"pronoun": "oni", "serbian": "peku", "english": "they bake"},
-      {"pronoun": "ja", "serbian": "legnem", "english": "i lie down (pf.)"},
-      {"pronoun": "ti", "serbian": "legneš", "english": "you lie down (pf.)"},
-      {"pronoun": "on", "serbian": "legne", "english": "he lies down (pf.)"},
-      {"pronoun": "mi", "serbian": "legnemo", "english": "we lie down (pf.)"},
-      {"pronoun": "vi", "serbian": "legnete", "english": "you lie down (pf.)"},
-      {"pronoun": "oni", "serbian": "legnu", "english": "they lie down (pf.)"}
+      {
+        "pronoun": "ja",
+        "serbian": "idem",
+        "english": "i go"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "ideš",
+        "english": "you go"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "ide",
+        "english": "he goes"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "idemo",
+        "english": "we go"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "idete",
+        "english": "you go"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "idu",
+        "english": "they go"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "dođem",
+        "english": "i come (pf.)"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "dođeš",
+        "english": "you come (pf.)"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "dođe",
+        "english": "he comes (pf.)"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "dođemo",
+        "english": "we come (pf.)"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "dođete",
+        "english": "you come (pf.)"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "dođu",
+        "english": "they come (pf.)"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "pečem",
+        "english": "i bake"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "pečeš",
+        "english": "you bake"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "peče",
+        "english": "he bakes"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "pečemo",
+        "english": "we bake"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "pečete",
+        "english": "you bake"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "peku",
+        "english": "they bake"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "legnem",
+        "english": "i lie down (pf.)"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "legneš",
+        "english": "you lie down (pf.)"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "legne",
+        "english": "he lies down (pf.)"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "legnemo",
+        "english": "we lie down (pf.)"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "legnete",
+        "english": "you lie down (pf.)"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "legnu",
+        "english": "they lie down (pf.)"
+      }
     ]
   },
   {
@@ -928,24 +4280,96 @@
     "labelKey": "groupEndingsEmEju",
     "type": "endings",
     "cards": [
-      {"pronoun": "ja", "serbian": "razumem", "english": "i understand"},
-      {"pronoun": "ti", "serbian": "razumeš", "english": "you understand"},
-      {"pronoun": "on", "serbian": "razume", "english": "he understands"},
-      {"pronoun": "mi", "serbian": "razumemo", "english": "we understand"},
-      {"pronoun": "vi", "serbian": "razumete", "english": "you understand"},
-      {"pronoun": "oni", "serbian": "razumeju", "english": "they understand"},
-      {"pronoun": "ja", "serbian": "smem", "english": "i am allowed to"},
-      {"pronoun": "ti", "serbian": "smeš", "english": "you are allowed to"},
-      {"pronoun": "on", "serbian": "sme", "english": "he is allowed to"},
-      {"pronoun": "mi", "serbian": "smemo", "english": "we are allowed to"},
-      {"pronoun": "vi", "serbian": "smete", "english": "you are allowed to"},
-      {"pronoun": "oni", "serbian": "smeju", "english": "they are allowed to"},
-      {"pronoun": "ja", "serbian": "uspem", "english": "i succeed (pf.)"},
-      {"pronoun": "ti", "serbian": "uspeš", "english": "you succeed (pf.)"},
-      {"pronoun": "on", "serbian": "uspe", "english": "he succeeds (pf.)"},
-      {"pronoun": "mi", "serbian": "uspemo", "english": "we succeed (pf.)"},
-      {"pronoun": "vi", "serbian": "uspete", "english": "you succeed (pf.)"},
-      {"pronoun": "oni", "serbian": "uspeju", "english": "they succeed (pf.)"}
+      {
+        "pronoun": "ja",
+        "serbian": "razumem",
+        "english": "i understand"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "razumeš",
+        "english": "you understand"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "razume",
+        "english": "he understands"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "razumemo",
+        "english": "we understand"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "razumete",
+        "english": "you understand"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "razumeju",
+        "english": "they understand"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "smem",
+        "english": "i am allowed to"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "smeš",
+        "english": "you are allowed to"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "sme",
+        "english": "he is allowed to"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "smemo",
+        "english": "we are allowed to"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "smete",
+        "english": "you are allowed to"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "smeju",
+        "english": "they are allowed to"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "uspem",
+        "english": "i succeed (pf.)"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "uspeš",
+        "english": "you succeed (pf.)"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "uspe",
+        "english": "he succeeds (pf.)"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "uspemo",
+        "english": "we succeed (pf.)"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "uspete",
+        "english": "you succeed (pf.)"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "uspeju",
+        "english": "they succeed (pf.)"
+      }
     ]
   },
   {
@@ -953,24 +4377,96 @@
     "labelKey": "groupIrregular",
     "type": "endings",
     "cards": [
-      {"pronoun": "ja", "serbian": "sam", "english": "i am"},
-      {"pronoun": "ti", "serbian": "si", "english": "you are"},
-      {"pronoun": "on", "serbian": "je", "english": "he is"},
-      {"pronoun": "mi", "serbian": "smo", "english": "we are"},
-      {"pronoun": "vi", "serbian": "ste", "english": "you are"},
-      {"pronoun": "oni", "serbian": "su", "english": "they are"},
-      {"pronoun": "ja", "serbian": "hoću", "english": "i want"},
-      {"pronoun": "ti", "serbian": "hoćeš", "english": "you want"},
-      {"pronoun": "on", "serbian": "hoće", "english": "he wants"},
-      {"pronoun": "mi", "serbian": "hoćemo", "english": "we want"},
-      {"pronoun": "vi", "serbian": "hoćete", "english": "you want"},
-      {"pronoun": "oni", "serbian": "hoće", "english": "they want"},
-      {"pronoun": "ja", "serbian": "mogu", "english": "i can"},
-      {"pronoun": "ti", "serbian": "možeš", "english": "you can"},
-      {"pronoun": "on", "serbian": "može", "english": "he can"},
-      {"pronoun": "mi", "serbian": "možemo", "english": "we can"},
-      {"pronoun": "vi", "serbian": "možete", "english": "you can"},
-      {"pronoun": "oni", "serbian": "mogu", "english": "they can"}
+      {
+        "pronoun": "ja",
+        "serbian": "sam",
+        "english": "i am"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "si",
+        "english": "you are"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "je",
+        "english": "he is"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "smo",
+        "english": "we are"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "ste",
+        "english": "you are"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "su",
+        "english": "they are"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "hoću",
+        "english": "i want"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "hoćeš",
+        "english": "you want"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "hoće",
+        "english": "he wants"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "hoćemo",
+        "english": "we want"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "hoćete",
+        "english": "you want"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "hoće",
+        "english": "they want"
+      },
+      {
+        "pronoun": "ja",
+        "serbian": "mogu",
+        "english": "i can"
+      },
+      {
+        "pronoun": "ti",
+        "serbian": "možeš",
+        "english": "you can"
+      },
+      {
+        "pronoun": "on",
+        "serbian": "može",
+        "english": "he can"
+      },
+      {
+        "pronoun": "mi",
+        "serbian": "možemo",
+        "english": "we can"
+      },
+      {
+        "pronoun": "vi",
+        "serbian": "možete",
+        "english": "you can"
+      },
+      {
+        "pronoun": "oni",
+        "serbian": "mogu",
+        "english": "they can"
+      }
     ]
   }
 ]

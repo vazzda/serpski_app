@@ -44,6 +44,27 @@ class AppLocalizationsEn extends AppLocalizations {
   String get groupBasicVerbs04 => 'Basic verbs 04';
 
   @override
+  String get groupBasicVerbs05 => 'Basic verbs 05';
+
+  @override
+  String get groupBasicVerbs06 => 'Basic verbs 06';
+
+  @override
+  String get groupBasicVerbs07 => 'Basic verbs 07';
+
+  @override
+  String get groupBasicVerbs08 => 'Basic verbs 08';
+
+  @override
+  String get groupBasicVerbs09 => 'Basic verbs 09';
+
+  @override
+  String get groupBasicVerbs10 => 'Basic verbs 10';
+
+  @override
+  String get groupBasicVerbs11 => 'Basic verbs 11';
+
+  @override
   String get groupAdverbsOfTime => 'Adverbs of time';
 
   @override

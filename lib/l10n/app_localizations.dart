@@ -160,6 +160,48 @@ abstract class AppLocalizations {
   /// **'Basic verbs 04'**
   String get groupBasicVerbs04;
 
+  /// No description provided for @groupBasicVerbs05.
+  ///
+  /// In en, this message translates to:
+  /// **'Basic verbs 05'**
+  String get groupBasicVerbs05;
+
+  /// No description provided for @groupBasicVerbs06.
+  ///
+  /// In en, this message translates to:
+  /// **'Basic verbs 06'**
+  String get groupBasicVerbs06;
+
+  /// No description provided for @groupBasicVerbs07.
+  ///
+  /// In en, this message translates to:
+  /// **'Basic verbs 07'**
+  String get groupBasicVerbs07;
+
+  /// No description provided for @groupBasicVerbs08.
+  ///
+  /// In en, this message translates to:
+  /// **'Basic verbs 08'**
+  String get groupBasicVerbs08;
+
+  /// No description provided for @groupBasicVerbs09.
+  ///
+  /// In en, this message translates to:
+  /// **'Basic verbs 09'**
+  String get groupBasicVerbs09;
+
+  /// No description provided for @groupBasicVerbs10.
+  ///
+  /// In en, this message translates to:
+  /// **'Basic verbs 10'**
+  String get groupBasicVerbs10;
+
+  /// No description provided for @groupBasicVerbs11.
+  ///
+  /// In en, this message translates to:
+  /// **'Basic verbs 11'**
+  String get groupBasicVerbs11;
+
   /// No description provided for @groupAdverbsOfTime.
   ///
   /// In en, this message translates to:

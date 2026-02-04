@@ -98,10 +98,7 @@ class _GroupTile extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Text(
-                            label,
-                            style: theme.textTheme.titleMedium,
-                          ),
+                          Text(label, style: theme.textTheme.titleMedium),
                           const SizedBox(height: 2),
                           Text(
                             countText,
@@ -115,8 +112,7 @@ class _GroupTile extends StatelessWidget {
                       ),
                     ),
                     // Space reserved for badge (no arrow on session tiles)
-                    const SizedBox(width: 16,
-                    ),
+                    const SizedBox(width: 16),
                   ],
                 ),
               ),
@@ -125,10 +121,7 @@ class _GroupTile extends StatelessWidget {
                 Positioned(
                   top: 0,
                   right: 0,
-                  child: _TestBadge(
-                    testResult: testResult!,
-                    l10n: l10n,
-                  ),
+                  child: _TestBadge(testResult: testResult!, l10n: l10n),
                 ),
             ],
           );
@@ -139,10 +132,7 @@ class _GroupTile extends StatelessWidget {
 }
 
 class _TestBadge extends StatelessWidget {
-  const _TestBadge({
-    required this.testResult,
-    required this.l10n,
-  });
+  const _TestBadge({required this.testResult, required this.l10n});
 
   final TestResult testResult;
   final AppLocalizations l10n;
@@ -174,10 +164,7 @@ class _TestBadge extends StatelessWidget {
           ),
           Text(
             dateInfo.text,
-            style: TextStyle(
-              color: dateInfo.color,
-              fontSize: 9,
-            ),
+            style: TextStyle(color: dateInfo.color, fontSize: 9),
           ),
         ],
       ),
@@ -311,14 +298,12 @@ class _DailyActivityWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(
-              l10n.dailyActivityTitle,
-              style: headerStyle,
-            ),
+            Text(l10n.dailyActivityTitle, style: headerStyle),
             const SizedBox(height: 4),
             asyncStats.when(
               data: (stats) {
-                final isEmpty = stats.correct == 0 &&
+                final isEmpty =
+                    stats.correct == 0 &&
                     stats.wrong == 0 &&
                     stats.wordsTouched == 0;
                 return Text(
@@ -330,15 +315,9 @@ class _DailyActivityWidget extends StatelessWidget {
                   style: bodyStyle,
                 );
               },
-              loading: () => Text(
-                l10n.dailyActivityEmpty,
-                style: bodyStyle,
-              ),
+              loading: () => Text(l10n.dailyActivityEmpty, style: bodyStyle),
               // ignore: unnecessary_underscores
-              error: (_, __) => Text(
-                l10n.dailyActivityEmpty,
-                style: bodyStyle,
-              ),
+              error: (_, __) => Text(l10n.dailyActivityEmpty, style: bodyStyle),
             ),
           ],
         ),
@@ -353,7 +332,8 @@ class ChildGroupListScreen extends ConsumerStatefulWidget {
   final ParentCategory parent;
 
   @override
-  ConsumerState<ChildGroupListScreen> createState() => _ChildGroupListScreenState();
+  ConsumerState<ChildGroupListScreen> createState() =>
+      _ChildGroupListScreenState();
 }
 
 class _ChildGroupListScreenState extends ConsumerState<ChildGroupListScreen> {
@@ -387,7 +367,7 @@ class _ChildGroupListScreenState extends ConsumerState<ChildGroupListScreen> {
     _scrollRestored = true;
     final offset = _pendingScrollOffset!;
     _pendingScrollOffset = null;
-    
+
     // Jump to saved position (clamped to valid range)
     if (_scrollController.hasClients) {
       final maxScroll = _scrollController.position.maxScrollExtent;
@@ -408,7 +388,9 @@ class _ChildGroupListScreenState extends ConsumerState<ChildGroupListScreen> {
         : GroupType.endings;
 
     // When data loads and we have a pending scroll, schedule restore
-    if (asyncGroups.hasValue && _pendingScrollOffset != null && !_scrollRestored) {
+    if (asyncGroups.hasValue &&
+        _pendingScrollOffset != null &&
+        !_scrollRestored) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (mounted) _restoreScrollPosition();
       });
@@ -421,12 +403,12 @@ class _ChildGroupListScreenState extends ConsumerState<ChildGroupListScreen> {
       },
       child: AppScaffold(
         title: title,
-        leading: BackButton(
-          onPressed: () => context.go(AppRoutes.home),
-        ),
+        leading: BackButton(onPressed: () => context.go(AppRoutes.home)),
         child: asyncGroups.when(
           data: (groups) {
-            final childGroups = groups.where((g) => g.type == filterType).toList();
+            final childGroups = groups
+                .where((g) => g.type == filterType)
+                .toList();
             final theme = Theme.of(context);
             if (filterType == GroupType.endings) {
               return ListView.builder(
@@ -450,10 +432,39 @@ class _ChildGroupListScreenState extends ConsumerState<ChildGroupListScreen> {
             }
             // Vocabulary: sectioned list with headers
             const sectionIds = [
-              ['basic_verbs_01', 'basic_verbs_02', 'basic_verbs_03', 'basic_verbs_04'],
-              ['adverbs_of_time', 'prepositions', 'demonstrative_pronouns', 'relative_direction', 'degree_quantity'],
-              ['people', 'places', 'daily_items_objects', 'time_nature', 'abstract_concepts'],
-              ['general_qualities', 'people_emotions', 'senses_feelings', 'colors'],
+              [
+                'basic_verbs_01',
+                'basic_verbs_02',
+                'basic_verbs_03',
+                'basic_verbs_04',
+                'basic_verbs_05',
+                'basic_verbs_06',
+                'basic_verbs_07',
+                'basic_verbs_08',
+                'basic_verbs_09',
+                'basic_verbs_10',
+                'basic_verbs_11',
+              ],
+              [
+                'adverbs_of_time',
+                'prepositions',
+                'demonstrative_pronouns',
+                'relative_direction',
+                'degree_quantity',
+              ],
+              [
+                'people',
+                'places',
+                'daily_items_objects',
+                'time_nature',
+                'abstract_concepts',
+              ],
+              [
+                'general_qualities',
+                'people_emotions',
+                'senses_feelings',
+                'colors',
+              ],
             ];
             final sectionHeaders = [
               l10n.groupWords,
@@ -505,9 +516,7 @@ class _ChildGroupListScreenState extends ConsumerState<ChildGroupListScreen> {
             );
           },
           loading: () => const Center(child: CircularProgressIndicator()),
-          error: (e, st) => Center(
-            child: Text(l10n.loadError),
-          ),
+          error: (e, st) => Center(child: Text(l10n.loadError)),
         ),
       ),
     );
@@ -550,7 +559,9 @@ class _ChildGroupListScreenState extends ConsumerState<ChildGroupListScreen> {
         ? _scrollController.offset
         : 0.0;
 
-    ref.read(sessionProvider.notifier).start(
+    ref
+        .read(sessionProvider.notifier)
+        .start(
           group: group,
           mode: selection.mode,
           questionCount: count,
