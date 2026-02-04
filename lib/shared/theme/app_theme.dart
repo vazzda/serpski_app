@@ -43,23 +43,30 @@ class AppTheme {
   static const Color onPrimaryContainer = Colors.black87;
 
   // ─────────────────────────────────────────────────────────────────────────
-  // Test badge colors (for date labels based on how old the test is)
+  // Retention level colors (grayscale: light gray → black)
+  // All use white text for readability.
   // ─────────────────────────────────────────────────────────────────────────
 
-  /// Badge background color.
-  static const Color testBadgeBackground = Colors.black;
+  /// Retention: none (0%)
+  static const Color retentionNone = Color(0xFFBDBDBD);
 
-  /// Badge percentage text color.
-  static const Color testBadgePercentage = Colors.white;
+  /// Retention: weak (1-25%)
+  static const Color retentionWeak = Color(0xFF9E9E9E);
 
-  /// Badge date text: recent (within 2 weeks).
-  static const Color testBadgeDateRecent = Color(0xFF9E9E9E);
+  /// Retention: good (26-50%)
+  static const Color retentionGood = Color(0xFF757575);
 
-  /// Badge date text: stale (2 weeks to 1 month).
-  static const Color testBadgeDateStale = Colors.white;
+  /// Retention: strong (51-75%)
+  static const Color retentionStrong = Color(0xFF424242);
 
-  /// Badge date text: old (over 1 month).
-  static const Color testBadgeDateOld = Color(0xFFC62828);
+  /// Retention: super (76-100%)
+  static const Color retentionSuper = Color(0xFF212121);
+
+  /// Text color on retention badges (always white).
+  static const Color retentionText = Colors.white;
+
+  /// Border width for progress chips.
+  static const double chipBorderWidth = 2.0;
 
   static ColorScheme get _lightColorScheme =>
       ColorScheme.fromSeed(

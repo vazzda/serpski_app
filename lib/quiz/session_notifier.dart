@@ -40,7 +40,6 @@ class SessionNotifier extends StateNotifier<SessionState?> {
     required int questionCount,
     required String originRoute,
     double originScrollOffset = 0.0,
-    bool isTest = false,
   }) {
     final result = _buildQueueAndWordIds(group, questionCount);
     final sessionType = group.type == GroupType.endings
@@ -53,7 +52,6 @@ class SessionNotifier extends StateNotifier<SessionState?> {
       sessionType: sessionType,
       originRoute: originRoute,
       originScrollOffset: originScrollOffset,
-      isTest: isTest,
       queue: result.queue,
       sessionWordIds: result.wordIds,
     );
@@ -66,7 +64,6 @@ class SessionNotifier extends StateNotifier<SessionState?> {
     required int questionCount,
     required String originRoute,
     double originScrollOffset = 0.0,
-    bool isTest = false,
   }) {
     final nounGroups = allGroups
         .where((g) => g.category == GroupCategory.noun)
@@ -85,7 +82,6 @@ class SessionNotifier extends StateNotifier<SessionState?> {
       originRoute: originRoute,
       originScrollOffset: originScrollOffset,
       adjectiveGroupId: adjectiveGroup.id,
-      isTest: isTest,
       queue: result.queue,
       sessionWordIds: result.wordIds,
     );

@@ -5,56 +5,74 @@ import 'package:go_router/go_router.dart';
 import '../l10n/app_localizations.dart';
 import '../data/daily_activity_repository.dart';
 import '../data/models/group_model.dart';
-import '../data/test_result_repository.dart';
+import '../data/models/group_progress.dart';
+import '../data/models/retention_level.dart';
 import '../quiz/session_notifier.dart';
+import '../providers/app_settings_provider.dart';
 import '../providers/daily_activity_provider.dart';
+import '../providers/group_progress_provider.dart';
 import '../providers/groups_provider.dart';
-import '../providers/test_result_provider.dart';
 import '../router/app_router.dart';
 import '../shared/theme/app_theme.dart';
 import '../shared/ui/app_card.dart';
 import '../shared/ui/app_scaffold.dart';
 import '../shared/ui/quiz_bottom_sheets.dart';
 import '../utils/group_label.dart';
+import '../utils/progress_calculator.dart';
 
 enum ParentCategory { vocabulary, conjugations }
 
-/// Returns relative date string and appropriate color for test badge.
-({String text, Color color}) formatRelativeDate(
-  DateTime date,
-  AppLocalizations l10n,
-) {
+/// Returns relative date string for progress badge.
+String formatRelativeDate(DateTime date, AppLocalizations l10n) {
   final now = DateTime.now();
   final diff = now.difference(date);
   final days = diff.inDays;
 
-  String text;
-  Color color;
-
   if (days == 0) {
-    text = l10n.relativeDateToday;
+    return l10n.relativeDateToday;
   } else if (days == 1) {
-    text = l10n.relativeDateYesterday;
+    return l10n.relativeDateYesterday;
   } else if (days < 30) {
-    text = l10n.relativeDateDays(days);
+    return l10n.relativeDateDays(days);
   } else if (days < 365) {
     final months = (days / 30).floor();
-    text = l10n.relativeDateMonths(months);
+    return l10n.relativeDateMonths(months);
   } else {
     final years = (days / 365).floor();
-    text = l10n.relativeDateYears(years);
+    return l10n.relativeDateYears(years);
   }
+}
 
-  // Color based on age
-  if (days <= 14) {
-    color = AppTheme.testBadgeDateRecent;
-  } else if (days <= 30) {
-    color = AppTheme.testBadgeDateStale;
-  } else {
-    color = AppTheme.testBadgeDateOld;
+/// Returns background color for a retention level.
+Color retentionColor(RetentionLevel level) {
+  switch (level) {
+    case RetentionLevel.none:
+      return AppTheme.retentionNone;
+    case RetentionLevel.weak:
+      return AppTheme.retentionWeak;
+    case RetentionLevel.good:
+      return AppTheme.retentionGood;
+    case RetentionLevel.strong:
+      return AppTheme.retentionStrong;
+    case RetentionLevel.super_:
+      return AppTheme.retentionSuper;
   }
+}
 
-  return (text: text, color: color);
+/// Returns localized label for a retention level.
+String retentionLabel(RetentionLevel level, AppLocalizations l10n) {
+  switch (level) {
+    case RetentionLevel.none:
+      return l10n.retentionNone;
+    case RetentionLevel.weak:
+      return l10n.retentionWeak;
+    case RetentionLevel.good:
+      return l10n.retentionGood;
+    case RetentionLevel.strong:
+      return l10n.retentionStrong;
+    case RetentionLevel.super_:
+      return l10n.retentionSuper;
+  }
 }
 
 class _GroupTile extends StatelessWidget {
@@ -63,14 +81,16 @@ class _GroupTile extends StatelessWidget {
     required this.l10n,
     required this.theme,
     required this.onTap,
-    this.testResult,
+    this.progress,
+    this.retention = 0.0,
   });
 
   final GroupModel group;
   final AppLocalizations l10n;
   final ThemeData theme;
   final VoidCallback onTap;
-  final TestResult? testResult;
+  final GroupProgress? progress;
+  final double retention;
 
   @override
   Widget build(BuildContext context) {
@@ -80,6 +100,9 @@ class _GroupTile extends StatelessWidget {
     final countText = preview.isNotEmpty
         ? l10n.wordsCountWithPreview(count, preview)
         : l10n.wordsCount(count);
+
+    // Show badge if there's any progress
+    final showBadge = progress != null && progress!.recentSessions.isNotEmpty;
 
     return AppCard(
       onTap: onTap,
@@ -116,12 +139,16 @@ class _GroupTile extends StatelessWidget {
                   ],
                 ),
               ),
-              // Test badge (if test was done)
-              if (testResult != null)
+              // Progress badge (if any sessions done)
+              if (showBadge)
                 Positioned(
                   top: 0,
                   right: 0,
-                  child: _TestBadge(testResult: testResult!, l10n: l10n),
+                  child: _ProgressBadge(
+                    progress: progress!,
+                    retention: retention,
+                    l10n: l10n,
+                  ),
                 ),
             ],
           );
@@ -131,43 +158,91 @@ class _GroupTile extends StatelessWidget {
   }
 }
 
-class _TestBadge extends StatelessWidget {
-  const _TestBadge({required this.testResult, required this.l10n});
+class _ProgressBadge extends StatelessWidget {
+  const _ProgressBadge({
+    required this.progress,
+    required this.retention,
+    required this.l10n,
+  });
 
-  final TestResult testResult;
+  final GroupProgress progress;
+  final double retention;
   final AppLocalizations l10n;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final dateInfo = formatRelativeDate(testResult.date, l10n);
+    final percentage = progress.totalProgress.round();
+    final level = ProgressCalculator.getRetentionLevel(
+      retention,
+      progress.totalProgress,
+    );
+    final levelColor = retentionColor(level);
+    final levelLabel = retentionLabel(level, l10n);
+    final dateText = progress.lastSessionDate != null
+        ? formatRelativeDate(progress.lastSessionDate!, l10n)
+        : '-';
 
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-      decoration: const BoxDecoration(
-        color: AppTheme.testBadgeBackground,
-        borderRadius: BorderRadius.only(
-          topRight: Radius.circular(10),
-          bottomLeft: Radius.circular(10),
-        ),
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-          Text(
-            '${testResult.percentage}%',
-            style: theme.textTheme.titleMedium?.copyWith(
-              color: AppTheme.testBadgePercentage,
-              fontWeight: FontWeight.bold,
+    const chipPadding = EdgeInsets.symmetric(horizontal: 6, vertical: 4);
+    final outlinedChipStyle = theme.textTheme.bodySmall?.copyWith(
+      color: AppTheme.onSurface,
+      fontWeight: FontWeight.bold,
+      fontSize: 11,
+    );
+    final filledChipStyle = theme.textTheme.bodySmall?.copyWith(
+      color: AppTheme.retentionText,
+      fontWeight: FontWeight.bold,
+      fontSize: 11,
+    );
+
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        // Chip 1: Percentage (outlined)
+        Container(
+          padding: chipPadding,
+          decoration: BoxDecoration(
+            color: AppTheme.surface,
+            border: Border.all(
+              color: AppTheme.onSurface,
+              width: AppTheme.chipBorderWidth,
+            ),
+            borderRadius: const BorderRadius.only(
+              bottomLeft: Radius.circular(10),
             ),
           ),
-          Text(
-            dateInfo.text,
-            style: TextStyle(color: dateInfo.color, fontSize: 9),
+          child: Text('$percentage%', style: outlinedChipStyle),
+        ),
+        const SizedBox(width: 4),
+        // Chip 2: Date (outlined)
+        Container(
+          padding: chipPadding,
+          decoration: BoxDecoration(
+            color: AppTheme.surface,
+            border: Border.all(
+              color: AppTheme.onSurface,
+              width: AppTheme.chipBorderWidth,
+            ),
           ),
-        ],
-      ),
+          child: Text(dateText, style: outlinedChipStyle),
+        ),
+        const SizedBox(width: 4),
+        // Chip 3: Retention level (filled with level color)
+        Container(
+          padding: chipPadding,
+          decoration: BoxDecoration(
+            color: levelColor,
+            border: Border.all(
+              color: AppTheme.onSurface,
+              width: AppTheme.chipBorderWidth,
+            ),
+            borderRadius: const BorderRadius.only(
+              topRight: Radius.circular(10),
+            ),
+          ),
+          child: Text(levelLabel, style: filledChipStyle),
+        ),
+      ],
     );
   }
 }
@@ -183,6 +258,12 @@ class GroupListScreen extends ConsumerWidget {
 
     return AppScaffold(
       title: l10n.appBarTitle,
+      actions: [
+        IconButton(
+          icon: const Icon(Icons.settings),
+          onPressed: () => context.push(AppRoutes.settings),
+        ),
+      ],
       child: Column(
         children: [
           Expanded(
@@ -379,7 +460,8 @@ class _ChildGroupListScreenState extends ConsumerState<ChildGroupListScreen> {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     final asyncGroups = ref.watch(groupsProvider);
-    final testResults = ref.watch(testResultsProvider);
+    final allProgress = ref.watch(groupProgressProvider);
+    final settings = ref.watch(appSettingsProvider);
     final title = widget.parent == ParentCategory.vocabulary
         ? l10n.parentVocabulary
         : l10n.parentConjugations;
@@ -394,6 +476,14 @@ class _ChildGroupListScreenState extends ConsumerState<ChildGroupListScreen> {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (mounted) _restoreScrollPosition();
       });
+    }
+
+    // Helper to get retention for a group
+    double getRetention(String groupId) {
+      final progress = allProgress[groupId];
+      if (progress == null) return 0.0;
+      return ProgressCalculator.calculateRetention(
+          progress, settings.decayFormula);
     }
 
     return PopScope(
@@ -417,13 +507,15 @@ class _ChildGroupListScreenState extends ConsumerState<ChildGroupListScreen> {
                 itemCount: childGroups.length,
                 itemBuilder: (context, index) {
                   final group = childGroups[index];
+                  final progress = allProgress[group.id];
                   return Padding(
                     padding: const EdgeInsets.only(bottom: 12),
                     child: _GroupTile(
                       group: group,
                       l10n: l10n,
                       theme: theme,
-                      testResult: testResults[group.id],
+                      progress: progress,
+                      retention: getRetention(group.id),
                       onTap: () => _onGroupTap(context, group, l10n),
                     ),
                   );
@@ -502,13 +594,15 @@ class _ChildGroupListScreenState extends ConsumerState<ChildGroupListScreen> {
                   );
                 }
                 final group = item as GroupModel;
+                final progress = allProgress[group.id];
                 return Padding(
                   padding: const EdgeInsets.only(bottom: 12),
                   child: _GroupTile(
                     group: group,
                     l10n: l10n,
                     theme: theme,
-                    testResult: testResults[group.id],
+                    progress: progress,
+                    retention: getRetention(group.id),
                     onTap: () => _onGroupTap(context, group, l10n),
                   ),
                 );
@@ -534,23 +628,16 @@ class _ChildGroupListScreenState extends ConsumerState<ChildGroupListScreen> {
 
     ref.read(selectedGroupProvider.notifier).state = group;
 
-    final selection = await showModeBottomSheet(context, l10n);
-    if (selection == null || !context.mounted) return;
+    final mode = await showModeBottomSheet(context, l10n);
+    if (mode == null || !context.mounted) return;
 
-    int count;
-    if (selection.isTest) {
-      // TEST mode: always use all cards
-      count = totalCards;
-    } else {
-      // TRAIN mode: show count selection (or auto-select if ≤5)
-      final selectedCount = await showCountBottomSheet(
-        context,
-        l10n,
-        totalCount: totalCards,
-      );
-      if (selectedCount == null || !context.mounted) return;
-      count = selectedCount;
-    }
+    // Show count selection (or auto-select if ≤5)
+    final selectedCount = await showCountBottomSheet(
+      context,
+      l10n,
+      totalCount: totalCards,
+    );
+    if (selectedCount == null || !context.mounted) return;
 
     final originRoute = widget.parent == ParentCategory.vocabulary
         ? AppRoutes.vocabulary
@@ -559,15 +646,12 @@ class _ChildGroupListScreenState extends ConsumerState<ChildGroupListScreen> {
         ? _scrollController.offset
         : 0.0;
 
-    ref
-        .read(sessionProvider.notifier)
-        .start(
+    ref.read(sessionProvider.notifier).start(
           group: group,
-          mode: selection.mode,
-          questionCount: count,
+          mode: mode,
+          questionCount: selectedCount,
           originRoute: originRoute,
           originScrollOffset: scrollOffset,
-          isTest: selection.isTest,
         );
     if (context.mounted) context.go(AppRoutes.session);
   }

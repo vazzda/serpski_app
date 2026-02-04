@@ -6,6 +6,7 @@ import '../screens/agreement_group_list_screen.dart';
 import '../screens/group_list_screen.dart';
 import '../screens/result_screen.dart';
 import '../screens/session_screen.dart';
+import '../screens/settings_screen.dart';
 import '../shared/theme/app_theme.dart';
 
 /// Route names/paths.
@@ -16,6 +17,7 @@ class AppRoutes {
   static const String agreement = '/agreement';
   static const String session = '/session';
   static const String result = '/result';
+  static const String settings = '/settings';
 }
 
 /// Custom page with slide transition and scaffold background color.
@@ -95,6 +97,13 @@ GoRouter createAppRouter() {
         path: AppRoutes.result,
         pageBuilder: (context, state) => _buildPage(
           const ResultScreen(),
+          state,
+        ),
+      ),
+      GoRoute(
+        path: AppRoutes.settings,
+        pageBuilder: (context, state) => _buildPage(
+          const SettingsScreen(),
           state,
         ),
       ),

@@ -1,14 +1,15 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../providers/app_settings_provider.dart';
 import '../providers/daily_activity_provider.dart';
-import '../providers/test_result_provider.dart';
+import '../providers/group_progress_provider.dart';
+import '../utils/progress_calculator.dart';
 import 'session_notifier.dart';
 
-/// Persists the current session into today's daily activity and updates
-/// [dailyActivityProvider] with the new stats (no read-after-write). Call when
-/// the session has just finished (before navigating to result).
-/// If session is a test, also saves the test result.
+/// Persists the current session into today's daily activity and group progress.
+/// Updates [dailyActivityProvider] and [groupProgressProvider] with new stats.
+/// Call when the session has just finished (before navigating to result).
 Future<void> persistSessionToDailyActivity(WidgetRef ref) async {
   try {
     final session = ref.read(sessionProvider);
@@ -23,16 +24,26 @@ Future<void> persistSessionToDailyActivity(WidgetRef ref) async {
         );
     ref.read(dailyActivityProvider.notifier).setStats(stats);
 
-    // Save test result if this is a test session
-    if (session.isTest) {
-      final total = session.correctCount + session.wrongCount;
-      final percentage = total > 0
-          ? (session.correctCount * 100 / total).round()
-          : 0;
-      await ref.read(testResultsProvider.notifier).saveResult(
-            session.groupId,
-            percentage,
-          );
+    // Calculate session score and record progress
+    final total = session.correctCount + session.wrongCount;
+    final score = total > 0 ? (session.correctCount * 100.0 / total) : 0.0;
+
+    await ref.read(groupProgressProvider.notifier).recordSession(
+          groupId: session.groupId,
+          score: score,
+          mode: session.mode,
+        );
+
+    // Update peak retention if needed
+    final settings = ref.read(appSettingsProvider);
+    final progress =
+        ref.read(groupProgressProvider.notifier).getProgress(session.groupId);
+    final retention =
+        ProgressCalculator.calculateRetention(progress, settings.decayFormula);
+    if (ProgressCalculator.shouldUpdatePeak(progress, retention)) {
+      await ref
+          .read(groupProgressProvider.notifier)
+          .updatePeakRetention(session.groupId, retention);
     }
   } catch (e, st) {
     debugPrint('persistSessionToDailyActivity error: $e\n$st');

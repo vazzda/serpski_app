@@ -5,11 +5,13 @@ import 'package:go_router/go_router.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
+import 'data/app_settings_repository.dart';
 import 'data/daily_activity_repository.dart';
-import 'data/test_result_repository.dart';
+import 'data/group_progress_repository.dart';
 import 'l10n/app_localizations.dart';
+import 'providers/app_settings_provider.dart';
 import 'providers/daily_activity_provider.dart';
-import 'providers/test_result_provider.dart';
+import 'providers/group_progress_provider.dart';
 import 'router/app_router.dart';
 import 'shared/theme/app_theme.dart';
 
@@ -18,7 +20,8 @@ Future<void> main() async {
   FlutterNativeSplash.preserve(widgetsBinding: WidgetsBinding.instance);
   await Hive.initFlutter();
   final dailyActivityBox = await Hive.openBox('daily_activity');
-  final testResultsBox = await Hive.openBox('test_results');
+  final groupProgressBox = await Hive.openBox('group_progress');
+  final appSettingsBox = await Hive.openBox('app_settings');
   final router = createAppRouter();
   runApp(
     ProviderScope(
@@ -26,8 +29,11 @@ Future<void> main() async {
         dailyActivityRepositoryProvider.overrideWith(
           (ref) => DailyActivityRepository(box: dailyActivityBox),
         ),
-        testResultRepositoryProvider.overrideWith(
-          (ref) => TestResultRepository(box: testResultsBox),
+        groupProgressRepositoryProvider.overrideWith(
+          (ref) => GroupProgressRepository(box: groupProgressBox),
+        ),
+        appSettingsRepositoryProvider.overrideWith(
+          (ref) => AppSettingsRepository(box: appSettingsBox),
         ),
       ],
       child: SrpskiCardApp(router: router),

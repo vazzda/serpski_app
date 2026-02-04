@@ -2,27 +2,18 @@ import 'package:flutter/material.dart';
 
 import '../../l10n/app_localizations.dart';
 import '../../quiz/quiz_mode.dart';
-import 'app_button.dart';
 import 'app_outlined_button.dart';
 
-/// Result of mode selection: the quiz mode and whether it's a test.
-class ModeSelection {
-  const ModeSelection({required this.mode, required this.isTest});
-
-  final QuizMode mode;
-  final bool isTest;
-}
-
-/// Shows mode selection bottom sheet with TRAIN and TESTING sections.
-/// [showAllModes] - if true, shows all 3 train modes; if false, shows only WRITING.
-/// Returns [ModeSelection] or null if dismissed.
-Future<ModeSelection?> showModeBottomSheet(
+/// Shows mode selection bottom sheet.
+/// [showAllModes] - if true, shows all 3 modes; if false, shows only WRITING.
+/// Returns [QuizMode] or null if dismissed.
+Future<QuizMode?> showModeBottomSheet(
   BuildContext context,
   AppLocalizations l10n, {
   bool showAllModes = true,
 }) {
   final theme = Theme.of(context);
-  return showModalBottomSheet<ModeSelection>(
+  return showModalBottomSheet<QuizMode>(
     context: context,
     backgroundColor: theme.colorScheme.surface,
     builder: (context) => SafeArea(
@@ -40,34 +31,20 @@ Future<ModeSelection?> showModeBottomSheet(
                 style: theme.textTheme.titleLarge,
               ),
             ),
-            // TRAIN header
-            Padding(
-              padding: const EdgeInsets.only(bottom: 8),
-              child: Text(
-                l10n.trainHeader,
-                style: theme.textTheme.labelLarge?.copyWith(
-                  color: theme.colorScheme.onSurfaceVariant,
-                ),
-              ),
-            ),
-            // Train buttons
+            // Mode buttons
             if (showAllModes) ...[
               Padding(
                 padding: const EdgeInsets.only(bottom: 8),
                 child: AppOutlinedButton(
                   label: l10n.modeEngCards,
-                  onPressed: () => Navigator.of(context).pop(
-                    const ModeSelection(mode: QuizMode.serbianShown, isTest: false),
-                  ),
+                  onPressed: () => Navigator.of(context).pop(QuizMode.serbianShown),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.only(bottom: 8),
                 child: AppOutlinedButton(
                   label: l10n.modeSrpskiCards,
-                  onPressed: () => Navigator.of(context).pop(
-                    const ModeSelection(mode: QuizMode.englishShown, isTest: false),
-                  ),
+                  onPressed: () => Navigator.of(context).pop(QuizMode.englishShown),
                 ),
               ),
             ],
@@ -75,29 +52,7 @@ Future<ModeSelection?> showModeBottomSheet(
               padding: const EdgeInsets.only(bottom: 16),
               child: AppOutlinedButton(
                 label: l10n.modeWriting,
-                onPressed: () => Navigator.of(context).pop(
-                  const ModeSelection(mode: QuizMode.write, isTest: false),
-                ),
-              ),
-            ),
-            // TESTING header
-            Padding(
-              padding: const EdgeInsets.only(bottom: 8),
-              child: Text(
-                l10n.testHeader,
-                style: theme.textTheme.labelLarge?.copyWith(
-                  color: theme.colorScheme.onSurfaceVariant,
-                ),
-              ),
-            ),
-            // Test button
-            Padding(
-              padding: const EdgeInsets.only(bottom: 16),
-              child: AppButton(
-                label: l10n.modeTest,
-                onPressed: () => Navigator.of(context).pop(
-                  const ModeSelection(mode: QuizMode.write, isTest: true),
-                ),
+                onPressed: () => Navigator.of(context).pop(QuizMode.write),
               ),
             ),
             // Cancel
