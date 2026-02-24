@@ -23,7 +23,9 @@ class SessionState {
     required this.originRoute,
     this.originScrollOffset = 0.0,
     this.adjectiveGroupId,
+    this.groupLabelKey,
     this.queue = const [],
+    this.allCards,
     this.correctCount = 0,
     this.wrongCount = 0,
     this.missedEntries = const [],
@@ -40,9 +42,15 @@ class SessionState {
   final double originScrollOffset;
   /// For agreement sessions: the adjective group id (without "agreement:" prefix).
   final String? adjectiveGroupId;
+  /// ARB key for the group name. Used for session title display.
+  final String? groupLabelKey;
 
   /// Remaining cards to answer (front = current). Wrong answers are moved to end.
   final List<CardModel> queue;
+
+  /// All cards generated for this session (for MCQ option pool).
+  /// Set for vocab sessions; null for legacy/agreement sessions (which use group.cards).
+  final List<CardModel>? allCards;
 
   final int correctCount;
   final int wrongCount;
@@ -72,7 +80,9 @@ class SessionState {
       originRoute: originRoute,
       originScrollOffset: originScrollOffset,
       adjectiveGroupId: adjectiveGroupId,
+      groupLabelKey: groupLabelKey,
       queue: queue ?? this.queue,
+      allCards: allCards,
       correctCount: correctCount ?? this.correctCount,
       wrongCount: wrongCount ?? this.wrongCount,
       missedEntries: missedEntries ?? this.missedEntries,

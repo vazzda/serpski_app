@@ -40,9 +40,9 @@ import '../../entities/group/group_model.dart';
   for (var i = 0; i < count; i++) {
     final adj = adjectives[random.nextInt(adjectives.length)];
     final noun = nouns[random.nextInt(nouns.length)];
-    final serbian = '${adj.formForGender(sessionGender)} ${noun.serbian}';
-    final english = '${adj.english} ${noun.english}';
-    queue.add(PhraseCard(serbian: serbian, english: english));
+    final target = '${adj.formForGender(sessionGender)} ${noun.targetText}';
+    final native = '${adj.nativeText} ${noun.nativeText}';
+    queue.add(PhraseCard(targetText: target, nativeText: native));
     wordIds.add('agreement:${adjectiveGroup.id}:$i');
   }
   return (queue: queue, wordIds: wordIds);

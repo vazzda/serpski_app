@@ -6,11 +6,15 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 import 'shared/repositories/daily_activity_repository.dart';
 import 'shared/repositories/group_progress_repository.dart';
+import 'shared/repositories/language_settings_repository.dart';
+import 'shared/repositories/language_stats_repository.dart';
 import 'shared/repositories/app_settings_repository.dart';
 import 'l10n/app_localizations.dart';
 import 'app/providers/database_provider.dart';
 import 'app/providers/daily_activity_provider.dart';
 import 'app/providers/group_progress_provider.dart';
+import 'app/providers/language_settings_provider.dart';
+import 'app/providers/language_stats_provider.dart';
 import 'app/providers/app_settings_provider.dart';
 import 'app/providers/theme_provider.dart';
 import 'app/router/app_router.dart';
@@ -30,6 +34,12 @@ Future<void> main() async {
         ),
         groupProgressRepositoryProvider.overrideWith(
           (ref) => GroupProgressRepository(db: db),
+        ),
+        languageSettingsRepositoryProvider.overrideWith(
+          (ref) => LanguageSettingsRepository(db: db),
+        ),
+        languageStatsRepositoryProvider.overrideWith(
+          (ref) => LanguageStatsRepository(db: db),
         ),
         appSettingsRepositoryProvider.overrideWith(
           (ref) => AppSettingsRepository(db: db),

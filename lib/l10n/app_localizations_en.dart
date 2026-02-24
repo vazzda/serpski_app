@@ -171,10 +171,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get modeSerbianShown => 'Serbian shown (pick English)';
 
   @override
-  String get modeEnglishShown => 'English shown (pick Serbian)';
+  String get modeEnglishShown => 'English shown (pick target)';
 
   @override
-  String get modeWrite => 'Write (type Serbian)';
+  String get modeWrite => 'Write (type target)';
 
   @override
   String get chooseQuestionsCount => 'How many questions?';
@@ -229,7 +229,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get reviewWrongTitle => 'Missed cards';
 
   @override
-  String get reviewWrongSubtitle => 'Cards you got wrong (Serbian → English)';
+  String get reviewWrongSubtitle => 'Cards you got wrong';
 
   @override
   String get done => 'Done';
@@ -294,10 +294,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get testHeader => 'TESTING';
 
   @override
-  String get modeEngCards => 'ENG CARDS';
+  String get modeEngCards => 'TARGET SHOWN';
 
   @override
-  String get modeSrpskiCards => 'SRPSKI CARDS';
+  String get modeSrpskiCards => 'NATIVE SHOWN';
 
   @override
   String get modeWriting => 'WRITING';
@@ -396,4 +396,69 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get settingsTheme => 'Theme';
+
+  @override
+  String get lang_english => 'English';
+
+  @override
+  String get lang_serbian => 'Serbian';
+
+  @override
+  String get lang_russian => 'Russian';
+
+  @override
+  String get aspect_perfective => 'perfective';
+
+  @override
+  String get aspect_imperfective => 'imperfective';
+
+  @override
+  String get language_learning => 'Learning';
+
+  @override
+  String get language_native => 'Native language';
+
+  @override
+  String get language_appLanguage => 'App language';
+
+  @override
+  String get language_myProgress => 'My progress';
+
+  @override
+  String get language_incompleteDictionaries => 'Incomplete dictionaries';
+
+  @override
+  String language_groupsProgress(int done, int total) {
+    return '$done/$total groups';
+  }
+
+  @override
+  String language_wordsTouched(int count) {
+    return '$count words';
+  }
+
+  @override
+  String language_conceptsMissing(int count) {
+    return '$count missing';
+  }
+
+  @override
+  String language_conceptsCount(int done, int total) {
+    return '$done/$total concepts';
+  }
+
+  @override
+  String get modeTargetShown => 'Target shown (pick native)';
+
+  @override
+  String get modeNativeShown => 'Native shown (pick target)';
+
+  @override
+  String get tools_conjugations => 'Conjugations';
+
+  @override
+  String get tools_agreement => 'Gender agreement';
+
+  @override
+  String get tools_emptyState => 'No tools available for this language';
 }

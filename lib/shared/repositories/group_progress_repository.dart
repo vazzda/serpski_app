@@ -4,28 +4,28 @@ import 'models/group_progress.dart';
 import 'models/session_record.dart';
 import '../../features/quiz/quiz_mode.dart';
 
-/// Persists and reads group progress via SQLite.
+/// Persists and reads group progress via SQLite, scoped by target language.
 class GroupProgressRepository {
   GroupProgressRepository({required Database db}) : _db = db;
 
   final Database _db;
 
-  /// Returns progress for a group, or empty progress if none exists.
-  Future<GroupProgress> getProgress(String groupId) async {
+  /// Returns progress for a group in a target language, or empty progress if none exists.
+  Future<GroupProgress> getProgress(String targetLang, String groupId) async {
     final rows = await _db.query(
       'group_progress',
-      where: 'group_id = ?',
-      whereArgs: [groupId],
+      where: 'target_lang = ? AND group_id = ?',
+      whereArgs: [targetLang, groupId],
     );
-    final sessions = await _getRecentSessions(groupId);
+    final sessions = await _getRecentSessions(targetLang, groupId);
 
     if (rows.isEmpty) return GroupProgress(groupId: groupId);
 
     final row = rows.first;
     return GroupProgress(
       groupId: groupId,
-      serbianCardsProgress: (row['serbian_cards_progress'] as num).toDouble(),
-      englishCardsProgress: (row['english_cards_progress'] as num).toDouble(),
+      targetShownProgress: (row['target_shown_progress'] as num).toDouble(),
+      nativeShownProgress: (row['native_shown_progress'] as num).toDouble(),
       writeProgress: (row['write_progress'] as num).toDouble(),
       peakRetention: (row['peak_retention'] as num).toDouble(),
       recentSessions: sessions,
@@ -35,20 +35,24 @@ class GroupProgressRepository {
     );
   }
 
-  /// Returns all progress as a map of groupId → GroupProgress.
-  Future<Map<String, GroupProgress>> getAllProgress() async {
-    final rows = await _db.query('group_progress');
+  /// Returns all progress for a target language as a map of groupId → GroupProgress.
+  Future<Map<String, GroupProgress>> getAllProgress(String targetLang) async {
+    final rows = await _db.query(
+      'group_progress',
+      where: 'target_lang = ?',
+      whereArgs: [targetLang],
+    );
     final results = <String, GroupProgress>{};
 
     for (final row in rows) {
       final groupId = row['group_id'] as String;
-      final sessions = await _getRecentSessions(groupId);
+      final sessions = await _getRecentSessions(targetLang, groupId);
       results[groupId] = GroupProgress(
         groupId: groupId,
-        serbianCardsProgress:
-            (row['serbian_cards_progress'] as num).toDouble(),
-        englishCardsProgress:
-            (row['english_cards_progress'] as num).toDouble(),
+        targetShownProgress:
+            (row['target_shown_progress'] as num).toDouble(),
+        nativeShownProgress:
+            (row['native_shown_progress'] as num).toDouble(),
         writeProgress: (row['write_progress'] as num).toDouble(),
         peakRetention: (row['peak_retention'] as num).toDouble(),
         recentSessions: sessions,
@@ -62,51 +66,53 @@ class GroupProgressRepository {
 
   /// Records a session result and updates progress for a group.
   Future<GroupProgress> recordSession({
+    required String targetLang,
     required String groupId,
     required double score,
     required QuizMode mode,
   }) async {
-    final current = await getProgress(groupId);
+    final current = await getProgress(targetLang, groupId);
     final now = DateTime.now();
 
     // Insert session record
     await _db.insert('session_records', {
+      'target_lang': targetLang,
       'group_id': groupId,
       'date': now.toIso8601String(),
       'score': score,
       'mode': mode.name,
     });
 
-    // Trim to last 3 session records per group
+    // Trim to last 3 session records per (target_lang, group)
     await _db.rawDelete('''
       DELETE FROM session_records
-      WHERE group_id = ? AND id NOT IN (
+      WHERE target_lang = ? AND group_id = ? AND id NOT IN (
         SELECT id FROM session_records
-        WHERE group_id = ?
+        WHERE target_lang = ? AND group_id = ?
         ORDER BY date DESC
         LIMIT 3
       )
-    ''', [groupId, groupId]);
+    ''', [targetLang, groupId, targetLang, groupId]);
 
     // Calculate progress contribution
     const sessionContribution = 10.0;
-    double newSerbianProgress = current.serbianCardsProgress;
-    double newEnglishProgress = current.englishCardsProgress;
-    double newWriteProgress = current.writeProgress;
+    double newTargetShown = current.targetShownProgress;
+    double newNativeShown = current.nativeShownProgress;
+    double newWrite = current.writeProgress;
 
     final contribution = (score / 100.0) * sessionContribution;
 
     switch (mode) {
-      case QuizMode.serbianShown:
-        newSerbianProgress =
-            (current.serbianCardsProgress + contribution).clamp(0.0, 100.0);
+      case QuizMode.targetShown:
+        newTargetShown =
+            (current.targetShownProgress + contribution).clamp(0.0, 100.0);
         break;
-      case QuizMode.englishShown:
-        newEnglishProgress =
-            (current.englishCardsProgress + contribution).clamp(0.0, 100.0);
+      case QuizMode.nativeShown:
+        newNativeShown =
+            (current.nativeShownProgress + contribution).clamp(0.0, 100.0);
         break;
       case QuizMode.write:
-        newWriteProgress =
+        newWrite =
             (current.writeProgress + contribution).clamp(0.0, 100.0);
         break;
     }
@@ -115,39 +121,41 @@ class GroupProgressRepository {
     await _db.insert(
       'group_progress',
       {
+        'target_lang': targetLang,
         'group_id': groupId,
-        'serbian_cards_progress': newSerbianProgress,
-        'english_cards_progress': newEnglishProgress,
-        'write_progress': newWriteProgress,
+        'target_shown_progress': newTargetShown,
+        'native_shown_progress': newNativeShown,
+        'write_progress': newWrite,
         'peak_retention': current.peakRetention,
         'last_session_date': now.toIso8601String(),
       },
       conflictAlgorithm: ConflictAlgorithm.replace,
     );
 
-    return getProgress(groupId);
+    return getProgress(targetLang, groupId);
   }
 
   /// Updates peak retention for a group (call after calculating current retention).
   Future<void> updatePeakRetention(
-      String groupId, double currentRetention) async {
-    final current = await getProgress(groupId);
+      String targetLang, String groupId, double currentRetention) async {
+    final current = await getProgress(targetLang, groupId);
     if (currentRetention > current.peakRetention) {
       await _db.update(
         'group_progress',
         {'peak_retention': currentRetention},
-        where: 'group_id = ?',
-        whereArgs: [groupId],
+        where: 'target_lang = ? AND group_id = ?',
+        whereArgs: [targetLang, groupId],
       );
     }
   }
 
-  /// Returns the last 3 session records for a group, newest first.
-  Future<List<SessionRecord>> _getRecentSessions(String groupId) async {
+  /// Returns the last 3 session records for a (target_lang, group), newest first.
+  Future<List<SessionRecord>> _getRecentSessions(
+      String targetLang, String groupId) async {
     final rows = await _db.query(
       'session_records',
-      where: 'group_id = ?',
-      whereArgs: [groupId],
+      where: 'target_lang = ? AND group_id = ?',
+      whereArgs: [targetLang, groupId],
       orderBy: 'date DESC',
       limit: 3,
     );

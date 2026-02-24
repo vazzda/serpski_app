@@ -76,8 +76,8 @@
   "groupIrregular": "Irregular",
   "chooseMode": "Choose mode",
   "modeSerbianShown": "Serbian shown (pick English)",
-  "modeEnglishShown": "English shown (pick Serbian)",
-  "modeWrite": "Write (type Serbian)",
+  "modeEnglishShown": "English shown (pick target)",
+  "modeWrite": "Write (type target)",
   "chooseQuestionsCount": "How many questions?",
   "questions5": "5",
   "questions10": "10",
@@ -108,7 +108,7 @@
     }
   },
   "reviewWrongTitle": "Missed cards",
-  "reviewWrongSubtitle": "Cards you got wrong (Serbian → English)",
+  "reviewWrongSubtitle": "Cards you got wrong",
   "done": "Done",
   "backToGroups": "Back to groups",
   "again": "Again",
@@ -136,8 +136,8 @@
   "dailyActivityEmpty": "No activity today",
   "trainHeader": "TRAIN",
   "testHeader": "TESTING",
-  "modeEngCards": "ENG CARDS",
-  "modeSrpskiCards": "SRPSKI CARDS",
+  "modeEngCards": "TARGET SHOWN",
+  "modeSrpskiCards": "NATIVE SHOWN",
   "modeWriting": "WRITING",
   "modeTest": "TEST",
   "relativeDateToday": "today",
@@ -195,5 +195,51 @@
   "navSettings": "Settings",
   "underDevelopmentTitle": "Coming soon",
   "underDevelopmentBody": "This feature is under development.",
-  "settingsTheme": "Theme"
+  "settingsTheme": "Theme",
+
+  "lang_english": "English",
+  "lang_serbian": "Serbian",
+  "lang_russian": "Russian",
+
+  "aspect_perfective": "perfective",
+  "aspect_imperfective": "imperfective",
+
+  "language_learning": "Learning",
+  "language_native": "Native language",
+  "language_appLanguage": "App language",
+  "language_myProgress": "My progress",
+  "language_incompleteDictionaries": "Incomplete dictionaries",
+  "language_groupsProgress": "{done}/{total} groups",
+  "@language_groupsProgress": {
+    "placeholders": {
+      "done": { "type": "int" },
+      "total": { "type": "int" }
+    }
+  },
+  "language_wordsTouched": "{count} words",
+  "@language_wordsTouched": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "language_conceptsMissing": "{count} missing",
+  "@language_conceptsMissing": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "language_conceptsCount": "{done}/{total} concepts",
+  "@language_conceptsCount": {
+    "placeholders": {
+      "done": { "type": "int" },
+      "total": { "type": "int" }
+    }
+  },
+
+  "modeTargetShown": "Target shown (pick native)",
+  "modeNativeShown": "Native shown (pick target)",
+
+  "tools_conjugations": "Conjugations",
+  "tools_agreement": "Gender agreement",
+  "tools_emptyState": "No tools available for this language"
 }

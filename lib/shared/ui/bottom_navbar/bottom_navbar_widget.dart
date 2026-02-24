@@ -18,11 +18,10 @@ class BottomNavBarWidget extends StatelessWidget {
     final currentPath = GoRouterState.of(context).uri.path;
 
     final isLanguage = currentPath == AppRoutes.language;
-    final isVocabulary = currentPath == AppRoutes.home ||
-        currentPath == AppRoutes.vocabulary ||
+    final isVocabulary = currentPath == AppRoutes.home;
+    final isTools = currentPath == AppRoutes.tools ||
         currentPath == AppRoutes.conjugations ||
         currentPath == AppRoutes.agreement;
-    final isTools = currentPath == AppRoutes.tools;
     final isSettings = currentPath == AppRoutes.settings;
 
     return Container(

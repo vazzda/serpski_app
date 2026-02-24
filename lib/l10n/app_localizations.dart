@@ -409,13 +409,13 @@ abstract class AppLocalizations {
   /// No description provided for @modeEnglishShown.
   ///
   /// In en, this message translates to:
-  /// **'English shown (pick Serbian)'**
+  /// **'English shown (pick target)'**
   String get modeEnglishShown;
 
   /// No description provided for @modeWrite.
   ///
   /// In en, this message translates to:
-  /// **'Write (type Serbian)'**
+  /// **'Write (type target)'**
   String get modeWrite;
 
   /// No description provided for @chooseQuestionsCount.
@@ -517,7 +517,7 @@ abstract class AppLocalizations {
   /// No description provided for @reviewWrongSubtitle.
   ///
   /// In en, this message translates to:
-  /// **'Cards you got wrong (Serbian → English)'**
+  /// **'Cards you got wrong'**
   String get reviewWrongSubtitle;
 
   /// No description provided for @done.
@@ -643,13 +643,13 @@ abstract class AppLocalizations {
   /// No description provided for @modeEngCards.
   ///
   /// In en, this message translates to:
-  /// **'ENG CARDS'**
+  /// **'TARGET SHOWN'**
   String get modeEngCards;
 
   /// No description provided for @modeSrpskiCards.
   ///
   /// In en, this message translates to:
-  /// **'SRPSKI CARDS'**
+  /// **'NATIVE SHOWN'**
   String get modeSrpskiCards;
 
   /// No description provided for @modeWriting.
@@ -831,6 +831,120 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Theme'**
   String get settingsTheme;
+
+  /// No description provided for @lang_english.
+  ///
+  /// In en, this message translates to:
+  /// **'English'**
+  String get lang_english;
+
+  /// No description provided for @lang_serbian.
+  ///
+  /// In en, this message translates to:
+  /// **'Serbian'**
+  String get lang_serbian;
+
+  /// No description provided for @lang_russian.
+  ///
+  /// In en, this message translates to:
+  /// **'Russian'**
+  String get lang_russian;
+
+  /// No description provided for @aspect_perfective.
+  ///
+  /// In en, this message translates to:
+  /// **'perfective'**
+  String get aspect_perfective;
+
+  /// No description provided for @aspect_imperfective.
+  ///
+  /// In en, this message translates to:
+  /// **'imperfective'**
+  String get aspect_imperfective;
+
+  /// No description provided for @language_learning.
+  ///
+  /// In en, this message translates to:
+  /// **'Learning'**
+  String get language_learning;
+
+  /// No description provided for @language_native.
+  ///
+  /// In en, this message translates to:
+  /// **'Native language'**
+  String get language_native;
+
+  /// No description provided for @language_appLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'App language'**
+  String get language_appLanguage;
+
+  /// No description provided for @language_myProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'My progress'**
+  String get language_myProgress;
+
+  /// No description provided for @language_incompleteDictionaries.
+  ///
+  /// In en, this message translates to:
+  /// **'Incomplete dictionaries'**
+  String get language_incompleteDictionaries;
+
+  /// No description provided for @language_groupsProgress.
+  ///
+  /// In en, this message translates to:
+  /// **'{done}/{total} groups'**
+  String language_groupsProgress(int done, int total);
+
+  /// No description provided for @language_wordsTouched.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} words'**
+  String language_wordsTouched(int count);
+
+  /// No description provided for @language_conceptsMissing.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} missing'**
+  String language_conceptsMissing(int count);
+
+  /// No description provided for @language_conceptsCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{done}/{total} concepts'**
+  String language_conceptsCount(int done, int total);
+
+  /// No description provided for @modeTargetShown.
+  ///
+  /// In en, this message translates to:
+  /// **'Target shown (pick native)'**
+  String get modeTargetShown;
+
+  /// No description provided for @modeNativeShown.
+  ///
+  /// In en, this message translates to:
+  /// **'Native shown (pick target)'**
+  String get modeNativeShown;
+
+  /// No description provided for @tools_conjugations.
+  ///
+  /// In en, this message translates to:
+  /// **'Conjugations'**
+  String get tools_conjugations;
+
+  /// No description provided for @tools_agreement.
+  ///
+  /// In en, this message translates to:
+  /// **'Gender agreement'**
+  String get tools_agreement;
+
+  /// No description provided for @tools_emptyState.
+  ///
+  /// In en, this message translates to:
+  /// **'No tools available for this language'**
+  String get tools_emptyState;
 }
 
 class _AppLocalizationsDelegate

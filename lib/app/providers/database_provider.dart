@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
-import '../../shared/lib/constants.dart';
+import 'package:srpski_card/shared/lib/constants.dart';
 
 /// Singleton database provider. Manages schema creation and upgrades.
 class DatabaseProvider {
@@ -39,36 +39,40 @@ class DatabaseProvider {
   static Future<void> _onCreate(Database db, int version) async {
     await db.execute('''
       CREATE TABLE daily_activity (
-        date TEXT PRIMARY KEY,
+        date TEXT NOT NULL,
+        target_lang TEXT NOT NULL,
         correct INTEGER NOT NULL DEFAULT 0,
         wrong INTEGER NOT NULL DEFAULT 0,
-        word_ids TEXT NOT NULL DEFAULT '[]'
-      )
-    ''');
-    await db.execute('''
-      CREATE TABLE test_results (
-        group_id TEXT PRIMARY KEY,
-        percentage INTEGER NOT NULL,
-        date TEXT NOT NULL
+        word_ids TEXT NOT NULL DEFAULT '[]',
+        PRIMARY KEY (date, target_lang)
       )
     ''');
     await db.execute('''
       CREATE TABLE group_progress (
-        group_id TEXT PRIMARY KEY,
-        serbian_cards_progress REAL NOT NULL DEFAULT 0,
-        english_cards_progress REAL NOT NULL DEFAULT 0,
+        target_lang TEXT NOT NULL,
+        group_id TEXT NOT NULL,
+        target_shown_progress REAL NOT NULL DEFAULT 0,
+        native_shown_progress REAL NOT NULL DEFAULT 0,
         write_progress REAL NOT NULL DEFAULT 0,
         peak_retention REAL NOT NULL DEFAULT 0,
-        last_session_date TEXT
+        last_session_date TEXT,
+        PRIMARY KEY (target_lang, group_id)
       )
     ''');
     await db.execute('''
       CREATE TABLE session_records (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
+        target_lang TEXT NOT NULL,
         group_id TEXT NOT NULL,
         date TEXT NOT NULL,
         score REAL NOT NULL,
         mode TEXT NOT NULL
+      )
+    ''');
+    await db.execute('''
+      CREATE TABLE language_stats (
+        target_lang TEXT PRIMARY KEY,
+        concepts_touched_ids TEXT NOT NULL DEFAULT '[]'
       )
     ''');
     await db.execute('''
@@ -77,6 +81,10 @@ class DatabaseProvider {
         value TEXT NOT NULL
       )
     ''');
+    // Default language settings
+    await db.insert('app_settings', {'key': 'target_lang', 'value': 'sr'});
+    await db.insert('app_settings', {'key': 'native_lang', 'value': 'en'});
+    await db.insert('app_settings', {'key': 'ui_lang', 'value': 'en'});
   }
 
   static Future<void> _onUpgrade(

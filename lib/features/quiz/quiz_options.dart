@@ -3,7 +3,7 @@ import 'dart:math';
 import '../../entities/card/card_model.dart';
 import 'quiz_mode.dart';
 
-/// Builds 4 option cards for "Serbian shown, pick English": correct card + 3 wrong from [allCards].
+/// Builds 4 option cards for "target shown, pick native": correct card + 3 wrong from [allCards].
 List<CardModel> buildMultipleChoiceOptionCards({
   required CardModel correctCard,
   required List<CardModel> allCards,
@@ -20,14 +20,14 @@ List<CardModel> buildMultipleChoiceOptionCards({
   return options;
 }
 
-/// Builds 4 Serbian option strings for "English shown, pick Serbian": [correctAnswer] + 3 wrong from [allCards].
+/// Builds 4 target-language option strings for "native shown, pick target": [correctAnswer] + 3 wrong from [allCards].
 List<String> buildMultipleChoiceOptions({
   required QuizMode mode,
   required String correctAnswer,
   required List<CardModel> allCards,
   required Random random,
 }) {
-  final allAnswers = allCards.map((c) => c.serbianAnswer).toSet().toList();
+  final allAnswers = allCards.map((c) => c.targetAnswer).toSet().toList();
   final others = allAnswers.where((a) => a != correctAnswer).toList();
   final wrong = <String>[];
   while (wrong.length < 3 && others.isNotEmpty) {

@@ -2,5 +2,5 @@
 class AppConstants {
   // Database
   static const String databaseName = 'srpski_card.db';
-  static const int databaseVersion = 2;
+  static const int databaseVersion = 3;
 }

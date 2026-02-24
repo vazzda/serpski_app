@@ -1,0 +1,896 @@
+{
+  "groups": [
+    {
+      "id": "endings_im_e_ati",
+      "labelKey": "groupEndingsImEAti",
+      "verbs": [
+        {
+          "englishBase": "count",
+          "forms": {
+            "ja": "brojim",
+            "ti": "brojiš",
+            "on": "broji",
+            "mi": "brojimo",
+            "vi": "brojite",
+            "oni": "broje"
+          }
+        },
+        {
+          "englishBase": "hold",
+          "forms": {
+            "ja": "držim",
+            "ti": "držiš",
+            "on": "drži",
+            "mi": "držimo",
+            "vi": "držite",
+            "oni": "drže"
+          }
+        },
+        {
+          "englishBase": "lie down",
+          "forms": {
+            "ja": "ležim",
+            "ti": "ležiš",
+            "on": "leži",
+            "mi": "ležimo",
+            "vi": "ležite",
+            "oni": "leže"
+          }
+        },
+        {
+          "englishBase": "stand",
+          "forms": {
+            "ja": "stojim",
+            "ti": "stojiš",
+            "on": "stoji",
+            "mi": "stojimo",
+            "vi": "stojite",
+            "oni": "stoje"
+          }
+        },
+        {
+          "englishBase": "run",
+          "forms": {
+            "ja": "trčim",
+            "ti": "trčiš",
+            "on": "trči",
+            "mi": "trčimo",
+            "vi": "trčite",
+            "oni": "trče"
+          }
+        }
+      ]
+    },
+    {
+      "id": "endings_im_e_eti",
+      "labelKey": "groupEndingsImEEti",
+      "verbs": [
+        {
+          "englishBase": "hate",
+          "forms": {
+            "ja": "mrzim",
+            "ti": "mrziš",
+            "on": "mrzi",
+            "mi": "mrzimo",
+            "vi": "mrzite",
+            "oni": "mrze"
+          }
+        },
+        {
+          "englishBase": "sit",
+          "forms": {
+            "ja": "sedim",
+            "ti": "sediš",
+            "on": "sedi",
+            "mi": "sedimo",
+            "vi": "sedite",
+            "oni": "sede"
+          }
+        },
+        {
+          "englishBase": "see",
+          "forms": {
+            "ja": "vidim",
+            "ti": "vidiš",
+            "on": "vidi",
+            "mi": "vidimo",
+            "vi": "vidite",
+            "oni": "vide"
+          }
+        },
+        {
+          "englishBase": "love",
+          "forms": {
+            "ja": "volim",
+            "ti": "voliš",
+            "on": "voli",
+            "mi": "volimo",
+            "vi": "volite",
+            "oni": "vole"
+          }
+        },
+        {
+          "englishBase": "wish",
+          "forms": {
+            "ja": "želim",
+            "ti": "želiš",
+            "on": "želi",
+            "mi": "želimo",
+            "vi": "želite",
+            "oni": "žele"
+          }
+        },
+        {
+          "englishBase": "live",
+          "forms": {
+            "ja": "živim",
+            "ti": "živiš",
+            "on": "živi",
+            "mi": "živimo",
+            "vi": "živite",
+            "oni": "žive"
+          }
+        }
+      ]
+    },
+    {
+      "id": "endings_im_e_iti",
+      "labelKey": "groupEndingsImEIti",
+      "verbs": [
+        {
+          "englishBase": "clean",
+          "forms": {
+            "ja": "čistim",
+            "ti": "čistiš",
+            "on": "čisti",
+            "mi": "čistimo",
+            "vi": "čistite",
+            "oni": "čiste"
+          }
+        },
+        {
+          "englishBase": "arrive",
+          "forms": {
+            "ja": "dolazim",
+            "ti": "dolaziš",
+            "on": "dolazi",
+            "mi": "dolazimo",
+            "vi": "dolazite",
+            "oni": "dolaze"
+          }
+        },
+        {
+          "englishBase": "speak",
+          "forms": {
+            "ja": "govorim",
+            "ti": "govoriš",
+            "on": "govori",
+            "mi": "govorimo",
+            "vi": "govorite",
+            "oni": "govore"
+          }
+        },
+        {
+          "englishBase": "work",
+          "forms": {
+            "ja": "radim",
+            "ti": "radiš",
+            "on": "radi",
+            "mi": "radimo",
+            "vi": "radite",
+            "oni": "rade"
+          }
+        },
+        {
+          "englishBase": "use",
+          "forms": {
+            "ja": "koristim",
+            "ti": "koristiš",
+            "on": "koristi",
+            "mi": "koristimo",
+            "vi": "koristite",
+            "oni": "koriste"
+          }
+        },
+        {
+          "englishBase": "buy",
+          "forms": {
+            "ja": "kupim",
+            "ti": "kupiš",
+            "on": "kupi",
+            "mi": "kupimo",
+            "vi": "kupite",
+            "oni": "kupe"
+          }
+        },
+        {
+          "englishBase": "think",
+          "forms": {
+            "ja": "mislim",
+            "ti": "misliš",
+            "on": "misli",
+            "mi": "mislimo",
+            "vi": "mislite",
+            "oni": "misle"
+          }
+        },
+        {
+          "englishBase": "wear",
+          "forms": {
+            "ja": "nosim",
+            "ti": "nosiš",
+            "on": "nosi",
+            "mi": "nosimo",
+            "vi": "nosite",
+            "oni": "nose"
+          }
+        },
+        {
+          "englishBase": "pay",
+          "forms": {
+            "ja": "platim",
+            "ti": "platiš",
+            "on": "plati",
+            "mi": "platimo",
+            "vi": "platite",
+            "oni": "plate"
+          }
+        },
+        {
+          "englishBase": "make",
+          "forms": {
+            "ja": "pravim",
+            "ti": "praviš",
+            "on": "pravi",
+            "mi": "pravimo",
+            "vi": "pravite",
+            "oni": "prave"
+          }
+        },
+        {
+          "englishBase": "learn",
+          "forms": {
+            "ja": "učim",
+            "ti": "učiš",
+            "on": "uči",
+            "mi": "učimo",
+            "vi": "učite",
+            "oni": "uče"
+          }
+        },
+        {
+          "englishBase": "drive",
+          "forms": {
+            "ja": "vozim",
+            "ti": "voziš",
+            "on": "vozi",
+            "mi": "vozimo",
+            "vi": "vozite",
+            "oni": "voze"
+          }
+        },
+        {
+          "englishBase": "forget",
+          "forms": {
+            "ja": "zaboravim",
+            "ti": "zaboraviš",
+            "on": "zaboravi",
+            "mi": "zaboravimo",
+            "vi": "zaboravite",
+            "oni": "zaborave"
+          }
+        }
+      ]
+    },
+    {
+      "id": "endings_am_aju",
+      "labelKey": "groupEndingsAmAju",
+      "verbs": [
+        {
+          "englishBase": "wait",
+          "forms": {
+            "ja": "čekam",
+            "ti": "čekaš",
+            "on": "čeka",
+            "mi": "čekamo",
+            "vi": "čekate",
+            "oni": "čekaju"
+          }
+        },
+        {
+          "englishBase": "read",
+          "forms": {
+            "ja": "čitam",
+            "ti": "čitaš",
+            "on": "čita",
+            "mi": "čitamo",
+            "vi": "čitate",
+            "oni": "čitaju"
+          }
+        },
+        {
+          "englishBase": "have",
+          "forms": {
+            "ja": "imam",
+            "ti": "imaš",
+            "on": "ima",
+            "mi": "imamo",
+            "vi": "imate",
+            "oni": "imaju"
+          }
+        },
+        {
+          "englishBase": "sleep",
+          "forms": {
+            "ja": "spavam",
+            "ti": "spavaš",
+            "on": "spava",
+            "mi": "spavamo",
+            "vi": "spavate",
+            "oni": "spavaju"
+          }
+        },
+        {
+          "englishBase": "know",
+          "forms": {
+            "ja": "znam",
+            "ti": "znaš",
+            "on": "zna",
+            "mi": "znamo",
+            "vi": "znate",
+            "oni": "znaju"
+          }
+        },
+        {
+          "englishBase": "watch",
+          "forms": {
+            "ja": "gledam",
+            "ti": "gledaš",
+            "on": "gleda",
+            "mi": "gledamo",
+            "vi": "gledate",
+            "oni": "gledaju"
+          }
+        },
+        {
+          "englishBase": "play",
+          "forms": {
+            "ja": "igram",
+            "ti": "igraš",
+            "on": "igra",
+            "mi": "igramo",
+            "vi": "igrate",
+            "oni": "igraju"
+          }
+        },
+        {
+          "englishBase": "cook",
+          "forms": {
+            "ja": "kuvam",
+            "ti": "kuvaš",
+            "on": "kuva",
+            "mi": "kuvamo",
+            "vi": "kuvate",
+            "oni": "kuvaju"
+          }
+        },
+        {
+          "englishBase": "have to",
+          "forms": {
+            "ja": "moram",
+            "ti": "moraš",
+            "on": "mora",
+            "mi": "moramo",
+            "vi": "morate",
+            "oni": "moraju"
+          }
+        },
+        {
+          "englishBase": "sing",
+          "forms": {
+            "ja": "pevam",
+            "ti": "pevaš",
+            "on": "peva",
+            "mi": "pevamo",
+            "vi": "pevate",
+            "oni": "pevaju"
+          }
+        },
+        {
+          "englishBase": "swim",
+          "forms": {
+            "ja": "plivam",
+            "ti": "plivaš",
+            "on": "pliva",
+            "mi": "plivamo",
+            "vi": "plivate",
+            "oni": "plivaju"
+          }
+        },
+        {
+          "englishBase": "talk",
+          "forms": {
+            "ja": "pričam",
+            "ti": "pričaš",
+            "on": "priča",
+            "mi": "pričamo",
+            "vi": "pričate",
+            "oni": "pričaju"
+          }
+        },
+        {
+          "englishBase": "eat lunch",
+          "forms": {
+            "ja": "ručam",
+            "ti": "ručaš",
+            "on": "ruča",
+            "mi": "ručamo",
+            "vi": "ručate",
+            "oni": "ručaju"
+          }
+        },
+        {
+          "englishBase": "dream",
+          "forms": {
+            "ja": "sanjam",
+            "ti": "sanjaš",
+            "on": "sanja",
+            "mi": "sanjamo",
+            "vi": "sanjate",
+            "oni": "sanjaju"
+          }
+        },
+        {
+          "englishBase": "listen to",
+          "forms": {
+            "ja": "slušam",
+            "ti": "slušaš",
+            "on": "sluša",
+            "mi": "slušamo",
+            "vi": "slušate",
+            "oni": "slušaju"
+          }
+        },
+        {
+          "englishBase": "study",
+          "forms": {
+            "ja": "studiram",
+            "ti": "studiraš",
+            "on": "studira",
+            "mi": "studiramo",
+            "vi": "studirate",
+            "oni": "studiraju"
+          }
+        },
+        {
+          "englishBase": "train",
+          "forms": {
+            "ja": "treniram",
+            "ti": "treniraš",
+            "on": "trenira",
+            "mi": "treniramo",
+            "vi": "trenirate",
+            "oni": "treniraju"
+          }
+        },
+        {
+          "englishBase": "eat dinner",
+          "forms": {
+            "ja": "večeram",
+            "ti": "večeraš",
+            "on": "večera",
+            "mi": "večeramo",
+            "vi": "večerate",
+            "oni": "večeraju"
+          }
+        },
+        {
+          "englishBase": "do not have",
+          "forms": {
+            "ja": "nemam",
+            "ti": "nemaš",
+            "on": "nema",
+            "mi": "nemamo",
+            "vi": "nemate",
+            "oni": "nemaju"
+          }
+        },
+        {
+          "englishBase": "like",
+          "forms": {
+            "ja": "sviđam se",
+            "ti": "sviđaš se",
+            "on": "sviđa se",
+            "mi": "sviđamo se",
+            "vi": "sviđate se",
+            "oni": "sviđaju se"
+          }
+        },
+        {
+          "englishBase": "play instrument",
+          "forms": {
+            "ja": "sviram",
+            "ti": "sviraš",
+            "on": "svira",
+            "mi": "sviramo",
+            "vi": "svirate",
+            "oni": "sviraju"
+          }
+        },
+        {
+          "englishBase": "give",
+          "forms": {
+            "ja": "dam",
+            "ti": "daš",
+            "on": "da",
+            "mi": "damo",
+            "vi": "date",
+            "oni": "daju"
+          }
+        }
+      ]
+    },
+    {
+      "id": "endings_em_u_gati",
+      "labelKey": "groupEndingsEmUGati",
+      "verbs": [
+        {
+          "englishBase": "lie",
+          "forms": {
+            "ja": "lažem",
+            "ti": "lažeš",
+            "on": "laže",
+            "mi": "lažemo",
+            "vi": "lažete",
+            "oni": "lažu"
+          }
+        },
+        {
+          "englishBase": "help",
+          "forms": {
+            "ja": "pomažem",
+            "ti": "pomažeš",
+            "on": "pomaže",
+            "mi": "pomažemo",
+            "vi": "pomažete",
+            "oni": "pomažu"
+          }
+        },
+        {
+          "englishBase": "show",
+          "forms": {
+            "ja": "pokažem",
+            "ti": "pokažeš",
+            "on": "pokaže",
+            "mi": "pokažemo",
+            "vi": "pokažete",
+            "oni": "pokažu"
+          }
+        }
+      ]
+    },
+    {
+      "id": "endings_em_u_hati",
+      "labelKey": "groupEndingsEmUHati",
+      "verbs": [
+        {
+          "englishBase": "write",
+          "forms": {
+            "ja": "pišem",
+            "ti": "pišeš",
+            "on": "piše",
+            "mi": "pišemo",
+            "vi": "pišete",
+            "oni": "pišu"
+          }
+        },
+        {
+          "englishBase": "dance",
+          "forms": {
+            "ja": "plešem",
+            "ti": "plešeš",
+            "on": "pleše",
+            "mi": "plešemo",
+            "vi": "plešete",
+            "oni": "plešu"
+          }
+        },
+        {
+          "englishBase": "wave",
+          "forms": {
+            "ja": "mašem",
+            "ti": "mašeš",
+            "on": "maše",
+            "mi": "mašemo",
+            "vi": "mašete",
+            "oni": "mašu"
+          }
+        }
+      ]
+    },
+    {
+      "id": "endings_em_u_kati",
+      "labelKey": "groupEndingsEmUKati",
+      "verbs": [
+        {
+          "englishBase": "cry",
+          "forms": {
+            "ja": "plačem",
+            "ti": "plačeš",
+            "on": "plače",
+            "mi": "plačemo",
+            "vi": "plačete",
+            "oni": "plaču"
+          }
+        },
+        {
+          "englishBase": "jump",
+          "forms": {
+            "ja": "skačem",
+            "ti": "skačeš",
+            "on": "skače",
+            "mi": "skačemo",
+            "vi": "skačete",
+            "oni": "skaču"
+          }
+        },
+        {
+          "englishBase": "shout",
+          "forms": {
+            "ja": "vičem",
+            "ti": "vičeš",
+            "on": "viče",
+            "mi": "vičemo",
+            "vi": "vičete",
+            "oni": "viču"
+          }
+        }
+      ]
+    },
+    {
+      "id": "endings_em_u_avati",
+      "labelKey": "groupEndingsEmUAvati",
+      "verbs": [
+        {
+          "englishBase": "give",
+          "forms": {
+            "ja": "dajem",
+            "ti": "daješ",
+            "on": "daje",
+            "mi": "dajemo",
+            "vi": "dajete",
+            "oni": "daju"
+          }
+        },
+        {
+          "englishBase": "teach",
+          "forms": {
+            "ja": "predajem",
+            "ti": "predaješ",
+            "on": "predaje",
+            "mi": "predajemo",
+            "vi": "predajete",
+            "oni": "predaju"
+          }
+        },
+        {
+          "englishBase": "sell",
+          "forms": {
+            "ja": "prodajem",
+            "ti": "prodaješ",
+            "on": "prodaje",
+            "mi": "prodajemo",
+            "vi": "prodajete",
+            "oni": "prodaju"
+          }
+        }
+      ]
+    },
+    {
+      "id": "endings_em_u_ivati",
+      "labelKey": "groupEndingsEmUIvati",
+      "verbs": [
+        {
+          "englishBase": "buy",
+          "forms": {
+            "ja": "kupujem",
+            "ti": "kupuješ",
+            "on": "kupuje",
+            "mi": "kupujemo",
+            "vi": "kupujete",
+            "oni": "kupuju"
+          }
+        },
+        {
+          "englishBase": "travel",
+          "forms": {
+            "ja": "putujem",
+            "ti": "putuješ",
+            "on": "putuje",
+            "mi": "putujemo",
+            "vi": "putujete",
+            "oni": "putuju"
+          }
+        },
+        {
+          "englishBase": "expect",
+          "forms": {
+            "ja": "očekujem",
+            "ti": "očekuješ",
+            "on": "očekuje",
+            "mi": "očekujemo",
+            "vi": "očekujete",
+            "oni": "očekuju"
+          }
+        }
+      ]
+    },
+    {
+      "id": "endings_em_u_ovati",
+      "labelKey": "groupEndingsEmUOvati",
+      "verbs": [
+        {
+          "englishBase": "respect",
+          "forms": {
+            "ja": "poštujem",
+            "ti": "poštuješ",
+            "on": "poštuje",
+            "mi": "poštujemo",
+            "vi": "poštujete",
+            "oni": "poštuju"
+          }
+        },
+        {
+          "englishBase": "eat breakfast",
+          "forms": {
+            "ja": "doručkujem",
+            "ti": "doručkuješ",
+            "on": "doručkuje",
+            "mi": "doručkujemo",
+            "vi": "doručkujete",
+            "oni": "doručkuju"
+          }
+        },
+        {
+          "englishBase": "am happy",
+          "forms": {
+            "ja": "radujem se",
+            "ti": "raduješ se",
+            "on": "raduje se",
+            "mi": "radujemo se",
+            "vi": "radujete se",
+            "oni": "raduju se"
+          }
+        }
+      ]
+    },
+    {
+      "id": "endings_em_u_ci",
+      "labelKey": "groupEndingsEmUCi",
+      "verbs": [
+        {
+          "englishBase": "go",
+          "forms": {
+            "ja": "idem",
+            "ti": "ideš",
+            "on": "ide",
+            "mi": "idemo",
+            "vi": "idete",
+            "oni": "idu"
+          }
+        },
+        {
+          "englishBase": "come",
+          "forms": {
+            "ja": "dođem",
+            "ti": "dođeš",
+            "on": "dođe",
+            "mi": "dođemo",
+            "vi": "dođete",
+            "oni": "dođu"
+          }
+        },
+        {
+          "englishBase": "bake",
+          "forms": {
+            "ja": "pečem",
+            "ti": "pečeš",
+            "on": "peče",
+            "mi": "pečemo",
+            "vi": "pečete",
+            "oni": "peku"
+          }
+        },
+        {
+          "englishBase": "lie down",
+          "forms": {
+            "ja": "legnem",
+            "ti": "legneš",
+            "on": "legne",
+            "mi": "legnemo",
+            "vi": "legnete",
+            "oni": "legnu"
+          }
+        }
+      ]
+    },
+    {
+      "id": "endings_em_eju",
+      "labelKey": "groupEndingsEmEju",
+      "verbs": [
+        {
+          "englishBase": "understand",
+          "forms": {
+            "ja": "razumem",
+            "ti": "razumeš",
+            "on": "razume",
+            "mi": "razumemo",
+            "vi": "razumete",
+            "oni": "razumeju"
+          }
+        },
+        {
+          "englishBase": "am allowed to",
+          "forms": {
+            "ja": "smem",
+            "ti": "smeš",
+            "on": "sme",
+            "mi": "smemo",
+            "vi": "smete",
+            "oni": "smeju"
+          }
+        },
+        {
+          "englishBase": "succeed",
+          "forms": {
+            "ja": "uspem",
+            "ti": "uspeš",
+            "on": "uspe",
+            "mi": "uspemo",
+            "vi": "uspete",
+            "oni": "uspeju"
+          }
+        }
+      ]
+    },
+    {
+      "id": "endings_irregular",
+      "labelKey": "groupIrregular",
+      "verbs": [
+        {
+          "englishBase": "am",
+          "forms": {
+            "ja": "sam",
+            "ti": "si",
+            "on": "je",
+            "mi": "smo",
+            "vi": "ste",
+            "oni": "su"
+          }
+        },
+        {
+          "englishBase": "want",
+          "forms": {
+            "ja": "hoću",
+            "ti": "hoćeš",
+            "on": "hoće",
+            "mi": "hoćemo",
+            "vi": "hoćete",
+            "oni": "hoće"
+          }
+        },
+        {
+          "englishBase": "can",
+          "forms": {
+            "ja": "mogu",
+            "ti": "možeš",
+            "on": "može",
+            "mi": "možemo",
+            "vi": "možete",
+            "oni": "mogu"
+          }
+        }
+      ]
+    }
+  ]
+}

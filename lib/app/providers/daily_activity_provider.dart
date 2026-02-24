@@ -1,28 +1,31 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../shared/repositories/daily_activity_repository.dart';
+import 'language_settings_provider.dart';
 
 /// Must be overridden in main.dart with a Database-backed instance.
 final dailyActivityRepositoryProvider = Provider<DailyActivityRepository>((ref) {
   throw UnimplementedError('dailyActivityRepositoryProvider must be overridden');
 });
 
-/// Today's stats (correct, wrong, distinct words touched). Loaded from storage on first use; updated directly when a session is persisted.
+/// Today's stats (correct, wrong, distinct words touched), scoped by current target language.
 class DailyActivityNotifier extends StateNotifier<AsyncValue<DailyActivityStats>> {
-  DailyActivityNotifier(this._ref) : super(const AsyncValue.loading()) {
+  DailyActivityNotifier(this._ref, this._targetLang)
+      : super(const AsyncValue.loading()) {
     _load();
   }
 
   final Ref _ref;
+  final String _targetLang;
 
   Future<void> _load() async {
-    if (!state.hasValue) state = const AsyncValue.loading();
+    if (!state.hasValue && mounted) state = const AsyncValue.loading();
     try {
       final repo = _ref.read(dailyActivityRepositoryProvider);
-      final stats = await repo.readToday();
-      state = AsyncValue.data(stats);
+      final stats = await repo.readToday(_targetLang);
+      if (mounted) state = AsyncValue.data(stats);
     } catch (e, st) {
-      state = AsyncValue.error(e, st);
+      if (mounted) state = AsyncValue.error(e, st);
     }
   }
 
@@ -31,7 +34,7 @@ class DailyActivityNotifier extends StateNotifier<AsyncValue<DailyActivityStats>
     state = AsyncValue.data(stats);
   }
 
-  /// Reload from storage (e.g. when home screen is shown).
+  /// Reload from storage.
   Future<void> load() async {
     await _load();
   }
@@ -39,5 +42,8 @@ class DailyActivityNotifier extends StateNotifier<AsyncValue<DailyActivityStats>
 
 final dailyActivityProvider =
     StateNotifierProvider<DailyActivityNotifier, AsyncValue<DailyActivityStats>>(
-  (ref) => DailyActivityNotifier(ref),
+  (ref) {
+    final targetLang = ref.watch(languageSettingsProvider).targetLang;
+    return DailyActivityNotifier(ref, targetLang);
+  },
 );

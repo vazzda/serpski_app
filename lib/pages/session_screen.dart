@@ -5,10 +5,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../entities/card/card_model.dart';
+import '../entities/card/vocab_card.dart';
 import '../entities/group/group_model.dart';
 import '../l10n/app_localizations.dart';
 import '../app/providers/groups_provider.dart';
-import '../features/quiz/display_english.dart';
+import '../features/quiz/display_english.dart' show displayNativeForCard;
 import '../features/quiz/quiz_mode.dart';
 import '../features/quiz/quiz_options.dart';
 import '../features/quiz/quiz_utils.dart';
@@ -19,7 +20,7 @@ import '../app/router/app_router.dart';
 import '../app/theme/app_themes.dart';
 import '../shared/ui/buttons/project_buttons.dart';
 import '../shared/ui/bottom_sheet/project_bottom_sheet.dart';
-import '../shared/lib/group_label.dart';
+import 'package:srpski_card/shared/lib/group_label.dart';
 import '../shared/ui/card/project_card.dart';
 import '../shared/ui/screen_layout/screen_layout_widget.dart';
 import '../shared/ui/inputs/project_text_input.dart';
@@ -62,7 +63,8 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
         _hasFinalized = true;
         WidgetsBinding.instance.addPostFrameCallback((_) async {
           await ref.read(quizSessionServiceProvider).persistSession();
-          if (mounted) context.go(AppRoutes.result);
+          if (!context.mounted) return;
+          context.go(AppRoutes.result);
         });
       }
     });
@@ -77,36 +79,41 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
     }
 
     final card = session.currentCard!;
+
+    // Vocab sessions carry their own allCards; legacy/agreement need group lookup.
     GroupModel? group;
-    final groupsList = asyncGroups.valueOrNull;
-    final lookupId = session.sessionType == SessionType.agreement
-        ? session.adjectiveGroupId
-        : session.groupId;
-    if (lookupId != null && groupsList != null) {
-      try {
-        group = groupsList.firstWhere((g) => g.id == lookupId);
-      } catch (_) {
-        group = null;
+    if (session.allCards == null) {
+      final groupsList = asyncGroups.valueOrNull;
+      final lookupId = session.sessionType == SessionType.agreement
+          ? session.adjectiveGroupId
+          : session.groupId;
+      if (lookupId != null && groupsList != null) {
+        try {
+          group = groupsList.firstWhere((g) => g.id == lookupId);
+        } catch (_) {
+          group = null;
+        }
+      }
+      if (session.sessionType != SessionType.agreement && group == null) {
+        return const Scaffold(body: Center(child: CircularProgressIndicator()));
       }
     }
 
-    final bool needGroupForContent = session.sessionType != SessionType.agreement;
-    if (needGroupForContent && group == null) {
-      return const Scaffold(body: Center(child: CircularProgressIndicator()));
-    }
-
-    final title = group != null
-        ? groupLabel(l10n, group.labelKey)
-        : (session.sessionType == SessionType.agreement
-            ? l10n.parentAgreement
-            : '');
-    final allCardsForOptions = session.sessionType == SessionType.agreement
-        ? session.queue
-        : (group!.cards);
+    final title = session.groupLabelKey != null
+        ? groupLabel(l10n, session.groupLabelKey!)
+        : (group != null
+            ? groupLabel(l10n, group.labelKey)
+            : (session.sessionType == SessionType.agreement
+                ? l10n.parentAgreement
+                : ''));
+    final allCardsForOptions = session.allCards
+        ?? (session.sessionType == SessionType.agreement
+            ? session.queue
+            : group!.cards);
     final promptText = _buildPromptText(card, session.mode, l10n);
-    final correctAnswer = session.mode == QuizMode.serbianShown
-        ? card.english
-        : card.serbianAnswer;
+    final correctAnswer = session.mode == QuizMode.targetShown
+        ? card.nativeText
+        : card.targetAnswer;
 
     return ScreenLayoutWidget(
       title: title,
@@ -137,12 +144,23 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
             ),
             const SizedBox(height: 16),
             ProjectCard(
-              child: Center(
-                child: Text(
-                  promptText,
-                  style: AppFontStyles.textPrompt.copyWith(color: t.textPrimary),
-                  textAlign: TextAlign.center,
-                ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    promptText,
+                    style: AppFontStyles.textPrompt.copyWith(color: t.textPrimary),
+                    textAlign: TextAlign.center,
+                  ),
+                  if (card is VocabCard && card.note != null) ...[
+                    const SizedBox(height: 8),
+                    Text(
+                      card.note!,
+                      style: AppFontStyles.textCaption.copyWith(color: t.textSecondary),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
+                ],
               ),
             ),
             const SizedBox(height: 24),
@@ -263,11 +281,11 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
 
   String _buildPromptText(CardModel card, QuizMode mode, AppLocalizations l10n) {
     if (card is EndingCard) {
-      return mode == QuizMode.serbianShown
-          ? '${card.pronoun} ${card.serbian}'
-          : displayEnglishForCard(card, l10n);
+      return mode == QuizMode.targetShown
+          ? '${card.pronoun} ${card.targetText}'
+          : displayNativeForCard(card, l10n);
     }
-    return mode == QuizMode.serbianShown ? card.serbian : card.english;
+    return mode == QuizMode.targetShown ? card.targetText : card.nativeText;
   }
 
   List<Widget> _buildOptions(
@@ -279,7 +297,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
     WidgetRef ref,
     AppLocalizations l10n,
   ) {
-    if (mode == QuizMode.serbianShown) {
+    if (mode == QuizMode.targetShown) {
       final optionCards = buildMultipleChoiceOptionCards(
         correctCard: correctCard,
         allCards: allCards,
@@ -290,7 +308,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
             (optionCard) => Padding(
               padding: const EdgeInsets.only(bottom: 8),
               child: BaseButton(
-                label: displayEnglishForCard(optionCard, l10n),
+                label: displayNativeForCard(optionCard, l10n),
                 onPressed: () => _onOptionSelectedSerbianShown(context, ref, correctCard, optionCard, l10n),
               ),
             ),
@@ -327,10 +345,10 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
       ref.read(sessionProvider.notifier).answerCorrect();
     } else {
       setState(() {
-        _wrongFeedback = correctCard.english;
-        _wrongFeedbackDisplay = displayEnglishForCard(correctCard, l10n);
+        _wrongFeedback = correctCard.nativeText;
+        _wrongFeedbackDisplay = displayNativeForCard(correctCard, l10n);
         _wrongUserTypedAnswer = null;
-        _wrongUserAnswerDisplay = displayEnglishForCard(chosenCard, l10n);
+        _wrongUserAnswerDisplay = displayNativeForCard(chosenCard, l10n);
       });
     }
   }
@@ -358,9 +376,9 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
     final session = ref.read(sessionProvider);
     if (session == null || session.currentCard == null) return;
     final card = session.currentCard!;
-    final correctAnswer = session.mode == QuizMode.serbianShown
-        ? card.english
-        : card.serbianAnswer;
+    final correctAnswer = session.mode == QuizMode.targetShown
+        ? card.nativeText
+        : card.targetAnswer;
     final raw = _writeController.text.trim();
     final normalized = normalizeForComparison(raw);
     final expected = normalizeForComparison(correctAnswer);
@@ -368,8 +386,8 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
       ref.read(sessionProvider.notifier).answerCorrect();
     } else {
       final l10n = AppLocalizations.of(context)!;
-      final display = session.mode == QuizMode.serbianShown
-          ? displayEnglishForCard(card, l10n)
+      final display = session.mode == QuizMode.targetShown
+          ? displayNativeForCard(card, l10n)
           : correctAnswer;
       setState(() {
         _wrongFeedback = correctAnswer;

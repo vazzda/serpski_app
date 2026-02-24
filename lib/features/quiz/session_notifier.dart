@@ -3,13 +3,16 @@ import 'dart:math';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../entities/card/card_model.dart';
+import '../../entities/card/vocab_card.dart';
 import '../../entities/group/group_model.dart';
+import '../../entities/group/vocab_group_model.dart';
+import '../../entities/language/language_pack.dart';
 import 'agreement_session_builder.dart';
 import 'quiz_mode.dart';
+import 'services/card_generation_service.dart';
 import 'session_state.dart';
 
-/// Builds initial queue and set of distinct word IDs for the session.
-/// Words group: wordId = groupId:serbian (infinitive). Endings: wordId = groupId:blockIndex.
+/// Builds initial queue and set of distinct word IDs for a legacy group (endings/tools).
 ({List<CardModel> queue, Set<String> wordIds}) _buildQueueAndWordIds(
   GroupModel group,
   int count,
@@ -22,7 +25,7 @@ import 'session_state.dart';
   final wordIds = <String>{};
   for (final i in selected) {
     if (group.type == GroupType.words) {
-      wordIds.add('${group.id}:${group.cards[i].serbian}');
+      wordIds.add('${group.id}:${group.cards[i].targetText}');
     } else {
       wordIds.add('${group.id}:${i ~/ 6}');
     }
@@ -34,6 +37,45 @@ import 'session_state.dart';
 class SessionNotifier extends StateNotifier<SessionState?> {
   SessionNotifier(Ref ref) : super(null);
 
+  /// Start a vocabulary session from the new dictionary system.
+  void startVocab({
+    required VocabGroupModel group,
+    required LanguagePack targetPack,
+    required LanguagePack nativePack,
+    required QuizMode mode,
+    required int questionCount,
+    required String originRoute,
+    double originScrollOffset = 0.0,
+  }) {
+    final service = CardGenerationService();
+    final allCards = service.buildCards(
+      group: group,
+      targetPack: targetPack,
+      nativePack: nativePack,
+    );
+    if (allCards.isEmpty) return;
+
+    final indices = List.generate(allCards.length, (i) => i)..shuffle(Random());
+    final take = questionCount.clamp(1, indices.length);
+    final selected = indices.take(take).toList();
+    final queue = selected.map((i) => allCards[i]).toList();
+    final wordIds = selected.map((i) => allCards[i].wordId).toSet();
+
+    state = SessionState(
+      groupId: group.id,
+      groupLabelKey: group.labelKey,
+      mode: mode,
+      requestedCount: questionCount,
+      sessionType: SessionType.vocabulary,
+      originRoute: originRoute,
+      originScrollOffset: originScrollOffset,
+      queue: queue,
+      allCards: allCards,
+      sessionWordIds: wordIds,
+    );
+  }
+
+  /// Start a legacy session (endings, tools) from the old GroupModel.
   void start({
     required GroupModel group,
     required QuizMode mode,
@@ -106,6 +148,33 @@ class SessionNotifier extends StateNotifier<SessionState?> {
       queue: [...rest, card],
       wrongCount: state!.wrongCount + 1,
       missedEntries: [...state!.missedEntries, entry],
+    );
+  }
+
+  /// Restart the current session with reshuffled cards from allCards.
+  /// Used by "Again" button for vocab sessions.
+  void restartFromAllCards() {
+    if (state == null || state!.allCards == null) return;
+    final allCards = state!.allCards!;
+    final indices = List.generate(allCards.length, (i) => i)..shuffle(Random());
+    final take = state!.requestedCount.clamp(1, indices.length);
+    final selected = indices.take(take).toList();
+    final queue = selected.map((i) => allCards[i]).toList();
+    final wordIds = selected.map((i) {
+      final c = allCards[i];
+      return c is VocabCard ? c.wordId : '${state!.groupId}:${c.targetText}';
+    }).toSet();
+    state = SessionState(
+      groupId: state!.groupId,
+      groupLabelKey: state!.groupLabelKey,
+      mode: state!.mode,
+      requestedCount: state!.requestedCount,
+      sessionType: state!.sessionType,
+      originRoute: state!.originRoute,
+      originScrollOffset: state!.originScrollOffset,
+      queue: queue,
+      allCards: allCards,
+      sessionWordIds: wordIds,
     );
   }
 

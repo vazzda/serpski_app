@@ -60,6 +60,8 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/data/
+    - assets/data/translations/
+    - assets/data/tools/sr/
     - assets/icon/
   generate: true
 

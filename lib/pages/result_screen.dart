@@ -4,7 +4,7 @@ import 'package:go_router/go_router.dart';
 
 import '../l10n/app_localizations.dart';
 import '../app/providers/groups_provider.dart';
-import '../features/quiz/display_english.dart';
+import '../features/quiz/display_english.dart' show displayNativeForCard;
 import '../features/quiz/services/quiz_session_service.dart';
 import '../features/quiz/quiz_mode.dart';
 import '../features/quiz/session_notifier.dart';
@@ -77,6 +77,17 @@ class ResultScreen extends ConsumerWidget {
                     onPressed: () {
                       final session = ref.read(sessionProvider);
                       if (session == null) return;
+
+                      // Vocab sessions: restart from allCards
+                      if (session.allCards != null) {
+                        ref.read(sessionProvider.notifier).restartFromAllCards();
+                        if (context.mounted) {
+                          context.go(AppRoutes.session);
+                        }
+                        return;
+                      }
+
+                      // Agreement sessions
                       final groups = ref.read(groupsProvider).valueOrNull;
                       if (groups == null) return;
                       if (session.sessionType == SessionType.agreement) {
@@ -99,6 +110,8 @@ class ResultScreen extends ConsumerWidget {
                         } catch (_) {}
                         return;
                       }
+
+                      // Legacy tool sessions (conjugations)
                       try {
                         final group = groups.firstWhere(
                           (g) => g.id == session.groupId,
@@ -167,7 +180,7 @@ class _MissedEntryTile extends StatelessWidget {
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    '${l10n.correctAnswerLabel} ${card.serbianAnswer} → ${displayEnglishForCard(card, l10n)}',
+                    '${l10n.correctAnswerLabel} ${card.targetAnswer} → ${displayNativeForCard(card, l10n)}',
                     style: AppFontStyles.textBodyLargeAccented.copyWith(color: t.textPrimary),
                   ),
                 ],
@@ -177,7 +190,7 @@ class _MissedEntryTile extends StatelessWidget {
                 children: [
                   Expanded(
                     child: Text(
-                      card.serbianAnswer,
+                      card.targetAnswer,
                       style: AppFontStyles.textBodyLarge.copyWith(
                         color: t.textPrimary,
                         fontWeight: FontWeight.w600,
@@ -190,7 +203,7 @@ class _MissedEntryTile extends StatelessWidget {
                   ),
                   Expanded(
                     child: Text(
-                      displayEnglishForCard(card, l10n),
+                      displayNativeForCard(card, l10n),
                       style: AppFontStyles.textBodyLarge.copyWith(color: t.textPrimary),
                     ),
                   ),

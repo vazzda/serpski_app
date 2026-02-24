@@ -95,7 +95,7 @@ String groupPreviewText(GroupModel group) {
     if (n == 0) return '';
     final words = group.cards
         .take(n)
-        .map((c) => (c as dynamic).serbian as String)
+        .map((c) => c.targetText)
         .toList();
     final joined = words.join(', ');
     return group.cards.length > maxPreview ? '$joined …' : joined;
@@ -107,7 +107,7 @@ String groupPreviewText(GroupModel group) {
     for (var i = 0; i < n; i++) {
       final idx = i * 6;
       if (idx < group.cards.length) {
-        words.add(group.cards[idx].serbian);
+        words.add(group.cards[idx].targetText);
       }
     }
     final joined = words.join(', ');

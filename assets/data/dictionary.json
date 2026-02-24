@@ -1,0 +1,1853 @@
+{
+  "concepts": {
+    "lie_down": {
+      "pos": "verb"
+    },
+    "arrive": {
+      "pos": "verb"
+    },
+    "buy": {
+      "pos": "verb"
+    },
+    "give": {
+      "pos": "verb"
+    },
+    "sell": {
+      "pos": "verb"
+    },
+    "smile": {
+      "pos": "verb"
+    },
+    "count": {
+      "pos": "verb"
+    },
+    "hold": {
+      "pos": "verb"
+    },
+    "stand": {
+      "pos": "verb"
+    },
+    "run": {
+      "pos": "verb"
+    },
+    "sit": {
+      "pos": "verb"
+    },
+    "see": {
+      "pos": "verb"
+    },
+    "watch": {
+      "pos": "verb"
+    },
+    "love": {
+      "pos": "verb"
+    },
+    "wish": {
+      "pos": "verb"
+    },
+    "live": {
+      "pos": "verb"
+    },
+    "talk": {
+      "pos": "verb"
+    },
+    "speak": {
+      "pos": "verb"
+    },
+    "use": {
+      "pos": "verb"
+    },
+    "think": {
+      "pos": "verb"
+    },
+    "pay": {
+      "pos": "verb"
+    },
+    "listen": {
+      "pos": "verb"
+    },
+    "work": {
+      "pos": "verb"
+    },
+    "learn": {
+      "pos": "verb"
+    },
+    "make": {
+      "pos": "verb"
+    },
+    "drive": {
+      "pos": "verb"
+    },
+    "forget": {
+      "pos": "verb"
+    },
+    "hate": {
+      "pos": "verb"
+    },
+    "wait": {
+      "pos": "verb"
+    },
+    "read": {
+      "pos": "verb"
+    },
+    "play": {
+      "pos": "verb"
+    },
+    "have": {
+      "pos": "verb"
+    },
+    "not_have": {
+      "pos": "verb"
+    },
+    "cook": {
+      "pos": "verb"
+    },
+    "have_to": {
+      "pos": "verb"
+    },
+    "sing": {
+      "pos": "verb"
+    },
+    "swim": {
+      "pos": "verb"
+    },
+    "dream": {
+      "pos": "verb"
+    },
+    "sleep": {
+      "pos": "verb"
+    },
+    "can": {
+      "pos": "verb"
+    },
+    "wear": {
+      "pos": "verb"
+    },
+    "study": {
+      "pos": "verb"
+    },
+    "like": {
+      "pos": "verb"
+    },
+    "train": {
+      "pos": "verb"
+    },
+    "eat_lunch": {
+      "pos": "verb"
+    },
+    "eat_dinner": {
+      "pos": "verb"
+    },
+    "eat_breakfast": {
+      "pos": "verb"
+    },
+    "know": {
+      "pos": "verb"
+    },
+    "lie": {
+      "pos": "verb"
+    },
+    "help": {
+      "pos": "verb"
+    },
+    "show": {
+      "pos": "verb"
+    },
+    "wave": {
+      "pos": "verb"
+    },
+    "write": {
+      "pos": "verb"
+    },
+    "dance": {
+      "pos": "verb"
+    },
+    "cry": {
+      "pos": "verb"
+    },
+    "jump": {
+      "pos": "verb"
+    },
+    "shout": {
+      "pos": "verb"
+    },
+    "teach": {
+      "pos": "verb"
+    },
+    "expect": {
+      "pos": "verb"
+    },
+    "respect": {
+      "pos": "verb"
+    },
+    "clean": {
+      "pos": "verb"
+    },
+    "travel": {
+      "pos": "verb"
+    },
+    "be_happy": {
+      "pos": "verb"
+    },
+    "come": {
+      "pos": "verb"
+    },
+    "go": {
+      "pos": "verb"
+    },
+    "bake": {
+      "pos": "verb"
+    },
+    "understand": {
+      "pos": "verb"
+    },
+    "be_allowed_to": {
+      "pos": "verb"
+    },
+    "succeed": {
+      "pos": "verb"
+    },
+    "be": {
+      "pos": "verb"
+    },
+    "want": {
+      "pos": "verb"
+    },
+    "finish": {
+      "pos": "verb"
+    },
+    "answer": {
+      "pos": "verb"
+    },
+    "accept": {
+      "pos": "verb"
+    },
+    "raise": {
+      "pos": "verb"
+    },
+    "suggest": {
+      "pos": "verb"
+    },
+    "walk": {
+      "pos": "verb"
+    },
+    "fly": {
+      "pos": "verb"
+    },
+    "stop": {
+      "pos": "verb"
+    },
+    "follow": {
+      "pos": "verb"
+    },
+    "say": {
+      "pos": "verb"
+    },
+    "eat": {
+      "pos": "verb"
+    },
+    "drink": {
+      "pos": "verb"
+    },
+    "kill": {
+      "pos": "verb"
+    },
+    "die": {
+      "pos": "verb"
+    },
+    "laugh": {
+      "pos": "verb"
+    },
+    "hear": {
+      "pos": "verb"
+    },
+    "taste": {
+      "pos": "verb"
+    },
+    "touch": {
+      "pos": "verb"
+    },
+    "kiss": {
+      "pos": "verb"
+    },
+    "burn": {
+      "pos": "verb"
+    },
+    "melt": {
+      "pos": "verb"
+    },
+    "dig": {
+      "pos": "verb"
+    },
+    "explode": {
+      "pos": "verb"
+    },
+    "pass": {
+      "pos": "verb"
+    },
+    "cut": {
+      "pos": "verb"
+    },
+    "fight": {
+      "pos": "verb"
+    },
+    "wake_up": {
+      "pos": "verb"
+    },
+    "marry": {
+      "pos": "verb"
+    },
+    "pray": {
+      "pos": "verb"
+    },
+    "win": {
+      "pos": "verb"
+    },
+    "lose": {
+      "pos": "verb"
+    },
+    "mixstir": {
+      "pos": "verb"
+    },
+    "bend": {
+      "pos": "verb"
+    },
+    "wash": {
+      "pos": "verb"
+    },
+    "open": {
+      "pos": "verb"
+    },
+    "close": {
+      "pos": "verb"
+    },
+    "call": {
+      "pos": "verb"
+    },
+    "turn": {
+      "pos": "verb"
+    },
+    "build": {
+      "pos": "verb"
+    },
+    "grow": {
+      "pos": "verb"
+    },
+    "draw": {
+      "pos": "verb"
+    },
+    "feed": {
+      "pos": "verb"
+    },
+    "catch": {
+      "pos": "verb"
+    },
+    "throw": {
+      "pos": "verb"
+    },
+    "find": {
+      "pos": "verb"
+    },
+    "fall": {
+      "pos": "verb"
+    },
+    "push": {
+      "pos": "verb"
+    },
+    "pull": {
+      "pos": "verb"
+    },
+    "carry": {
+      "pos": "verb"
+    },
+    "break": {
+      "pos": "verb"
+    },
+    "hang": {
+      "pos": "verb"
+    },
+    "shake": {
+      "pos": "verb"
+    },
+    "sign": {
+      "pos": "verb"
+    },
+    "beat": {
+      "pos": "verb"
+    },
+    "play_instrument": {
+      "pos": "verb"
+    },
+    "smell": {
+      "pos": "verb"
+    },
+    "shoot": {
+      "pos": "verb"
+    },
+    "choose": {
+      "pos": "verb"
+    },
+    "check": {
+      "pos": "verb"
+    },
+    "check_out": {
+      "pos": "verb"
+    },
+    "support": {
+      "pos": "verb"
+    },
+    "care": {
+      "pos": "verb"
+    },
+    "do": {
+      "pos": "verb"
+    },
+    "get": {
+      "pos": "verb"
+    },
+    "look_for": {
+      "pos": "verb"
+    },
+    "look_at": {
+      "pos": "verb"
+    },
+    "get_up": {
+      "pos": "verb"
+    },
+    "take": {
+      "pos": "verb"
+    },
+    "find_out": {
+      "pos": "verb"
+    },
+    "give_up": {
+      "pos": "verb"
+    },
+    "call_back": {
+      "pos": "verb"
+    },
+    "try": {
+      "pos": "verb"
+    },
+    "try_on": {
+      "pos": "verb"
+    },
+    "ask": {
+      "pos": "verb"
+    },
+    "need": {
+      "pos": "verb"
+    },
+    "feel": {
+      "pos": "verb"
+    },
+    "become": {
+      "pos": "verb"
+    },
+    "leave": {
+      "pos": "verb"
+    },
+    "put": {
+      "pos": "verb"
+    },
+    "put_on": {
+      "pos": "verb"
+    },
+    "take_off": {
+      "pos": "verb"
+    },
+    "mean": {
+      "pos": "verb"
+    },
+    "keep": {
+      "pos": "verb"
+    },
+    "let": {
+      "pos": "verb"
+    },
+    "begin": {
+      "pos": "verb"
+    },
+    "seem": {
+      "pos": "verb"
+    },
+    "turn_on": {
+      "pos": "verb"
+    },
+    "turn_off": {
+      "pos": "verb"
+    },
+    "move": {
+      "pos": "verb"
+    },
+    "move_in": {
+      "pos": "verb"
+    },
+    "move_out": {
+      "pos": "verb"
+    },
+    "believe": {
+      "pos": "verb"
+    },
+    "bring": {
+      "pos": "verb"
+    },
+    "bring_up": {
+      "pos": "verb"
+    },
+    "happen": {
+      "pos": "verb"
+    },
+    "sit_down": {
+      "pos": "verb"
+    },
+    "pay_for": {
+      "pos": "verb"
+    },
+    "meet": {
+      "pos": "verb"
+    },
+    "meet_up": {
+      "pos": "verb"
+    },
+    "include": {
+      "pos": "verb"
+    },
+    "continue": {
+      "pos": "verb"
+    },
+    "set": {
+      "pos": "verb"
+    },
+    "set_up": {
+      "pos": "verb"
+    },
+    "change": {
+      "pos": "verb"
+    },
+    "lead": {
+      "pos": "verb"
+    },
+    "watch_out": {
+      "pos": "verb"
+    },
+    "create": {
+      "pos": "verb"
+    },
+    "add": {
+      "pos": "verb"
+    },
+    "spend": {
+      "pos": "verb"
+    },
+    "grow_up": {
+      "pos": "verb"
+    },
+    "offer": {
+      "pos": "verb"
+    },
+    "remember": {
+      "pos": "verb"
+    },
+    "consider": {
+      "pos": "verb"
+    },
+    "appear": {
+      "pos": "verb"
+    },
+    "wait_for": {
+      "pos": "verb"
+    },
+    "serve": {
+      "pos": "verb"
+    },
+    "send": {
+      "pos": "verb"
+    },
+    "stay": {
+      "pos": "verb"
+    },
+    "reach": {
+      "pos": "verb"
+    },
+    "require": {
+      "pos": "verb"
+    },
+    "report": {
+      "pos": "verb"
+    },
+    "decide": {
+      "pos": "verb"
+    },
+    "break_down": {
+      "pos": "verb"
+    },
+    "agree": {
+      "pos": "verb"
+    },
+    "explain": {
+      "pos": "verb"
+    },
+    "hope": {
+      "pos": "verb"
+    },
+    "develop": {
+      "pos": "verb"
+    },
+    "fear": {
+      "pos": "verb"
+    },
+    "thank": {
+      "pos": "verb"
+    },
+    "receive": {
+      "pos": "verb"
+    },
+    "join": {
+      "pos": "verb"
+    },
+    "now": {
+      "pos": "other"
+    },
+    "then": {
+      "pos": "other"
+    },
+    "then_o": {
+      "pos": "other"
+    },
+    "today": {
+      "pos": "other"
+    },
+    "tonight": {
+      "pos": "other"
+    },
+    "yesterday": {
+      "pos": "other"
+    },
+    "tomorrow": {
+      "pos": "other"
+    },
+    "soon": {
+      "pos": "other"
+    },
+    "later": {
+      "pos": "other"
+    },
+    "earlier": {
+      "pos": "other"
+    },
+    "recently": {
+      "pos": "other"
+    },
+    "always": {
+      "pos": "other"
+    },
+    "often": {
+      "pos": "other"
+    },
+    "usually": {
+      "pos": "other"
+    },
+    "sometimes": {
+      "pos": "other"
+    },
+    "rarely": {
+      "pos": "other"
+    },
+    "never": {
+      "pos": "other"
+    },
+    "already": {
+      "pos": "other"
+    },
+    "yet": {
+      "pos": "other"
+    },
+    "immediately": {
+      "pos": "other"
+    },
+    "before": {
+      "pos": "other"
+    },
+    "after": {
+      "pos": "other"
+    },
+    "under": {
+      "pos": "other"
+    },
+    "over": {
+      "pos": "other"
+    },
+    "behind": {
+      "pos": "other"
+    },
+    "in_front_of": {
+      "pos": "other"
+    },
+    "between": {
+      "pos": "other"
+    },
+    "beside": {
+      "pos": "other"
+    },
+    "in": {
+      "pos": "other"
+    },
+    "inside": {
+      "pos": "other"
+    },
+    "on": {
+      "pos": "other"
+    },
+    "near": {
+      "pos": "other"
+    },
+    "this": {
+      "pos": "other"
+    },
+    "that": {
+      "pos": "other"
+    },
+    "that_o": {
+      "pos": "other"
+    },
+    "such": {
+      "pos": "other"
+    },
+    "such_o": {
+      "pos": "other"
+    },
+    "such_o_2": {
+      "pos": "other"
+    },
+    "this_much": {
+      "pos": "other"
+    },
+    "that_much": {
+      "pos": "other"
+    },
+    "this_many": {
+      "pos": "other"
+    },
+    "that_many": {
+      "pos": "other"
+    },
+    "left": {
+      "pos": "other"
+    },
+    "right": {
+      "pos": "other"
+    },
+    "straight": {
+      "pos": "other"
+    },
+    "forward": {
+      "pos": "other"
+    },
+    "backward": {
+      "pos": "other"
+    },
+    "up": {
+      "pos": "other"
+    },
+    "down": {
+      "pos": "other"
+    },
+    "across": {
+      "pos": "other"
+    },
+    "sideways": {
+      "pos": "other"
+    },
+    "everywhere": {
+      "pos": "other"
+    },
+    "much": {
+      "pos": "other"
+    },
+    "a_lot": {
+      "pos": "other"
+    },
+    "very": {
+      "pos": "other"
+    },
+    "very_o": {
+      "pos": "other"
+    },
+    "too": {
+      "pos": "other"
+    },
+    "enough": {
+      "pos": "other"
+    },
+    "little": {
+      "pos": "other"
+    },
+    "almost": {
+      "pos": "other"
+    },
+    "more": {
+      "pos": "other"
+    },
+    "less": {
+      "pos": "other"
+    },
+    "completely": {
+      "pos": "other"
+    },
+    "totally": {
+      "pos": "other"
+    },
+    "exactly": {
+      "pos": "other"
+    },
+    "partially": {
+      "pos": "other"
+    },
+    "mostly": {
+      "pos": "other"
+    },
+    "only": {
+      "pos": "other"
+    },
+    "hardly": {
+      "pos": "other"
+    },
+    "sufficiently": {
+      "pos": "other"
+    },
+    "exceedingly": {
+      "pos": "other"
+    },
+    "at_least": {
+      "pos": "other"
+    },
+    "person": {
+      "pos": "noun"
+    },
+    "man": {
+      "pos": "noun"
+    },
+    "woman": {
+      "pos": "noun"
+    },
+    "child": {
+      "pos": "noun"
+    },
+    "boy": {
+      "pos": "noun"
+    },
+    "girl": {
+      "pos": "noun"
+    },
+    "friend": {
+      "pos": "noun"
+    },
+    "family": {
+      "pos": "noun"
+    },
+    "father": {
+      "pos": "noun"
+    },
+    "mother": {
+      "pos": "noun"
+    },
+    "brother": {
+      "pos": "noun"
+    },
+    "sister": {
+      "pos": "noun"
+    },
+    "husband": {
+      "pos": "noun"
+    },
+    "wife": {
+      "pos": "noun"
+    },
+    "doctor": {
+      "pos": "noun"
+    },
+    "police": {
+      "pos": "noun"
+    },
+    "home": {
+      "pos": "noun"
+    },
+    "city": {
+      "pos": "noun"
+    },
+    "street": {
+      "pos": "noun"
+    },
+    "school": {
+      "pos": "noun"
+    },
+    "store": {
+      "pos": "noun"
+    },
+    "hospital": {
+      "pos": "noun"
+    },
+    "park": {
+      "pos": "noun"
+    },
+    "country": {
+      "pos": "noun"
+    },
+    "land": {
+      "pos": "noun"
+    },
+    "world": {
+      "pos": "noun"
+    },
+    "office": {
+      "pos": "noun"
+    },
+    "room": {
+      "pos": "noun"
+    },
+    "station": {
+      "pos": "noun"
+    },
+    "airport": {
+      "pos": "noun"
+    },
+    "thing": {
+      "pos": "noun"
+    },
+    "car": {
+      "pos": "noun"
+    },
+    "bus": {
+      "pos": "noun"
+    },
+    "book": {
+      "pos": "noun"
+    },
+    "money": {
+      "pos": "noun"
+    },
+    "money_n": {
+      "pos": "noun"
+    },
+    "water": {
+      "pos": "noun"
+    },
+    "food": {
+      "pos": "noun"
+    },
+    "bread": {
+      "pos": "noun"
+    },
+    "coffee": {
+      "pos": "noun"
+    },
+    "phone": {
+      "pos": "noun"
+    },
+    "computer": {
+      "pos": "noun"
+    },
+    "bed": {
+      "pos": "noun"
+    },
+    "door": {
+      "pos": "noun"
+    },
+    "window": {
+      "pos": "noun"
+    },
+    "table": {
+      "pos": "noun"
+    },
+    "chair": {
+      "pos": "noun"
+    },
+    "bag": {
+      "pos": "noun"
+    },
+    "clothing": {
+      "pos": "noun"
+    },
+    "time": {
+      "pos": "noun"
+    },
+    "year": {
+      "pos": "noun"
+    },
+    "month": {
+      "pos": "noun"
+    },
+    "week": {
+      "pos": "noun"
+    },
+    "day": {
+      "pos": "noun"
+    },
+    "night": {
+      "pos": "noun"
+    },
+    "morning": {
+      "pos": "noun"
+    },
+    "evening": {
+      "pos": "noun"
+    },
+    "sun": {
+      "pos": "noun"
+    },
+    "moon": {
+      "pos": "noun"
+    },
+    "sky": {
+      "pos": "noun"
+    },
+    "rain": {
+      "pos": "noun"
+    },
+    "tree": {
+      "pos": "noun"
+    },
+    "flower": {
+      "pos": "noun"
+    },
+    "animal": {
+      "pos": "noun"
+    },
+    "dog": {
+      "pos": "noun"
+    },
+    "cat": {
+      "pos": "noun"
+    },
+    "life": {
+      "pos": "noun"
+    },
+    "love_n": {
+      "pos": "noun"
+    },
+    "work_n": {
+      "pos": "noun"
+    },
+    "job": {
+      "pos": "noun"
+    },
+    "problem": {
+      "pos": "noun"
+    },
+    "idea": {
+      "pos": "noun"
+    },
+    "word": {
+      "pos": "noun"
+    },
+    "number": {
+      "pos": "noun"
+    },
+    "name": {
+      "pos": "noun"
+    },
+    "part": {
+      "pos": "noun"
+    },
+    "question": {
+      "pos": "noun"
+    },
+    "answer_n": {
+      "pos": "noun"
+    },
+    "reason": {
+      "pos": "noun"
+    },
+    "good": {
+      "pos": "adjective"
+    },
+    "bad": {
+      "pos": "adjective"
+    },
+    "beautiful": {
+      "pos": "adjective"
+    },
+    "ugly": {
+      "pos": "adjective"
+    },
+    "big": {
+      "pos": "adjective"
+    },
+    "small": {
+      "pos": "adjective"
+    },
+    "new": {
+      "pos": "adjective"
+    },
+    "old": {
+      "pos": "adjective"
+    },
+    "cheap": {
+      "pos": "adjective"
+    },
+    "expensive": {
+      "pos": "adjective"
+    },
+    "easy": {
+      "pos": "adjective"
+    },
+    "difficult": {
+      "pos": "adjective"
+    },
+    "correct": {
+      "pos": "adjective"
+    },
+    "wrong": {
+      "pos": "adjective"
+    },
+    "clean_a": {
+      "pos": "adjective"
+    },
+    "dirty": {
+      "pos": "adjective"
+    },
+    "happy": {
+      "pos": "adjective"
+    },
+    "sad": {
+      "pos": "adjective"
+    },
+    "hungry": {
+      "pos": "adjective"
+    },
+    "thirsty": {
+      "pos": "adjective"
+    },
+    "tired": {
+      "pos": "adjective"
+    },
+    "young": {
+      "pos": "adjective"
+    },
+    "rich": {
+      "pos": "adjective"
+    },
+    "poor": {
+      "pos": "adjective"
+    },
+    "strong": {
+      "pos": "adjective"
+    },
+    "weak": {
+      "pos": "adjective"
+    },
+    "smart": {
+      "pos": "adjective"
+    },
+    "brave": {
+      "pos": "adjective"
+    },
+    "honest": {
+      "pos": "adjective"
+    },
+    "angry": {
+      "pos": "adjective"
+    },
+    "furious": {
+      "pos": "adjective"
+    },
+    "hot": {
+      "pos": "adjective"
+    },
+    "warm": {
+      "pos": "adjective"
+    },
+    "cold": {
+      "pos": "adjective"
+    },
+    "sweet": {
+      "pos": "adjective"
+    },
+    "salty": {
+      "pos": "adjective"
+    },
+    "sour": {
+      "pos": "adjective"
+    },
+    "bitter": {
+      "pos": "adjective"
+    },
+    "spicy": {
+      "pos": "adjective"
+    },
+    "delicious": {
+      "pos": "adjective"
+    },
+    "soft": {
+      "pos": "adjective"
+    },
+    "hard": {
+      "pos": "adjective"
+    },
+    "dry": {
+      "pos": "adjective"
+    },
+    "wet": {
+      "pos": "adjective"
+    },
+    "fast": {
+      "pos": "adjective"
+    },
+    "slow": {
+      "pos": "adjective"
+    },
+    "white": {
+      "pos": "adjective"
+    },
+    "black": {
+      "pos": "adjective"
+    },
+    "red": {
+      "pos": "adjective"
+    },
+    "blue": {
+      "pos": "adjective"
+    },
+    "green": {
+      "pos": "adjective"
+    },
+    "yellow": {
+      "pos": "adjective"
+    },
+    "grey": {
+      "pos": "adjective"
+    },
+    "brown": {
+      "pos": "adjective"
+    },
+    "orange": {
+      "pos": "adjective"
+    },
+    "pink": {
+      "pos": "adjective"
+    },
+    "purple": {
+      "pos": "adjective"
+    },
+    "gold": {
+      "pos": "adjective"
+    },
+    "silver": {
+      "pos": "adjective"
+    },
+    "beige": {
+      "pos": "adjective"
+    },
+    "light": {
+      "pos": "adjective"
+    },
+    "dark": {
+      "pos": "adjective"
+    },
+    "bright": {
+      "pos": "adjective"
+    },
+    "colorful": {
+      "pos": "adjective"
+    },
+    "vibrant": {
+      "pos": "adjective"
+    },
+    "pale": {
+      "pos": "adjective"
+    },
+    "shiny": {
+      "pos": "adjective"
+    },
+    "matte": {
+      "pos": "adjective"
+    },
+    "transparent": {
+      "pos": "adjective"
+    },
+    "multicolor": {
+      "pos": "adjective"
+    }
+  },
+  "groups": [
+    {
+      "id": "basic_verbs_01",
+      "labelKey": "groupBasicVerbs01",
+      "concepts": [
+        "lie_down",
+        "arrive",
+        "count",
+        "hold",
+        "stand",
+        "run",
+        "sit",
+        "see",
+        "watch",
+        "love",
+        "wish",
+        "live",
+        "talk",
+        "speak",
+        "use",
+        "think",
+        "pay",
+        "listen",
+        "work"
+      ]
+    },
+    {
+      "id": "basic_verbs_02",
+      "labelKey": "groupBasicVerbs02",
+      "concepts": [
+        "learn",
+        "make",
+        "drive",
+        "forget",
+        "hate",
+        "wait",
+        "read",
+        "play",
+        "have",
+        "not_have",
+        "cook",
+        "have_to",
+        "sing",
+        "swim",
+        "dream",
+        "sleep",
+        "can",
+        "wear",
+        "study"
+      ]
+    },
+    {
+      "id": "basic_verbs_03",
+      "labelKey": "groupBasicVerbs03",
+      "concepts": [
+        "buy",
+        "give",
+        "sell",
+        "like",
+        "train",
+        "eat_lunch",
+        "eat_dinner",
+        "eat_breakfast",
+        "know",
+        "lie",
+        "help",
+        "show",
+        "wave",
+        "write",
+        "dance",
+        "cry",
+        "jump",
+        "shout",
+        "teach",
+        "expect"
+      ]
+    },
+    {
+      "id": "basic_verbs_04",
+      "labelKey": "groupBasicVerbs04",
+      "concepts": [
+        "respect",
+        "clean",
+        "travel",
+        "be_happy",
+        "come",
+        "go",
+        "bake",
+        "understand",
+        "be_allowed_to",
+        "succeed",
+        "be",
+        "want",
+        "finish",
+        "answer",
+        "accept",
+        "raise",
+        "suggest"
+      ]
+    },
+    {
+      "id": "basic_verbs_05",
+      "labelKey": "groupBasicVerbs05",
+      "concepts": [
+        "walk",
+        "fly",
+        "stop",
+        "follow",
+        "say",
+        "eat",
+        "drink",
+        "kill",
+        "die",
+        "laugh",
+        "hear",
+        "taste",
+        "touch",
+        "kiss",
+        "burn",
+        "melt",
+        "dig",
+        "explode",
+        "pass"
+      ]
+    },
+    {
+      "id": "basic_verbs_06",
+      "labelKey": "groupBasicVerbs06",
+      "concepts": [
+        "cut",
+        "fight",
+        "wake_up",
+        "marry",
+        "pray",
+        "win",
+        "lose",
+        "mixstir",
+        "bend",
+        "wash",
+        "open",
+        "close",
+        "call",
+        "turn",
+        "build",
+        "grow",
+        "draw",
+        "feed",
+        "catch",
+        "throw"
+      ]
+    },
+    {
+      "id": "basic_verbs_07",
+      "labelKey": "groupBasicVerbs07",
+      "concepts": [
+        "smile",
+        "find",
+        "fall",
+        "push",
+        "pull",
+        "carry",
+        "break",
+        "hang",
+        "shake",
+        "sign",
+        "beat",
+        "play_instrument",
+        "raise",
+        "smell",
+        "shoot",
+        "choose",
+        "check",
+        "check_out",
+        "support",
+        "care"
+      ]
+    },
+    {
+      "id": "basic_verbs_08",
+      "labelKey": "groupBasicVerbs08",
+      "concepts": [
+        "do",
+        "get",
+        "look_for",
+        "look_at",
+        "get_up",
+        "take",
+        "find_out",
+        "give_up",
+        "say",
+        "call_back",
+        "try",
+        "try_on",
+        "ask",
+        "need",
+        "feel",
+        "become",
+        "leave",
+        "put",
+        "put_on",
+        "take_off"
+      ]
+    },
+    {
+      "id": "basic_verbs_09",
+      "labelKey": "groupBasicVerbs09",
+      "concepts": [
+        "mean",
+        "keep",
+        "let",
+        "begin",
+        "seem",
+        "turn_on",
+        "turn_off",
+        "move",
+        "move_in",
+        "move_out",
+        "believe",
+        "bring",
+        "bring_up",
+        "happen",
+        "sit_down",
+        "get_up",
+        "pay_for",
+        "meet",
+        "meet_up"
+      ]
+    },
+    {
+      "id": "basic_verbs_10",
+      "labelKey": "groupBasicVerbs10",
+      "concepts": [
+        "include",
+        "continue",
+        "set",
+        "set_up",
+        "change",
+        "lead",
+        "watch_out",
+        "create",
+        "let",
+        "add",
+        "spend",
+        "grow_up",
+        "offer",
+        "remember",
+        "consider",
+        "appear",
+        "wait_for",
+        "serve",
+        "send",
+        "stay"
+      ]
+    },
+    {
+      "id": "basic_verbs_11",
+      "labelKey": "groupBasicVerbs11",
+      "concepts": [
+        "reach",
+        "require",
+        "report",
+        "decide",
+        "break_down",
+        "agree",
+        "explain",
+        "hope",
+        "develop",
+        "continue",
+        "fear",
+        "thank",
+        "receive",
+        "join"
+      ]
+    },
+    {
+      "id": "adverbs_of_time",
+      "labelKey": "groupAdverbsOfTime",
+      "concepts": [
+        "now",
+        "then",
+        "then_o",
+        "today",
+        "tonight",
+        "yesterday",
+        "tomorrow",
+        "soon",
+        "later",
+        "earlier",
+        "recently",
+        "always",
+        "often",
+        "usually",
+        "sometimes",
+        "rarely",
+        "never",
+        "already",
+        "yet",
+        "immediately",
+        "before",
+        "after"
+      ]
+    },
+    {
+      "id": "prepositions",
+      "labelKey": "groupPrepositions",
+      "concepts": [
+        "under",
+        "over",
+        "behind",
+        "in_front_of",
+        "between",
+        "beside",
+        "in",
+        "inside",
+        "on",
+        "near"
+      ]
+    },
+    {
+      "id": "demonstrative_pronouns",
+      "labelKey": "groupDemonstrativePronouns",
+      "concepts": [
+        "this",
+        "that",
+        "that_o",
+        "such",
+        "such_o",
+        "such_o_2",
+        "this_much",
+        "that_much",
+        "this_many",
+        "that_many"
+      ]
+    },
+    {
+      "id": "relative_direction",
+      "labelKey": "groupRelativeDirection",
+      "concepts": [
+        "left",
+        "right",
+        "straight",
+        "forward",
+        "backward",
+        "up",
+        "down",
+        "across",
+        "sideways",
+        "everywhere"
+      ]
+    },
+    {
+      "id": "degree_quantity",
+      "labelKey": "groupDegreeAndQuantity",
+      "concepts": [
+        "much",
+        "a_lot",
+        "very",
+        "very_o",
+        "too",
+        "enough",
+        "little",
+        "almost",
+        "more",
+        "less",
+        "completely",
+        "totally",
+        "exactly",
+        "partially",
+        "mostly",
+        "only",
+        "hardly",
+        "sufficiently",
+        "exceedingly",
+        "at_least"
+      ]
+    },
+    {
+      "id": "people",
+      "labelKey": "groupPeople",
+      "concepts": [
+        "person",
+        "man",
+        "woman",
+        "child",
+        "boy",
+        "girl",
+        "friend",
+        "family",
+        "father",
+        "mother",
+        "brother",
+        "sister",
+        "husband",
+        "wife",
+        "doctor",
+        "police"
+      ]
+    },
+    {
+      "id": "places",
+      "labelKey": "groupPlaces",
+      "concepts": [
+        "home",
+        "city",
+        "street",
+        "school",
+        "store",
+        "hospital",
+        "park",
+        "country",
+        "land",
+        "world",
+        "office",
+        "room",
+        "station",
+        "airport"
+      ]
+    },
+    {
+      "id": "daily_items_objects",
+      "labelKey": "groupDailyItemsAndObjects",
+      "concepts": [
+        "thing",
+        "car",
+        "bus",
+        "book",
+        "money",
+        "money_n",
+        "water",
+        "food",
+        "bread",
+        "coffee",
+        "phone",
+        "computer",
+        "bed",
+        "door",
+        "window",
+        "table",
+        "chair",
+        "bag",
+        "clothing"
+      ]
+    },
+    {
+      "id": "time_nature",
+      "labelKey": "groupTimeAndNature",
+      "concepts": [
+        "time",
+        "year",
+        "month",
+        "week",
+        "day",
+        "night",
+        "morning",
+        "evening",
+        "sun",
+        "moon",
+        "sky",
+        "rain",
+        "tree",
+        "flower",
+        "animal",
+        "dog",
+        "cat"
+      ]
+    },
+    {
+      "id": "abstract_concepts",
+      "labelKey": "groupAbstractConcepts",
+      "concepts": [
+        "life",
+        "love_n",
+        "work_n",
+        "job",
+        "problem",
+        "idea",
+        "word",
+        "number",
+        "name",
+        "part",
+        "question",
+        "answer_n",
+        "reason"
+      ]
+    },
+    {
+      "id": "general_qualities",
+      "labelKey": "groupGeneralQualities",
+      "concepts": [
+        "good",
+        "bad",
+        "beautiful",
+        "ugly",
+        "big",
+        "small",
+        "new",
+        "old",
+        "cheap",
+        "expensive",
+        "easy",
+        "difficult",
+        "correct",
+        "wrong",
+        "clean_a",
+        "dirty"
+      ]
+    },
+    {
+      "id": "people_emotions",
+      "labelKey": "groupPeopleAndEmotions",
+      "concepts": [
+        "happy",
+        "sad",
+        "hungry",
+        "thirsty",
+        "tired",
+        "young",
+        "rich",
+        "poor",
+        "strong",
+        "weak",
+        "smart",
+        "brave",
+        "honest",
+        "angry",
+        "furious"
+      ]
+    },
+    {
+      "id": "senses_feelings",
+      "labelKey": "groupSensesAndFeelings",
+      "concepts": [
+        "hot",
+        "warm",
+        "cold",
+        "sweet",
+        "salty",
+        "sour",
+        "bitter",
+        "spicy",
+        "delicious",
+        "soft",
+        "hard",
+        "dry",
+        "wet",
+        "fast",
+        "slow"
+      ]
+    },
+    {
+      "id": "colors",
+      "labelKey": "groupColors",
+      "concepts": [
+        "white",
+        "black",
+        "red",
+        "blue",
+        "green",
+        "yellow",
+        "grey",
+        "brown",
+        "orange",
+        "pink",
+        "purple",
+        "gold",
+        "silver",
+        "beige",
+        "light",
+        "dark",
+        "bright",
+        "colorful",
+        "vibrant",
+        "pale",
+        "shiny",
+        "matte",
+        "transparent",
+        "multicolor"
+      ]
+    }
+  ]
+}

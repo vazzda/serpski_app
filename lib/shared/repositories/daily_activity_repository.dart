@@ -22,19 +22,19 @@ String _dateKey(DateTime date) {
   return '$y-$m-$d';
 }
 
-/// Persists and reads daily activity (correct, wrong, distinct words) per calendar day.
+/// Persists and reads daily activity per (calendar day, target language).
 class DailyActivityRepository {
   DailyActivityRepository({required Database db}) : _db = db;
 
   final Database _db;
 
-  /// Returns today's stats (local date).
-  Future<DailyActivityStats> readToday() async {
+  /// Returns today's stats for a target language (local date).
+  Future<DailyActivityStats> readToday(String targetLang) async {
     final key = _dateKey(DateTime.now());
     final rows = await _db.query(
       'daily_activity',
-      where: 'date = ?',
-      whereArgs: [key],
+      where: 'date = ? AND target_lang = ?',
+      whereArgs: [key, targetLang],
     );
     if (rows.isEmpty) return const DailyActivityStats();
     final row = rows.first;
@@ -49,9 +49,9 @@ class DailyActivityRepository {
     );
   }
 
-  /// Merges a completed session into today's totals. [wordIds] = distinct word IDs from that session.
-  /// Returns the new daily stats after the merge (so UI can update without reading back).
+  /// Merges a completed session into today's totals for a target language.
   Future<DailyActivityStats> addSession({
+    required String targetLang,
     required int correct,
     required int wrong,
     required Set<String> wordIds,
@@ -59,8 +59,8 @@ class DailyActivityRepository {
     final key = _dateKey(DateTime.now());
     final rows = await _db.query(
       'daily_activity',
-      where: 'date = ?',
-      whereArgs: [key],
+      where: 'date = ? AND target_lang = ?',
+      whereArgs: [key, targetLang],
     );
 
     int totalCorrect = correct;
@@ -81,6 +81,7 @@ class DailyActivityRepository {
       'daily_activity',
       {
         'date': key,
+        'target_lang': targetLang,
         'correct': totalCorrect,
         'wrong': totalWrong,
         'word_ids': jsonEncode(allIds.toList()),

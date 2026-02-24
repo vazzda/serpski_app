@@ -3,13 +3,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../l10n/app_localizations.dart';
-import '../shared/repositories/daily_activity_repository.dart';
 import '../entities/group/group_model.dart';
 import '../shared/repositories/models/group_progress.dart';
 import '../shared/repositories/models/retention_level.dart';
 import '../features/quiz/session_notifier.dart';
 import '../app/providers/app_settings_provider.dart';
-import '../app/providers/daily_activity_provider.dart';
 import '../app/providers/group_progress_provider.dart';
 import '../app/providers/groups_provider.dart';
 import '../app/router/app_router.dart';
@@ -17,8 +15,8 @@ import '../app/theme/app_themes.dart';
 import '../shared/ui/card/project_card.dart';
 import '../shared/ui/screen_layout/screen_layout_widget.dart';
 import '../shared/ui/bottom_sheet/quiz_bottom_sheets.dart';
-import '../shared/lib/group_label.dart';
-import '../shared/lib/progress_calculator.dart';
+import 'package:srpski_card/shared/lib/group_label.dart';
+import 'package:srpski_card/shared/lib/progress_calculator.dart';
 
 enum ParentCategory { vocabulary, conjugations }
 
@@ -244,155 +242,6 @@ class _ProgressBadge extends StatelessWidget {
   }
 }
 
-class GroupListScreen extends ConsumerWidget {
-  const GroupListScreen({super.key});
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final l10n = AppLocalizations.of(context)!;
-    final t = AppThemes.of(context);
-    final asyncStats = ref.watch(dailyActivityProvider);
-
-    return ScreenLayoutWidget(
-      title: l10n.appBarTitle,
-      showBottomNav: true,
-      child: Column(
-        children: [
-          Expanded(
-            child: ListView(
-              padding: const EdgeInsets.fromLTRB(16, 16, 16, 12),
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 12),
-                  child: ProjectCard(
-                    onTap: () => context.push(AppRoutes.vocabulary),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: Text(
-                            l10n.parentVocabulary,
-                            style: AppFontStyles.textListItem.copyWith(color: t.textPrimary),
-                          ),
-                        ),
-                        Icon(
-                          Icons.arrow_forward_ios,
-                          size: 16,
-                          color: t.textPrimary,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 12),
-                  child: ProjectCard(
-                    onTap: () => context.push(AppRoutes.conjugations),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: Text(
-                            l10n.parentConjugations,
-                            style: AppFontStyles.textListItem.copyWith(color: t.textPrimary),
-                          ),
-                        ),
-                        Icon(
-                          Icons.arrow_forward_ios,
-                          size: 16,
-                          color: t.textPrimary,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 12),
-                  child: ProjectCard(
-                    onTap: () => context.push(AppRoutes.agreement),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: Text(
-                            l10n.parentAgreement,
-                            style: AppFontStyles.textListItem.copyWith(color: t.textPrimary),
-                          ),
-                        ),
-                        Icon(
-                          Icons.arrow_forward_ios,
-                          size: 16,
-                          color: t.textPrimary,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          SafeArea(
-            top: false,
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
-              child: _DailyActivityWidget(
-                asyncStats: asyncStats,
-                l10n: l10n,
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _DailyActivityWidget extends StatelessWidget {
-  const _DailyActivityWidget({
-    required this.asyncStats,
-    required this.l10n,
-  });
-
-  final AsyncValue<DailyActivityStats> asyncStats;
-  final AppLocalizations l10n;
-
-  @override
-  Widget build(BuildContext context) {
-    final t = AppThemes.of(context);
-    final headerStyle = AppFontStyles.textListItem.copyWith(color: t.textPrimary);
-    final bodyStyle = AppFontStyles.textCaption.copyWith(color: t.textSecondary);
-    return ProjectCard(
-      child: SizedBox(
-        width: double.infinity,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(l10n.dailyActivityTitle, style: headerStyle),
-            const SizedBox(height: 4),
-            asyncStats.when(
-              data: (stats) {
-                final isEmpty =
-                    stats.correct == 0 &&
-                    stats.wrong == 0 &&
-                    stats.wordsTouched == 0;
-                return Text(
-                  isEmpty
-                      ? l10n.dailyActivityEmpty
-                      : '${l10n.correctCount(stats.correct)} · ${l10n.wrongCount(stats.wrong)} · ${l10n.wordsCount(stats.wordsTouched)}',
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: bodyStyle,
-                );
-              },
-              loading: () => Text(l10n.dailyActivityEmpty, style: bodyStyle),
-              // ignore: unnecessary_underscores
-              error: (_, __) => Text(l10n.dailyActivityEmpty, style: bodyStyle),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
 class ChildGroupListScreen extends ConsumerStatefulWidget {
   const ChildGroupListScreen({super.key, required this.parent});
 
@@ -473,12 +322,12 @@ class _ChildGroupListScreenState extends ConsumerState<ChildGroupListScreen> {
     return PopScope(
       canPop: false,
       onPopInvokedWithResult: (didPop, result) {
-        if (!didPop) context.go(AppRoutes.home);
+        if (!didPop) context.go(AppRoutes.tools);
       },
       child: ScreenLayoutWidget(
         title: title,
         showBottomNav: true,
-        leading: BackButton(onPressed: () => context.go(AppRoutes.home)),
+        leading: BackButton(onPressed: () => context.go(AppRoutes.tools)),
         child: asyncGroups.when(
           data: (groups) {
             final childGroups = groups
@@ -619,9 +468,7 @@ class _ChildGroupListScreenState extends ConsumerState<ChildGroupListScreen> {
     );
     if (selectedCount == null || !context.mounted) return;
 
-    final originRoute = widget.parent == ParentCategory.vocabulary
-        ? AppRoutes.vocabulary
-        : AppRoutes.conjugations;
+    final originRoute = AppRoutes.conjugations;
     final scrollOffset = _scrollController.hasClients
         ? _scrollController.offset
         : 0.0;

@@ -1,11 +1,11 @@
 /// Quiz mode: what is shown and how user answers.
 enum QuizMode {
-  /// Card shows Serbian; user picks English from 4 options.
-  serbianShown,
+  /// Card shows target language; user picks native from 4 options.
+  targetShown,
 
-  /// Card shows English; user picks Serbian from 4 options.
-  englishShown,
+  /// Card shows native language; user picks target from 4 options.
+  nativeShown,
 
-  /// Card shows English; user types Serbian.
+  /// Card shows native language; user types target.
   write,
 }

@@ -3,30 +3,33 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../l10n/app_localizations.dart';
-import '../entities/group/group_model.dart';
-import '../shared/repositories/models/group_progress.dart';
-import '../features/quiz/session_notifier.dart';
 import '../app/providers/app_settings_provider.dart';
+import '../app/providers/dictionary_provider.dart';
 import '../app/providers/group_progress_provider.dart';
 import '../app/providers/groups_provider.dart';
 import '../app/router/app_router.dart';
 import '../app/theme/app_themes.dart';
-import '../shared/ui/card/project_card.dart';
-import '../shared/ui/screen_layout/screen_layout_widget.dart';
-import '../shared/ui/bottom_sheet/quiz_bottom_sheets.dart';
+import '../entities/group/vocab_group_model.dart';
+import '../entities/language/dictionary.dart';
+import '../entities/language/language_pack.dart';
+import '../features/quiz/session_notifier.dart';
 import 'package:srpski_card/shared/lib/group_label.dart';
 import 'package:srpski_card/shared/lib/progress_calculator.dart';
-import 'group_list_screen.dart' show formatRelativeDate, retentionColor, retentionLabel;
+import '../shared/repositories/models/group_progress.dart';
+import '../shared/ui/bottom_sheet/quiz_bottom_sheets.dart';
+import '../shared/ui/card/project_card.dart';
+import '../shared/ui/screen_layout/screen_layout_widget.dart';
+import 'group_list_screen.dart' show retentionColor, retentionLabel, formatRelativeDate;
 
-/// Screen to select an adjective group for an agreement session.
-class AgreementGroupListScreen extends ConsumerStatefulWidget {
-  const AgreementGroupListScreen({super.key});
+class VocabGroupListScreen extends ConsumerStatefulWidget {
+  const VocabGroupListScreen({super.key});
 
   @override
-  ConsumerState<AgreementGroupListScreen> createState() => _AgreementGroupListScreenState();
+  ConsumerState<VocabGroupListScreen> createState() =>
+      _VocabGroupListScreenState();
 }
 
-class _AgreementGroupListScreenState extends ConsumerState<AgreementGroupListScreen> {
+class _VocabGroupListScreenState extends ConsumerState<VocabGroupListScreen> {
   final _scrollController = ScrollController();
   double? _pendingScrollOffset;
   bool _scrollRestored = false;
@@ -65,19 +68,21 @@ class _AgreementGroupListScreenState extends ConsumerState<AgreementGroupListScr
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
-    final t = AppThemes.of(context);
-    final asyncGroups = ref.watch(groupsProvider);
+    final asyncDict = ref.watch(dictionaryProvider);
+    final asyncTarget = ref.watch(targetPackProvider);
+    final asyncNative = ref.watch(nativePackProvider);
     final allProgress = ref.watch(groupProgressProvider);
     final settings = ref.watch(appSettingsProvider);
 
     // When data loads and we have a pending scroll, schedule restore
-    if (asyncGroups.hasValue && _pendingScrollOffset != null && !_scrollRestored) {
+    if (asyncDict.hasValue &&
+        _pendingScrollOffset != null &&
+        !_scrollRestored) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (mounted) _restoreScrollPosition();
       });
     }
 
-    // Helper to get retention for a group
     double getRetention(String groupId) {
       final progress = allProgress[groupId];
       if (progress == null) return 0.0;
@@ -85,78 +90,91 @@ class _AgreementGroupListScreenState extends ConsumerState<AgreementGroupListScr
           progress, settings.decayFormula);
     }
 
-    return PopScope(
-      canPop: false,
-      onPopInvokedWithResult: (didPop, result) {
-        if (!didPop) context.go(AppRoutes.tools);
-      },
-      child: ScreenLayoutWidget(
-        title: l10n.parentAgreement,
+    // Wait for all three async values
+    final dictionary = asyncDict.valueOrNull;
+    final targetPack = asyncTarget.valueOrNull;
+    final nativePack = asyncNative.valueOrNull;
+
+    if (dictionary == null || targetPack == null || nativePack == null) {
+      final hasError = asyncDict.hasError || asyncTarget.hasError || asyncNative.hasError;
+      return ScreenLayoutWidget(
+        title: l10n.navVocabulary,
         showBottomNav: true,
-        leading: BackButton(
-          onPressed: () => context.go(AppRoutes.tools),
+        child: Center(
+          child: hasError
+              ? Text(l10n.loadError)
+              : const CircularProgressIndicator(),
         ),
-        child: asyncGroups.when(
-          data: (groups) {
-            final adjectiveGroupsList = adjectiveGroups(groups);
-            if (adjectiveGroupsList.isEmpty) {
-              return Center(
-                child: Text(
-                  l10n.loadError,
-                  style: AppFontStyles.textBody.copyWith(color: t.textPrimary),
-                ),
-              );
-            }
-            return ListView.builder(
-              controller: _scrollController,
-              padding: const EdgeInsets.all(16),
-              itemCount: adjectiveGroupsList.length,
-              itemBuilder: (context, index) {
-                final group = adjectiveGroupsList[index];
-                final groupId = 'agreement:${group.id}';
-                final progress = allProgress[groupId];
-                return Padding(
-                  padding: const EdgeInsets.only(bottom: 12),
-                  child: _AgreementGroupTile(
-                    group: group,
-                    l10n: l10n,
-                    progress: progress,
-                    retention: getRetention(groupId),
-                    onTap: () => _onGroupTap(context, group, groups, l10n),
-                  ),
-                );
-              },
-            );
-          },
-          loading: () => const Center(child: CircularProgressIndicator()),
-          error: (e, st) => Center(
-            child: Text(l10n.loadError),
-          ),
-        ),
+      );
+    }
+
+    return ScreenLayoutWidget(
+      title: l10n.navVocabulary,
+      showBottomNav: true,
+      child: ListView.builder(
+        controller: _scrollController,
+        padding: const EdgeInsets.all(16),
+        itemCount: dictionary.groups.length,
+        itemBuilder: (context, index) {
+          final group = dictionary.groups[index];
+          final progress = allProgress[group.id];
+          final cardCount = _countCards(group, targetPack, nativePack);
+
+          return Padding(
+            padding: const EdgeInsets.only(bottom: 12),
+            child: _VocabGroupTile(
+              group: group,
+              cardCount: cardCount,
+              progress: progress,
+              retention: getRetention(group.id),
+              l10n: l10n,
+              onTap: () => _onGroupTap(
+                context,
+                group,
+                dictionary,
+                targetPack,
+                nativePack,
+                cardCount,
+                l10n,
+              ),
+            ),
+          );
+        },
       ),
     );
   }
 
+  /// Count how many cards this group will produce (respects missing translations).
+  int _countCards(VocabGroupModel group, LanguagePack target, LanguagePack native) {
+    int count = 0;
+    for (final cid in group.conceptIds) {
+      final t = target.translations[cid];
+      final n = native.translations[cid];
+      if (t != null && t.isNotEmpty && n != null && n.isNotEmpty) {
+        count += t.length;
+      }
+    }
+    return count;
+  }
+
   Future<void> _onGroupTap(
     BuildContext context,
-    GroupModel group,
-    List<GroupModel> allGroups,
+    VocabGroupModel group,
+    Dictionary dictionary,
+    LanguagePack targetPack,
+    LanguagePack nativePack,
+    int cardCount,
     AppLocalizations l10n,
   ) async {
-    final totalCards = group.cards.length;
+    if (cardCount <= 0) return;
 
-    // No cards available
-    if (totalCards <= 0) return;
-
-    // Agreement only supports writing mode
-    final selection = await showModeBottomSheet(context, l10n, showAllModes: false);
+    final selection = await showModeBottomSheet(context, l10n);
     if (selection == null || !context.mounted) return;
 
-    // Show count selection (or auto-select if ≤5)
     final selectedCount = await showCountBottomSheet(
       context,
       l10n,
-      totalCount: totalCards,
+      totalCount: cardCount,
     );
     if (selectedCount == null || !context.mounted) return;
 
@@ -164,28 +182,31 @@ class _AgreementGroupListScreenState extends ConsumerState<AgreementGroupListScr
         ? _scrollController.offset
         : 0.0;
 
-    ref.read(sessionProvider.notifier).startAgreement(
-          adjectiveGroup: group,
-          allGroups: allGroups,
+    ref.read(sessionProvider.notifier).startVocab(
+          group: group,
+          targetPack: targetPack,
+          nativePack: nativePack,
           mode: selection.mode,
           questionCount: selectedCount,
-          originRoute: AppRoutes.agreement,
+          originRoute: AppRoutes.home,
           originScrollOffset: scrollOffset,
         );
     if (context.mounted) context.go(AppRoutes.session);
   }
 }
 
-class _AgreementGroupTile extends StatelessWidget {
-  const _AgreementGroupTile({
+class _VocabGroupTile extends StatelessWidget {
+  const _VocabGroupTile({
     required this.group,
+    required this.cardCount,
     required this.l10n,
     required this.onTap,
     this.progress,
     this.retention = 0.0,
   });
 
-  final GroupModel group;
+  final VocabGroupModel group;
+  final int cardCount;
   final AppLocalizations l10n;
   final VoidCallback onTap;
   final GroupProgress? progress;
@@ -195,11 +216,6 @@ class _AgreementGroupTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = AppThemes.of(context);
     final label = groupLabel(l10n, group.labelKey);
-    final count = wordCount(group);
-    final preview = groupPreviewText(group);
-    final countText = preview.isNotEmpty
-        ? l10n.wordsCountWithPreview(count, preview)
-        : l10n.wordsCount(count);
 
     // Show badge if there's any progress
     final showBadge = progress != null && progress!.recentSessions.isNotEmpty;
@@ -209,7 +225,6 @@ class _AgreementGroupTile extends StatelessWidget {
       padding: EdgeInsets.zero,
       child: Stack(
         children: [
-          // Main content
           Padding(
             padding: const EdgeInsets.all(16),
             child: Row(
@@ -225,7 +240,7 @@ class _AgreementGroupTile extends StatelessWidget {
                       ),
                       const SizedBox(height: 2),
                       Text(
-                        countText,
+                        l10n.wordsCount(cardCount),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: AppFontStyles.textCaption.copyWith(color: t.textSecondary),
@@ -237,7 +252,6 @@ class _AgreementGroupTile extends StatelessWidget {
               ],
             ),
           ),
-          // Progress badge (if any sessions done)
           if (showBadge)
             Positioned(
               top: 0,
@@ -294,7 +308,6 @@ class _ProgressBadge extends StatelessWidget {
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        // Chip 1: Percentage (outlined)
         Container(
           padding: chipPadding,
           decoration: BoxDecoration(
@@ -310,7 +323,6 @@ class _ProgressBadge extends StatelessWidget {
           child: Text('$percentage%', style: outlinedChipStyle),
         ),
         const SizedBox(width: 4),
-        // Chip 2: Date (outlined)
         Container(
           padding: chipPadding,
           decoration: BoxDecoration(
@@ -323,7 +335,6 @@ class _ProgressBadge extends StatelessWidget {
           child: Text(dateText, style: outlinedChipStyle),
         ),
         const SizedBox(width: 4),
-        // Chip 3: Retention level (filled with level color)
         Container(
           padding: chipPadding,
           decoration: BoxDecoration(

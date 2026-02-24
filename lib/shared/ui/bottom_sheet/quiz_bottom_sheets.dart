@@ -52,7 +52,7 @@ Future<ModeSelection?> showModeBottomSheet(
             child: BaseButton(
               label: l10n.modeEngCards,
               onPressed: () => Navigator.of(context).pop(
-                const ModeSelection(mode: QuizMode.serbianShown, isTest: false),
+                const ModeSelection(mode: QuizMode.targetShown, isTest: false),
               ),
             ),
           ),
@@ -61,7 +61,7 @@ Future<ModeSelection?> showModeBottomSheet(
             child: BaseButton(
               label: l10n.modeSrpskiCards,
               onPressed: () => Navigator.of(context).pop(
-                const ModeSelection(mode: QuizMode.englishShown, isTest: false),
+                const ModeSelection(mode: QuizMode.nativeShown, isTest: false),
               ),
             ),
           ),

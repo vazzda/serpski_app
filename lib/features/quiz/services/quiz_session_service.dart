@@ -5,8 +5,10 @@ import '../../../app/providers/app_settings_provider.dart';
 import '../../../app/providers/daily_activity_provider.dart';
 import '../../../app/providers/group_progress_provider.dart';
 import '../../../app/providers/groups_provider.dart';
+import '../../../app/providers/language_settings_provider.dart';
+import '../../../app/providers/language_stats_provider.dart';
 import '../../../app/router/app_router.dart';
-import '../../../shared/lib/progress_calculator.dart';
+import 'package:srpski_card/shared/lib/progress_calculator.dart';
 import '../session_notifier.dart';
 
 /// Service for session lifecycle operations.
@@ -25,7 +27,9 @@ class QuizSessionService {
         debugPrint('QuizSessionService.persistSession: session is null');
         return;
       }
+      final targetLang = _ref.read(languageSettingsProvider).targetLang;
       final stats = await _ref.read(dailyActivityRepositoryProvider).addSession(
+            targetLang: targetLang,
             correct: session.correctCount,
             wrong: session.wrongCount,
             wordIds: session.sessionWordIds,
@@ -52,6 +56,16 @@ class QuizSessionService {
         await _ref
             .read(groupProgressProvider.notifier)
             .updatePeakRetention(session.groupId, retention);
+      }
+
+      // Record concepts touched for vocab sessions (language-level progress)
+      if (session.allCards != null) {
+        final conceptIds = session.sessionWordIds
+            .map((wid) => wid.split(':').first)
+            .toSet();
+        await _ref
+            .read(languageStatsRepositoryProvider)
+            .addConceptsTouched(targetLang, conceptIds);
       }
     } catch (e, st) {
       debugPrint('QuizSessionService.persistSession error: $e\n$st');

@@ -84,5 +84,6 @@ void main() {
   if (!outDir.existsSync()) outDir.createSync(recursive: true);
   final file = File('assets/icon/logo.png');
   file.writeAsBytesSync(img.encodePng(image));
+  // ignore: avoid_print
   print('Generated ${file.path}');
 }

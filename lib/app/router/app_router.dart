@@ -4,16 +4,17 @@ import 'package:go_router/go_router.dart';
 import '../../l10n/app_localizations.dart';
 import '../../pages/agreement_group_list_screen.dart';
 import '../../pages/group_list_screen.dart';
+import '../../pages/language_screen.dart';
 import '../../pages/result_screen.dart';
 import '../../pages/session_screen.dart';
-import '../../pages/under_development_screen.dart';
 import '../../pages/settings_screen.dart';
+import '../../pages/tools_screen.dart';
+import '../../pages/vocab_group_list_screen.dart';
 import '../theme/app_themes.dart';
 
 /// Route names/paths.
 class AppRoutes {
   static const String home = '/';
-  static const String vocabulary = '/vocabulary';
   static const String conjugations = '/conjugations';
   static const String agreement = '/agreement';
   static const String session = '/session';
@@ -71,17 +72,32 @@ GoRouter createAppRouter() {
       GoRoute(
         path: AppRoutes.home,
         pageBuilder: (context, state) => _noTransitionPage(
-          const GroupListScreen(),
+          const VocabGroupListScreen(),
           state,
         ),
       ),
       GoRoute(
-        path: AppRoutes.vocabulary,
+        path: AppRoutes.language,
         pageBuilder: (context, state) => _noTransitionPage(
-          const ChildGroupListScreen(parent: ParentCategory.vocabulary),
+          const LanguageScreen(),
           state,
         ),
       ),
+      GoRoute(
+        path: AppRoutes.tools,
+        pageBuilder: (context, state) => _noTransitionPage(
+          const ToolsScreen(),
+          state,
+        ),
+      ),
+      GoRoute(
+        path: AppRoutes.settings,
+        pageBuilder: (context, state) => _noTransitionPage(
+          const SettingsScreen(),
+          state,
+        ),
+      ),
+      // Tool sub-routes — with back button
       GoRoute(
         path: AppRoutes.conjugations,
         pageBuilder: (context, state) => _noTransitionPage(
@@ -93,27 +109,6 @@ GoRouter createAppRouter() {
         path: AppRoutes.agreement,
         pageBuilder: (context, state) => _noTransitionPage(
           const AgreementGroupListScreen(),
-          state,
-        ),
-      ),
-      GoRoute(
-        path: AppRoutes.language,
-        pageBuilder: (context, state) => _noTransitionPage(
-          const UnderDevelopmentScreen(titleKey: 'navLanguage'),
-          state,
-        ),
-      ),
-      GoRoute(
-        path: AppRoutes.tools,
-        pageBuilder: (context, state) => _noTransitionPage(
-          const UnderDevelopmentScreen(titleKey: 'navTools'),
-          state,
-        ),
-      ),
-      GoRoute(
-        path: AppRoutes.settings,
-        pageBuilder: (context, state) => _noTransitionPage(
-          const SettingsScreen(),
           state,
         ),
       ),
