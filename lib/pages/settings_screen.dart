@@ -26,19 +26,6 @@ class SettingsScreen extends ConsumerStatefulWidget {
 class _SettingsScreenState extends ConsumerState<SettingsScreen> {
   int _settingsTapCount = 0;
 
-  @override
-  void initState() {
-    super.initState();
-    _loadDevSectionState();
-  }
-
-  Future<void> _loadDevSectionState() async {
-    final enabled = await loadDevSectionEnabled();
-    if (mounted) {
-      ref.read(devSectionEnabledProvider.notifier).state = enabled;
-    }
-  }
-
   void _handleTitleTap() {
     setState(() {
       _settingsTapCount++;

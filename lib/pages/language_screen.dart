@@ -53,7 +53,7 @@ class LanguageScreen extends ConsumerWidget {
         error: (_, __) => Center(child: Text(l10n.loadError)),
         data: (packs) {
           // All language codes from packs
-          final allCodes = packs.map((p) => p.code).toList();
+          final allCodes = packs.where((p) => p.isComplete).map((p) => p.code).toList();
           // Available UI languages
           final uiCodes = availableUiLanguages;
           // Find packs map for label lookup

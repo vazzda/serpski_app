@@ -16,6 +16,7 @@ import 'app/providers/group_progress_provider.dart';
 import 'app/providers/language_settings_provider.dart';
 import 'app/providers/language_stats_provider.dart';
 import 'app/providers/app_settings_provider.dart';
+import 'app/providers/dev_section_provider.dart';
 import 'app/providers/theme_provider.dart';
 import 'app/router/app_router.dart';
 import 'app/theme/app_themes.dart';
@@ -25,6 +26,7 @@ Future<void> main() async {
   FlutterNativeSplash.preserve(widgetsBinding: WidgetsBinding.instance);
   final db = await DatabaseProvider.database;
   final savedTheme = await loadAppTheme();
+  final savedDevSection = await loadDevSectionEnabled();
   final router = createAppRouter();
   runApp(
     ProviderScope(
@@ -45,6 +47,7 @@ Future<void> main() async {
           (ref) => AppSettingsRepository(db: db),
         ),
         themeProvider.overrideWith((ref) => savedTheme),
+        devSectionEnabledProvider.overrideWith((ref) => savedDevSection),
       ],
       child: SrpskiCardApp(router: router),
     ),
