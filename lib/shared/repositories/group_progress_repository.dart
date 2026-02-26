@@ -149,6 +149,24 @@ class GroupProgressRepository {
     }
   }
 
+  /// Returns summed totalProgress per target language across all groups.
+  /// Only includes languages that have at least one group_progress row.
+  Future<Map<String, double>> getSumProgressAllLanguages() async {
+    final rows = await _db.query('group_progress');
+    final Map<String, double> sumByLang = {};
+    for (final row in rows) {
+      final lang = row['target_lang'] as String;
+      final gp = GroupProgress(
+        groupId: row['group_id'] as String,
+        targetShownProgress: (row['target_shown_progress'] as num).toDouble(),
+        nativeShownProgress: (row['native_shown_progress'] as num).toDouble(),
+        writeProgress: (row['write_progress'] as num).toDouble(),
+      );
+      sumByLang[lang] = (sumByLang[lang] ?? 0.0) + gp.totalProgress;
+    }
+    return sumByLang;
+  }
+
   /// Returns the last 3 session records for a (target_lang, group), newest first.
   Future<List<SessionRecord>> _getRecentSessions(
       String targetLang, String groupId) async {

@@ -16,6 +16,8 @@ import '../features/quiz/session_notifier.dart';
 import 'package:srpski_card/shared/lib/group_label.dart';
 import 'package:srpski_card/shared/lib/progress_calculator.dart';
 import '../shared/repositories/models/group_progress.dart';
+import '../app/providers/daily_activity_provider.dart';
+import '../shared/repositories/daily_activity_repository.dart';
 import '../shared/ui/bottom_sheet/quiz_bottom_sheets.dart';
 import '../shared/ui/card/project_card.dart';
 import '../shared/ui/screen_layout/screen_layout_widget.dart';
@@ -73,6 +75,7 @@ class _VocabGroupListScreenState extends ConsumerState<VocabGroupListScreen> {
     final asyncNative = ref.watch(nativePackProvider);
     final allProgress = ref.watch(groupProgressProvider);
     final settings = ref.watch(appSettingsProvider);
+    final asyncStats = ref.watch(dailyActivityProvider);
 
     // When data loads and we have a pending scroll, schedule restore
     if (asyncDict.hasValue &&
@@ -114,9 +117,15 @@ class _VocabGroupListScreenState extends ConsumerState<VocabGroupListScreen> {
       child: ListView.builder(
         controller: _scrollController,
         padding: const EdgeInsets.all(16),
-        itemCount: dictionary.groups.length,
+        itemCount: dictionary.groups.length + 1,
         itemBuilder: (context, index) {
-          final group = dictionary.groups[index];
+          if (index == 0) {
+            return Padding(
+              padding: const EdgeInsets.only(bottom: 12),
+              child: _DailyActivityCard(asyncStats: asyncStats, l10n: l10n),
+            );
+          }
+          final group = dictionary.groups[index - 1];
           final progress = allProgress[group.id];
           final cardCount = _countCards(group, targetPack, nativePack);
 
@@ -350,6 +359,61 @@ class _ProgressBadge extends StatelessWidget {
           child: Text(levelLabel, style: filledChipStyle),
         ),
       ],
+    );
+  }
+}
+
+class _DailyActivityCard extends StatelessWidget {
+  const _DailyActivityCard({
+    required this.asyncStats,
+    required this.l10n,
+  });
+
+  final AsyncValue<DailyActivityStats> asyncStats;
+  final AppLocalizations l10n;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = AppThemes.of(context);
+    return ProjectCard(
+      child: SizedBox(
+        width: double.infinity,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              l10n.dailyActivityTitle,
+              style: AppFontStyles.textListItem.copyWith(color: t.textPrimary),
+            ),
+            const SizedBox(height: 4),
+            asyncStats.when(
+              data: (stats) {
+                final isEmpty = stats.correct == 0 &&
+                    stats.wrong == 0 &&
+                    stats.wordsTouched == 0;
+                return Text(
+                  isEmpty
+                      ? l10n.dailyActivityEmpty
+                      : '${l10n.correctCount(stats.correct)} · ${l10n.wrongCount(stats.wrong)} · ${l10n.wordsCount(stats.wordsTouched)}',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: AppFontStyles.textCaption.copyWith(color: t.textSecondary),
+                );
+              },
+              loading: () => Text(
+                l10n.dailyActivityEmpty,
+                style: AppFontStyles.textCaption.copyWith(color: t.textSecondary),
+              ),
+              // ignore: unnecessary_underscores
+              error: (_, __) => Text(
+                l10n.dailyActivityEmpty,
+                style: AppFontStyles.textCaption.copyWith(color: t.textSecondary),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

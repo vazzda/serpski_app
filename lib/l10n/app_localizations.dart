@@ -892,6 +892,12 @@ abstract class AppLocalizations {
   /// **'My progress'**
   String get language_myProgress;
 
+  /// No description provided for @language_progression.
+  ///
+  /// In en, this message translates to:
+  /// **'Progression'**
+  String get language_progression;
+
   /// No description provided for @language_incompleteDictionaries.
   ///
   /// In en, this message translates to:

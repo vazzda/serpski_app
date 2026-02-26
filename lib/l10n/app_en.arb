@@ -209,6 +209,7 @@
   "language_appLanguage": "App language",
   "language_sameAsLearning": "Same as learning language selected",
   "language_myProgress": "My progress",
+  "language_progression": "Progression",
   "language_incompleteDictionaries": "Incomplete dictionaries",
   "language_groupsProgress": "{done}/{total} groups",
   "@language_groupsProgress": {

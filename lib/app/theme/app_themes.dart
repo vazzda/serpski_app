@@ -239,6 +239,15 @@ class AppThemeData {
   final List<BoxShadow>? navbarShadow;
 
   // ==========================================================================
+  // PROGRESS BAR
+  // ==========================================================================
+  final Color progressBarFilled;
+  final Color progressBarUnfilled;
+  final double progressBarBorderRadius;
+  final double progressBarCompactHeight;
+  final double progressBarDetailedHeight;
+
+  // ==========================================================================
   // TOGGLE
   // ==========================================================================
   final double toggleBorderRadius;
@@ -302,6 +311,12 @@ class AppThemeData {
     // Divider
     required this.dividerWidth,
     required this.dividerColor,
+    // Progress bar
+    required this.progressBarFilled,
+    required this.progressBarUnfilled,
+    required this.progressBarBorderRadius,
+    required this.progressBarCompactHeight,
+    required this.progressBarDetailedHeight,
     // Fab
     required this.fabBackground,
     required this.fabBorderColor,

@@ -29,8 +29,16 @@ A PreToolUse hook enforces this — attempts without "unleash" are blocked.
   - **Buttons**: `AccentButton`, `BaseButton`, `ProjectTextButton`, `DangerTextButton`
   - **Text input**: `ProjectTextInput`
   - **Cards**: `ProjectCard`
+  - **Progress bar**: `ProjectProgressBar`
   - **Bottom sheets**: `showProjectBottomSheet()`
   - **Navigation**: `ScreenLayoutWidget`
+
+**When adding a new project control:**
+1. Add any required sizing/radius/color properties to `AppThemeData` first, then to all theme files
+2. The control uses only `AppThemeData` properties — zero hardcoded values
+3. Add the control to the controls list above
+4. Name: `Project` prefix + the UI concept (not the Flutter widget name). `ProjectProgressBar` not `ProjectLinearIndicator`
+5. Folder: `lib/shared/ui/<concept>/` matching the control name
 
 ### No hardcoded text strings
 - NEVER hardcode user-facing text — ALWAYS use `AppLocalizations` (accessed as `l10n`)

@@ -108,6 +108,12 @@ const AppThemeData candidate02Theme = AppThemeData(
   // Divider
   dividerColor: Candidate02Palette.darkNavyA12,
   dividerWidth: 1.0,
+  // Progress bar
+  progressBarFilled: Candidate02Palette.darkNavy,
+  progressBarUnfilled: Candidate02Palette.darkNavyA12,
+  progressBarBorderRadius: 4.0,
+  progressBarCompactHeight: 6.0,
+  progressBarDetailedHeight: 8.0,
   // Button
   buttonBorderRadius: 8.0,
   buttonBorderWidth: 2.0,

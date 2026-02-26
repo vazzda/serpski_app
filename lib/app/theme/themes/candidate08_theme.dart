@@ -105,6 +105,12 @@ const AppThemeData candidate08Theme = AppThemeData(
   // Divider
   dividerColor: Candidate08Palette.deepWalnutA40,
   dividerWidth: 1.0,
+  // Progress bar
+  progressBarFilled: Candidate08Palette.deepWalnut,
+  progressBarUnfilled: Candidate08Palette.deepWalnutA12,
+  progressBarBorderRadius: 4.0,
+  progressBarCompactHeight: 6.0,
+  progressBarDetailedHeight: 8.0,
   // Button
   buttonBorderRadius: 8.0,
   buttonBorderWidth: 2.0,

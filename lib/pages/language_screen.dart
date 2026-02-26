@@ -2,18 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../l10n/app_localizations.dart';
-import '../app/providers/daily_activity_provider.dart';
+import '../app/providers/all_languages_progress_provider.dart';
 import '../app/providers/dev_section_provider.dart';
 import '../app/providers/dictionary_provider.dart';
-import '../app/providers/group_progress_provider.dart';
 import '../app/providers/language_settings_provider.dart';
 import '../app/theme/app_themes.dart';
-import '../shared/repositories/daily_activity_repository.dart';
 import '../shared/repositories/dictionary_repository.dart';
 import '../shared/ui/buttons/project_button_group.dart';
 import '../shared/ui/buttons/project_buttons.dart' show ButtonSize;
 import '../shared/ui/card/project_card.dart';
 import '../shared/ui/note/project_note.dart';
+import '../shared/ui/progress_bar/project_progress_bar.dart';
 import '../shared/ui/screen_layout/screen_layout_widget.dart';
 
 /// Resolves a language ARB label key to its localized string.
@@ -39,9 +38,7 @@ class LanguageScreen extends ConsumerWidget {
     final t = AppThemes.of(context);
     final langSettings = ref.watch(languageSettingsProvider);
     final asyncAllPacks = ref.watch(allPacksProvider);
-    final asyncStats = ref.watch(dailyActivityProvider);
-    final allProgress = ref.watch(groupProgressProvider);
-    final asyncDictionary = ref.watch(dictionaryProvider);
+    final asyncAllLangProgress = ref.watch(allLanguagesProgressProvider);
     final showDevSection = ref.watch(devSectionEnabledProvider);
 
     return ScreenLayoutWidget(
@@ -52,18 +49,9 @@ class LanguageScreen extends ConsumerWidget {
         // ignore: unnecessary_underscores
         error: (_, __) => Center(child: Text(l10n.loadError)),
         data: (packs) {
-          // All language codes from packs
           final allCodes = packs.where((p) => p.isComplete).map((p) => p.code).toList();
-          // Available UI languages
           final uiCodes = availableUiLanguages;
-          // Find packs map for label lookup
           final packByCode = {for (final p in packs) p.code: p};
-
-          // Progress stats
-          final totalGroups = asyncDictionary.valueOrNull?.groups.length ?? 0;
-          final groupsWithProgress = allProgress.values
-              .where((p) => p.recentSessions.isNotEmpty)
-              .length;
 
           return ListView(
             padding: const EdgeInsets.all(16),
@@ -114,26 +102,11 @@ class LanguageScreen extends ConsumerWidget {
               ),
               const SizedBox(height: 24),
 
-              // Daily activity
-              _DailyActivityCard(asyncStats: asyncStats, l10n: l10n),
-              const SizedBox(height: 12),
-
-              // Progress overview
-              ProjectCard(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      l10n.language_myProgress,
-                      style: AppFontStyles.textListItem.copyWith(color: t.textPrimary),
-                    ),
-                    const SizedBox(height: 4),
-                    Text(
-                      l10n.language_groupsProgress(groupsWithProgress, totalGroups),
-                      style: AppFontStyles.textCaption.copyWith(color: t.textSecondary),
-                    ),
-                  ],
-                ),
+              // Progression card
+              _ProgressionCard(
+                asyncProgress: asyncAllLangProgress,
+                packByCode: packByCode,
+                l10n: l10n,
               ),
               const SizedBox(height: 12),
 
@@ -215,56 +188,88 @@ class _LangButtonGroup extends StatelessWidget {
   }
 }
 
-class _DailyActivityCard extends StatelessWidget {
-  const _DailyActivityCard({
-    required this.asyncStats,
+class _ProgressionCard extends StatelessWidget {
+  const _ProgressionCard({
+    required this.asyncProgress,
+    required this.packByCode,
     required this.l10n,
   });
 
-  final AsyncValue<DailyActivityStats> asyncStats;
+  final AsyncValue<Map<String, double>> asyncProgress;
+  final Map<String, dynamic> packByCode;
   final AppLocalizations l10n;
 
   @override
   Widget build(BuildContext context) {
     final t = AppThemes.of(context);
     return ProjectCard(
-      child: SizedBox(
-        width: double.infinity,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              l10n.dailyActivityTitle,
-              style: AppFontStyles.textListItem.copyWith(color: t.textPrimary),
-            ),
-            const SizedBox(height: 4),
-            asyncStats.when(
-              data: (stats) {
-                final isEmpty = stats.correct == 0 &&
-                    stats.wrong == 0 &&
-                    stats.wordsTouched == 0;
-                return Text(
-                  isEmpty
-                      ? l10n.dailyActivityEmpty
-                      : '${l10n.correctCount(stats.correct)} · ${l10n.wrongCount(stats.wrong)} · ${l10n.wordsCount(stats.wordsTouched)}',
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: AppFontStyles.textCaption.copyWith(color: t.textSecondary),
-                );
-              },
-              loading: () => Text(
-                l10n.dailyActivityEmpty,
-                style: AppFontStyles.textCaption.copyWith(color: t.textSecondary),
-              ),
-              // ignore: unnecessary_underscores
-              error: (_, __) => Text(
-                l10n.dailyActivityEmpty,
-                style: AppFontStyles.textCaption.copyWith(color: t.textSecondary),
-              ),
-            ),
-          ],
-        ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text(
+            l10n.language_progression,
+            style: AppFontStyles.textListItem.copyWith(color: t.textPrimary),
+          ),
+          asyncProgress.when(
+            data: (langProgress) {
+              final entries = langProgress.entries
+                  .where((e) => e.value > 0)
+                  .toList();
+              if (entries.isEmpty) return const SizedBox.shrink();
+              return Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const SizedBox(height: 12),
+                  ...List.generate(entries.length, (i) {
+                    final e = entries[i];
+                    final pack = packByCode[e.key];
+                    final labelKey = pack?.labelKey ?? 'lang_${e.key}';
+                    final label = _langLabel(l10n, labelKey as String);
+                    final pct = (e.value * 100).round();
+                    return Padding(
+                      padding: EdgeInsets.only(bottom: i < entries.length - 1 ? 8 : 0),
+                      child: Row(
+                        children: [
+                          SizedBox(
+                            width: 72,
+                            child: Text(
+                              label,
+                              style: AppFontStyles.textCaption.copyWith(
+                                color: t.textSecondary,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 8),
+                          Expanded(
+                            child: ProjectProgressBar(
+                              value: e.value,
+                              mode: ProgressBarMode.compact,
+                            ),
+                          ),
+                          const SizedBox(width: 8),
+                          SizedBox(
+                            width: 36,
+                            child: Text(
+                              '$pct%',
+                              textAlign: TextAlign.end,
+                              style: AppFontStyles.textCaption.copyWith(
+                                color: t.textPrimary,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    );
+                  }),
+                ],
+              );
+            },
+            loading: () => const SizedBox.shrink(),
+            // ignore: unnecessary_underscores
+            error: (_, __) => const SizedBox.shrink(),
+          ),
+        ],
       ),
     );
   }

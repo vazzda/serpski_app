@@ -428,6 +428,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get language_myProgress => 'My progress';
 
   @override
+  String get language_progression => 'Progression';
+
+  @override
   String get language_incompleteDictionaries => 'Incomplete dictionaries';
 
   @override
