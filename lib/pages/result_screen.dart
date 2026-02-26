@@ -191,9 +191,8 @@ class _MissedEntryTile extends StatelessWidget {
                   Expanded(
                     child: Text(
                       card.targetAnswer,
-                      style: AppFontStyles.textBodyLarge.copyWith(
+                      style: AppFontStyles.textBodyLargeAccented.copyWith(
                         color: t.textPrimary,
-                        fontWeight: FontWeight.w600,
                       ),
                     ),
                   ),

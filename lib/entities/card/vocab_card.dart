@@ -10,7 +10,8 @@ class VocabCard implements CardModel {
     required this.translationIndex,
     required this.nativeText,
     required this.targetText,
-    this.note,
+    this.targetNote,
+    this.nativeNote,
     this.gender,
     this.aspect,
     this.forms,
@@ -33,8 +34,11 @@ class VocabCard implements CardModel {
   @override
   final String targetText;
 
-  /// Short explanation or usage example. Always visible on card.
-  final String? note;
+  /// Usage note for the target-language side. Show when target is the prompt.
+  final String? targetNote;
+
+  /// Usage note for the native-language side. Show when native is the prompt.
+  final String? nativeNote;
 
   /// Noun gender or adjective primary gender: "m", "f", "n".
   final String? gender;

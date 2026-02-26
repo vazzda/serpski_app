@@ -245,5 +245,7 @@
   "tools_agreement": "Gender agreement",
   "tools_emptyState": "No tools available for this language",
 
-  "settingsHide": "Hide"
+  "settingsHide": "Hide",
+  "settingsDeveloper": "Developer",
+  "settingsControlsList": "Controls List"
 }

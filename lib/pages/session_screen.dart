@@ -22,6 +22,7 @@ import '../shared/ui/buttons/project_buttons.dart';
 import '../shared/ui/bottom_sheet/project_bottom_sheet.dart';
 import 'package:srpski_card/shared/lib/group_label.dart';
 import '../shared/ui/card/project_card.dart';
+import '../shared/ui/note/project_note.dart';
 import '../shared/ui/screen_layout/screen_layout_widget.dart';
 import '../shared/ui/inputs/project_text_input.dart';
 
@@ -152,12 +153,16 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
                     style: AppFontStyles.textPrompt.copyWith(color: t.textPrimary),
                     textAlign: TextAlign.center,
                   ),
-                  if (card is VocabCard && card.note != null) ...[
+                  if (card is VocabCard &&
+                      (session.mode == QuizMode.targetShown
+                              ? card.targetNote
+                              : card.nativeNote) !=
+                          null) ...[
                     const SizedBox(height: 8),
-                    Text(
-                      card.note!,
-                      style: AppFontStyles.textCaption.copyWith(color: t.textSecondary),
-                      textAlign: TextAlign.center,
+                    ProjectNote(
+                      text: session.mode == QuizMode.targetShown
+                          ? card.targetNote!
+                          : card.nativeNote!,
                     ),
                   ],
                 ],

@@ -6,14 +6,31 @@ import '../l10n/app_localizations.dart';
 import '../shared/repositories/models/decay_formula.dart';
 import '../app/providers/app_settings_provider.dart';
 import '../app/providers/dev_section_provider.dart';
+import '../app/providers/dictionary_provider.dart';
+import '../app/providers/language_settings_provider.dart';
 import '../app/providers/theme_provider.dart';
+import '../shared/repositories/dictionary_repository.dart';
 import '../app/router/app_router.dart';
 import '../app/theme/app_themes.dart';
-import '../shared/ui/buttons/project_buttons.dart';
+import '../shared/ui/buttons/project_button_group.dart';
+import '../shared/ui/buttons/project_buttons.dart' show BaseButton, ButtonSize;
 import '../shared/ui/screen_layout/screen_layout_widget.dart';
 import '../shared/ui/card/project_card.dart';
 import '../shared/ui/inputs/project_radio_tile.dart';
 import 'package:srpski_card/shared/lib/constants.dart';
+
+String _langLabel(AppLocalizations l10n, String labelKey) {
+  switch (labelKey) {
+    case 'lang_english':
+      return l10n.lang_english;
+    case 'lang_serbian':
+      return l10n.lang_serbian;
+    case 'lang_russian':
+      return l10n.lang_russian;
+    default:
+      return labelKey;
+  }
+}
 
 /// Settings screen for app configuration.
 class SettingsScreen extends ConsumerStatefulWidget {
@@ -49,6 +66,8 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
     final settings = ref.watch(appSettingsProvider);
     final currentTheme = ref.watch(themeProvider);
     final showDevSection = ref.watch(devSectionEnabledProvider);
+    final langSettings = ref.watch(languageSettingsProvider);
+    final asyncAllPacks = ref.watch(allPacksProvider);
 
     return ScreenLayoutWidget(
       title: l10n.settingsTitle,
@@ -57,6 +76,38 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
       child: ListView(
         padding: const EdgeInsets.all(16),
         children: [
+          // App language section
+          Padding(
+            padding: const EdgeInsets.only(bottom: 8),
+            child: Text(
+              l10n.language_appLanguage,
+              style: AppFontStyles.textSectionHeader.copyWith(color: t.textPrimary),
+            ),
+          ),
+          asyncAllPacks.when(
+            loading: () => const SizedBox.shrink(),
+            // ignore: unnecessary_underscores
+            error: (_, __) => const SizedBox.shrink(),
+            data: (packs) {
+              final uiCodes = availableUiLanguages;
+              final packByCode = {for (final p in packs) p.code: p};
+              return ProjectButtonGroup(
+                expanded: true,
+                size: ButtonSize.small,
+                items: uiCodes.map((code) {
+                  final pack = packByCode[code];
+                  final labelKey = pack?.labelKey ?? 'lang_$code';
+                  final isSelected = code == langSettings.uiLang;
+                  return ProjectButtonGroupItem(
+                    label: _langLabel(l10n, labelKey),
+                    isSelected: isSelected,
+                    onPressed: isSelected ? null : () => ref.read(languageSettingsProvider.notifier).setUiLang(code),
+                  );
+                }).toList(),
+              );
+            },
+          ),
+          const SizedBox(height: 24),
           // Theme section
           Padding(
             padding: const EdgeInsets.only(bottom: 12),
@@ -136,7 +187,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Developer',
+                    l10n.settingsDeveloper,
                     style: AppFontStyles.textSectionHeader.copyWith(color: t.textPrimary),
                   ),
                   BaseButton(
@@ -152,7 +203,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                 children: [
                   Expanded(
                     child: Text(
-                      'Controls List',
+                      l10n.settingsControlsList,
                       style: AppFontStyles.textListItem.copyWith(color: t.textPrimary),
                     ),
                   ),

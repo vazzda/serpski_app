@@ -280,15 +280,11 @@ class _ProgressBadge extends StatelessWidget {
         : '-';
 
     const chipPadding = EdgeInsets.symmetric(horizontal: 6, vertical: 4);
-    final outlinedChipStyle = AppFontStyles.textBadgeDate.copyWith(
+    final outlinedChipStyle = AppFontStyles.textProgressChip.copyWith(
       color: t.textPrimary,
-      fontWeight: FontWeight.bold,
-      fontSize: 11,
     );
-    final filledChipStyle = AppFontStyles.textBadgeDate.copyWith(
+    final filledChipStyle = AppFontStyles.textProgressChip.copyWith(
       color: t.retentionText,
-      fontWeight: FontWeight.bold,
-      fontSize: 11,
     );
 
     return Row(

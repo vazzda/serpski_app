@@ -87,6 +87,8 @@ class AppFontStyles {
   // Badge styles
   static TextStyle get textBadgePercentage => _bodyMAccented;
   static TextStyle get textBadgeDate => _bodyXs;
+  static TextStyle get textProgressChip =>
+      GoogleFonts.robotoMono(fontSize: 11, fontWeight: FontWeight.bold);
 
   // Prompt (quiz card)
   static TextStyle get textPrompt => _headerXxl;

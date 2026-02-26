@@ -7,7 +7,6 @@ import '../app/providers/dev_section_provider.dart';
 import '../app/providers/dictionary_provider.dart';
 import '../app/providers/language_settings_provider.dart';
 import '../app/theme/app_themes.dart';
-import '../shared/repositories/dictionary_repository.dart';
 import '../shared/ui/buttons/project_button_group.dart';
 import '../shared/ui/buttons/project_buttons.dart' show ButtonSize;
 import '../shared/ui/card/project_card.dart';
@@ -50,7 +49,6 @@ class LanguageScreen extends ConsumerWidget {
         error: (_, __) => Center(child: Text(l10n.loadError)),
         data: (packs) {
           final allCodes = packs.where((p) => p.isComplete).map((p) => p.code).toList();
-          final uiCodes = availableUiLanguages;
           final packByCode = {for (final p in packs) p.code: p};
 
           return ListView(
@@ -87,20 +85,6 @@ class LanguageScreen extends ConsumerWidget {
                 ProjectNote(text: l10n.language_sameAsLearning),
               ],
               const SizedBox(height: 20),
-
-              // UI language selector
-              _SectionHeader(label: l10n.language_appLanguage),
-              const SizedBox(height: 8),
-              _LangButtonGroup(
-                codes: uiCodes,
-                selectedCode: langSettings.uiLang,
-                packByCode: packByCode,
-                l10n: l10n,
-                onSelected: (code) {
-                  ref.read(languageSettingsProvider.notifier).setUiLang(code);
-                },
-              ),
-              const SizedBox(height: 24),
 
               // Progression card
               _ProgressionCard(

@@ -963,6 +963,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Hide'**
   String get settingsHide;
+
+  /// No description provided for @settingsDeveloper.
+  ///
+  /// In en, this message translates to:
+  /// **'Developer'**
+  String get settingsDeveloper;
+
+  /// No description provided for @settingsControlsList.
+  ///
+  /// In en, this message translates to:
+  /// **'Controls List'**
+  String get settingsControlsList;
 }
 
 class _AppLocalizationsDelegate

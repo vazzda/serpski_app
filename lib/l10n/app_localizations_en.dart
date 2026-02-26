@@ -470,4 +470,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get settingsHide => 'Hide';
+
+  @override
+  String get settingsDeveloper => 'Developer';
+
+  @override
+  String get settingsControlsList => 'Controls List';
 }
