@@ -172,11 +172,11 @@
   "underDevelopmentBody": "This feature is under development.",
   "settingsTheme": "Theme",
 
-  "theme_clean": "Clean",
-  "theme_warm": "Warm",
-  "theme_dark": "Dark",
-  "theme_newspaper": "Newspaper",
-  "theme_ocean": "Ocean",
+  "theme_candidate05": "Clean",
+  "theme_candidate07": "Warm",
+  "theme_candidate08": "Dark",
+  "theme_candidate01": "Newspaper",
+  "theme_candidate02": "Ocean",
 
   "lang_english": "English",
   "lang_serbian": "Serbian",

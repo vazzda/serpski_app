@@ -323,19 +323,19 @@ class AppLocalizationsEn extends AppLocalizations {
   String get settingsTheme => 'Theme';
 
   @override
-  String get theme_clean => 'Clean';
+  String get theme_candidate05 => 'Clean';
 
   @override
-  String get theme_warm => 'Warm';
+  String get theme_candidate07 => 'Warm';
 
   @override
-  String get theme_dark => 'Dark';
+  String get theme_candidate08 => 'Dark';
 
   @override
-  String get theme_newspaper => 'Newspaper';
+  String get theme_candidate01 => 'Newspaper';
 
   @override
-  String get theme_ocean => 'Ocean';
+  String get theme_candidate02 => 'Ocean';
 
   @override
   String get lang_english => 'English';

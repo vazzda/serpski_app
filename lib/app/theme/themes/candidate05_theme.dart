@@ -9,6 +9,7 @@ class Candidate05Palette {
 
   static const Color pureWhite = Color(0xFFFFFFFF);
   static const Color platinum = Color(0xFFE9EbEd);
+  static const Color alabaster = Color(0xFFD3D6DA);
   static const Color pureBlack = Color(0xFF000000);
   static const Color pureBlackA67 = Color(0xAA000000);
   static const Color pureBlackA50 = Color(0x80000000);
@@ -92,13 +93,13 @@ const AppThemeData candidate05Theme = AppThemeData(
   // Modal
   modalBorderRadius: 8.0,
   // Control
+  controlBackground: Candidate05Palette.alabaster,
+  controlBorder: Candidate05Palette.alabaster,
+  controlForeground: Candidate05Palette.gunMetal,
   controlAccentBackground: Candidate05Palette.gunMetal,
   controlAccentForeground: Candidate05Palette.platinum,
-  controlBackground: Candidate05Palette.platinum,
-  controlBorder: Candidate05Palette.platinum,
   controlDangerBackground: Candidate05Colors.danger,
   controlDangerForeground: Candidate05Palette.platinum,
-  controlForeground: Candidate05Palette.gunMetal,
   controlBorderRadius: 8.0,
   controlBorderWidth: 2.0,
   // Toggle
@@ -109,7 +110,7 @@ const AppThemeData candidate05Theme = AppThemeData(
   dividerWidth: 1.0,
   // Progress bar
   progressBarFilled: Candidate05Palette.gunMetal,
-  progressBarUnfilled: Candidate05Palette.pureBlackA12,
+  progressBarUnfilled: Candidate05Palette.alabaster,
   progressBarBorderRadius: 4.0,
   progressBarCompactHeight: 6.0,
   progressBarDetailedHeight: 8.0,
@@ -128,7 +129,7 @@ const AppThemeData candidate05Theme = AppThemeData(
   cardBorderRadius: 8.0,
   cardBorderWidth: 2.0,
   // Tile
-  tileBackground: Candidate05Palette.platinum,
+  tileBackground: Candidate05Palette.alabaster,
   tileForeground: Candidate05Palette.gunMetal,
   tileBorderColor: Candidate05Palette.platinum,
   tileBorderWidth: 2.0,

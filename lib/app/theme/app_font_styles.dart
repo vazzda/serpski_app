@@ -10,31 +10,39 @@ class AppFontStyles {
 
   // Body styles — Roboto Mono
   static TextStyle get _bodyXs =>
-      GoogleFonts.robotoMono(fontSize: 9, fontWeight: FontWeight.normal);
+      GoogleFonts.montserrat(fontSize: 9, fontWeight: FontWeight.normal);
+  static TextStyle get _bodyXsAccented =>
+      GoogleFonts.montserrat(fontSize: 11, fontWeight: FontWeight.bold);
   static TextStyle get _bodyS =>
-      GoogleFonts.robotoMono(fontSize: 12, fontWeight: FontWeight.normal);
+      GoogleFonts.montserrat(fontSize: 12, fontWeight: FontWeight.normal);
   static TextStyle get _bodySAccented =>
-      GoogleFonts.robotoMono(fontSize: 12, fontWeight: FontWeight.bold);
+      GoogleFonts.montserrat(fontSize: 12, fontWeight: FontWeight.bold);
   static TextStyle get _bodyM =>
-      GoogleFonts.robotoMono(fontSize: 14, fontWeight: FontWeight.normal);
+      GoogleFonts.montserrat(fontSize: 14, fontWeight: FontWeight.normal);
   static TextStyle get _bodyMAccented =>
-      GoogleFonts.robotoMono(fontSize: 14, fontWeight: FontWeight.bold);
+      GoogleFonts.montserrat(fontSize: 14, fontWeight: FontWeight.bold);
   static TextStyle get _bodyL =>
-      GoogleFonts.robotoMono(fontSize: 16, fontWeight: FontWeight.normal);
+      GoogleFonts.montserrat(fontSize: 16, fontWeight: FontWeight.normal);
   static TextStyle get _bodyLAccented =>
-      GoogleFonts.robotoMono(fontSize: 16, fontWeight: FontWeight.bold);
+      GoogleFonts.montserrat(fontSize: 16, fontWeight: FontWeight.bold);
 
   // Header styles — Big Shoulders Display
-  static TextStyle get _headerS =>
-      GoogleFonts.bigShouldersDisplay(fontSize: 14, fontWeight: FontWeight.w600);
-  static TextStyle get _headerM =>
-      GoogleFonts.bigShouldersDisplay(fontSize: 16, fontWeight: FontWeight.w600);
-  static TextStyle get _headerL =>
-      GoogleFonts.bigShouldersDisplay(fontSize: 20, fontWeight: FontWeight.w600);
-  static TextStyle get _headerXl =>
-      GoogleFonts.bigShouldersDisplay(fontSize: 24, fontWeight: FontWeight.w600);
-  static TextStyle get _headerXxl =>
-      GoogleFonts.bigShouldersDisplay(fontSize: 28, fontWeight: FontWeight.w600);
+  static TextStyle get _headerS => GoogleFonts.bigShouldersDisplay(
+    fontSize: 14,
+    fontWeight: FontWeight.w600,
+  );
+  static TextStyle get _headerL => GoogleFonts.bigShouldersDisplay(
+    fontSize: 20,
+    fontWeight: FontWeight.w600,
+  );
+  static TextStyle get _headerXl => GoogleFonts.bigShouldersDisplay(
+    fontSize: 24,
+    fontWeight: FontWeight.w600,
+  );
+  static TextStyle get _headerXxl => GoogleFonts.bigShouldersDisplay(
+    fontSize: 28,
+    fontWeight: FontWeight.w600,
+  );
 
   // ---------------------------------------------------------------------------
   // PRODUCT-LEVEL TEXT STYLES
@@ -44,7 +52,7 @@ class AppFontStyles {
   static TextStyle get textTitle => _headerXxl;
   static TextStyle get textSubtitle => _headerXl;
   static TextStyle get textSectionHeader => _headerL;
-  static TextStyle get textContentHeader => _headerM;
+  static TextStyle get textContentHeader => _headerXl;
 
   // Sheet styles
   static TextStyle get textSheetTitle => _headerL;
@@ -81,14 +89,14 @@ class AppFontStyles {
   static TextStyle get textBodyLargeAccented => _bodyLAccented;
 
   // Tile styles
-  static TextStyle get textTileHeader => _headerM;
-  static TextStyle get textTileContent => _bodySAccented;
+  static TextStyle get textTileHeader => _bodyLAccented;
+  static TextStyle get textTileContent => _bodyM;
+  static TextStyle get textTileCounter => _bodySAccented;
 
   // Badge styles
   static TextStyle get textBadgePercentage => _bodyMAccented;
   static TextStyle get textBadgeDate => _bodyXs;
-  static TextStyle get textProgressChip =>
-      GoogleFonts.robotoMono(fontSize: 11, fontWeight: FontWeight.bold);
+  static TextStyle get textProgressChip => _bodyXsAccented;
 
   // Prompt (quiz card)
   static TextStyle get textPrompt => _headerXxl;

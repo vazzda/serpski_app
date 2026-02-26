@@ -45,9 +45,9 @@ class Candidate08Colors {
 const AppThemeData candidate08Theme = AppThemeData(
   themeType: AppTheme.candidate08,
   // Scaffold
-  scaffoldBackground: Candidate08Palette.twilightIndigo,
+  scaffoldBackground: Candidate08Palette.spaceIndigo,
   // Display
-  displayBackground: Candidate08Palette.twilightIndigo,
+  displayBackground: Candidate08Palette.spaceIndigo,
   displayBorderRadius: 12.0,
   // AppBar
   appBarBackground: Candidate08Palette.spaceIndigo,
@@ -121,8 +121,8 @@ const AppThemeData candidate08Theme = AppThemeData(
   noteBorderWidth: 1.0,
   noteTextColor: Candidate08Palette.deepWalnutA80,
   // Card
-  cardBackground: Candidate08Palette.dustyGrape,
-  cardBorderColor: Candidate08Palette.dustyGrape,
+  cardBackground: Candidate08Palette.twilightIndigo,
+  cardBorderColor: Candidate08Palette.twilightIndigo,
   cardBorderRadius: 8.0,
   cardBorderWidth: 2.0,
   // Tile

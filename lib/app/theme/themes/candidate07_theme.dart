@@ -9,6 +9,8 @@ class Candidate07Palette {
 
   static const Color porcleain = Color(0xFFFCFBF7);
   static const Color oldlace = Color(0xFFEBE9E6);
+  static const Color dustgray = Color(0xFFDBD7D2);
+  static const Color silverdust = Color(0xFFD2CCC6);
 
   static const Color lightCoral = Color(0xFFE07A5F);
   static const Color lightCoral25 = Color(0x25E07A5F);
@@ -89,7 +91,7 @@ const AppThemeData candidate07Theme = AppThemeData(
   controlAccentBackground: Candidate07Palette.deepWalnut,
   controlAccentForeground: Candidate07Palette.oldlace,
   controlBackground: Candidate07Palette.oldlace,
-  controlBorder: Candidate07Palette.oldlace,
+  controlBorder: Candidate07Palette.dustgray,
   controlDangerBackground: Candidate07Colors.danger,
   controlDangerForeground: Candidate07Palette.oldlace,
   controlForeground: Candidate07Palette.deepWalnut,
@@ -103,7 +105,7 @@ const AppThemeData candidate07Theme = AppThemeData(
   dividerWidth: 1.0,
   // Progress bar
   progressBarFilled: Candidate07Palette.deepWalnut,
-  progressBarUnfilled: Candidate07Palette.deepWalnutA12,
+  progressBarUnfilled: Candidate07Palette.silverdust,
   progressBarBorderRadius: 4.0,
   progressBarCompactHeight: 6.0,
   progressBarDetailedHeight: 8.0,
@@ -112,19 +114,19 @@ const AppThemeData candidate07Theme = AppThemeData(
   buttonBorderWidth: 2.0,
   // Note
   noteBackground: Candidate07Palette.oldlace,
-  noteBorderColor: Candidate07Palette.oldlace,
+  noteBorderColor: Candidate07Palette.silverdust,
   noteBorderRadius: 8.0,
   noteBorderWidth: 1.0,
   noteTextColor: Candidate07Palette.deepWalnutA80,
   // Card
   cardBackground: Candidate07Palette.oldlace,
-  cardBorderColor: Candidate07Palette.oldlace,
+  cardBorderColor: Candidate07Palette.dustgray,
   cardBorderRadius: 8.0,
   cardBorderWidth: 2.0,
   // Tile
-  tileBackground: Candidate07Palette.oldlace,
+  tileBackground: Candidate07Palette.dustgray,
   tileForeground: Candidate07Palette.deepWalnut,
-  tileBorderColor: Candidate07Palette.oldlace,
+  tileBorderColor: Candidate07Palette.silverdust,
   tileBorderWidth: 2.0,
   tileBorderRadius: 8.0,
   // Dash

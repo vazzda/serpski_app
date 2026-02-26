@@ -228,7 +228,7 @@ class _ProgressionCard extends StatelessWidget {
                           Expanded(
                             child: ProjectProgressBar(
                               value: e.value,
-                              mode: ProgressBarMode.compact,
+                              mode: ProgressBarMode.detailed,
                             ),
                           ),
                           const SizedBox(width: 8),

@@ -310,9 +310,9 @@ class AppThemeData {
     required this.tileBorderColor,
     required this.tileBorderWidth,
     required this.tileBorderRadius,
-    this.tileMinWidth = 110.0,
-    this.tileHeight = 100.0,
-    this.tileGap = 10.0,
+    this.tileMinWidth = 120.0,
+    this.tileHeight = 125.0,
+    this.tileGap = 12.0,
     // Dash
     required this.dashCardBackground,
     required this.dashCardBorderColor,
@@ -435,15 +435,15 @@ extension AppThemeExtension on AppTheme {
   String getDisplayName(AppLocalizations l10n) {
     switch (this) {
       case AppTheme.candidate05:
-        return l10n.theme_clean;
+        return l10n.theme_candidate05;
       case AppTheme.candidate07:
-        return l10n.theme_warm;
+        return l10n.theme_candidate07;
       case AppTheme.candidate08:
-        return l10n.theme_dark;
+        return l10n.theme_candidate08;
       case AppTheme.candidate01:
-        return l10n.theme_newspaper;
+        return l10n.theme_candidate01;
       case AppTheme.candidate02:
-        return l10n.theme_ocean;
+        return l10n.theme_candidate02;
     }
   }
 
