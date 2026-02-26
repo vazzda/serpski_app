@@ -46,6 +46,9 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
   String? _wrongUserTypedAnswer;
   /// Text to show as "the answer you gave" in wrong-feedback block (all modes).
   String? _wrongUserAnswerDisplay;
+  /// Per-form wrong feedback for PairVocabCard. Non-null when showing pair feedback.
+  ({String typed, String correct, bool ok})? _pairImperfective;
+  ({String typed, String correct, bool ok})? _pairPerfective;
 
   @override
   void dispose() {
@@ -177,20 +180,64 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
             ),
             const SizedBox(height: 24),
             if (_wrongFeedback != null) ...[
-              Text(
-                l10n.wrong,
-                style: AppFontStyles.textContentHeader.copyWith(color: t.dangerColor),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                '${session.mode == QuizMode.write ? l10n.youWrote : l10n.youPicked} ${(_wrongUserAnswerDisplay ?? '').isEmpty ? l10n.emptyAnswer : _wrongUserAnswerDisplay}',
-                style: AppFontStyles.textBodyLarge.copyWith(color: t.textPrimary),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                '${l10n.correctAnswerLabel} ${_wrongFeedbackDisplay ?? _wrongFeedback}',
-                style: AppFontStyles.textBodyLarge.copyWith(color: t.textPrimary),
-              ),
+              if (_pairImperfective != null && _pairPerfective != null) ...[
+                Text(
+                  _pairImperfective!.ok ? l10n.correct : l10n.wrong,
+                  style: AppFontStyles.textContentHeader.copyWith(
+                    color: _pairImperfective!.ok ? t.accentColor : t.dangerColor,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  '${l10n.quiz_aspectImperfective} ${_pairImperfective!.typed.isEmpty ? l10n.emptyAnswer : _pairImperfective!.typed}',
+                  style: AppFontStyles.textBodyLarge.copyWith(
+                    color: _pairImperfective!.ok ? t.textPrimary : t.dangerColor,
+                  ),
+                ),
+                if (!_pairImperfective!.ok) ...[
+                  const SizedBox(height: 4),
+                  Text(
+                    '${l10n.correctAnswerLabel} ${_pairImperfective!.correct}',
+                    style: AppFontStyles.textBodyLarge.copyWith(color: t.textPrimary),
+                  ),
+                ],
+                const SizedBox(height: 16),
+                Text(
+                  _pairPerfective!.ok ? l10n.correct : l10n.wrong,
+                  style: AppFontStyles.textContentHeader.copyWith(
+                    color: _pairPerfective!.ok ? t.accentColor : t.dangerColor,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  '${l10n.quiz_aspectPerfective} ${_pairPerfective!.typed.isEmpty ? l10n.emptyAnswer : _pairPerfective!.typed}',
+                  style: AppFontStyles.textBodyLarge.copyWith(
+                    color: _pairPerfective!.ok ? t.textPrimary : t.dangerColor,
+                  ),
+                ),
+                if (!_pairPerfective!.ok) ...[
+                  const SizedBox(height: 4),
+                  Text(
+                    '${l10n.correctAnswerLabel} ${_pairPerfective!.correct}',
+                    style: AppFontStyles.textBodyLarge.copyWith(color: t.textPrimary),
+                  ),
+                ],
+              ] else ...[
+                Text(
+                  l10n.wrong,
+                  style: AppFontStyles.textContentHeader.copyWith(color: t.dangerColor),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  '${session.mode == QuizMode.write ? l10n.youWrote : l10n.youPicked} ${(_wrongUserAnswerDisplay ?? '').isEmpty ? l10n.emptyAnswer : _wrongUserAnswerDisplay}',
+                  style: AppFontStyles.textBodyLarge.copyWith(color: t.textPrimary),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  '${l10n.correctAnswerLabel} ${_wrongFeedbackDisplay ?? _wrongFeedback}',
+                  style: AppFontStyles.textBodyLarge.copyWith(color: t.textPrimary),
+                ),
+              ],
               const SizedBox(height: 24),
               AccentButton(
                 label: l10n.next,
@@ -321,6 +368,8 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
       _wrongFeedbackDisplay = null;
       _wrongUserTypedAnswer = null;
       _wrongUserAnswerDisplay = null;
+      _pairImperfective = null;
+      _pairPerfective = null;
     });
     _writeController.clear();
     _writeController2.clear();
@@ -352,9 +401,11 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
     } else {
       setState(() {
         _wrongFeedback = card.targetAnswer;
-        _wrongFeedbackDisplay = card.targetAnswer;
+        _wrongFeedbackDisplay = null;
         _wrongUserTypedAnswer = '$raw1 / $raw2';
-        _wrongUserAnswerDisplay = '$raw1 / $raw2';
+        _wrongUserAnswerDisplay = null;
+        _pairImperfective = (typed: raw1, correct: card.imperfectiveText, ok: ok1);
+        _pairPerfective = (typed: raw2, correct: card.perfectiveText, ok: ok2);
       });
     }
     _writeController.clear();

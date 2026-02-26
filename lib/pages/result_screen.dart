@@ -52,23 +52,7 @@ class ResultScreen extends ConsumerWidget {
                 ],
               ),
             ),
-            if (session.missedEntries.isNotEmpty) ...[
-              const SizedBox(height: 24),
-              Text(
-                l10n.reviewWrongTitle,
-                style: AppFontStyles.textContentHeader.copyWith(color: t.textPrimary),
-              ),
-              const SizedBox(height: 4),
-              Text(
-                l10n.reviewWrongSubtitle,
-                style: AppFontStyles.textBody.copyWith(color: t.textPrimary),
-              ),
-              const SizedBox(height: 12),
-              ...session.missedEntries.map(
-                (entry) => _MissedEntryTile(entry: entry, mode: session.mode),
-              ),
-            ],
-            const SizedBox(height: 32),
+            const SizedBox(height: 24),
             Row(
               children: [
                 Expanded(
@@ -144,6 +128,22 @@ class ResultScreen extends ConsumerWidget {
                 ),
               ],
             ),
+            if (session.missedEntries.isNotEmpty) ...[
+              const SizedBox(height: 32),
+              Text(
+                l10n.reviewWrongTitle,
+                style: AppFontStyles.textContentHeader.copyWith(color: t.textPrimary),
+              ),
+              const SizedBox(height: 4),
+              Text(
+                l10n.reviewWrongSubtitle,
+                style: AppFontStyles.textBody.copyWith(color: t.textPrimary),
+              ),
+              const SizedBox(height: 12),
+              ...session.missedEntries.map(
+                (entry) => _MissedEntryTile(entry: entry, mode: session.mode),
+              ),
+            ],
           ],
         ),
       ),
