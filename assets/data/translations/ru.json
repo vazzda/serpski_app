@@ -1,3258 +1,4331 @@
 {
   "a_lot": {
-    "text": "[RU:a_lot]"
+    "text": "много"
   },
   "accept": {
-    "text": "[RU:accept]"
+    "imperfective": "принимать",
+    "perfective": "принять"
   },
   "accident_car": {
-    "text": "[RU:accident_car]"
+    "text": "авария",
+    "gender": "f"
   },
   "account": {
-    "text": "[RU:account]"
+    "text": "счёт",
+    "gender": "m"
   },
   "across": {
-    "text": "[RU:across]"
+    "text": "через"
   },
   "actor": {
-    "text": "[RU:actor]"
+    "text": "актёр",
+    "gender": "m"
   },
   "add": {
-    "text": "[RU:add]"
+    "imperfective": "добавлять",
+    "perfective": "добавить"
   },
   "affair": {
-    "text": "[RU:affair]"
+    "text": "роман",
+    "gender": "m"
   },
   "after": {
-    "text": "[RU:after]"
+    "text": "после"
   },
   "agree": {
-    "text": "[RU:agree]"
+    "imperfective": "соглашаться",
+    "perfective": "согласиться"
   },
   "airport": {
-    "text": "[RU:airport]"
+    "text": "аэропорт",
+    "gender": "m"
   },
   "algorithm": {
-    "text": "[RU:algorithm]"
+    "text": "алгоритм",
+    "gender": "m"
   },
   "alive": {
-    "text": "[RU:alive]"
+    "m": "живой",
+    "f": "живая",
+    "n": "живое"
   },
   "allergy": {
-    "text": "[RU:allergy]"
+    "text": "аллергия",
+    "gender": "f"
   },
   "almost": {
-    "text": "[RU:almost]"
+    "text": "почти"
   },
   "already": {
-    "text": "[RU:already]"
+    "text": "уже"
   },
   "also": {
-    "text": "[RU:also]"
+    "text": "также"
   },
   "although": {
-    "text": "[RU:although]"
+    "text": "хотя"
   },
   "always": {
-    "text": "[RU:always]"
+    "text": "всегда"
   },
   "and": {
-    "text": "[RU:and]"
+    "text": "и"
   },
   "angry": {
-    "text": "[RU:angry]"
+    "m": "злой",
+    "f": "злая",
+    "n": "злое"
   },
   "animal": {
-    "text": "[RU:animal]"
+    "text": "животное",
+    "gender": "n"
   },
   "anniversary": {
-    "text": "[RU:anniversary]"
+    "text": "годовщина",
+    "gender": "f"
   },
   "answer": {
-    "text": "[RU:answer]"
+    "imperfective": "отвечать",
+    "perfective": "ответить"
   },
   "answer_n": {
-    "text": "[RU:answer_n]"
+    "text": "ответ",
+    "gender": "m"
   },
   "ant": {
-    "text": "[RU:ant]"
+    "text": "муравей",
+    "gender": "m"
   },
   "apartment": {
-    "text": "[RU:apartment]"
+    "text": "квартира",
+    "gender": "f"
   },
   "apology": {
-    "text": "[RU:apology]"
+    "text": "извинение",
+    "gender": "n"
   },
   "app": {
-    "text": "[RU:app]"
+    "text": "приложение",
+    "gender": "n"
   },
   "appear": {
-    "text": "[RU:appear]"
+    "imperfective": "появляться",
+    "perfective": "появиться"
   },
   "apple": {
-    "text": "[RU:apple]"
+    "text": "яблоко",
+    "gender": "n"
   },
   "april": {
-    "text": "[RU:april]"
+    "text": "апрель",
+    "gender": "m"
   },
   "argument": {
-    "text": "[RU:argument]"
+    "text": "спор",
+    "gender": "m"
   },
   "arm": {
-    "text": "[RU:arm]"
+    "text": "рука",
+    "gender": "f"
   },
   "arousal": {
-    "text": "[RU:arousal]"
+    "text": "возбуждение",
+    "gender": "n"
   },
   "arrest": {
-    "text": "[RU:arrest]"
+    "text": "арест",
+    "gender": "m"
   },
   "arrive": {
-    "text": "[RU:arrive]"
+    "imperfective": "прибывать",
+    "perfective": "прибыть"
   },
   "artery": {
-    "text": "[RU:artery]"
+    "text": "артерия",
+    "gender": "f"
   },
   "artist": {
-    "text": "[RU:artist]"
+    "text": "художник",
+    "gender": "m"
   },
   "ask": {
-    "text": "[RU:ask]"
+    "imperfective": "спрашивать",
+    "perfective": "спросить"
   },
   "at_least": {
-    "text": "[RU:at_least]"
+    "text": "хотя бы"
   },
   "athlete": {
-    "text": "[RU:athlete]"
+    "text": "спортсмен",
+    "gender": "m"
+  },
+  "atm": {
+    "text": "банкомат",
+    "gender": "m"
   },
   "atom": {
-    "text": "[RU:atom]"
+    "text": "атом",
+    "gender": "m"
   },
   "attorney": {
-    "text": "[RU:attorney]"
+    "text": "адвокат",
+    "gender": "m"
   },
   "attraction": {
-    "text": "[RU:attraction]"
+    "text": "влечение",
+    "gender": "n"
   },
   "audience": {
-    "text": "[RU:audience]"
+    "text": "аудитория",
+    "gender": "f"
   },
   "august": {
-    "text": "[RU:august]"
+    "text": "август",
+    "gender": "m"
   },
   "autumn": {
-    "text": "[RU:autumn]"
+    "text": "осень",
+    "gender": "f"
   },
   "baby": {
-    "text": "[RU:baby]"
+    "text": "младенец",
+    "gender": "m"
   },
   "back_body": {
-    "text": "[RU:back_body]"
+    "text": "спина",
+    "gender": "f"
   },
   "backward": {
-    "text": "[RU:backward]"
+    "text": "назад"
   },
   "bad": {
-    "text": "[RU:bad]"
+    "m": "плохой",
+    "f": "плохая",
+    "n": "плохое"
   },
   "bag": {
-    "text": "[RU:bag]"
+    "text": "сумка",
+    "gender": "f"
   },
   "bake": {
-    "text": "[RU:bake]"
+    "imperfective": "печь",
+    "perfective": "испечь"
   },
   "ball": {
-    "text": "[RU:ball]"
+    "text": "мяч",
+    "gender": "m"
   },
   "bandage": {
-    "text": "[RU:bandage]"
+    "text": "повязка",
+    "gender": "f"
   },
   "bank": {
-    "text": "[RU:bank]"
+    "text": "банк",
+    "gender": "m"
   },
   "basket": {
-    "text": "[RU:basket]"
+    "text": "корзина",
+    "gender": "f"
   },
   "bathroom": {
-    "text": "[RU:bathroom]"
+    "text": "ванная",
+    "gender": "f"
   },
   "battery": {
-    "text": "[RU:battery]"
+    "text": "батарейка",
+    "gender": "f"
   },
   "be": {
-    "text": "[RU:be]"
+    "text": "быть",
+    "aspect": "imperfective"
   },
   "be_allowed_to": {
-    "text": "[RU:be_allowed_to]"
+    "text": "можно",
+    "aspect": "imperfective"
   },
   "be_happy": {
-    "text": "[RU:be_happy]"
+    "imperfective": "радоваться",
+    "perfective": "обрадоваться"
   },
   "bear": {
-    "text": "[RU:bear]"
+    "text": "медведь",
+    "gender": "m"
   },
   "beautiful": {
-    "text": "[RU:beautiful]"
+    "m": "красивый",
+    "f": "красивая",
+    "n": "красивое"
   },
   "because": {
-    "text": "[RU:because]"
+    "text": "потому что"
   },
   "become": {
-    "text": "[RU:become]"
+    "imperfective": "становиться",
+    "perfective": "стать"
   },
   "bed": {
-    "text": "[RU:bed]"
+    "text": "кровать",
+    "gender": "f"
   },
   "bedroom": {
-    "text": "[RU:bedroom]"
+    "text": "спальня",
+    "gender": "f"
   },
   "bee": {
-    "text": "[RU:bee]"
+    "text": "пчела",
+    "gender": "f"
   },
   "beer": {
-    "text": "[RU:beer]"
+    "text": "пиво",
+    "gender": "n"
   },
   "before": {
-    "text": "[RU:before]"
+    "text": "до"
   },
   "begin": {
-    "text": "[RU:begin]"
+    "imperfective": "начинать",
+    "perfective": "начать"
   },
   "behind": {
-    "text": "[RU:behind]"
+    "text": "позади"
   },
   "beige": {
-    "text": "[RU:beige]"
+    "m": "бежевый",
+    "f": "бежевая",
+    "n": "бежевое"
   },
   "believe": {
-    "text": "[RU:believe]"
+    "text": "верить",
+    "aspect": "imperfective"
   },
   "beside": {
-    "text": "[RU:beside]"
+    "text": "рядом"
   },
   "between": {
-    "text": "[RU:between]"
+    "text": "между"
   },
   "bicycle": {
-    "text": "[RU:bicycle]"
+    "text": "велосипед",
+    "gender": "m"
   },
   "big": {
-    "text": "[RU:big]"
+    "m": "большой",
+    "f": "большая",
+    "n": "большое"
   },
   "bird": {
-    "text": "[RU:bird]"
+    "text": "птица",
+    "gender": "f"
   },
   "birth": {
-    "text": "[RU:birth]"
+    "text": "рождение",
+    "gender": "n"
   },
   "bitter": {
-    "text": "[RU:bitter]"
+    "m": "горький",
+    "f": "горькая",
+    "n": "горькое"
   },
   "black": {
-    "text": "[RU:black]"
+    "m": "чёрный",
+    "f": "чёрная",
+    "n": "чёрное"
   },
   "blanket": {
-    "text": "[RU:blanket]"
+    "text": "одеяло",
+    "gender": "n"
   },
   "blind": {
-    "text": "[RU:blind]"
+    "m": "слепой",
+    "f": "слепая",
+    "n": "слепое"
   },
   "blood": {
-    "text": "[RU:blood]"
+    "text": "кровь",
+    "gender": "f"
   },
   "blood_pressure": {
-    "text": "[RU:blood_pressure]"
+    "text": "давление",
+    "gender": "n"
   },
   "blue": {
-    "text": "[RU:blue]"
+    "m": "синий",
+    "f": "синяя",
+    "n": "синее"
   },
   "boat": {
-    "text": "[RU:boat]"
+    "text": "лодка",
+    "gender": "f"
   },
   "bone": {
-    "text": "[RU:bone]"
+    "text": "кость",
+    "gender": "f"
   },
   "book": {
-    "text": "[RU:book]"
+    "text": "книга",
+    "gender": "f"
   },
   "boot": {
-    "text": "[RU:boot]"
+    "text": "сапог",
+    "gender": "m"
   },
   "border": {
-    "text": "[RU:border]"
+    "text": "граница",
+    "gender": "f"
   },
   "boss": {
-    "text": "[RU:boss]"
+    "text": "начальник",
+    "gender": "m"
   },
   "bottle": {
-    "text": "[RU:bottle]"
+    "text": "бутылка",
+    "gender": "f"
   },
   "bowl": {
-    "text": "[RU:bowl]"
+    "text": "миска",
+    "gender": "f"
   },
   "box": {
-    "text": "[RU:box]"
+    "text": "коробка",
+    "gender": "f"
   },
   "boy": {
-    "text": "[RU:boy]"
+    "text": "мальчик",
+    "gender": "m"
   },
   "boyfriend": {
-    "text": "[RU:boyfriend]"
+    "text": "парень",
+    "gender": "m"
   },
   "brain": {
-    "text": "[RU:brain]"
+    "text": "мозг",
+    "gender": "m"
   },
   "brake": {
-    "text": "[RU:brake]"
+    "text": "тормоз",
+    "gender": "m"
   },
   "brave": {
-    "text": "[RU:brave]"
+    "m": "храбрый",
+    "f": "храбрая",
+    "n": "храброе"
   },
   "bread": {
-    "text": "[RU:bread]"
+    "text": "хлеб",
+    "gender": "m"
   },
   "break": {
-    "text": "[RU:break]"
+    "imperfective": "ломать",
+    "perfective": "сломать"
   },
   "break_down": {
-    "text": "[RU:break_down]"
+    "imperfective": "ломаться",
+    "perfective": "сломаться"
   },
   "breakup": {
-    "text": "[RU:breakup]"
+    "text": "расставание",
+    "gender": "n"
   },
   "bridge": {
-    "text": "[RU:bridge]"
+    "text": "мост",
+    "gender": "m"
   },
   "bright": {
-    "text": "[RU:bright]"
+    "m": "яркий",
+    "f": "яркая",
+    "n": "яркое"
   },
   "bring": {
-    "text": "[RU:bring]"
+    "imperfective": "приносить",
+    "perfective": "принести"
   },
   "bring_up": {
-    "text": "[RU:bring_up]"
+    "imperfective": "воспитывать",
+    "perfective": "воспитать"
   },
   "broom": {
-    "text": "[RU:broom]"
+    "text": "метла",
+    "gender": "f"
   },
   "brother": {
-    "text": "[RU:brother]"
+    "text": "брат",
+    "gender": "m"
   },
   "brown": {
-    "text": "[RU:brown]"
+    "m": "коричневый",
+    "f": "коричневая",
+    "n": "коричневое"
   },
   "browser": {
-    "text": "[RU:browser]"
+    "text": "браузер",
+    "gender": "m"
   },
   "brush_hygiene": {
-    "text": "[RU:brush_hygiene]"
+    "text": "щётка",
+    "gender": "f"
   },
   "budget": {
-    "text": "[RU:budget]"
+    "text": "бюджет",
+    "gender": "m"
   },
   "bug": {
-    "text": "[RU:bug]"
+    "text": "жук",
+    "gender": "m"
   },
   "build": {
-    "text": "[RU:build]"
+    "imperfective": "строить",
+    "perfective": "построить"
   },
   "burn": {
-    "text": "[RU:burn]"
+    "imperfective": "жечь",
+    "perfective": "сжечь"
   },
   "bus": {
-    "text": "[RU:bus]"
+    "text": "автобус",
+    "gender": "m"
   },
   "but": {
-    "text": "[RU:but]"
+    "text": "но"
   },
   "butter": {
-    "text": "[RU:butter]"
+    "text": "масло",
+    "gender": "n"
   },
   "buy": {
-    "text": "[RU:buy]"
+    "imperfective": "покупать",
+    "perfective": "купить"
   },
   "cabinet": {
-    "text": "[RU:cabinet]"
+    "text": "шкаф",
+    "gender": "m"
   },
   "call": {
-    "text": "[RU:call]"
+    "imperfective": "звонить",
+    "perfective": "позвонить"
   },
   "call_back": {
-    "text": "[RU:call_back]"
+    "imperfective": "перезванивать",
+    "perfective": "перезвонить"
   },
   "camera": {
-    "text": "[RU:camera]"
+    "text": "камера",
+    "gender": "f"
   },
   "can": {
-    "text": "[RU:can]"
+    "text": "мочь",
+    "aspect": "imperfective"
   },
   "canvas": {
-    "text": "[RU:canvas]"
+    "text": "холст",
+    "gender": "m"
   },
   "canyon": {
-    "text": "[RU:canyon]"
+    "text": "каньон",
+    "gender": "m"
   },
   "car": {
-    "text": "[RU:car]"
+    "text": "машина",
+    "gender": "f"
   },
   "care": {
-    "text": "[RU:care]"
+    "imperfective": "заботиться",
+    "perfective": "позаботиться"
   },
   "carry": {
-    "text": "[RU:carry]"
+    "imperfective": "нести",
+    "perfective": "понести"
   },
   "cash": {
-    "text": "[RU:cash]"
+    "text": "наличные",
+    "gender": "n"
   },
   "cat": {
-    "text": "[RU:cat]"
+    "text": "кошка",
+    "gender": "f"
   },
   "catch": {
-    "text": "[RU:catch]"
+    "imperfective": "ловить",
+    "perfective": "поймать"
   },
   "cave": {
-    "text": "[RU:cave]"
+    "text": "пещера",
+    "gender": "f"
   },
   "celebration": {
-    "text": "[RU:celebration]"
+    "text": "празднование",
+    "gender": "n"
   },
   "cell": {
-    "text": "[RU:cell]"
+    "text": "клетка",
+    "gender": "f"
   },
   "ceremony": {
-    "text": "[RU:ceremony]"
+    "text": "церемония",
+    "gender": "f"
   },
   "certificate": {
-    "text": "[RU:certificate]"
+    "text": "сертификат",
+    "gender": "m"
   },
   "chair": {
-    "text": "[RU:chair]"
+    "text": "стул",
+    "gender": "m"
   },
   "champion": {
-    "text": "[RU:champion]"
+    "text": "чемпион",
+    "gender": "m"
   },
   "chance": {
-    "text": "[RU:chance]"
+    "text": "шанс",
+    "gender": "m"
   },
   "change": {
-    "text": "[RU:change]"
+    "imperfective": "менять",
+    "perfective": "изменить"
   },
   "channel": {
-    "text": "[RU:channel]"
+    "text": "канал",
+    "gender": "m"
   },
   "cheap": {
-    "text": "[RU:cheap]"
+    "m": "дешёвый",
+    "f": "дешёвая",
+    "n": "дешёвое"
   },
   "check": {
-    "text": "[RU:check]"
+    "imperfective": "проверять",
+    "perfective": "проверить"
   },
   "check_out": {
-    "text": "[RU:check_out]"
+    "imperfective": "выписываться",
+    "perfective": "выписаться"
   },
   "cheese": {
-    "text": "[RU:cheese]"
+    "text": "сыр",
+    "gender": "m"
   },
   "chemical": {
-    "text": "[RU:chemical]"
+    "text": "химикат",
+    "gender": "m"
   },
   "chest": {
-    "text": "[RU:chest]"
+    "text": "грудь",
+    "gender": "f"
   },
   "chicken_animal": {
-    "text": "[RU:chicken_animal]"
+    "text": "курица",
+    "gender": "f"
   },
   "chicken_meat": {
-    "text": "[RU:chicken_meat]"
+    "text": "курятина",
+    "gender": "f"
   },
   "child": {
-    "text": "[RU:child]"
+    "text": "ребёнок",
+    "gender": "m"
   },
   "chocolate": {
-    "text": "[RU:chocolate]"
+    "text": "шоколад",
+    "gender": "m"
   },
   "choose": {
-    "text": "[RU:choose]"
+    "imperfective": "выбирать",
+    "perfective": "выбрать"
   },
   "church": {
-    "text": "[RU:church]"
+    "text": "церковь",
+    "gender": "f"
   },
   "cinnamon": {
-    "text": "[RU:cinnamon]"
+    "text": "корица",
+    "gender": "f"
   },
   "city": {
-    "text": "[RU:city]"
+    "text": "город",
+    "gender": "m"
   },
   "classroom": {
-    "text": "[RU:classroom]"
+    "text": "класс",
+    "gender": "m"
   },
   "clay": {
-    "text": "[RU:clay]"
+    "text": "глина",
+    "gender": "f"
   },
   "clean": {
-    "text": "[RU:clean]"
+    "imperfective": "чистить",
+    "perfective": "почистить"
   },
   "clean_a": {
-    "text": "[RU:clean_a]"
+    "m": "чистый",
+    "f": "чистая",
+    "n": "чистое"
   },
   "client": {
-    "text": "[RU:client]"
+    "text": "клиент",
+    "gender": "m"
   },
   "cliff": {
-    "text": "[RU:cliff]"
+    "text": "утёс",
+    "gender": "m"
   },
   "clock": {
-    "text": "[RU:clock]"
+    "text": "часы",
+    "gender": "m"
   },
   "close": {
-    "text": "[RU:close]"
+    "imperfective": "закрывать",
+    "perfective": "закрыть"
   },
   "closed": {
-    "text": "[RU:closed]"
+    "m": "закрытый",
+    "f": "закрытая",
+    "n": "закрытое"
   },
   "cloth": {
-    "text": "[RU:cloth]"
+    "text": "ткань",
+    "gender": "f"
   },
   "clothing": {
-    "text": "[RU:clothing]"
+    "text": "одежда",
+    "gender": "f"
   },
   "cloud": {
-    "text": "[RU:cloud]"
+    "text": "облако",
+    "gender": "n"
   },
   "cloud_computing": {
-    "text": "[RU:cloud_computing]"
+    "text": "облачный сервис",
+    "gender": "m"
   },
   "coach": {
-    "text": "[RU:coach]"
+    "text": "тренер",
+    "gender": "m"
   },
   "coast": {
-    "text": "[RU:coast]"
+    "text": "побережье",
+    "gender": "n"
   },
   "coat": {
-    "text": "[RU:coat]"
+    "text": "пальто",
+    "gender": "n"
   },
   "code": {
-    "text": "[RU:code]"
+    "text": "код",
+    "gender": "m"
   },
   "coffee": {
-    "text": "[RU:coffee]"
+    "text": "кофе",
+    "gender": "m"
   },
   "cold": {
-    "text": "[RU:cold]"
+    "m": "холодный",
+    "f": "холодная",
+    "n": "холодное"
   },
   "colorful": {
-    "text": "[RU:colorful]"
+    "m": "красочный",
+    "f": "красочная",
+    "n": "красочное"
   },
   "comb": {
-    "text": "[RU:comb]"
+    "text": "расчёска",
+    "gender": "f"
   },
   "come": {
-    "text": "[RU:come]"
+    "imperfective": "приходить",
+    "perfective": "прийти"
   },
   "company": {
-    "text": "[RU:company]"
+    "text": "компания",
+    "gender": "f"
   },
   "completely": {
-    "text": "[RU:completely]"
+    "text": "совершенно"
   },
   "compromise": {
-    "text": "[RU:compromise]"
+    "text": "компромисс",
+    "gender": "m"
   },
   "computer": {
-    "text": "[RU:computer]"
+    "text": "компьютер",
+    "gender": "m"
   },
   "concert": {
-    "text": "[RU:concert]"
+    "text": "концерт",
+    "gender": "m"
   },
   "condom": {
-    "text": "[RU:condom]"
+    "text": "презерватив",
+    "gender": "m"
   },
   "consciousness": {
-    "text": "[RU:consciousness]"
+    "text": "сознание",
+    "gender": "n"
   },
   "consent": {
-    "text": "[RU:consent]"
+    "text": "согласие",
+    "gender": "n"
   },
   "consider": {
-    "text": "[RU:consider]"
+    "imperfective": "рассматривать",
+    "perfective": "рассмотреть"
   },
   "constitution": {
-    "text": "[RU:constitution]"
+    "text": "конституция",
+    "gender": "f"
   },
   "continent": {
-    "text": "[RU:continent]"
+    "text": "континент",
+    "gender": "m"
   },
   "continue": {
-    "text": "[RU:continue]"
+    "imperfective": "продолжать",
+    "perfective": "продолжить"
   },
   "contract": {
-    "text": "[RU:contract]"
+    "text": "контракт",
+    "gender": "m"
   },
   "cook": {
-    "text": "[RU:cook]"
+    "imperfective": "готовить",
+    "perfective": "приготовить"
   },
   "coral": {
-    "text": "[RU:coral]"
+    "m": "коралловый",
+    "f": "коралловая",
+    "n": "коралловое"
   },
   "correct": {
-    "text": "[RU:correct]"
+    "m": "правильный",
+    "f": "правильная",
+    "n": "правильное"
   },
   "cotton": {
-    "text": "[RU:cotton]"
+    "text": "хлопок",
+    "gender": "m"
   },
   "count": {
-    "text": "[RU:count]"
+    "imperfective": "считать",
+    "perfective": "посчитать"
   },
   "country": {
-    "text": "[RU:country]"
+    "text": "страна",
+    "gender": "f"
   },
   "couple": {
-    "text": "[RU:couple]"
+    "text": "пара",
+    "gender": "f"
   },
   "course": {
-    "text": "[RU:course]"
+    "text": "курс",
+    "gender": "m"
   },
   "court": {
-    "text": "[RU:court]"
+    "text": "суд",
+    "gender": "m"
   },
   "cow": {
-    "text": "[RU:cow]"
+    "text": "корова",
+    "gender": "f"
   },
   "cream": {
-    "text": "[RU:cream]"
+    "text": "сливки",
+    "gender": "n"
   },
   "create": {
-    "text": "[RU:create]"
+    "imperfective": "создавать",
+    "perfective": "создать"
   },
   "credit_card": {
-    "text": "[RU:credit_card]"
+    "text": "кредитная карта",
+    "gender": "f"
   },
   "crime": {
-    "text": "[RU:crime]"
+    "text": "преступление",
+    "gender": "n"
   },
   "crimson": {
-    "text": "[RU:crimson]"
+    "m": "малиновый",
+    "f": "малиновая",
+    "n": "малиновое"
   },
   "crocodile": {
-    "text": "[RU:crocodile]"
+    "text": "крокодил",
+    "gender": "m"
   },
   "cry": {
-    "text": "[RU:cry]"
+    "imperfective": "плакать",
+    "perfective": "заплакать"
   },
   "cup": {
-    "text": "[RU:cup]"
+    "text": "чашка",
+    "gender": "f"
   },
   "currency": {
-    "text": "[RU:currency]"
+    "text": "валюта",
+    "gender": "f"
   },
   "currency_exchange": {
-    "text": "[RU:currency_exchange]"
+    "text": "обмен валюты",
+    "gender": "m"
   },
   "customs": {
-    "text": "[RU:customs]"
+    "text": "таможня",
+    "gender": "f"
   },
   "cut": {
-    "text": "[RU:cut]"
+    "imperfective": "резать",
+    "perfective": "разрезать"
   },
   "dance": {
-    "text": "[RU:dance]"
+    "imperfective": "танцевать",
+    "perfective": "станцевать"
   },
   "danger": {
-    "text": "[RU:danger]"
+    "text": "опасность",
+    "gender": "f"
   },
   "dark": {
-    "text": "[RU:dark]"
+    "m": "тёмный",
+    "f": "тёмная",
+    "n": "тёмное"
   },
   "data": {
-    "text": "[RU:data]"
+    "text": "данные",
+    "gender": "n"
   },
   "database": {
-    "text": "[RU:database]"
+    "text": "база данных",
+    "gender": "f"
   },
   "date_romantic": {
-    "text": "[RU:date_romantic]"
+    "text": "свидание",
+    "gender": "n"
   },
   "day": {
-    "text": "[RU:day]"
+    "text": "день",
+    "gender": "m"
   },
   "dead": {
-    "text": "[RU:dead]"
+    "m": "мёртвый",
+    "f": "мёртвая",
+    "n": "мёртвое"
   },
   "deadline": {
-    "text": "[RU:deadline]"
+    "text": "крайний срок",
+    "gender": "m"
   },
   "deaf": {
-    "text": "[RU:deaf]"
+    "m": "глухой",
+    "f": "глухая",
+    "n": "глухое"
   },
   "death": {
-    "text": "[RU:death]"
+    "text": "смерть",
+    "gender": "f"
   },
   "december": {
-    "text": "[RU:december]"
+    "text": "декабрь",
+    "gender": "m"
   },
   "decide": {
-    "text": "[RU:decide]"
+    "imperfective": "решать",
+    "perfective": "решить"
   },
   "deep": {
-    "text": "[RU:deep]"
+    "m": "глубокий",
+    "f": "глубокая",
+    "n": "глубокое"
   },
   "deer": {
-    "text": "[RU:deer]"
+    "text": "олень",
+    "gender": "m"
   },
   "defeat": {
-    "text": "[RU:defeat]"
+    "text": "поражение",
+    "gender": "n"
   },
   "degree_education": {
-    "text": "[RU:degree_education]"
+    "text": "степень",
+    "gender": "f"
   },
   "delicious": {
-    "text": "[RU:delicious]"
+    "m": "вкусный",
+    "f": "вкусная",
+    "n": "вкусное"
   },
   "deodorant": {
-    "text": "[RU:deodorant]"
+    "text": "дезодорант",
+    "gender": "m"
   },
   "department": {
-    "text": "[RU:department]"
+    "text": "отдел",
+    "gender": "m"
   },
   "desert": {
-    "text": "[RU:desert]"
+    "text": "пустыня",
+    "gender": "f"
   },
   "desire": {
-    "text": "[RU:desire]"
+    "text": "желание",
+    "gender": "n"
   },
   "destination": {
-    "text": "[RU:destination]"
+    "text": "пункт назначения",
+    "gender": "m"
   },
   "destiny": {
-    "text": "[RU:destiny]"
+    "text": "судьба",
+    "gender": "f"
   },
   "develop": {
-    "text": "[RU:develop]"
+    "imperfective": "развивать",
+    "perfective": "развить"
   },
   "diagnosis": {
-    "text": "[RU:diagnosis]"
+    "text": "диагноз",
+    "gender": "m"
   },
   "die": {
-    "text": "[RU:die]"
+    "imperfective": "умирать",
+    "perfective": "умереть"
   },
   "different": {
-    "text": "[RU:different]"
+    "m": "другой",
+    "f": "другая",
+    "n": "другое"
   },
   "difficult": {
-    "text": "[RU:difficult]"
+    "m": "трудный",
+    "f": "трудная",
+    "n": "трудное"
   },
   "diploma": {
-    "text": "[RU:diploma]"
+    "text": "диплом",
+    "gender": "m"
   },
   "dirty": {
-    "text": "[RU:dirty]"
+    "m": "грязный",
+    "f": "грязная",
+    "n": "грязное"
   },
   "dishwasher": {
-    "text": "[RU:dishwasher]"
+    "text": "посудомоечная машина",
+    "gender": "f"
   },
   "divorce": {
-    "text": "[RU:divorce]"
+    "text": "развод",
+    "gender": "m"
   },
   "do": {
-    "text": "[RU:do]"
+    "imperfective": "делать",
+    "perfective": "сделать"
   },
   "doctor": {
-    "text": "[RU:doctor]"
+    "text": "врач",
+    "gender": "m"
   },
   "dog": {
-    "text": "[RU:dog]"
+    "text": "собака",
+    "gender": "f"
   },
   "dolphin": {
-    "text": "[RU:dolphin]"
+    "text": "дельфин",
+    "gender": "m"
   },
   "door": {
-    "text": "[RU:door]"
+    "text": "дверь",
+    "gender": "f"
   },
   "dough": {
-    "text": "[RU:dough]"
+    "text": "тесто",
+    "gender": "n"
   },
   "down": {
-    "text": "[RU:down]"
+    "text": "вниз"
   },
   "download": {
-    "text": "[RU:download]"
+    "imperfective": "скачивать",
+    "perfective": "скачать"
   },
   "draw": {
-    "text": "[RU:draw]"
+    "imperfective": "рисовать",
+    "perfective": "нарисовать"
   },
   "drawer": {
-    "text": "[RU:drawer]"
+    "text": "ящик",
+    "gender": "m"
   },
   "dream": {
-    "text": "[RU:dream]"
+    "text": "мечтать",
+    "aspect": "imperfective"
   },
   "dream_n": {
-    "text": "[RU:dream_n]"
+    "text": "мечта",
+    "gender": "f"
   },
   "dress": {
-    "text": "[RU:dress]"
+    "text": "платье",
+    "gender": "n"
   },
   "dresser": {
-    "text": "[RU:dresser]"
+    "text": "комод",
+    "gender": "m"
   },
   "drill": {
-    "text": "[RU:drill]"
+    "text": "дрель",
+    "gender": "f"
   },
   "drink": {
-    "text": "[RU:drink]"
+    "imperfective": "пить",
+    "perfective": "выпить"
   },
   "drive": {
-    "text": "[RU:drive]"
+    "imperfective": "водить",
+    "perfective": "повести"
   },
   "driver": {
-    "text": "[RU:driver]"
+    "text": "водитель",
+    "gender": "m"
   },
   "dry": {
-    "text": "[RU:dry]"
+    "m": "сухой",
+    "f": "сухая",
+    "n": "сухое"
   },
   "eagle": {
-    "text": "[RU:eagle]"
+    "text": "орёл",
+    "gender": "m"
   },
   "ear": {
-    "text": "[RU:ear]"
+    "text": "ухо",
+    "gender": "n"
   },
   "earlier": {
-    "text": "[RU:earlier]"
+    "text": "раньше"
   },
   "earth": {
-    "text": "[RU:earth]"
+    "text": "земля",
+    "gender": "f"
   },
   "easy": {
-    "text": "[RU:easy]"
+    "m": "лёгкий",
+    "f": "лёгкая",
+    "n": "лёгкое"
   },
   "eat": {
-    "text": "[RU:eat]"
+    "imperfective": "есть",
+    "perfective": "съесть"
   },
   "eat_breakfast": {
-    "text": "[RU:eat_breakfast]"
+    "imperfective": "завтракать",
+    "perfective": "позавтракать"
   },
   "eat_dinner": {
-    "text": "[RU:eat_dinner]"
+    "imperfective": "ужинать",
+    "perfective": "поужинать"
   },
   "eat_lunch": {
-    "text": "[RU:eat_lunch]"
+    "imperfective": "обедать",
+    "perfective": "пообедать"
   },
   "egg": {
-    "text": "[RU:egg]"
+    "text": "яйцо",
+    "gender": "n"
   },
   "eight": {
-    "text": "[RU:eight]"
+    "text": "восемь"
   },
   "either": {
-    "text": "[RU:either]"
+    "text": "либо"
   },
   "elephant": {
-    "text": "[RU:elephant]"
+    "text": "слон",
+    "gender": "m"
   },
   "embassy": {
-    "text": "[RU:embassy]"
+    "text": "посольство",
+    "gender": "n"
   },
   "employee": {
-    "text": "[RU:employee]"
+    "text": "сотрудник",
+    "gender": "m"
   },
   "empty": {
-    "text": "[RU:empty]"
+    "m": "пустой",
+    "f": "пустая",
+    "n": "пустое"
   },
   "encryption": {
-    "text": "[RU:encryption]"
+    "text": "шифрование",
+    "gender": "n"
   },
   "energy": {
-    "text": "[RU:energy]"
+    "text": "энергия",
+    "gender": "f"
   },
   "engagement": {
-    "text": "[RU:engagement]"
+    "text": "помолвка",
+    "gender": "f"
   },
   "engine": {
-    "text": "[RU:engine]"
+    "text": "двигатель",
+    "gender": "m"
   },
   "engineer": {
-    "text": "[RU:engineer]"
+    "text": "инженер",
+    "gender": "m"
   },
   "enlightenment": {
-    "text": "[RU:enlightenment]"
+    "text": "просветление",
+    "gender": "n"
   },
   "enough": {
-    "text": "[RU:enough]"
+    "text": "достаточно"
   },
   "erotic": {
-    "text": "[RU:erotic]"
+    "m": "эротичный",
+    "f": "эротичная",
+    "n": "эротичное"
   },
   "essay": {
-    "text": "[RU:essay]"
+    "text": "эссе",
+    "gender": "n"
   },
   "eternity": {
-    "text": "[RU:eternity]"
+    "text": "вечность",
+    "gender": "f"
   },
   "ethics": {
-    "text": "[RU:ethics]"
+    "text": "этика",
+    "gender": "f"
   },
   "evening": {
-    "text": "[RU:evening]"
+    "text": "вечер",
+    "gender": "m"
   },
   "everywhere": {
-    "text": "[RU:everywhere]"
+    "text": "везде"
   },
   "evidence": {
-    "text": "[RU:evidence]"
+    "text": "доказательство",
+    "gender": "n"
   },
   "evolution": {
-    "text": "[RU:evolution]"
+    "text": "эволюция",
+    "gender": "f"
   },
   "exactly": {
-    "text": "[RU:exactly]"
+    "text": "именно"
   },
   "exam": {
-    "text": "[RU:exam]"
+    "text": "экзамен",
+    "gender": "m"
   },
   "exchange_rate": {
-    "text": "[RU:exchange_rate]"
+    "text": "курс обмена",
+    "gender": "m"
   },
   "exercise": {
-    "text": "[RU:exercise]"
+    "text": "упражнение",
+    "gender": "n"
   },
   "existence": {
-    "text": "[RU:existence]"
+    "text": "существование",
+    "gender": "n"
   },
   "expect": {
-    "text": "[RU:expect]"
+    "imperfective": "ожидать",
+    "perfective": "ожидать"
   },
   "expensive": {
-    "text": "[RU:expensive]"
+    "m": "дорогой",
+    "f": "дорогая",
+    "n": "дорогое"
   },
   "experience": {
-    "text": "[RU:experience]"
+    "text": "опыт",
+    "gender": "m"
   },
   "experiment": {
-    "text": "[RU:experiment]"
+    "text": "эксперимент",
+    "gender": "m"
   },
   "explain": {
-    "text": "[RU:explain]"
+    "imperfective": "объяснять",
+    "perfective": "объяснить"
   },
   "eye": {
-    "text": "[RU:eye]"
+    "text": "глаз",
+    "gender": "m"
   },
   "fact": {
-    "text": "[RU:fact]"
+    "text": "факт",
+    "gender": "m"
   },
   "failure": {
-    "text": "[RU:failure]"
+    "text": "неудача",
+    "gender": "f"
   },
   "fall": {
-    "text": "[RU:fall]"
+    "imperfective": "падать",
+    "perfective": "упасть"
   },
   "family": {
-    "text": "[RU:family]"
+    "text": "семья",
+    "gender": "f"
   },
   "fantasy": {
-    "text": "[RU:fantasy]"
+    "text": "фантазия",
+    "gender": "f"
   },
   "farmer": {
-    "text": "[RU:farmer]"
+    "text": "фермер",
+    "gender": "m"
   },
   "fast": {
-    "text": "[RU:fast]"
+    "m": "быстрый",
+    "f": "быстрая",
+    "n": "быстрое"
   },
   "fate": {
-    "text": "[RU:fate]"
+    "text": "судьба",
+    "gender": "f"
   },
   "father": {
-    "text": "[RU:father]"
+    "text": "отец",
+    "gender": "m"
   },
   "fear": {
-    "text": "[RU:fear]"
+    "imperfective": "бояться",
+    "perfective": "испугаться"
   },
   "fear_n": {
-    "text": "[RU:fear_n]"
+    "text": "страх",
+    "gender": "m"
   },
   "february": {
-    "text": "[RU:february]"
+    "text": "февраль",
+    "gender": "m"
   },
   "feed": {
-    "text": "[RU:feed]"
+    "imperfective": "кормить",
+    "perfective": "накормить"
   },
   "feel": {
-    "text": "[RU:feel]"
+    "imperfective": "чувствовать",
+    "perfective": "почувствовать"
   },
   "fever": {
-    "text": "[RU:fever]"
+    "text": "жар",
+    "gender": "m"
   },
   "field": {
-    "text": "[RU:field]"
+    "text": "поле",
+    "gender": "n"
   },
   "fight": {
-    "text": "[RU:fight]"
+    "imperfective": "бороться",
+    "perfective": "побороться"
   },
   "film": {
-    "text": "[RU:film]"
+    "text": "фильм",
+    "gender": "m"
   },
   "find": {
-    "text": "[RU:find]"
+    "imperfective": "находить",
+    "perfective": "найти"
   },
   "find_out": {
-    "text": "[RU:find_out]"
+    "imperfective": "узнавать",
+    "perfective": "узнать"
   },
   "fine_n": {
-    "text": "[RU:fine_n]"
+    "text": "штраф",
+    "gender": "m"
   },
   "finger": {
-    "text": "[RU:finger]"
+    "text": "палец",
+    "gender": "m"
   },
   "finish": {
-    "text": "[RU:finish]"
+    "imperfective": "заканчивать",
+    "perfective": "закончить"
   },
   "fire": {
-    "text": "[RU:fire]"
+    "text": "огонь",
+    "gender": "m"
   },
   "first": {
-    "text": "[RU:first]"
+    "text": "первый"
   },
   "fish": {
-    "text": "[RU:fish]"
+    "text": "рыба",
+    "gender": "f"
   },
   "fish_animal": {
-    "text": "[RU:fish_animal]"
+    "text": "рыба",
+    "gender": "f"
   },
   "five": {
-    "text": "[RU:five]"
+    "text": "пять"
   },
   "flirt": {
-    "text": "[RU:flirt]"
+    "text": "флирт",
+    "gender": "m"
   },
   "floor": {
-    "text": "[RU:floor]"
+    "text": "пол",
+    "gender": "m"
   },
   "flour": {
-    "text": "[RU:flour]"
+    "text": "мука",
+    "gender": "f"
   },
   "flower": {
-    "text": "[RU:flower]"
+    "text": "цветок",
+    "gender": "m"
   },
   "fly": {
-    "text": "[RU:fly]"
+    "imperfective": "летать",
+    "perfective": "полететь"
   },
   "follow": {
-    "text": "[RU:follow]"
+    "imperfective": "следовать",
+    "perfective": "последовать"
   },
   "food": {
-    "text": "[RU:food]"
+    "text": "еда",
+    "gender": "f"
   },
   "foot": {
-    "text": "[RU:foot]"
+    "text": "ступня",
+    "gender": "f"
   },
   "foreplay": {
-    "text": "[RU:foreplay]"
+    "text": "прелюдия",
+    "gender": "f"
   },
   "forest": {
-    "text": "[RU:forest]"
+    "text": "лес",
+    "gender": "m"
   },
   "forget": {
-    "text": "[RU:forget]"
+    "imperfective": "забывать",
+    "perfective": "забыть"
   },
   "fork": {
-    "text": "[RU:fork]"
+    "text": "вилка",
+    "gender": "f"
   },
   "forward": {
-    "text": "[RU:forward]"
+    "text": "вперёд"
   },
   "four": {
-    "text": "[RU:four]"
+    "text": "четыре"
   },
   "fracture": {
-    "text": "[RU:fracture]"
+    "text": "перелом",
+    "gender": "m"
   },
   "freedom": {
-    "text": "[RU:freedom]"
+    "text": "свобода",
+    "gender": "f"
   },
   "friday": {
-    "text": "[RU:friday]"
+    "text": "пятница",
+    "gender": "f"
   },
   "friend": {
-    "text": "[RU:friend]"
+    "text": "друг",
+    "gender": "m"
   },
   "frog": {
-    "text": "[RU:frog]"
+    "text": "лягушка",
+    "gender": "f"
   },
   "fruit": {
-    "text": "[RU:fruit]"
+    "text": "фрукт",
+    "gender": "m"
   },
   "fuel": {
-    "text": "[RU:fuel]"
+    "text": "топливо",
+    "gender": "n"
   },
   "full": {
-    "text": "[RU:full]"
+    "m": "полный",
+    "f": "полная",
+    "n": "полное"
   },
   "furious": {
-    "text": "[RU:furious]"
+    "m": "разъярённый",
+    "f": "разъярённая",
+    "n": "разъярённое"
   },
   "game_n": {
-    "text": "[RU:game_n]"
+    "text": "игра",
+    "gender": "f"
   },
   "garage": {
-    "text": "[RU:garage]"
+    "text": "гараж",
+    "gender": "m"
   },
   "garlic": {
-    "text": "[RU:garlic]"
+    "text": "чеснок",
+    "gender": "m"
   },
   "gas_station": {
-    "text": "[RU:gas_station]"
+    "text": "заправка",
+    "gender": "f"
   },
   "gene": {
-    "text": "[RU:gene]"
+    "text": "ген",
+    "gender": "m"
   },
   "get": {
-    "text": "[RU:get]"
+    "imperfective": "получать",
+    "perfective": "получить"
   },
   "get_up": {
-    "text": "[RU:get_up]"
+    "imperfective": "вставать",
+    "perfective": "встать"
   },
   "gift": {
-    "text": "[RU:gift]"
+    "text": "подарок",
+    "gender": "m"
   },
   "ginger": {
-    "text": "[RU:ginger]"
+    "text": "имбирь",
+    "gender": "m"
   },
   "girl": {
-    "text": "[RU:girl]"
+    "text": "девочка",
+    "gender": "f"
   },
   "girlfriend": {
-    "text": "[RU:girlfriend]"
+    "text": "девушка",
+    "gender": "f"
   },
   "give": {
-    "text": "[RU:give]"
+    "imperfective": "давать",
+    "perfective": "дать"
   },
   "give_up": {
-    "text": "[RU:give_up]"
+    "imperfective": "сдаваться",
+    "perfective": "сдаться"
   },
   "glass_cup": {
-    "text": "[RU:glass_cup]"
+    "text": "стакан",
+    "gender": "m"
   },
   "glass_material": {
-    "text": "[RU:glass_material]"
+    "text": "стекло",
+    "gender": "n"
   },
   "glasses": {
-    "text": "[RU:glasses]"
+    "text": "очки",
+    "gender": "n"
   },
   "glove": {
-    "text": "[RU:glove]"
+    "text": "перчатка",
+    "gender": "f"
   },
   "glue": {
-    "text": "[RU:glue]"
+    "text": "клей",
+    "gender": "m"
   },
   "go": {
-    "text": "[RU:go]"
+    "imperfective": "идти",
+    "perfective": "пойти"
   },
   "goal": {
-    "text": "[RU:goal]"
+    "text": "цель",
+    "gender": "f"
   },
   "god": {
-    "text": "[RU:god]"
+    "text": "бог",
+    "gender": "m"
   },
   "gold": {
-    "text": "[RU:gold]"
+    "m": "золотой",
+    "f": "золотая",
+    "n": "золотое"
   },
   "good": {
-    "text": "[RU:good]"
+    "m": "хороший",
+    "f": "хорошая",
+    "n": "хорошее"
   },
   "goodbye": {
-    "text": "[RU:goodbye]"
+    "text": "до свидания"
   },
   "grade": {
-    "text": "[RU:grade]"
+    "text": "оценка",
+    "gender": "f"
   },
   "grass": {
-    "text": "[RU:grass]"
+    "text": "трава",
+    "gender": "f"
   },
   "gravity": {
-    "text": "[RU:gravity]"
+    "text": "гравитация",
+    "gender": "f"
   },
   "green": {
-    "text": "[RU:green]"
+    "m": "зелёный",
+    "f": "зелёная",
+    "n": "зелёное"
   },
   "grey": {
-    "text": "[RU:grey]"
+    "m": "серый",
+    "f": "серая",
+    "n": "серое"
   },
   "grill": {
-    "text": "[RU:grill]"
+    "imperfective": "жарить",
+    "perfective": "пожарить"
   },
   "grow": {
-    "text": "[RU:grow]"
+    "imperfective": "расти",
+    "perfective": "вырасти"
   },
   "grow_up": {
-    "text": "[RU:grow_up]"
+    "imperfective": "вырастать",
+    "perfective": "вырасти"
   },
   "guide": {
-    "text": "[RU:guide]"
+    "text": "гид",
+    "gender": "m"
   },
   "guilty": {
-    "text": "[RU:guilty]"
+    "m": "виновный",
+    "f": "виновная",
+    "n": "виновное"
   },
   "gym": {
-    "text": "[RU:gym]"
+    "text": "спортзал",
+    "gender": "m"
   },
   "hair": {
-    "text": "[RU:hair]"
+    "text": "волосы",
+    "gender": "m"
   },
   "half": {
-    "text": "[RU:half]"
+    "text": "половина"
   },
   "hammer": {
-    "text": "[RU:hammer]"
+    "text": "молоток",
+    "gender": "m"
   },
   "hand": {
-    "text": "[RU:hand]"
+    "text": "рука",
+    "gender": "f"
   },
   "happen": {
-    "text": "[RU:happen]"
+    "imperfective": "происходить",
+    "perfective": "произойти"
   },
   "happy": {
-    "text": "[RU:happy]"
+    "m": "счастливый",
+    "f": "счастливая",
+    "n": "счастливое"
   },
   "hard": {
-    "text": "[RU:hard]"
+    "m": "твёрдый",
+    "f": "твёрдая",
+    "n": "твёрдое"
   },
   "hardly": {
-    "text": "[RU:hardly]"
+    "text": "едва"
   },
   "hardware": {
-    "text": "[RU:hardware]"
+    "text": "оборудование",
+    "gender": "n"
   },
   "hat": {
-    "text": "[RU:hat]"
+    "text": "шляпа",
+    "gender": "f"
   },
   "hate": {
-    "text": "[RU:hate]"
+    "text": "ненавидеть",
+    "aspect": "imperfective"
   },
   "have": {
-    "text": "[RU:have]"
+    "text": "иметь",
+    "aspect": "imperfective"
   },
   "have_to": {
-    "text": "[RU:have_to]"
+    "text": "должен",
+    "aspect": "imperfective"
   },
   "he": {
-    "text": "[RU:he]"
+    "text": "он"
   },
   "head": {
-    "text": "[RU:head]"
+    "text": "голова",
+    "gender": "f"
   },
   "healthy": {
-    "text": "[RU:healthy]"
+    "m": "здоровый",
+    "f": "здоровая",
+    "n": "здоровое"
   },
   "hear": {
-    "text": "[RU:hear]"
+    "imperfective": "слышать",
+    "perfective": "услышать"
   },
   "heart_organ": {
-    "text": "[RU:heart_organ]"
+    "text": "сердце",
+    "gender": "n"
   },
   "heavy": {
-    "text": "[RU:heavy]"
+    "m": "тяжёлый",
+    "f": "тяжёлая",
+    "n": "тяжёлое"
   },
   "hello": {
-    "text": "[RU:hello]"
+    "text": "привет"
   },
   "help": {
-    "text": "[RU:help]"
+    "imperfective": "помогать",
+    "perfective": "помочь"
   },
   "her": {
-    "text": "[RU:her]"
+    "text": "её"
   },
   "here": {
-    "text": "[RU:here]"
+    "text": "здесь"
   },
   "highway": {
-    "text": "[RU:highway]"
+    "text": "шоссе",
+    "gender": "n"
   },
   "hill": {
-    "text": "[RU:hill]"
+    "text": "холм",
+    "gender": "m"
   },
   "hire": {
-    "text": "[RU:hire]"
+    "imperfective": "нанимать",
+    "perfective": "нанять"
   },
   "his": {
-    "text": "[RU:his]"
+    "text": "его"
   },
   "hold": {
-    "text": "[RU:hold]"
+    "imperfective": "держать",
+    "perfective": "подержать"
   },
   "home": {
-    "text": "[RU:home]"
+    "text": "дом",
+    "gender": "m"
   },
   "homework": {
-    "text": "[RU:homework]"
+    "text": "домашнее задание",
+    "gender": "n"
   },
   "honest": {
-    "text": "[RU:honest]"
+    "m": "честный",
+    "f": "честная",
+    "n": "честное"
   },
   "honey": {
-    "text": "[RU:honey]"
+    "text": "мёд",
+    "gender": "m"
   },
   "honeymoon": {
-    "text": "[RU:honeymoon]"
+    "text": "медовый месяц",
+    "gender": "m"
   },
   "hookup": {
-    "text": "[RU:hookup]"
+    "text": "связь",
+    "gender": "f"
   },
   "hope": {
-    "text": "[RU:hope]"
+    "imperfective": "надеяться",
+    "perfective": "понадеяться"
   },
   "hope_n": {
-    "text": "[RU:hope_n]"
+    "text": "надежда",
+    "gender": "f"
   },
   "hormone": {
-    "text": "[RU:hormone]"
+    "text": "гормон",
+    "gender": "m"
   },
   "horn": {
-    "text": "[RU:horn]"
+    "text": "рог",
+    "gender": "m"
   },
   "horse": {
-    "text": "[RU:horse]"
+    "text": "лошадь",
+    "gender": "f"
   },
   "hospital": {
-    "text": "[RU:hospital]"
+    "text": "больница",
+    "gender": "f"
   },
   "hostel": {
-    "text": "[RU:hostel]"
+    "text": "хостел",
+    "gender": "m"
   },
   "hot": {
-    "text": "[RU:hot]"
+    "m": "горячий",
+    "f": "горячая",
+    "n": "горячее"
   },
   "hotel": {
-    "text": "[RU:hotel]"
+    "text": "отель",
+    "gender": "m"
   },
   "hour": {
-    "text": "[RU:hour]"
+    "text": "час",
+    "gender": "m"
   },
   "how": {
-    "text": "[RU:how]"
+    "text": "как"
   },
   "how_much": {
-    "text": "[RU:how_much]"
+    "text": "сколько"
   },
   "however": {
-    "text": "[RU:however]"
+    "text": "однако"
   },
   "hug": {
-    "text": "[RU:hug]"
+    "text": "объятие",
+    "gender": "n"
   },
   "hundred": {
-    "text": "[RU:hundred]"
+    "text": "сто"
   },
   "hungry": {
-    "text": "[RU:hungry]"
+    "m": "голодный",
+    "f": "голодная",
+    "n": "голодное"
   },
   "husband": {
-    "text": "[RU:husband]"
+    "text": "муж",
+    "gender": "m"
   },
   "hypothesis": {
-    "text": "[RU:hypothesis]"
+    "text": "гипотеза",
+    "gender": "f"
   },
   "i": {
-    "text": "[RU:i]"
+    "text": "я"
   },
   "ice": {
-    "text": "[RU:ice]"
+    "text": "лёд",
+    "gender": "m"
   },
   "idea": {
-    "text": "[RU:idea]"
+    "text": "идея",
+    "gender": "f"
   },
   "if": {
-    "text": "[RU:if]"
+    "text": "если"
   },
   "ignorance": {
-    "text": "[RU:ignorance]"
+    "text": "невежество",
+    "gender": "n"
   },
   "illusion": {
-    "text": "[RU:illusion]"
+    "text": "иллюзия",
+    "gender": "f"
   },
   "immediately": {
-    "text": "[RU:immediately]"
+    "text": "сразу"
   },
   "important": {
-    "text": "[RU:important]"
+    "m": "важный",
+    "f": "важная",
+    "n": "важное"
   },
   "in": {
-    "text": "[RU:in]"
+    "text": "в"
   },
   "in_front_of": {
-    "text": "[RU:in_front_of]"
+    "text": "перед"
   },
   "include": {
-    "text": "[RU:include]"
+    "imperfective": "включать",
+    "perfective": "включить"
   },
   "infection": {
-    "text": "[RU:infection]"
+    "text": "инфекция",
+    "gender": "f"
   },
   "infinity": {
-    "text": "[RU:infinity]"
+    "text": "бесконечность",
+    "gender": "f"
   },
   "inflammation": {
-    "text": "[RU:inflammation]"
+    "text": "воспаление",
+    "gender": "n"
   },
   "innocent": {
-    "text": "[RU:innocent]"
+    "m": "невиновный",
+    "f": "невиновная",
+    "n": "невиновное"
   },
   "insect": {
-    "text": "[RU:insect]"
+    "text": "насекомое",
+    "gender": "n"
   },
   "inside": {
-    "text": "[RU:inside]"
+    "text": "внутри"
   },
   "instead": {
-    "text": "[RU:instead]"
+    "text": "вместо"
   },
   "insurance": {
-    "text": "[RU:insurance]"
+    "text": "страховка",
+    "gender": "f"
   },
   "interface": {
-    "text": "[RU:interface]"
+    "text": "интерфейс",
+    "gender": "m"
   },
   "intimacy": {
-    "text": "[RU:intimacy]"
+    "text": "близость",
+    "gender": "f"
   },
   "invitation": {
-    "text": "[RU:invitation]"
+    "text": "приглашение",
+    "gender": "n"
   },
   "invite": {
-    "text": "[RU:invite]"
+    "imperfective": "приглашать",
+    "perfective": "пригласить"
   },
   "invoice": {
-    "text": "[RU:invoice]"
+    "text": "счёт",
+    "gender": "m"
   },
   "iron_appliance": {
-    "text": "[RU:iron_appliance]"
+    "text": "утюг",
+    "gender": "m"
   },
   "island": {
-    "text": "[RU:island]"
+    "text": "остров",
+    "gender": "m"
   },
   "it": {
-    "text": "[RU:it]"
+    "text": "оно"
   },
   "ivory": {
-    "text": "[RU:ivory]"
+    "m": "кремовый",
+    "f": "кремовая",
+    "n": "кремовое"
   },
   "jacket": {
-    "text": "[RU:jacket]"
+    "text": "куртка",
+    "gender": "f"
   },
   "january": {
-    "text": "[RU:january]"
+    "text": "январь",
+    "gender": "m"
   },
   "jellyfish": {
-    "text": "[RU:jellyfish]"
+    "text": "медуза",
+    "gender": "f"
   },
   "job": {
-    "text": "[RU:job]"
+    "text": "работа",
+    "gender": "f"
   },
   "join": {
-    "text": "[RU:join]"
+    "imperfective": "присоединяться",
+    "perfective": "присоединиться"
   },
   "judge": {
-    "text": "[RU:judge]"
+    "text": "судья",
+    "gender": "m"
   },
   "juice": {
-    "text": "[RU:juice]"
+    "text": "сок",
+    "gender": "m"
   },
   "july": {
-    "text": "[RU:july]"
+    "text": "июль",
+    "gender": "m"
   },
   "jump": {
-    "text": "[RU:jump]"
+    "imperfective": "прыгать",
+    "perfective": "прыгнуть"
   },
   "june": {
-    "text": "[RU:june]"
+    "text": "июнь",
+    "gender": "m"
   },
   "jungle": {
-    "text": "[RU:jungle]"
+    "text": "джунгли",
+    "gender": "m"
   },
   "justice": {
-    "text": "[RU:justice]"
+    "text": "справедливость",
+    "gender": "f"
   },
   "keep": {
-    "text": "[RU:keep]"
+    "imperfective": "хранить",
+    "perfective": "сохранить"
   },
   "key": {
-    "text": "[RU:key]"
+    "text": "ключ",
+    "gender": "m"
   },
   "kidney": {
-    "text": "[RU:kidney]"
+    "text": "почка",
+    "gender": "f"
   },
   "kill": {
-    "text": "[RU:kill]"
+    "imperfective": "убивать",
+    "perfective": "убить"
   },
   "kiss": {
-    "text": "[RU:kiss]"
+    "imperfective": "целовать",
+    "perfective": "поцеловать"
   },
   "kitchen": {
-    "text": "[RU:kitchen]"
+    "text": "кухня",
+    "gender": "f"
   },
   "knee": {
-    "text": "[RU:knee]"
+    "text": "колено",
+    "gender": "n"
   },
   "knife_utensil": {
-    "text": "[RU:knife_utensil]"
+    "text": "нож",
+    "gender": "m"
   },
   "know": {
-    "text": "[RU:know]"
+    "imperfective": "знать",
+    "perfective": "узнать"
   },
   "laboratory": {
-    "text": "[RU:laboratory]"
+    "text": "лаборатория",
+    "gender": "f"
   },
   "ladder": {
-    "text": "[RU:ladder]"
+    "text": "лестница",
+    "gender": "f"
   },
   "lake": {
-    "text": "[RU:lake]"
+    "text": "озеро",
+    "gender": "n"
   },
   "lamb": {
-    "text": "[RU:lamb]"
+    "text": "ягнёнок",
+    "gender": "m"
   },
   "lamp": {
-    "text": "[RU:lamp]"
+    "text": "лампа",
+    "gender": "f"
   },
   "land": {
-    "text": "[RU:land]"
+    "text": "земля",
+    "gender": "f"
   },
   "language": {
-    "text": "[RU:language]"
+    "text": "язык",
+    "gender": "m"
   },
   "last": {
-    "text": "[RU:last]"
+    "text": "последний"
   },
   "later": {
-    "text": "[RU:later]"
+    "text": "позже"
   },
   "laugh": {
-    "text": "[RU:laugh]"
+    "imperfective": "смеяться",
+    "perfective": "засмеяться"
   },
   "law": {
-    "text": "[RU:law]"
+    "text": "закон",
+    "gender": "m"
   },
   "lawsuit": {
-    "text": "[RU:lawsuit]"
+    "text": "иск",
+    "gender": "m"
   },
   "lawyer": {
-    "text": "[RU:lawyer]"
+    "text": "юрист",
+    "gender": "m"
   },
   "lead": {
-    "text": "[RU:lead]"
+    "imperfective": "вести",
+    "perfective": "привести"
   },
   "league": {
-    "text": "[RU:league]"
+    "text": "лига",
+    "gender": "f"
   },
   "learn": {
-    "text": "[RU:learn]"
+    "imperfective": "учить",
+    "perfective": "выучить"
   },
   "leather": {
-    "text": "[RU:leather]"
+    "text": "кожа",
+    "gender": "f"
   },
   "leave": {
-    "text": "[RU:leave]"
+    "imperfective": "уходить",
+    "perfective": "уйти"
   },
   "lecture": {
-    "text": "[RU:lecture]"
+    "text": "лекция",
+    "gender": "f"
   },
   "left": {
-    "text": "[RU:left]"
+    "text": "налево"
   },
   "leg": {
-    "text": "[RU:leg]"
+    "text": "нога",
+    "gender": "f"
   },
   "less": {
-    "text": "[RU:less]"
+    "text": "менее"
   },
   "let": {
-    "text": "[RU:let]"
+    "imperfective": "позволять",
+    "perfective": "позволить"
   },
   "letter": {
-    "text": "[RU:letter]"
+    "text": "письмо",
+    "gender": "n"
   },
   "libido": {
-    "text": "[RU:libido]"
+    "text": "либидо",
+    "gender": "n"
   },
   "library": {
-    "text": "[RU:library]"
+    "text": "библиотека",
+    "gender": "f"
   },
   "license": {
-    "text": "[RU:license]"
+    "text": "лицензия",
+    "gender": "f"
   },
   "lie": {
-    "text": "[RU:lie]"
+    "imperfective": "врать",
+    "perfective": "соврать"
   },
   "lie_down": {
-    "text": "[RU:lie_down]"
+    "imperfective": "ложиться",
+    "perfective": "лечь"
   },
   "lie_n": {
-    "text": "[RU:lie_n]"
+    "text": "ложь",
+    "gender": "f"
   },
   "life": {
-    "text": "[RU:life]"
+    "text": "жизнь",
+    "gender": "f"
   },
   "light": {
-    "text": "[RU:light]"
+    "m": "лёгкий",
+    "f": "лёгкая",
+    "n": "лёгкое"
   },
   "like": {
-    "text": "[RU:like]"
+    "text": "нравиться",
+    "aspect": "imperfective"
   },
   "lion": {
-    "text": "[RU:lion]"
+    "text": "лев",
+    "gender": "m"
   },
   "listen": {
-    "text": "[RU:listen]"
+    "imperfective": "слушать",
+    "perfective": "послушать"
   },
   "little": {
-    "text": "[RU:little]"
+    "text": "мало"
   },
   "live": {
-    "text": "[RU:live]"
+    "imperfective": "жить",
+    "perfective": "прожить"
   },
   "liver": {
-    "text": "[RU:liver]"
+    "text": "печень",
+    "gender": "f"
   },
   "loan": {
-    "text": "[RU:loan]"
+    "text": "займ",
+    "gender": "m"
   },
   "lock_n": {
-    "text": "[RU:lock_n]"
+    "text": "замок",
+    "gender": "m"
   },
   "logic": {
-    "text": "[RU:logic]"
+    "text": "логика",
+    "gender": "f"
   },
   "long": {
-    "text": "[RU:long]"
+    "m": "длинный",
+    "f": "длинная",
+    "n": "длинное"
   },
   "look_at": {
-    "text": "[RU:look_at]"
+    "imperfective": "смотреть",
+    "perfective": "посмотреть"
   },
   "look_for": {
-    "text": "[RU:look_for]"
+    "imperfective": "искать",
+    "perfective": "найти"
   },
   "lose": {
-    "text": "[RU:lose]"
+    "imperfective": "терять",
+    "perfective": "потерять"
   },
   "loss_n": {
-    "text": "[RU:loss_n]"
+    "text": "потеря",
+    "gender": "f"
   },
   "lotion": {
-    "text": "[RU:lotion]"
+    "text": "лосьон",
+    "gender": "m"
   },
   "loud": {
-    "text": "[RU:loud]"
+    "m": "громкий",
+    "f": "громкая",
+    "n": "громкое"
   },
   "love": {
-    "text": "[RU:love]"
+    "text": "любить",
+    "aspect": "imperfective"
   },
   "love_n": {
-    "text": "[RU:love_n]"
+    "text": "любовь",
+    "gender": "f"
   },
   "lover": {
-    "text": "[RU:lover]"
+    "text": "любовник",
+    "gender": "m"
   },
   "loyalty": {
-    "text": "[RU:loyalty]"
+    "text": "верность",
+    "gender": "f"
   },
   "luggage": {
-    "text": "[RU:luggage]"
+    "text": "багаж",
+    "gender": "m"
   },
   "lung": {
-    "text": "[RU:lung]"
+    "text": "лёгкое",
+    "gender": "n"
   },
   "make": {
-    "text": "[RU:make]"
+    "imperfective": "делать",
+    "perfective": "сделать"
   },
   "makeup": {
-    "text": "[RU:makeup]"
+    "text": "макияж",
+    "gender": "m"
   },
   "man": {
-    "text": "[RU:man]"
+    "text": "мужчина",
+    "gender": "m"
   },
   "map": {
-    "text": "[RU:map]"
+    "text": "карта",
+    "gender": "f"
   },
   "march": {
-    "text": "[RU:march]"
+    "text": "март",
+    "gender": "m"
   },
   "marinate": {
-    "text": "[RU:marinate]"
+    "imperfective": "мариновать",
+    "perfective": "замариновать"
   },
   "market": {
-    "text": "[RU:market]"
+    "text": "рынок",
+    "gender": "m"
   },
   "maroon": {
-    "text": "[RU:maroon]"
+    "m": "бордовый",
+    "f": "бордовая",
+    "n": "бордовое"
   },
   "marry": {
-    "text": "[RU:marry]"
+    "imperfective": "жениться",
+    "perfective": "пожениться"
   },
   "match": {
-    "text": "[RU:match]"
+    "text": "матч",
+    "gender": "m"
   },
   "matte": {
-    "text": "[RU:matte]"
+    "m": "матовый",
+    "f": "матовая",
+    "n": "матовое"
   },
   "may": {
-    "text": "[RU:may]"
+    "text": "май",
+    "gender": "m"
   },
   "mean": {
-    "text": "[RU:mean]"
+    "text": "значить",
+    "aspect": "imperfective"
   },
   "meaning": {
-    "text": "[RU:meaning]"
+    "text": "значение",
+    "gender": "n"
   },
   "meat": {
-    "text": "[RU:meat]"
+    "text": "мясо",
+    "gender": "n"
   },
   "medicine": {
-    "text": "[RU:medicine]"
+    "text": "лекарство",
+    "gender": "n"
   },
   "meet": {
-    "text": "[RU:meet]"
+    "imperfective": "встречать",
+    "perfective": "встретить"
   },
   "meet_up": {
-    "text": "[RU:meet_up]"
+    "imperfective": "встречаться",
+    "perfective": "встретиться"
   },
   "meeting": {
-    "text": "[RU:meeting]"
+    "text": "встреча",
+    "gender": "f"
   },
   "memory": {
-    "text": "[RU:memory]"
+    "text": "память",
+    "gender": "f"
   },
   "message": {
-    "text": "[RU:message]"
+    "text": "сообщение",
+    "gender": "n"
   },
   "metal": {
-    "text": "[RU:metal]"
+    "text": "металл",
+    "gender": "m"
   },
   "microwave": {
-    "text": "[RU:microwave]"
+    "text": "микроволновка",
+    "gender": "f"
   },
   "milk": {
-    "text": "[RU:milk]"
+    "text": "молоко",
+    "gender": "n"
   },
   "minute": {
-    "text": "[RU:minute]"
+    "text": "минута",
+    "gender": "f"
   },
   "mirror": {
-    "text": "[RU:mirror]"
+    "text": "зеркало",
+    "gender": "n"
   },
   "molecule": {
-    "text": "[RU:molecule]"
+    "text": "молекула",
+    "gender": "f"
   },
   "monday": {
-    "text": "[RU:monday]"
+    "text": "понедельник",
+    "gender": "m"
   },
   "money": {
-    "text": "[RU:money]"
+    "text": "деньги",
+    "gender": "n"
   },
   "monkey": {
-    "text": "[RU:monkey]"
+    "text": "обезьяна",
+    "gender": "f"
   },
   "month": {
-    "text": "[RU:month]"
+    "text": "месяц",
+    "gender": "m"
   },
   "moon": {
-    "text": "[RU:moon]"
+    "text": "луна",
+    "gender": "f"
   },
   "morality": {
-    "text": "[RU:morality]"
+    "text": "мораль",
+    "gender": "f"
   },
   "more": {
-    "text": "[RU:more]"
+    "text": "больше"
   },
   "morning": {
-    "text": "[RU:morning]"
+    "text": "утро",
+    "gender": "n"
   },
   "mostly": {
-    "text": "[RU:mostly]"
+    "text": "в основном"
   },
   "mother": {
-    "text": "[RU:mother]"
+    "text": "мать",
+    "gender": "f"
   },
   "mountain": {
-    "text": "[RU:mountain]"
+    "text": "гора",
+    "gender": "f"
   },
   "mouse": {
-    "text": "[RU:mouse]"
+    "text": "мышь",
+    "gender": "f"
   },
   "mouth": {
-    "text": "[RU:mouth]"
+    "text": "рот",
+    "gender": "m"
   },
   "move": {
-    "text": "[RU:move]"
+    "imperfective": "двигаться",
+    "perfective": "двинуться"
   },
   "move_in": {
-    "text": "[RU:move_in]"
+    "imperfective": "въезжать",
+    "perfective": "въехать"
   },
   "move_out": {
-    "text": "[RU:move_out]"
+    "imperfective": "выезжать",
+    "perfective": "выехать"
   },
   "movie": {
-    "text": "[RU:movie]"
+    "text": "кино",
+    "gender": "n"
   },
   "much": {
-    "text": "[RU:much]"
+    "text": "много"
   },
   "multicolor": {
-    "text": "[RU:multicolor]"
+    "m": "разноцветный",
+    "f": "разноцветная",
+    "n": "разноцветное"
   },
   "muscle": {
-    "text": "[RU:muscle]"
+    "text": "мышца",
+    "gender": "f"
   },
   "mushroom": {
-    "text": "[RU:mushroom]"
+    "text": "гриб",
+    "gender": "m"
   },
   "music": {
-    "text": "[RU:music]"
+    "text": "музыка",
+    "gender": "f"
   },
   "my": {
-    "text": "[RU:my]"
+    "text": "мой"
   },
   "nail_clipper": {
-    "text": "[RU:nail_clipper]"
+    "text": "кусачки",
+    "gender": "f"
   },
   "nail_tool": {
-    "text": "[RU:nail_tool]"
+    "text": "пилка для ногтей",
+    "gender": "f"
   },
   "naked": {
-    "text": "[RU:naked]"
+    "m": "голый",
+    "f": "голая",
+    "n": "голое"
   },
   "name": {
-    "text": "[RU:name]"
+    "text": "имя",
+    "gender": "n"
   },
   "navy": {
-    "text": "[RU:navy]"
+    "m": "тёмно-синий",
+    "f": "тёмно-синяя",
+    "n": "тёмно-синее"
   },
   "near": {
-    "text": "[RU:near]"
+    "text": "близко"
   },
   "necessary": {
-    "text": "[RU:necessary]"
+    "m": "необходимый",
+    "f": "необходимая",
+    "n": "необходимое"
   },
   "neck": {
-    "text": "[RU:neck]"
+    "text": "шея",
+    "gender": "f"
   },
   "need": {
-    "text": "[RU:need]"
+    "text": "нуждаться",
+    "aspect": "imperfective"
   },
   "negotiate": {
-    "text": "[RU:negotiate]"
+    "imperfective": "договариваться",
+    "perfective": "договориться"
   },
   "neighbor": {
-    "text": "[RU:neighbor]"
+    "text": "сосед",
+    "gender": "m"
   },
   "neither": {
-    "text": "[RU:neither]"
+    "text": "ни"
   },
   "network": {
-    "text": "[RU:network]"
+    "text": "сеть",
+    "gender": "f"
   },
   "never": {
-    "text": "[RU:never]"
+    "text": "никогда"
   },
   "new": {
-    "text": "[RU:new]"
+    "m": "новый",
+    "f": "новая",
+    "n": "новое"
   },
   "news": {
-    "text": "[RU:news]"
+    "text": "новости",
+    "gender": "f"
   },
   "night": {
-    "text": "[RU:night]"
+    "text": "ночь",
+    "gender": "f"
   },
   "nightstand": {
-    "text": "[RU:nightstand]"
+    "text": "тумбочка",
+    "gender": "f"
   },
   "nine": {
-    "text": "[RU:nine]"
+    "text": "девять"
   },
   "no": {
-    "text": "[RU:no]"
+    "text": "нет"
   },
   "noodle": {
-    "text": "[RU:noodle]"
+    "text": "лапша",
+    "gender": "f"
   },
   "nose": {
-    "text": "[RU:nose]"
+    "text": "нос",
+    "gender": "m"
   },
   "november": {
-    "text": "[RU:november]"
+    "text": "ноябрь",
+    "gender": "m"
   },
   "now": {
-    "text": "[RU:now]"
+    "text": "сейчас"
   },
   "number": {
-    "text": "[RU:number]"
+    "text": "число",
+    "gender": "n"
   },
   "nurse": {
-    "text": "[RU:nurse]"
+    "text": "медсестра",
+    "gender": "f"
   },
   "ocean": {
-    "text": "[RU:ocean]"
+    "text": "океан",
+    "gender": "m"
   },
   "october": {
-    "text": "[RU:october]"
+    "text": "октябрь",
+    "gender": "m"
   },
   "octopus": {
-    "text": "[RU:octopus]"
+    "text": "осьминог",
+    "gender": "m"
   },
   "odometer": {
-    "text": "[RU:odometer]"
+    "text": "одометр",
+    "gender": "m"
   },
   "offer": {
-    "text": "[RU:offer]"
+    "imperfective": "предлагать",
+    "perfective": "предложить"
   },
   "office": {
-    "text": "[RU:office]"
+    "text": "офис",
+    "gender": "m"
   },
   "often": {
-    "text": "[RU:often]"
+    "text": "часто"
   },
   "oil": {
-    "text": "[RU:oil]"
+    "text": "масло",
+    "gender": "n"
   },
   "old": {
-    "text": "[RU:old]"
+    "m": "старый",
+    "f": "старая",
+    "n": "старое"
   },
   "on": {
-    "text": "[RU:on]"
+    "text": "на"
   },
   "one": {
-    "text": "[RU:one]"
+    "text": "один"
   },
   "one_night_stand": {
-    "text": "[RU:one_night_stand]"
+    "text": "случайная связь",
+    "gender": "f"
   },
   "onion": {
-    "text": "[RU:onion]"
+    "text": "лук",
+    "gender": "m"
   },
   "only": {
-    "text": "[RU:only]"
+    "text": "только"
   },
   "open": {
-    "text": "[RU:open]"
+    "imperfective": "открывать",
+    "perfective": "открыть"
   },
   "or": {
-    "text": "[RU:or]"
+    "text": "или"
   },
   "orange": {
-    "text": "[RU:orange]"
+    "m": "оранжевый",
+    "f": "оранжевая",
+    "n": "оранжевое"
   },
   "orgasm": {
-    "text": "[RU:orgasm]"
+    "text": "оргазм",
+    "gender": "m"
   },
   "otherwise": {
-    "text": "[RU:otherwise]"
+    "text": "иначе"
   },
   "our": {
-    "text": "[RU:our]"
+    "text": "наш"
   },
   "oven": {
-    "text": "[RU:oven]"
+    "text": "духовка",
+    "gender": "f"
   },
   "over": {
-    "text": "[RU:over]"
+    "text": "над"
   },
   "owl": {
-    "text": "[RU:owl]"
+    "text": "сова",
+    "gender": "f"
   },
   "pain": {
-    "text": "[RU:pain]"
+    "text": "боль",
+    "gender": "f"
   },
   "pale": {
-    "text": "[RU:pale]"
+    "m": "бледный",
+    "f": "бледная",
+    "n": "бледное"
   },
   "pan": {
-    "text": "[RU:pan]"
+    "text": "сковорода",
+    "gender": "f"
   },
   "pancreas": {
-    "text": "[RU:pancreas]"
+    "text": "поджелудочная железа",
+    "gender": "f"
   },
   "pants": {
-    "text": "[RU:pants]"
+    "text": "брюки",
+    "gender": "f"
   },
   "paper": {
-    "text": "[RU:paper]"
+    "text": "бумага",
+    "gender": "f"
   },
   "paradox": {
-    "text": "[RU:paradox]"
+    "text": "парадокс",
+    "gender": "m"
   },
   "parent": {
-    "text": "[RU:parent]"
+    "text": "родитель",
+    "gender": "m"
   },
   "park": {
-    "text": "[RU:park]"
+    "text": "парк",
+    "gender": "m"
   },
   "parking": {
-    "text": "[RU:parking]"
+    "text": "парковка",
+    "gender": "f"
   },
   "parrot": {
-    "text": "[RU:parrot]"
+    "text": "попугай",
+    "gender": "m"
   },
   "part": {
-    "text": "[RU:part]"
+    "text": "часть",
+    "gender": "f"
   },
   "partially": {
-    "text": "[RU:partially]"
+    "text": "частично"
   },
   "partner": {
-    "text": "[RU:partner]"
+    "text": "партнёр",
+    "gender": "m"
   },
   "pass": {
-    "text": "[RU:pass]"
+    "imperfective": "проходить",
+    "perfective": "пройти"
   },
   "passion": {
-    "text": "[RU:passion]"
+    "text": "страсть",
+    "gender": "f"
   },
   "passport": {
-    "text": "[RU:passport]"
+    "text": "паспорт",
+    "gender": "m"
   },
   "password": {
-    "text": "[RU:password]"
+    "text": "пароль",
+    "gender": "m"
   },
   "pattern": {
-    "text": "[RU:pattern]"
+    "text": "шаблон",
+    "gender": "m"
   },
   "pay": {
-    "text": "[RU:pay]"
+    "imperfective": "платить",
+    "perfective": "заплатить"
   },
   "pay_for": {
-    "text": "[RU:pay_for]"
+    "imperfective": "оплачивать",
+    "perfective": "оплатить"
   },
   "payment": {
-    "text": "[RU:payment]"
+    "text": "платёж",
+    "gender": "m"
   },
   "peace": {
-    "text": "[RU:peace]"
+    "text": "мир",
+    "gender": "m"
   },
   "pen": {
-    "text": "[RU:pen]"
+    "text": "ручка",
+    "gender": "f"
   },
   "penguin": {
-    "text": "[RU:penguin]"
+    "text": "пингвин",
+    "gender": "m"
   },
   "peninsula": {
-    "text": "[RU:peninsula]"
+    "text": "полуостров",
+    "gender": "m"
   },
   "pepper": {
-    "text": "[RU:pepper]"
+    "text": "перец",
+    "gender": "m"
   },
   "perception": {
-    "text": "[RU:perception]"
+    "text": "восприятие",
+    "gender": "n"
   },
   "perfume": {
-    "text": "[RU:perfume]"
+    "text": "духи",
+    "gender": "m"
   },
   "person": {
-    "text": "[RU:person]"
+    "text": "человек",
+    "gender": "m"
   },
   "phone": {
-    "text": "[RU:phone]"
+    "text": "телефон",
+    "gender": "m"
   },
   "photo": {
-    "text": "[RU:photo]"
+    "text": "фото",
+    "gender": "n"
   },
   "physics": {
-    "text": "[RU:physics]"
+    "text": "физика",
+    "gender": "f"
   },
   "pig": {
-    "text": "[RU:pig]"
+    "text": "свинья",
+    "gender": "f"
   },
   "pillow": {
-    "text": "[RU:pillow]"
+    "text": "подушка",
+    "gender": "f"
   },
   "pink": {
-    "text": "[RU:pink]"
+    "m": "розовый",
+    "f": "розовая",
+    "n": "розовое"
   },
   "pipe": {
-    "text": "[RU:pipe]"
+    "text": "труба",
+    "gender": "f"
   },
   "place": {
-    "text": "[RU:place]"
+    "text": "место",
+    "gender": "n"
   },
   "plane": {
-    "text": "[RU:plane]"
+    "text": "самолёт",
+    "gender": "m"
   },
   "plastic": {
-    "text": "[RU:plastic]"
+    "text": "пластик",
+    "gender": "m"
   },
   "plate": {
-    "text": "[RU:plate]"
+    "text": "тарелка",
+    "gender": "f"
   },
   "plateau": {
-    "text": "[RU:plateau]"
+    "text": "плато",
+    "gender": "n"
   },
   "play": {
-    "text": "[RU:play]"
+    "imperfective": "играть",
+    "perfective": "сыграть"
   },
   "play_instrument": {
-    "text": "[RU:play_instrument]"
+    "imperfective": "играть",
+    "perfective": "сыграть"
   },
   "player": {
-    "text": "[RU:player]"
+    "text": "игрок",
+    "gender": "m"
   },
   "please": {
-    "text": "[RU:please]"
+    "text": "пожалуйста"
   },
   "pleasure": {
-    "text": "[RU:pleasure]"
+    "text": "удовольствие",
+    "gender": "n"
   },
   "plug": {
-    "text": "[RU:plug]"
+    "text": "вилка",
+    "gender": "f"
   },
   "police": {
-    "text": "[RU:police]"
+    "text": "полиция",
+    "gender": "f"
   },
   "poor": {
-    "text": "[RU:poor]"
+    "m": "бедный",
+    "f": "бедная",
+    "n": "бедное"
   },
   "possible": {
-    "text": "[RU:possible]"
+    "m": "возможный",
+    "f": "возможная",
+    "n": "возможное"
   },
   "pot": {
-    "text": "[RU:pot]"
+    "text": "кастрюля",
+    "gender": "f"
   },
   "potato": {
-    "text": "[RU:potato]"
+    "text": "картошка",
+    "gender": "f"
   },
   "power": {
-    "text": "[RU:power]"
+    "text": "сила",
+    "gender": "f"
   },
   "pray": {
-    "text": "[RU:pray]"
+    "imperfective": "молиться",
+    "perfective": "помолиться"
   },
   "pregnant": {
-    "text": "[RU:pregnant]"
+    "m": "беременный",
+    "f": "беременная",
+    "n": "беременное"
   },
   "prescription": {
-    "text": "[RU:prescription]"
+    "text": "рецепт",
+    "gender": "m"
   },
   "presentation": {
-    "text": "[RU:presentation]"
+    "text": "презентация",
+    "gender": "f"
   },
   "pressure": {
-    "text": "[RU:pressure]"
+    "text": "давление",
+    "gender": "n"
   },
   "price": {
-    "text": "[RU:price]"
+    "text": "цена",
+    "gender": "f"
   },
   "problem": {
-    "text": "[RU:problem]"
+    "text": "проблема",
+    "gender": "f"
   },
   "professor": {
-    "text": "[RU:professor]"
+    "text": "профессор",
+    "gender": "m"
   },
   "profit": {
-    "text": "[RU:profit]"
+    "text": "прибыль",
+    "gender": "f"
   },
   "project": {
-    "text": "[RU:project]"
+    "text": "проект",
+    "gender": "m"
   },
   "promise": {
-    "text": "[RU:promise]"
+    "imperfective": "обещать",
+    "perfective": "пообещать"
   },
   "promote": {
-    "text": "[RU:promote]"
+    "imperfective": "повышать",
+    "perfective": "повысить"
   },
   "proposal_n": {
-    "text": "[RU:proposal_n]"
+    "text": "предложение",
+    "gender": "n"
   },
   "protect": {
-    "text": "[RU:protect]"
+    "imperfective": "защищать",
+    "perfective": "защитить"
   },
   "pull": {
-    "text": "[RU:pull]"
+    "imperfective": "тянуть",
+    "perfective": "потянуть"
   },
   "purple": {
-    "text": "[RU:purple]"
+    "m": "фиолетовый",
+    "f": "фиолетовая",
+    "n": "фиолетовое"
   },
   "push": {
-    "text": "[RU:push]"
+    "imperfective": "толкать",
+    "perfective": "толкнуть"
   },
   "put": {
-    "text": "[RU:put]"
+    "imperfective": "класть",
+    "perfective": "положить"
   },
   "put_on": {
-    "text": "[RU:put_on]"
+    "imperfective": "надевать",
+    "perfective": "надеть"
   },
   "question": {
-    "text": "[RU:question]"
+    "text": "вопрос",
+    "gender": "m"
   },
   "quiet": {
-    "text": "[RU:quiet]"
+    "m": "тихий",
+    "f": "тихая",
+    "n": "тихое"
   },
   "rabbit": {
-    "text": "[RU:rabbit]"
+    "text": "кролик",
+    "gender": "m"
   },
   "race": {
-    "text": "[RU:race]"
+    "text": "раса",
+    "gender": "f"
   },
   "radiation": {
-    "text": "[RU:radiation]"
+    "text": "радиация",
+    "gender": "f"
   },
   "radio": {
-    "text": "[RU:radio]"
+    "text": "радио",
+    "gender": "n"
   },
   "rain": {
-    "text": "[RU:rain]"
+    "text": "дождь",
+    "gender": "m"
   },
   "raise": {
-    "text": "[RU:raise]"
+    "imperfective": "поднимать",
+    "perfective": "поднять"
   },
   "rarely": {
-    "text": "[RU:rarely]"
+    "text": "редко"
   },
   "razor": {
-    "text": "[RU:razor]"
+    "text": "бритва",
+    "gender": "f"
   },
   "reach": {
-    "text": "[RU:reach]"
+    "imperfective": "достигать",
+    "perfective": "достичь"
   },
   "reaction": {
-    "text": "[RU:reaction]"
+    "text": "реакция",
+    "gender": "f"
   },
   "read": {
-    "text": "[RU:read]"
+    "imperfective": "читать",
+    "perfective": "прочитать"
   },
   "reality": {
-    "text": "[RU:reality]"
+    "text": "реальность",
+    "gender": "f"
   },
   "reason": {
-    "text": "[RU:reason]"
+    "text": "причина",
+    "gender": "f"
   },
   "receipt": {
-    "text": "[RU:receipt]"
+    "text": "чек",
+    "gender": "m"
   },
   "receive": {
-    "text": "[RU:receive]"
+    "imperfective": "получать",
+    "perfective": "получить"
   },
   "recently": {
-    "text": "[RU:recently]"
+    "text": "недавно"
   },
   "red": {
-    "text": "[RU:red]"
+    "m": "красный",
+    "f": "красная",
+    "n": "красное"
   },
   "referee": {
-    "text": "[RU:referee]"
+    "text": "судья",
+    "gender": "m"
   },
   "relationship": {
-    "text": "[RU:relationship]"
+    "text": "отношения",
+    "gender": "n"
   },
   "remember": {
-    "text": "[RU:remember]"
+    "imperfective": "помнить",
+    "perfective": "запомнить"
   },
   "report": {
-    "text": "[RU:report]"
+    "imperfective": "сообщать",
+    "perfective": "сообщить"
   },
   "require": {
-    "text": "[RU:require]"
+    "imperfective": "требовать",
+    "perfective": "потребовать"
   },
   "research": {
-    "text": "[RU:research]"
+    "text": "исследование",
+    "gender": "n"
   },
   "reservation": {
-    "text": "[RU:reservation]"
+    "text": "бронь",
+    "gender": "f"
   },
   "resign": {
-    "text": "[RU:resign]"
+    "imperfective": "увольняться",
+    "perfective": "уволиться"
   },
   "respect": {
-    "text": "[RU:respect]"
+    "text": "уважать",
+    "aspect": "imperfective"
   },
   "restaurant": {
-    "text": "[RU:restaurant]"
+    "text": "ресторан",
+    "gender": "m"
   },
   "rice": {
-    "text": "[RU:rice]"
+    "text": "рис",
+    "gender": "m"
   },
   "rich": {
-    "text": "[RU:rich]"
+    "m": "богатый",
+    "f": "богатая",
+    "n": "богатое"
   },
   "right": {
-    "text": "[RU:right]"
+    "text": "направо"
   },
   "rights": {
-    "text": "[RU:rights]"
+    "text": "права",
+    "gender": "n"
   },
   "river": {
-    "text": "[RU:river]"
+    "text": "река",
+    "gender": "f"
   },
   "road": {
-    "text": "[RU:road]"
+    "text": "дорога",
+    "gender": "f"
   },
   "roast": {
-    "text": "[RU:roast]"
+    "imperfective": "запекать",
+    "perfective": "запечь"
   },
   "roof": {
-    "text": "[RU:roof]"
+    "text": "крыша",
+    "gender": "f"
   },
   "room": {
-    "text": "[RU:room]"
+    "text": "комната",
+    "gender": "f"
   },
   "rope": {
-    "text": "[RU:rope]"
+    "text": "верёвка",
+    "gender": "f"
   },
   "round": {
-    "text": "[RU:round]"
+    "m": "круглый",
+    "f": "круглая",
+    "n": "круглое"
   },
   "rubber": {
-    "text": "[RU:rubber]"
+    "text": "резина",
+    "gender": "f"
   },
   "run": {
-    "text": "[RU:run]"
+    "imperfective": "бегать",
+    "perfective": "побежать"
   },
   "sad": {
-    "text": "[RU:sad]"
+    "m": "грустный",
+    "f": "грустная",
+    "n": "грустное"
   },
   "salad": {
-    "text": "[RU:salad]"
+    "text": "салат",
+    "gender": "m"
   },
   "salary": {
-    "text": "[RU:salary]"
+    "text": "зарплата",
+    "gender": "f"
   },
   "salt": {
-    "text": "[RU:salt]"
+    "text": "соль",
+    "gender": "f"
   },
   "salty": {
-    "text": "[RU:salty]"
+    "m": "солёный",
+    "f": "солёная",
+    "n": "солёное"
   },
   "same": {
-    "text": "[RU:same]"
+    "m": "одинаковый",
+    "f": "одинаковая",
+    "n": "одинаковое"
   },
   "saturday": {
-    "text": "[RU:saturday]"
+    "text": "суббота",
+    "gender": "f"
   },
   "sauce": {
-    "text": "[RU:sauce]"
+    "text": "соус",
+    "gender": "m"
   },
   "sausage": {
-    "text": "[RU:sausage]"
+    "text": "сосиска",
+    "gender": "f"
   },
   "save": {
-    "text": "[RU:save]"
+    "imperfective": "сохранять",
+    "perfective": "сохранить"
   },
   "saw": {
-    "text": "[RU:saw]"
+    "text": "пила",
+    "gender": "f"
   },
   "say": {
-    "text": "[RU:say]"
+    "imperfective": "говорить",
+    "perfective": "сказать"
   },
   "scarf": {
-    "text": "[RU:scarf]"
+    "text": "шарф",
+    "gender": "m"
   },
   "scholarship": {
-    "text": "[RU:scholarship]"
+    "text": "стипендия",
+    "gender": "f"
   },
   "school": {
-    "text": "[RU:school]"
+    "text": "школа",
+    "gender": "f"
   },
   "scissors": {
-    "text": "[RU:scissors]"
+    "text": "ножницы",
+    "gender": "f"
   },
   "score": {
-    "text": "[RU:score]"
+    "text": "счёт",
+    "gender": "m"
   },
   "screen": {
-    "text": "[RU:screen]"
+    "text": "экран",
+    "gender": "m"
   },
   "screw": {
-    "text": "[RU:screw]"
+    "text": "винт",
+    "gender": "m"
   },
   "screwdriver": {
-    "text": "[RU:screwdriver]"
+    "text": "отвёртка",
+    "gender": "f"
   },
   "sea": {
-    "text": "[RU:sea]"
+    "text": "море",
+    "gender": "n"
   },
   "seal": {
-    "text": "[RU:seal]"
+    "text": "тюлень",
+    "gender": "m"
   },
   "seasoning": {
-    "text": "[RU:seasoning]"
+    "text": "приправа",
+    "gender": "f"
   },
   "seatbelt": {
-    "text": "[RU:seatbelt]"
+    "text": "ремень безопасности",
+    "gender": "m"
   },
   "secret": {
-    "text": "[RU:secret]"
+    "text": "секрет",
+    "gender": "m"
   },
   "seduce": {
-    "text": "[RU:seduce]"
+    "text": "соблазнение",
+    "gender": "n"
   },
   "seduction": {
-    "text": "[RU:seduction]"
+    "text": "обольщение",
+    "gender": "n"
   },
   "see": {
-    "text": "[RU:see]"
+    "imperfective": "видеть",
+    "perfective": "увидеть"
   },
   "seem": {
-    "text": "[RU:seem]"
+    "imperfective": "казаться",
+    "perfective": "показаться"
   },
   "sell": {
-    "text": "[RU:sell]"
+    "imperfective": "продавать",
+    "perfective": "продать"
   },
   "semester": {
-    "text": "[RU:semester]"
+    "text": "семестр",
+    "gender": "m"
   },
   "send": {
-    "text": "[RU:send]"
+    "imperfective": "отправлять",
+    "perfective": "отправить"
   },
   "sensual": {
-    "text": "[RU:sensual]"
+    "m": "чувственный",
+    "f": "чувственная",
+    "n": "чувственное"
   },
   "sentence_legal": {
-    "text": "[RU:sentence_legal]"
+    "text": "приговор",
+    "gender": "m"
   },
   "september": {
-    "text": "[RU:september]"
+    "text": "сентябрь",
+    "gender": "m"
   },
   "series": {
-    "text": "[RU:series]"
+    "text": "сериал",
+    "gender": "m"
   },
   "serve": {
-    "text": "[RU:serve]"
+    "imperfective": "подавать",
+    "perfective": "подать"
   },
   "server": {
-    "text": "[RU:server]"
+    "text": "сервер",
+    "gender": "m"
   },
   "set": {
-    "text": "[RU:set]"
+    "imperfective": "устанавливать",
+    "perfective": "установить"
   },
   "set_up": {
-    "text": "[RU:set_up]"
+    "imperfective": "настраивать",
+    "perfective": "настроить"
   },
   "seven": {
-    "text": "[RU:seven]"
+    "text": "семь"
   },
   "sex": {
-    "text": "[RU:sex]"
+    "text": "секс",
+    "gender": "m"
   },
   "shade": {
-    "text": "[RU:shade]"
+    "text": "тень",
+    "gender": "f"
   },
   "shake": {
-    "text": "[RU:shake]"
+    "imperfective": "трясти",
+    "perfective": "потрясти"
   },
   "shampoo": {
-    "text": "[RU:shampoo]"
+    "text": "шампунь",
+    "gender": "m"
   },
   "shark": {
-    "text": "[RU:shark]"
+    "text": "акула",
+    "gender": "f"
   },
   "she": {
-    "text": "[RU:she]"
+    "text": "она"
   },
   "sheep": {
-    "text": "[RU:sheep]"
+    "text": "овца",
+    "gender": "f"
   },
   "shelf": {
-    "text": "[RU:shelf]"
+    "text": "полка",
+    "gender": "f"
   },
   "shiny": {
-    "text": "[RU:shiny]"
+    "m": "блестящий",
+    "f": "блестящая",
+    "n": "блестящее"
   },
   "shirt": {
-    "text": "[RU:shirt]"
+    "text": "рубашка",
+    "gender": "f"
   },
   "shoe": {
-    "text": "[RU:shoe]"
+    "text": "туфля",
+    "gender": "f"
   },
   "shoot": {
-    "text": "[RU:shoot]"
+    "imperfective": "стрелять",
+    "perfective": "выстрелить"
   },
   "short": {
-    "text": "[RU:short]"
+    "m": "короткий",
+    "f": "короткая",
+    "n": "короткое"
   },
   "shoulder": {
-    "text": "[RU:shoulder]"
+    "text": "плечо",
+    "gender": "n"
   },
   "shout": {
-    "text": "[RU:shout]"
+    "imperfective": "кричать",
+    "perfective": "крикнуть"
   },
   "show": {
-    "text": "[RU:show]"
+    "imperfective": "показывать",
+    "perfective": "показать"
   },
   "show_n": {
-    "text": "[RU:show_n]"
+    "text": "шоу",
+    "gender": "n"
   },
   "shrimp": {
-    "text": "[RU:shrimp]"
+    "text": "креветка",
+    "gender": "f"
   },
   "sick": {
-    "text": "[RU:sick]"
+    "m": "больной",
+    "f": "больная",
+    "n": "больное"
   },
   "sideways": {
-    "text": "[RU:sideways]"
+    "text": "боком"
   },
   "silver": {
-    "text": "[RU:silver]"
+    "m": "серебряный",
+    "f": "серебряная",
+    "n": "серебряное"
   },
   "sin": {
-    "text": "[RU:sin]"
+    "text": "грех",
+    "gender": "m"
   },
   "sing": {
-    "text": "[RU:sing]"
+    "imperfective": "петь",
+    "perfective": "спеть"
   },
   "single": {
-    "text": "[RU:single]"
+    "m": "одинокий",
+    "f": "одинокая",
+    "n": "одинокое"
   },
   "sink": {
-    "text": "[RU:sink]"
+    "text": "раковина",
+    "gender": "f"
   },
   "sister": {
-    "text": "[RU:sister]"
+    "text": "сестра",
+    "gender": "f"
   },
   "sit": {
-    "text": "[RU:sit]"
+    "imperfective": "сидеть",
+    "perfective": "посидеть"
   },
   "sit_down": {
-    "text": "[RU:sit_down]"
+    "imperfective": "садиться",
+    "perfective": "сесть"
   },
   "six": {
-    "text": "[RU:six]"
+    "text": "шесть"
   },
   "sketch": {
-    "text": "[RU:sketch]"
+    "imperfective": "набрасывать",
+    "perfective": "набросать"
   },
   "skin": {
-    "text": "[RU:skin]"
+    "text": "кожа",
+    "gender": "f"
   },
   "skirt": {
-    "text": "[RU:skirt]"
+    "text": "юбка",
+    "gender": "f"
   },
   "sky": {
-    "text": "[RU:sky]"
+    "text": "небо",
+    "gender": "n"
   },
   "sleep": {
-    "text": "[RU:sleep]"
+    "imperfective": "спать",
+    "perfective": "поспать"
   },
   "slow": {
-    "text": "[RU:slow]"
+    "m": "медленный",
+    "f": "медленная",
+    "n": "медленное"
   },
   "small": {
-    "text": "[RU:small]"
+    "m": "маленький",
+    "f": "маленькая",
+    "n": "маленькое"
   },
   "smart": {
-    "text": "[RU:smart]"
+    "m": "умный",
+    "f": "умная",
+    "n": "умное"
   },
   "smell": {
-    "text": "[RU:smell]"
+    "imperfective": "нюхать",
+    "perfective": "понюхать"
   },
   "smile": {
-    "text": "[RU:smile]"
+    "imperfective": "улыбаться",
+    "perfective": "улыбнуться"
   },
   "snake": {
-    "text": "[RU:snake]"
+    "text": "змея",
+    "gender": "f"
   },
   "snow": {
-    "text": "[RU:snow]"
+    "text": "снег",
+    "gender": "m"
   },
   "soap": {
-    "text": "[RU:soap]"
+    "text": "мыло",
+    "gender": "n"
   },
   "sock": {
-    "text": "[RU:sock]"
+    "text": "носок",
+    "gender": "m"
   },
   "soft": {
-    "text": "[RU:soft]"
+    "m": "мягкий",
+    "f": "мягкая",
+    "n": "мягкое"
   },
   "software": {
-    "text": "[RU:software]"
+    "text": "программное обеспечение",
+    "gender": "n"
   },
   "soldier": {
-    "text": "[RU:soldier]"
+    "text": "солдат",
+    "gender": "m"
   },
   "sometimes": {
-    "text": "[RU:sometimes]"
+    "text": "иногда"
   },
   "song": {
-    "text": "[RU:song]"
+    "text": "песня",
+    "gender": "f"
   },
   "soon": {
-    "text": "[RU:soon]"
+    "text": "скоро"
   },
   "sorry": {
-    "text": "[RU:sorry]"
+    "text": "извини"
   },
   "soul": {
-    "text": "[RU:soul]"
+    "text": "душа",
+    "gender": "f"
   },
   "soup": {
-    "text": "[RU:soup]"
+    "text": "суп",
+    "gender": "m"
   },
   "sour": {
-    "text": "[RU:sour]"
+    "m": "кислый",
+    "f": "кислая",
+    "n": "кислое"
   },
   "speak": {
-    "text": "[RU:speak]"
+    "imperfective": "говорить",
+    "perfective": "сказать"
   },
   "species": {
-    "text": "[RU:species]"
+    "text": "вид",
+    "gender": "m"
   },
   "speech": {
-    "text": "[RU:speech]"
+    "text": "речь",
+    "gender": "f"
   },
   "speed": {
-    "text": "[RU:speed]"
+    "text": "скорость",
+    "gender": "f"
   },
   "spend": {
-    "text": "[RU:spend]"
+    "imperfective": "тратить",
+    "perfective": "потратить"
   },
   "spicy": {
-    "text": "[RU:spicy]"
+    "m": "острый",
+    "f": "острая",
+    "n": "острое"
   },
   "spider": {
-    "text": "[RU:spider]"
+    "text": "паук",
+    "gender": "m"
   },
   "spine": {
-    "text": "[RU:spine]"
+    "text": "позвоночник",
+    "gender": "m"
   },
   "spoon": {
-    "text": "[RU:spoon]"
+    "text": "ложка",
+    "gender": "f"
   },
   "spring": {
-    "text": "[RU:spring]"
+    "text": "весна",
+    "gender": "f"
   },
   "stairs": {
-    "text": "[RU:stairs]"
+    "text": "лестница",
+    "gender": "f"
   },
   "stand": {
-    "text": "[RU:stand]"
+    "imperfective": "стоять",
+    "perfective": "постоять"
   },
   "star": {
-    "text": "[RU:star]"
+    "text": "звезда",
+    "gender": "f"
   },
   "station": {
-    "text": "[RU:station]"
+    "text": "станция",
+    "gender": "f"
   },
   "stay": {
-    "text": "[RU:stay]"
+    "imperfective": "оставаться",
+    "perfective": "остаться"
   },
   "steam": {
-    "text": "[RU:steam]"
+    "imperfective": "готовить на пару",
+    "perfective": "приготовить на пару"
   },
   "steering": {
-    "text": "[RU:steering]"
+    "text": "руль",
+    "gender": "m"
   },
   "stomach": {
-    "text": "[RU:stomach]"
+    "text": "желудок",
+    "gender": "m"
   },
   "stone": {
-    "text": "[RU:stone]"
+    "text": "камень",
+    "gender": "m"
   },
   "stop": {
-    "text": "[RU:stop]"
+    "imperfective": "останавливать",
+    "perfective": "остановить"
   },
   "store": {
-    "text": "[RU:store]"
+    "text": "магазин",
+    "gender": "m"
   },
   "storm": {
-    "text": "[RU:storm]"
+    "text": "буря",
+    "gender": "f"
   },
   "story": {
-    "text": "[RU:story]"
+    "text": "история",
+    "gender": "f"
   },
   "straight": {
-    "text": "[RU:straight]"
+    "text": "прямо"
   },
   "strategy": {
-    "text": "[RU:strategy]"
+    "text": "стратегия",
+    "gender": "f"
   },
   "street": {
-    "text": "[RU:street]"
+    "text": "улица",
+    "gender": "f"
   },
   "stripe": {
-    "text": "[RU:stripe]"
+    "text": "полоса",
+    "gender": "f"
   },
   "strong": {
-    "text": "[RU:strong]"
+    "m": "сильный",
+    "f": "сильная",
+    "n": "сильное"
   },
   "student": {
-    "text": "[RU:student]"
+    "text": "студент",
+    "gender": "m"
   },
   "study": {
-    "text": "[RU:study]"
+    "imperfective": "изучать",
+    "perfective": "изучить"
   },
   "succeed": {
-    "text": "[RU:succeed]"
+    "imperfective": "преуспевать",
+    "perfective": "преуспеть"
   },
   "success": {
-    "text": "[RU:success]"
+    "text": "успех",
+    "gender": "m"
   },
   "such": {
-    "text": "[RU:such]"
+    "text": "такой"
   },
   "sue": {
-    "text": "[RU:sue]"
+    "imperfective": "судиться",
+    "perfective": "подать в суд"
   },
   "sugar": {
-    "text": "[RU:sugar]"
+    "text": "сахар",
+    "gender": "m"
   },
   "suggest": {
-    "text": "[RU:suggest]"
+    "imperfective": "предлагать",
+    "perfective": "предложить"
   },
   "summer": {
-    "text": "[RU:summer]"
+    "text": "лето",
+    "gender": "n"
   },
   "sun": {
-    "text": "[RU:sun]"
+    "text": "солнце",
+    "gender": "n"
   },
   "sunday": {
-    "text": "[RU:sunday]"
+    "text": "воскресенье",
+    "gender": "n"
   },
   "sunscreen": {
-    "text": "[RU:sunscreen]"
+    "text": "солнцезащитный крем",
+    "gender": "m"
   },
   "support": {
-    "text": "[RU:support]"
+    "imperfective": "поддерживать",
+    "perfective": "поддержать"
   },
   "surgery": {
-    "text": "[RU:surgery]"
+    "text": "операция",
+    "gender": "f"
   },
   "sweet": {
-    "text": "[RU:sweet]"
+    "m": "сладкий",
+    "f": "сладкая",
+    "n": "сладкое"
   },
   "swim": {
-    "text": "[RU:swim]"
+    "imperfective": "плавать",
+    "perfective": "поплавать"
   },
   "swimming_pool": {
-    "text": "[RU:swimming_pool]"
+    "text": "бассейн",
+    "gender": "m"
   },
   "switch_n": {
-    "text": "[RU:switch_n]"
+    "text": "выключатель",
+    "gender": "m"
   },
   "symptom": {
-    "text": "[RU:symptom]"
+    "text": "симптом",
+    "gender": "m"
   },
   "table": {
-    "text": "[RU:table]"
+    "text": "стол",
+    "gender": "m"
   },
   "take": {
-    "text": "[RU:take]"
+    "imperfective": "брать",
+    "perfective": "взять"
   },
   "take_off": {
-    "text": "[RU:take_off]"
+    "imperfective": "снимать",
+    "perfective": "снять"
   },
   "talk": {
-    "text": "[RU:talk]"
+    "imperfective": "разговаривать",
+    "perfective": "поговорить"
   },
   "tall": {
-    "text": "[RU:tall]"
+    "m": "высокий",
+    "f": "высокая",
+    "n": "высокое"
   },
   "tape": {
-    "text": "[RU:tape]"
+    "text": "скотч",
+    "gender": "m"
   },
   "taste": {
-    "text": "[RU:taste]"
+    "imperfective": "пробовать",
+    "perfective": "попробовать"
   },
   "tax": {
-    "text": "[RU:tax]"
+    "text": "налог",
+    "gender": "m"
   },
   "taxi": {
-    "text": "[RU:taxi]"
+    "text": "такси",
+    "gender": "n"
   },
   "tea": {
-    "text": "[RU:tea]"
+    "text": "чай",
+    "gender": "m"
   },
   "teach": {
-    "text": "[RU:teach]"
+    "imperfective": "учить",
+    "perfective": "научить"
   },
   "teacher": {
-    "text": "[RU:teacher]"
+    "text": "учитель",
+    "gender": "m"
   },
   "teal": {
-    "text": "[RU:teal]"
+    "m": "бирюзовый",
+    "f": "бирюзовая",
+    "n": "бирюзовое"
   },
   "team": {
-    "text": "[RU:team]"
+    "text": "команда",
+    "gender": "f"
   },
   "temperature": {
-    "text": "[RU:temperature]"
+    "text": "температура",
+    "gender": "f"
   },
   "ten": {
-    "text": "[RU:ten]"
+    "text": "десять"
   },
   "textbook": {
-    "text": "[RU:textbook]"
+    "text": "учебник",
+    "gender": "m"
   },
   "texture": {
-    "text": "[RU:texture]"
+    "text": "текстура",
+    "gender": "f"
   },
   "thank": {
-    "text": "[RU:thank]"
+    "imperfective": "благодарить",
+    "perfective": "поблагодарить"
   },
   "thank_you": {
-    "text": "[RU:thank_you]"
+    "text": "спасибо"
   },
   "that": {
-    "text": "[RU:that]"
+    "text": "то"
   },
   "that_o": {
-    "text": "[RU:that_o]"
+    "text": "что"
   },
   "theater": {
-    "text": "[RU:theater]"
+    "text": "театр",
+    "gender": "m"
   },
   "their": {
-    "text": "[RU:their]"
+    "text": "их"
   },
   "then": {
-    "text": "[RU:then]"
+    "text": "тогда"
   },
   "theory": {
-    "text": "[RU:theory]"
+    "text": "теория",
+    "gender": "f"
   },
   "there": {
-    "text": "[RU:there]"
+    "text": "там"
   },
   "therefore": {
-    "text": "[RU:therefore]"
+    "text": "поэтому"
   },
   "they": {
-    "text": "[RU:they]"
+    "text": "они"
   },
   "thing": {
-    "text": "[RU:thing]"
+    "text": "вещь",
+    "gender": "f"
   },
   "think": {
-    "text": "[RU:think]"
+    "imperfective": "думать",
+    "perfective": "подумать"
   },
   "thirsty": {
-    "text": "[RU:thirsty]"
+    "m": "жаждущий",
+    "f": "жаждущая",
+    "n": "жаждущее"
   },
   "this": {
-    "text": "[RU:this]"
+    "text": "это"
   },
   "thousand": {
-    "text": "[RU:thousand]"
+    "text": "тысяча"
   },
   "three": {
-    "text": "[RU:three]"
+    "text": "три"
   },
   "throw": {
-    "text": "[RU:throw]"
+    "imperfective": "бросать",
+    "perfective": "бросить"
   },
   "thursday": {
-    "text": "[RU:thursday]"
+    "text": "четверг",
+    "gender": "m"
   },
   "ticket": {
-    "text": "[RU:ticket]"
+    "text": "билет",
+    "gender": "m"
   },
   "time": {
-    "text": "[RU:time]"
+    "text": "время",
+    "gender": "n"
   },
   "tire": {
-    "text": "[RU:tire]"
+    "text": "шина",
+    "gender": "f"
   },
   "tired": {
-    "text": "[RU:tired]"
+    "m": "уставший",
+    "f": "уставшая",
+    "n": "уставшее"
   },
   "tissue": {
-    "text": "[RU:tissue]"
+    "text": "салфетка",
+    "gender": "f"
   },
   "today": {
-    "text": "[RU:today]"
+    "text": "сегодня"
   },
   "toe": {
-    "text": "[RU:toe]"
+    "text": "палец ноги",
+    "gender": "m"
   },
   "tomato": {
-    "text": "[RU:tomato]"
+    "text": "помидор",
+    "gender": "m"
   },
   "tomorrow": {
-    "text": "[RU:tomorrow]"
+    "text": "завтра"
   },
   "tongue": {
-    "text": "[RU:tongue]"
+    "text": "язык",
+    "gender": "m"
   },
   "tonight": {
-    "text": "[RU:tonight]"
+    "text": "сегодня вечером"
   },
   "too": {
-    "text": "[RU:too]"
+    "text": "тоже"
   },
   "toolbox": {
-    "text": "[RU:toolbox]"
+    "text": "ящик для инструментов",
+    "gender": "m"
   },
   "tooth": {
-    "text": "[RU:tooth]"
+    "text": "зуб",
+    "gender": "m"
   },
   "toothbrush": {
-    "text": "[RU:toothbrush]"
+    "text": "зубная щётка",
+    "gender": "f"
   },
   "toothpaste": {
-    "text": "[RU:toothpaste]"
+    "text": "зубная паста",
+    "gender": "f"
   },
   "totally": {
-    "text": "[RU:totally]"
+    "text": "полностью"
   },
   "touch": {
-    "text": "[RU:touch]"
+    "imperfective": "трогать",
+    "perfective": "тронуть"
   },
   "tournament": {
-    "text": "[RU:tournament]"
+    "text": "турнир",
+    "gender": "m"
   },
   "towel": {
-    "text": "[RU:towel]"
+    "text": "полотенце",
+    "gender": "n"
   },
   "traffic": {
-    "text": "[RU:traffic]"
+    "text": "движение",
+    "gender": "n"
   },
   "train": {
-    "text": "[RU:train]"
+    "imperfective": "тренировать",
+    "perfective": "натренировать"
   },
   "train_vehicle": {
-    "text": "[RU:train_vehicle]"
+    "text": "поезд",
+    "gender": "m"
   },
   "training_n": {
-    "text": "[RU:training_n]"
+    "text": "тренировка",
+    "gender": "f"
   },
   "transfer": {
-    "text": "[RU:transfer]"
+    "text": "перевод",
+    "gender": "m"
   },
   "transparent": {
-    "text": "[RU:transparent]"
+    "m": "прозрачный",
+    "f": "прозрачная",
+    "n": "прозрачное"
   },
   "travel": {
-    "text": "[RU:travel]"
+    "imperfective": "путешествовать",
+    "perfective": "попутешествовать"
   },
   "tray": {
-    "text": "[RU:tray]"
+    "text": "поднос",
+    "gender": "m"
   },
   "tree": {
-    "text": "[RU:tree]"
+    "text": "дерево",
+    "gender": "n"
   },
   "trial": {
-    "text": "[RU:trial]"
+    "text": "суд",
+    "gender": "m"
   },
   "trip": {
-    "text": "[RU:trip]"
+    "text": "поездка",
+    "gender": "f"
   },
   "trust_n": {
-    "text": "[RU:trust_n]"
+    "text": "доверие",
+    "gender": "n"
   },
   "truth": {
-    "text": "[RU:truth]"
+    "text": "правда",
+    "gender": "f"
   },
   "try": {
-    "text": "[RU:try]"
+    "imperfective": "пытаться",
+    "perfective": "попытаться"
   },
   "try_on": {
-    "text": "[RU:try_on]"
+    "imperfective": "примерять",
+    "perfective": "примерить"
   },
   "tuesday": {
-    "text": "[RU:tuesday]"
+    "text": "вторник",
+    "gender": "m"
   },
   "turn": {
-    "text": "[RU:turn]"
+    "imperfective": "поворачивать",
+    "perfective": "повернуть"
   },
   "turn_off": {
-    "text": "[RU:turn_off]"
+    "imperfective": "выключать",
+    "perfective": "выключить"
   },
   "turn_on": {
-    "text": "[RU:turn_on]"
+    "imperfective": "включать",
+    "perfective": "включить"
   },
   "turquoise": {
-    "text": "[RU:turquoise]"
+    "m": "бирюзовый",
+    "f": "бирюзовая",
+    "n": "бирюзовое"
   },
   "turtle": {
-    "text": "[RU:turtle]"
+    "text": "черепаха",
+    "gender": "f"
   },
   "two": {
-    "text": "[RU:two]"
+    "text": "два"
   },
   "ugly": {
-    "text": "[RU:ugly]"
+    "m": "некрасивый",
+    "f": "некрасивая",
+    "n": "некрасивое"
   },
   "under": {
-    "text": "[RU:under]"
+    "text": "под"
   },
   "understand": {
-    "text": "[RU:understand]"
+    "imperfective": "понимать",
+    "perfective": "понять"
   },
   "unless": {
-    "text": "[RU:unless]"
+    "text": "если не"
   },
   "up": {
-    "text": "[RU:up]"
+    "text": "вверх"
   },
   "update": {
-    "text": "[RU:update]"
+    "imperfective": "обновлять",
+    "perfective": "обновить"
   },
   "upload": {
-    "text": "[RU:upload]"
+    "imperfective": "загружать",
+    "perfective": "загрузить"
   },
   "use": {
-    "text": "[RU:use]"
+    "text": "использовать",
+    "aspect": "imperfective"
   },
   "usually": {
-    "text": "[RU:usually]"
+    "text": "обычно"
   },
   "utensil": {
-    "text": "[RU:utensil]"
+    "text": "посуда",
+    "gender": "f"
   },
   "vacuum": {
-    "text": "[RU:vacuum]"
+    "text": "пылесос",
+    "gender": "m"
   },
   "valley": {
-    "text": "[RU:valley]"
+    "text": "долина",
+    "gender": "f"
   },
   "vase": {
-    "text": "[RU:vase]"
+    "text": "ваза",
+    "gender": "f"
   },
   "vegetable": {
-    "text": "[RU:vegetable]"
+    "text": "овощ",
+    "gender": "m"
   },
   "vehicle": {
-    "text": "[RU:vehicle]"
+    "text": "транспорт",
+    "gender": "m"
   },
   "vein": {
-    "text": "[RU:vein]"
+    "text": "вена",
+    "gender": "f"
   },
   "verdict": {
-    "text": "[RU:verdict]"
+    "text": "вердикт",
+    "gender": "m"
   },
   "very": {
-    "text": "[RU:very]"
+    "text": "очень"
   },
   "vibrant": {
-    "text": "[RU:vibrant]"
+    "m": "яркий",
+    "f": "яркая",
+    "n": "яркое"
   },
   "victim": {
-    "text": "[RU:victim]"
+    "text": "жертва",
+    "gender": "f"
   },
   "victory": {
-    "text": "[RU:victory]"
+    "text": "победа",
+    "gender": "f"
   },
   "video": {
-    "text": "[RU:video]"
+    "text": "видео",
+    "gender": "n"
   },
   "vinegar": {
-    "text": "[RU:vinegar]"
+    "text": "уксус",
+    "gender": "m"
   },
   "virgin": {
-    "text": "[RU:virgin]"
+    "text": "девственник",
+    "gender": "m"
   },
   "virtue": {
-    "text": "[RU:virtue]"
+    "text": "добродетель",
+    "gender": "f"
   },
   "visa": {
-    "text": "[RU:visa]"
+    "text": "виза",
+    "gender": "f"
   },
   "voice": {
-    "text": "[RU:voice]"
+    "text": "голос",
+    "gender": "m"
   },
   "volcano": {
-    "text": "[RU:volcano]"
+    "text": "вулкан",
+    "gender": "m"
   },
   "wait": {
-    "text": "[RU:wait]"
+    "imperfective": "ждать",
+    "perfective": "подождать"
   },
   "wait_for": {
-    "text": "[RU:wait_for]"
+    "imperfective": "ожидать",
+    "perfective": "дождаться"
   },
   "waiter": {
-    "text": "[RU:waiter]"
+    "text": "официант",
+    "gender": "m"
   },
   "wake_up": {
-    "text": "[RU:wake_up]"
+    "imperfective": "просыпаться",
+    "perfective": "проснуться"
   },
   "walk": {
-    "text": "[RU:walk]"
+    "imperfective": "ходить",
+    "perfective": "пойти"
   },
   "wall": {
-    "text": "[RU:wall]"
+    "text": "стена",
+    "gender": "f"
   },
   "want": {
-    "text": "[RU:want]"
+    "imperfective": "хотеть",
+    "perfective": "захотеть"
   },
   "war": {
-    "text": "[RU:war]"
+    "text": "война",
+    "gender": "f"
   },
   "wardrobe": {
-    "text": "[RU:wardrobe]"
+    "text": "шкаф",
+    "gender": "m"
   },
   "warm": {
-    "text": "[RU:warm]"
+    "m": "тёплый",
+    "f": "тёплая",
+    "n": "тёплое"
   },
   "warn": {
-    "text": "[RU:warn]"
+    "imperfective": "предупреждать",
+    "perfective": "предупредить"
   },
   "wash": {
-    "text": "[RU:wash]"
+    "imperfective": "мыть",
+    "perfective": "помыть"
   },
   "washing_machine": {
-    "text": "[RU:washing_machine]"
+    "text": "стиральная машина",
+    "gender": "f"
   },
   "watch": {
-    "text": "[RU:watch]"
+    "imperfective": "смотреть",
+    "perfective": "посмотреть"
   },
   "watch_out": {
-    "text": "[RU:watch_out]"
+    "text": "остерегаться",
+    "aspect": "imperfective"
   },
   "water": {
-    "text": "[RU:water]"
+    "text": "вода",
+    "gender": "f"
   },
   "waterfall": {
-    "text": "[RU:waterfall]"
+    "text": "водопад",
+    "gender": "m"
   },
   "wave": {
-    "text": "[RU:wave]"
+    "imperfective": "махать",
+    "perfective": "махнуть"
   },
   "way": {
-    "text": "[RU:way]"
+    "text": "путь",
+    "gender": "m"
   },
   "we": {
-    "text": "[RU:we]"
+    "text": "мы"
   },
   "weak": {
-    "text": "[RU:weak]"
+    "m": "слабый",
+    "f": "слабая",
+    "n": "слабое"
   },
   "wear": {
-    "text": "[RU:wear]"
+    "text": "носить",
+    "aspect": "imperfective"
   },
   "weather": {
-    "text": "[RU:weather]"
+    "text": "погода",
+    "gender": "f"
   },
   "website": {
-    "text": "[RU:website]"
+    "text": "сайт",
+    "gender": "m"
   },
   "wedding": {
-    "text": "[RU:wedding]"
+    "text": "свадьба",
+    "gender": "f"
   },
   "wednesday": {
-    "text": "[RU:wednesday]"
+    "text": "среда",
+    "gender": "f"
   },
   "week": {
-    "text": "[RU:week]"
+    "text": "неделя",
+    "gender": "f"
   },
   "wet": {
-    "text": "[RU:wet]"
+    "m": "мокрый",
+    "f": "мокрая",
+    "n": "мокрое"
   },
   "whale": {
-    "text": "[RU:whale]"
+    "text": "кит",
+    "gender": "m"
   },
   "what": {
-    "text": "[RU:what]"
+    "text": "что"
   },
   "wheel": {
-    "text": "[RU:wheel]"
+    "text": "колесо",
+    "gender": "n"
   },
   "when": {
-    "text": "[RU:when]"
+    "text": "когда"
   },
   "where": {
-    "text": "[RU:where]"
+    "text": "где"
   },
   "whether": {
-    "text": "[RU:whether]"
+    "text": "ли"
   },
   "while": {
-    "text": "[RU:while]"
+    "text": "пока"
   },
   "white": {
-    "text": "[RU:white]"
+    "m": "белый",
+    "f": "белая",
+    "n": "белое"
   },
   "who": {
-    "text": "[RU:who]"
+    "text": "кто"
   },
   "why": {
-    "text": "[RU:why]"
+    "text": "почему"
   },
   "wide": {
-    "text": "[RU:wide]"
+    "m": "широкий",
+    "f": "широкая",
+    "n": "широкое"
   },
   "wife": {
-    "text": "[RU:wife]"
+    "text": "жена",
+    "gender": "f"
   },
   "win": {
-    "text": "[RU:win]"
+    "imperfective": "побеждать",
+    "perfective": "победить"
   },
   "wind": {
-    "text": "[RU:wind]"
+    "text": "ветер",
+    "gender": "m"
   },
   "window": {
-    "text": "[RU:window]"
+    "text": "окно",
+    "gender": "n"
   },
   "wine": {
-    "text": "[RU:wine]"
+    "text": "вино",
+    "gender": "n"
   },
   "winter": {
-    "text": "[RU:winter]"
+    "text": "зима",
+    "gender": "f"
   },
   "wire": {
-    "text": "[RU:wire]"
+    "text": "провод",
+    "gender": "m"
   },
   "wisdom": {
-    "text": "[RU:wisdom]"
+    "text": "мудрость",
+    "gender": "f"
   },
   "wish": {
-    "text": "[RU:wish]"
+    "imperfective": "желать",
+    "perfective": "пожелать"
   },
   "witness": {
-    "text": "[RU:witness]"
+    "text": "свидетель",
+    "gender": "m"
   },
   "wolf": {
-    "text": "[RU:wolf]"
+    "text": "волк",
+    "gender": "m"
   },
   "woman": {
-    "text": "[RU:woman]"
+    "text": "женщина",
+    "gender": "f"
   },
   "wood": {
-    "text": "[RU:wood]"
+    "text": "дерево",
+    "gender": "n"
   },
   "word": {
-    "text": "[RU:word]"
+    "text": "слово",
+    "gender": "n"
   },
   "work": {
-    "text": "[RU:work]"
+    "imperfective": "работать",
+    "perfective": "поработать"
   },
   "work_n": {
-    "text": "[RU:work_n]"
+    "text": "работа",
+    "gender": "f"
   },
   "worker": {
-    "text": "[RU:worker]"
+    "text": "рабочий",
+    "gender": "m"
   },
   "world": {
-    "text": "[RU:world]"
+    "text": "мир",
+    "gender": "m"
   },
   "wound": {
-    "text": "[RU:wound]"
+    "text": "рана",
+    "gender": "f"
   },
   "wrench": {
-    "text": "[RU:wrench]"
+    "text": "гаечный ключ",
+    "gender": "m"
   },
   "write": {
-    "text": "[RU:write]"
+    "imperfective": "писать",
+    "perfective": "написать"
   },
   "wrong": {
-    "text": "[RU:wrong]"
+    "m": "неправильный",
+    "f": "неправильная",
+    "n": "неправильное"
   },
   "year": {
-    "text": "[RU:year]"
+    "text": "год",
+    "gender": "m"
   },
   "yellow": {
-    "text": "[RU:yellow]"
+    "m": "жёлтый",
+    "f": "жёлтая",
+    "n": "жёлтое"
   },
   "yes": {
-    "text": "[RU:yes]"
+    "text": "да"
   },
   "yesterday": {
-    "text": "[RU:yesterday]"
+    "text": "вчера"
   },
   "yet": {
-    "text": "[RU:yet]"
+    "text": "ещё"
   },
   "you": {
-    "text": "[RU:you]"
+    "text": "ты"
   },
   "young": {
-    "text": "[RU:young]"
+    "m": "молодой",
+    "f": "молодая",
+    "n": "молодое"
   },
   "your": {
-    "text": "[RU:your]"
+    "text": "твой"
   },
   "zero": {
-    "text": "[RU:zero]"
+    "text": "ноль"
   },
   "meta": {
     "levels": {
@@ -3277,232 +4350,232 @@
     },
     "groups": {
       "first_contact": {
-        "name": "[RU:first_contact]"
+        "name": "Первый контакт"
       },
       "getting_around": {
-        "name": "[RU:getting_around]"
+        "name": "Ориентация"
       },
       "staying_alive": {
-        "name": "[RU:staying_alive]"
+        "name": "Выживание"
       },
       "making_sense": {
-        "name": "[RU:making_sense]"
+        "name": "Понимание"
       },
       "core_verbs": {
-        "name": "[RU:core_verbs]"
+        "name": "Основные глаголы"
       },
       "daily_actions": {
-        "name": "[RU:daily_actions]"
+        "name": "Повседневные действия"
       },
       "head_to_toe": {
-        "name": "[RU:head_to_toe]"
+        "name": "С головы до ног"
       },
       "my_people": {
-        "name": "[RU:my_people]"
+        "name": "Мои люди"
       },
       "bread_and_water": {
-        "name": "[RU:bread_and_water]"
+        "name": "Хлеб и вода"
       },
       "four_walls": {
-        "name": "[RU:four_walls]"
+        "name": "Четыре стены"
       },
       "zero_to_ten": {
-        "name": "[RU:zero_to_ten]"
+        "name": "От нуля до десяти"
       },
       "on_the_road": {
-        "name": "[RU:on_the_road]"
+        "name": "В дороге"
       },
       "good_and_bad": {
-        "name": "[RU:good_and_bad]"
+        "name": "Хорошее и плохое"
       },
       "glue_words": {
-        "name": "[RU:glue_words]"
+        "name": "Слова-связки"
       },
       "doing_things": {
-        "name": "[RU:doing_things]"
+        "name": "Делаем дела"
       },
       "hands_on": {
-        "name": "[RU:hands_on]"
+        "name": "Своими руками"
       },
       "laugh_and_cry": {
-        "name": "[RU:laugh_and_cry]"
+        "name": "Смех и слёзы"
       },
       "shoulder_to_knee": {
-        "name": "[RU:shoulder_to_knee]"
+        "name": "От плеча до колена"
       },
       "brothers_and_sisters": {
-        "name": "[RU:brothers_and_sisters]"
+        "name": "Братья и сёстры"
       },
       "market_basket": {
-        "name": "[RU:market_basket]"
+        "name": "Корзина с рынка"
       },
       "around_the_house": {
-        "name": "[RU:around_the_house]"
+        "name": "По дому"
       },
       "rainbow": {
-        "name": "[RU:rainbow]"
+        "name": "Радуга"
       },
       "days_and_months": {
-        "name": "[RU:days_and_months]"
+        "name": "Дни и месяцы"
       },
       "when_and_how_often": {
-        "name": "[RU:when_and_how_often]"
+        "name": "Когда и как часто"
       },
       "creatures_and_sky": {
-        "name": "[RU:creatures_and_sky]"
+        "name": "Звери и небо"
       },
       "city_life": {
-        "name": "[RU:city_life]"
+        "name": "Городская жизнь"
       },
       "how_things_are": {
-        "name": "[RU:how_things_are]"
+        "name": "Какие вещи бывают"
       },
       "world_words": {
-        "name": "[RU:world_words]"
+        "name": "Слова о мире"
       },
       "bags_packed": {
-        "name": "[RU:bags_packed]"
+        "name": "Чемоданы собраны"
       },
       "heart_and_mind": {
-        "name": "[RU:heart_and_mind]"
+        "name": "Сердце и разум"
       },
       "coming_and_going": {
-        "name": "[RU:coming_and_going]"
+        "name": "Приходить и уходить"
       },
       "build_and_break": {
-        "name": "[RU:build_and_break]"
+        "name": "Строить и ломать"
       },
       "two_word_wonders": {
-        "name": "[RU:two_word_wonders]"
+        "name": "Фразовые глаголы"
       },
       "skin_deep": {
-        "name": "[RU:skin_deep]"
+        "name": "На поверхности"
       },
       "home_sweet_home": {
-        "name": "[RU:home_sweet_home]"
+        "name": "Дом, милый дом"
       },
       "at_the_table": {
-        "name": "[RU:at_the_table]"
+        "name": "За столом"
       },
       "wild_side": {
-        "name": "[RU:wild_side]"
+        "name": "Дикая сторона"
       },
       "taste_and_touch": {
-        "name": "[RU:taste_and_touch]"
+        "name": "Вкус и прикосновение"
       },
       "people_and_places": {
-        "name": "[RU:people_and_places]"
+        "name": "Люди и места"
       },
       "life_and_work": {
-        "name": "[RU:life_and_work]"
+        "name": "Жизнь и работа"
       },
       "when_and_where": {
-        "name": "[RU:when_and_where]"
+        "name": "Когда и где"
       },
       "going_places": {
-        "name": "[RU:going_places]"
+        "name": "В путь"
       },
       "dating_scene": {
-        "name": "[RU:dating_scene]"
+        "name": "Свидания"
       },
       "sick_and_stuff": {
-        "name": "[RU:sick_and_stuff]"
+        "name": "Болезни и всякое"
       },
       "higher_ground": {
-        "name": "[RU:higher_ground]"
+        "name": "Высшая ступень"
       },
       "making_it_happen": {
-        "name": "[RU:making_it_happen]"
+        "name": "Добиваемся цели"
       },
       "tying_loose_ends": {
-        "name": "[RU:tying_loose_ends]"
+        "name": "Связываем концы"
       },
       "three_word_moves": {
-        "name": "[RU:three_word_moves]"
+        "name": "Фразовые обороты"
       },
       "bones_and_blood": {
-        "name": "[RU:bones_and_blood]"
+        "name": "Кости и кровь"
       },
       "what_matters": {
-        "name": "[RU:what_matters]"
+        "name": "Что важно"
       },
       "shades_of_grey": {
-        "name": "[RU:shades_of_grey]"
+        "name": "Оттенки серого"
       },
       "words_and_stories": {
-        "name": "[RU:words_and_stories]"
+        "name": "Слова и истории"
       },
       "peace_and_war": {
-        "name": "[RU:peace_and_war]"
+        "name": "Война и мир"
       },
       "however_therefore": {
-        "name": "[RU:however_therefore]"
+        "name": "Однако и поэтому"
       },
       "stuff_and_coins": {
-        "name": "[RU:stuff_and_coins]"
+        "name": "Вещи и монеты"
       },
       "after_dark": {
-        "name": "[RU:after_dark]"
+        "name": "После заката"
       },
       "last_of_the_wild": {
-        "name": "[RU:last_of_the_wild]"
+        "name": "Последние из диких"
       },
       "medical_anatomy": {
-        "name": "[RU:medical_anatomy]"
+        "name": "Медицина и анатомия"
       },
       "extended_animals": {
-        "name": "[RU:extended_animals]"
+        "name": "Животные и морская жизнь"
       },
       "extended_food": {
-        "name": "[RU:extended_food]"
+        "name": "Еда и готовка"
       },
       "extended_colors_art": {
-        "name": "[RU:extended_colors_art]"
+        "name": "Цвета и искусство"
       },
       "business": {
-        "name": "[RU:business]"
+        "name": "Бизнес"
       },
       "legal": {
-        "name": "[RU:legal]"
+        "name": "Юриспруденция"
       },
       "tech_it": {
-        "name": "[RU:tech_it]"
+        "name": "Технологии и IT"
       },
       "science": {
-        "name": "[RU:science]"
+        "name": "Наука"
       },
       "furniture_utensils": {
-        "name": "[RU:furniture_utensils]"
+        "name": "Мебель и посуда"
       },
       "philosophy": {
-        "name": "[RU:philosophy]"
+        "name": "Философия"
       },
       "sports_fitness": {
-        "name": "[RU:sports_fitness]"
+        "name": "Спорт и фитнес"
       },
       "hygiene": {
-        "name": "[RU:hygiene]"
+        "name": "Гигиена"
       },
       "entertainment": {
-        "name": "[RU:entertainment]"
+        "name": "Развлечения"
       },
       "education": {
-        "name": "[RU:education]"
+        "name": "Образование"
       },
       "geography": {
-        "name": "[RU:geography]"
+        "name": "География"
       },
       "automotive": {
-        "name": "[RU:automotive]"
+        "name": "Автомобили"
       },
       "tools_repair": {
-        "name": "[RU:tools_repair]"
+        "name": "Инструменты и ремонт"
       },
       "relationships": {
-        "name": "[RU:relationships]"
+        "name": "Отношения"
       },
       "romance_intimacy": {
-        "name": "[RU:romance_intimacy]"
+        "name": "Романтика и близость"
       }
     }
   }
