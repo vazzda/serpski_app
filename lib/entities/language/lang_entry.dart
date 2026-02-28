@@ -56,24 +56,27 @@ class AspectPairEntry extends LangEntry {
       );
 }
 
-/// An adjective with all three grammatical gender forms.
+/// An adjective with grammatical gender forms.
+/// [n] (neuter) is optional — only languages with neuter gender provide it.
 class AdjectiveEntry extends LangEntry {
   const AdjectiveEntry({
     required this.m,
     required this.f,
-    required this.n,
+    this.n,
     super.note,
   });
 
   /// Masculine form (citation/dictionary form).
   final String m;
   final String f;
-  final String n;
+
+  /// Neuter form — null for languages without neuter gender (e.g. Italian).
+  final String? n;
 
   factory AdjectiveEntry.fromJson(Map<String, dynamic> json) => AdjectiveEntry(
         m: json['m'] as String,
         f: json['f'] as String,
-        n: json['n'] as String,
+        n: json['n'] as String?,
         note: json['note'] as String?,
       );
 }

@@ -347,6 +347,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get lang_russian => 'Russian';
 
   @override
+  String get lang_italian => 'Italian';
+
+  @override
   String get aspect_perfective => 'perfective';
 
   @override

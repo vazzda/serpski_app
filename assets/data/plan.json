@@ -2,7 +2,8 @@
   "languages": [
     { "code": "en", "labelKey": "lang_english" },
     { "code": "sr", "labelKey": "lang_serbian" },
-    { "code": "ru", "labelKey": "lang_russian" }
+    { "code": "ru", "labelKey": "lang_russian" },
+    { "code": "it", "labelKey": "lang_italian" }
   ],
   "public_languages": ["en", "sr"],
   "ui_languages": ["en"],

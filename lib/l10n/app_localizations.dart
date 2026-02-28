@@ -730,6 +730,12 @@ abstract class AppLocalizations {
   /// **'Russian'**
   String get lang_russian;
 
+  /// No description provided for @lang_italian.
+  ///
+  /// In en, this message translates to:
+  /// **'Italian'**
+  String get lang_italian;
+
   /// No description provided for @aspect_perfective.
   ///
   /// In en, this message translates to:

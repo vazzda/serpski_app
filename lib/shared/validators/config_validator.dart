@@ -1,3 +1,5 @@
+import '../../entities/language/lang_grammar_profile.dart';
+
 /// Thrown when any config file contains invalid or inconsistent data.
 class ConfigValidationError implements Exception {
   const ConfigValidationError(this.message);
@@ -23,7 +25,14 @@ class ConfigValidator {
     final (groupIds, levelIds) = _validateLevels(levelsData, conceptIds);
     _validatePlan(planData, levelIds, translationsByCode.keys.toSet());
     for (final entry in translationsByCode.entries) {
-      _validateTranslation(entry.key, entry.value, conceptIds, levelIds, groupIds);
+      _validateTranslation(
+        entry.key,
+        entry.value,
+        conceptIds,
+        levelIds,
+        groupIds,
+        LangGrammarProfiles.of(entry.key),
+      );
     }
   }
 
@@ -368,6 +377,7 @@ class ConfigValidator {
     Set<String> conceptIds,
     Set<String> levelIds,
     Set<String> groupIds,
+    LanguageGrammarProfile profile,
   ) {
     for (final entry in data.entries) {
       if (entry.key == 'meta') continue;
@@ -383,7 +393,7 @@ class ConfigValidator {
           'translations/$langCode.json: entry "$conceptId" must be an object',
         );
       }
-      _validateLangEntry(langCode, conceptId, value);
+      _validateLangEntry(langCode, conceptId, value, profile);
     }
 
     final meta = data['meta'];
@@ -461,6 +471,7 @@ class ConfigValidator {
     String langCode,
     String conceptId,
     Map<String, dynamic> entry,
+    LanguageGrammarProfile profile,
   ) {
     if (entry.containsKey('imperfective') || entry.containsKey('perfective')) {
       if (!entry.containsKey('imperfective')) {
@@ -494,7 +505,7 @@ class ConfigValidator {
           'translations/$langCode.json: "$conceptId" (adjective) missing required field "f"',
         );
       }
-      if (!entry.containsKey('n')) {
+      if (profile.hasNeuter && !entry.containsKey('n')) {
         throw ConfigValidationError(
           'translations/$langCode.json: "$conceptId" (adjective) missing required field "n"',
         );
@@ -509,7 +520,7 @@ class ConfigValidator {
           'translations/$langCode.json: "$conceptId".f must be a string',
         );
       }
-      if (entry['n'] is! String) {
+      if (entry.containsKey('n') && entry['n'] is! String) {
         throw ConfigValidationError(
           'translations/$langCode.json: "$conceptId".n must be a string',
         );
