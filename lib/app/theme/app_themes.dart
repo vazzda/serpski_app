@@ -311,7 +311,7 @@ class AppThemeData {
     required this.tileBorderWidth,
     required this.tileBorderRadius,
     this.tileMinWidth = 120.0,
-    this.tileHeight = 125.0,
+    this.tileHeight = 150.0,
     this.tileGap = 12.0,
     // Dash
     required this.dashCardBackground,
@@ -425,6 +425,11 @@ class AppThemeData {
     // Disabled
     required this.disabledOpacity,
   });
+
+  // Computed — derived from existing fields, no constructor param needed
+  Color get textPrimaryDimmed => textPrimary.withValues(alpha: disabledOpacity);
+  Color get textSecondaryDimmed =>
+      textSecondary.withValues(alpha: disabledOpacity);
 }
 
 // ============================================================================

@@ -31,6 +31,10 @@ class AppFontStyles {
     fontSize: 14,
     fontWeight: FontWeight.w600,
   );
+  static TextStyle get _headerM => GoogleFonts.bigShouldersDisplay(
+    fontSize: 20,
+    fontWeight: FontWeight.w600,
+  );
   static TextStyle get _headerL => GoogleFonts.bigShouldersDisplay(
     fontSize: 20,
     fontWeight: FontWeight.w600,
@@ -90,8 +94,12 @@ class AppFontStyles {
 
   // Tile styles
   static TextStyle get textTileHeader => _bodyLAccented;
-  static TextStyle get textTileContent => _bodyM;
+  static TextStyle get textTileContent => _bodyS;
   static TextStyle get textTileCounter => _bodySAccented;
+
+  // Level styles
+  static TextStyle get textLevelHeader => _headerXxl;
+  static TextStyle get textLevelCounter => _bodyMAccented;
 
   // Badge styles
   static TextStyle get textBadgePercentage => _bodyMAccented;

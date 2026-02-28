@@ -32,6 +32,7 @@ class VocabLevelData {
     required this.levelProgress,
     required this.groups,
     required this.strengthLevel,
+    required this.totalCardCount,
     this.description,
     this.latestDate,
   });
@@ -44,4 +45,5 @@ class VocabLevelData {
   final List<VocabGroupTileData> groups;
   final DateTime? latestDate;
   final RetentionLevel strengthLevel;
+  final int totalCardCount;
 }

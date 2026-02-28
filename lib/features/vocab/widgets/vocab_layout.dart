@@ -18,19 +18,27 @@ abstract class VocabLayout {
   static const double descSpacingAfter = 8.0;
   static const double tilesToStatsGap = 16.0;
 
-  // Tile content — Positioned offsets
+  // Tile rows — Positioned offsets
   static const double tileNameTop = 8.0;
   static const double tileNameLeft = 8.0;
   static const double tileNameRight = 8.0;
   static const double tileWordsTop = 34.0;
   static const double tileWordsLeft = 8.0;
   static const double tileWordsRight = 8.0;
-  static const double tileCounterBottom = 4.0;
+  static const double tileProgressBottom = 4.0;
+  static const double tileProgressLeft = 8.0;
+  static const double tileProgressRight = 8.0;
+  static const double tileCounterBottom = 22.0;
   static const double tileCounterLeft = 8.0;
   static const double tileCounterRight = 8.0;
 
-  // Progress bar + percentage
+  // Tile progress row internals
+  static const double tileProgressPercentGap = 4.0;
+  static const double tileProgressPercentWidth = 28.0;
+
+  // Level progress bar + counter + percentage
   static const double progressPercentGap = 4.0;
+  static const double progressWordsWidth = 30.0;
   static const double progressPercentWidth = 30.0;
 
   // Stats row chips

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../app/theme/app_themes.dart';
 import '../../../l10n/app_localizations.dart';
+import '../../../shared/ui/progress_bar/project_progress_bar.dart';
 import '../../../shared/ui/tile/project_tile.dart';
 import 'vocab_layout.dart';
 import 'vocab_tile_data.dart';
@@ -23,6 +24,7 @@ class VocabGroupTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = AppThemes.of(context);
+    final barValue = item.percentage != null ? item.percentage! / 100.0 : 0.0;
 
     return SizedBox(
       width: width,
@@ -52,35 +54,52 @@ class VocabGroupTile extends StatelessWidget {
               right: VocabLayout.tileWordsRight,
               child: Text(
                 item.words.join(', '),
-                maxLines: 3,
+                maxLines: 4,
                 overflow: TextOverflow.ellipsis,
                 style: AppFontStyles.textTileContent.copyWith(
                   color: t.tileForeground,
                 ),
               ),
             ),
-            // Counter row: word count (left) + completion % (right)
+            // Progress bar row
+            Positioned(
+              bottom: VocabLayout.tileProgressBottom,
+              left: VocabLayout.tileProgressLeft,
+              right: VocabLayout.tileProgressRight,
+              child: Row(
+                children: [
+                  Expanded(
+                    child: ProjectProgressBar(
+                      value: barValue,
+                      mode: ProgressBarMode.compact,
+                    ),
+                  ),
+                  const SizedBox(width: VocabLayout.tileProgressPercentGap),
+                  SizedBox(
+                    width: VocabLayout.tileProgressPercentWidth,
+                    child: Text(
+                      '${item.percentage ?? 0}%',
+                      textAlign: TextAlign.end,
+                      style: AppFontStyles.textTileCounter.copyWith(
+                        color: item.percentage != null
+                            ? t.tileForeground
+                            : t.textPrimaryDimmed,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            // Counter row
             Positioned(
               bottom: VocabLayout.tileCounterBottom,
               left: VocabLayout.tileCounterLeft,
               right: VocabLayout.tileCounterRight,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    l10n.wordsCount(item.cardCount),
-                    style: AppFontStyles.textTileCounter.copyWith(
-                      color: t.tileForeground,
-                    ),
-                  ),
-                  if (item.percentage != null)
-                    Text(
-                      '${item.percentage}%',
-                      style: AppFontStyles.textTileCounter.copyWith(
-                        color: t.tileForeground,
-                      ),
-                    ),
-                ],
+              child: Text(
+                l10n.wordsCount(item.cardCount),
+                style: AppFontStyles.textTileCounter.copyWith(
+                  color: t.tileForeground,
+                ),
               ),
             ),
           ],

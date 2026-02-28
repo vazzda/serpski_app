@@ -40,7 +40,7 @@ class VocabLevelCard extends StatelessWidget {
               Expanded(
                 child: Text(
                   item.name,
-                  style: AppFontStyles.textContentHeader.copyWith(
+                  style: AppFontStyles.textLevelHeader.copyWith(
                     color: t.textPrimary,
                   ),
                 ),
@@ -50,9 +50,20 @@ class VocabLevelCard extends StatelessWidget {
             ],
           ),
           const SizedBox(height: VocabLayout.headerToProgressGap),
-          // Progress bar + percentage
+          // Progress bar + counter + percentage
           Row(
             children: [
+              SizedBox(
+                width: VocabLayout.progressWordsWidth,
+                child: Text(
+                  '${item.totalCardCount}',
+                  textAlign: TextAlign.start,
+                  style: AppFontStyles.textLevelCounter.copyWith(
+                    color: t.textPrimary,
+                  ),
+                ),
+              ),
+              const SizedBox(width: VocabLayout.progressPercentGap),
               Expanded(
                 child: ProjectProgressBar(
                   value: (item.levelProgress / 100.0).clamp(0.0, 1.0),
@@ -65,7 +76,7 @@ class VocabLevelCard extends StatelessWidget {
                 child: Text(
                   '${item.levelProgress.round()}%',
                   textAlign: TextAlign.end,
-                  style: AppFontStyles.textCaption.copyWith(
+                  style: AppFontStyles.textLevelCounter.copyWith(
                     color: t.textPrimary,
                   ),
                 ),

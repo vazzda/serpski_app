@@ -231,6 +231,7 @@ class _VocabGroupListScreenState extends ConsumerState<VocabGroupListScreen> {
           groups: groups,
           latestDate: latestDate,
           strengthLevel: strengthLevel,
+          totalCardCount: groups.fold(0, (s, g) => s + g.cardCount),
         ),
       );
     }
