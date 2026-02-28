@@ -1,5 +1,4 @@
 {
-
   "sorry": {
     "text": "izvini"
   },
@@ -60,7 +59,6 @@
   "restaurant": {
     "text": "restoran"
   },
-
   "hello": {
     "text": "cao"
   },
@@ -188,9 +186,6 @@
   },
   "have": {
     "text": "imati"
-  },
-  "not_have": {
-    "text": "nemati"
   },
   "cook": {
     "text": "kuvati"
@@ -381,15 +376,6 @@
   "burn": {
     "text": "goreti"
   },
-  "melt": {
-    "text": "topiti se"
-  },
-  "dig": {
-    "text": "kopati"
-  },
-  "explode": {
-    "text": "eksplodirati"
-  },
   "pass": {
     "text": "proći",
     "aspect": "perfective"
@@ -415,13 +401,6 @@
   },
   "lose": {
     "text": "izgubiti",
-    "aspect": "perfective"
-  },
-  "mixstir": {
-    "text": "mešati"
-  },
-  "bend": {
-    "text": "saviti",
     "aspect": "perfective"
   },
   "wash": {
@@ -483,20 +462,8 @@
     "text": "slomiti",
     "aspect": "perfective"
   },
-  "hang": {
-    "text": "obesiti",
-    "aspect": "perfective"
-  },
   "shake": {
     "text": "tresti"
-  },
-  "sign": {
-    "text": "potpisati",
-    "aspect": "perfective"
-  },
-  "beat": {
-    "text": "udariti",
-    "aspect": "perfective"
   },
   "play_instrument": {
     "text": "svirati"
@@ -789,9 +756,6 @@
   "then": {
     "text": "tada"
   },
-  "then_o": {
-    "text": "onda"
-  },
   "today": {
     "text": "danas"
   },
@@ -891,24 +855,6 @@
   "such": {
     "text": "ovakav"
   },
-  "such_o": {
-    "text": "takav"
-  },
-  "such_o_2": {
-    "text": "onakav"
-  },
-  "this_much": {
-    "text": "ovoliki"
-  },
-  "that_much": {
-    "text": "toliki"
-  },
-  "this_many": {
-    "text": "ovoliko"
-  },
-  "that_many": {
-    "text": "toliko"
-  },
   "left": {
     "text": "levo"
   },
@@ -948,9 +894,6 @@
   "very": {
     "text": "veoma"
   },
-  "very_o": {
-    "text": "vrlo"
-  },
   "too": {
     "text": "previše"
   },
@@ -989,12 +932,6 @@
   },
   "hardly": {
     "text": "jedva"
-  },
-  "sufficiently": {
-    "text": "dosta"
-  },
-  "exceedingly": {
-    "text": "strašno"
   },
   "at_least": {
     "text": "barem"
@@ -1138,10 +1075,6 @@
   "money": {
     "text": "novac",
     "gender": "m"
-  },
-  "money_n": {
-    "text": "pare",
-    "gender": "f"
   },
   "water": {
     "text": "voda",
@@ -1665,22 +1598,2227 @@
     "f": "višebojna",
     "n": "višebojno"
   },
+  "protect": {
+    "imperfective": "štititi",
+    "perfective": "zaštititi"
+  },
+  "save": {
+    "imperfective": "čuvati",
+    "perfective": "sačuvati"
+  },
+  "promise": {
+    "imperfective": "obećavati",
+    "perfective": "obećati"
+  },
+  "warn": {
+    "imperfective": "upozoravati",
+    "perfective": "upozoriti"
+  },
+  "invite": {
+    "imperfective": "pozivati",
+    "perfective": "pozvati"
+  },
+  "negotiate": {
+    "text": "pregovarati"
+  },
+  "hire": {
+    "imperfective": "zapošljavati",
+    "perfective": "zaposliti"
+  },
+  "resign": {
+    "text": "dati otkaz",
+    "aspect": "perfective"
+  },
+  "promote": {
+    "imperfective": "unapređivati",
+    "perfective": "unaprediti"
+  },
+  "sue": {
+    "text": "tužiti"
+  },
+  "download": {
+    "text": "preuzeti",
+    "aspect": "perfective"
+  },
+  "upload": {
+    "text": "otpremiti",
+    "aspect": "perfective"
+  },
+  "update": {
+    "imperfective": "ažurirati",
+    "perfective": "ažurirati"
+  },
+  "grill": {
+    "text": "peći na roštilju"
+  },
+  "roast": {
+    "text": "peći"
+  },
+  "steam": {
+    "text": "kuvati na pari"
+  },
+  "marinate": {
+    "text": "marinirati"
+  },
+  "sketch": {
+    "text": "skicirati"
+  },
+  "head": {
+    "text": "glava",
+    "gender": "f"
+  },
+  "hand": {
+    "text": "ruka",
+    "gender": "f"
+  },
+  "eye": {
+    "text": "oko",
+    "gender": "n"
+  },
+  "mouth": {
+    "text": "usta",
+    "gender": "n"
+  },
+  "leg": {
+    "text": "noga",
+    "gender": "f"
+  },
+  "arm": {
+    "text": "ruka",
+    "gender": "f",
+    "note": "also means hand"
+  },
+  "ear": {
+    "text": "uvo",
+    "gender": "n"
+  },
+  "nose": {
+    "text": "nos",
+    "gender": "m"
+  },
+  "finger": {
+    "text": "prst",
+    "gender": "m"
+  },
+  "foot": {
+    "text": "stopalo",
+    "gender": "n"
+  },
+  "stomach": {
+    "text": "stomak",
+    "gender": "m"
+  },
+  "shoulder": {
+    "text": "rame",
+    "gender": "n"
+  },
+  "knee": {
+    "text": "koleno",
+    "gender": "n"
+  },
+  "back_body": {
+    "text": "leđa",
+    "gender": "n"
+  },
+  "neck": {
+    "text": "vrat",
+    "gender": "m"
+  },
+  "chest": {
+    "text": "grudi",
+    "gender": "f"
+  },
+  "skin": {
+    "text": "koža",
+    "gender": "f"
+  },
+  "hair": {
+    "text": "kosa",
+    "gender": "f"
+  },
+  "tooth": {
+    "text": "zub",
+    "gender": "m"
+  },
+  "tongue": {
+    "text": "jezik",
+    "gender": "m"
+  },
+  "bone": {
+    "text": "kost",
+    "gender": "f"
+  },
+  "blood": {
+    "text": "krv",
+    "gender": "f"
+  },
+  "heart_organ": {
+    "text": "srce",
+    "gender": "n"
+  },
+  "toe": {
+    "text": "nožni prst",
+    "gender": "m"
+  },
+  "brain": {
+    "text": "mozak",
+    "gender": "m"
+  },
+  "shirt": {
+    "text": "košulja",
+    "gender": "f"
+  },
+  "pants": {
+    "text": "pantalone",
+    "gender": "f"
+  },
+  "shoe": {
+    "text": "cipela",
+    "gender": "f"
+  },
+  "coat": {
+    "text": "kaput",
+    "gender": "m"
+  },
+  "hat": {
+    "text": "šešir",
+    "gender": "m"
+  },
+  "dress": {
+    "text": "haljina",
+    "gender": "f"
+  },
+  "jacket": {
+    "text": "jakna",
+    "gender": "f"
+  },
+  "sock": {
+    "text": "čarapa",
+    "gender": "f"
+  },
+  "boot": {
+    "text": "čizma",
+    "gender": "f"
+  },
+  "glove": {
+    "text": "rukavica",
+    "gender": "f"
+  },
+  "scarf": {
+    "text": "šal",
+    "gender": "m"
+  },
+  "glasses": {
+    "text": "naočare",
+    "gender": "f"
+  },
+  "skirt": {
+    "text": "suknja",
+    "gender": "f"
+  },
+  "milk": {
+    "text": "mleko",
+    "gender": "n"
+  },
+  "egg": {
+    "text": "jaje",
+    "gender": "n"
+  },
+  "rice": {
+    "text": "pirinač",
+    "gender": "m"
+  },
+  "cheese": {
+    "text": "sir",
+    "gender": "m"
+  },
+  "fish": {
+    "text": "riba",
+    "gender": "f"
+  },
+  "chicken_meat": {
+    "text": "piletina",
+    "gender": "f"
+  },
+  "vegetable": {
+    "text": "povrće",
+    "gender": "n"
+  },
+  "apple": {
+    "text": "jabuka",
+    "gender": "f"
+  },
+  "potato": {
+    "text": "krompir",
+    "gender": "m"
+  },
+  "tea": {
+    "text": "čaj",
+    "gender": "m"
+  },
+  "juice": {
+    "text": "sok",
+    "gender": "m"
+  },
+  "sugar": {
+    "text": "šećer",
+    "gender": "m"
+  },
+  "salt": {
+    "text": "so",
+    "gender": "f"
+  },
+  "butter": {
+    "text": "puter",
+    "gender": "m"
+  },
+  "onion": {
+    "text": "luk",
+    "gender": "m"
+  },
+  "tomato": {
+    "text": "paradajz",
+    "gender": "m"
+  },
+  "pepper": {
+    "text": "paprika",
+    "gender": "f"
+  },
+  "soup": {
+    "text": "supa",
+    "gender": "f"
+  },
+  "salad": {
+    "text": "salata",
+    "gender": "f"
+  },
+  "oil": {
+    "text": "ulje",
+    "gender": "n"
+  },
+  "chocolate": {
+    "text": "čokolada",
+    "gender": "f"
+  },
+  "beer": {
+    "text": "pivo",
+    "gender": "n"
+  },
+  "wine": {
+    "text": "vino",
+    "gender": "n"
+  },
+  "cup": {
+    "text": "šolja",
+    "gender": "f"
+  },
+  "plate": {
+    "text": "tanjir",
+    "gender": "m"
+  },
+  "spoon": {
+    "text": "kašika",
+    "gender": "f"
+  },
+  "bottle": {
+    "text": "flaša",
+    "gender": "f"
+  },
+  "fork": {
+    "text": "viljuška",
+    "gender": "f"
+  },
+  "knife_utensil": {
+    "text": "nož",
+    "gender": "m"
+  },
+  "bowl": {
+    "text": "činija",
+    "gender": "f"
+  },
+  "glass_cup": {
+    "text": "čaša",
+    "gender": "f"
+  },
+  "pot": {
+    "text": "lonac",
+    "gender": "m"
+  },
+  "pan": {
+    "text": "tiganj",
+    "gender": "m"
+  },
+  "box": {
+    "text": "kutija",
+    "gender": "f"
+  },
+  "scissors": {
+    "text": "makaze",
+    "gender": "f"
+  },
+  "kitchen": {
+    "text": "kuhinja",
+    "gender": "f"
+  },
+  "floor": {
+    "text": "pod",
+    "gender": "m"
+  },
+  "wall": {
+    "text": "zid",
+    "gender": "m"
+  },
+  "apartment": {
+    "text": "stan",
+    "gender": "m"
+  },
+  "roof": {
+    "text": "krov",
+    "gender": "m"
+  },
+  "stairs": {
+    "text": "stepenice",
+    "gender": "f"
+  },
+  "bedroom": {
+    "text": "spavaća soba",
+    "gender": "f"
+  },
+  "lamp": {
+    "text": "lampa",
+    "gender": "f"
+  },
+  "clock": {
+    "text": "sat",
+    "gender": "m"
+  },
+  "mirror": {
+    "text": "ogledalo",
+    "gender": "n"
+  },
+  "key": {
+    "text": "ključ",
+    "gender": "m"
+  },
+  "soap": {
+    "text": "sapun",
+    "gender": "m"
+  },
+  "towel": {
+    "text": "peškir",
+    "gender": "m"
+  },
+  "blanket": {
+    "text": "ćebe",
+    "gender": "n"
+  },
+  "pillow": {
+    "text": "jastuk",
+    "gender": "m"
+  },
+  "pen": {
+    "text": "olovka",
+    "gender": "f"
+  },
+  "he": {
+    "text": "on"
+  },
+  "she": {
+    "text": "ona"
+  },
+  "we": {
+    "text": "mi"
+  },
+  "they": {
+    "text": "oni"
+  },
+  "it": {
+    "text": "ono"
+  },
+  "my": {
+    "text": "moj"
+  },
+  "your": {
+    "text": "tvoj"
+  },
+  "his": {
+    "text": "njegov"
+  },
+  "her": {
+    "text": "njen"
+  },
+  "our": {
+    "text": "naš"
+  },
+  "their": {
+    "text": "njihov"
+  },
+  "zero": {
+    "text": "nula"
+  },
+  "four": {
+    "text": "četiri"
+  },
+  "five": {
+    "text": "pet"
+  },
+  "six": {
+    "text": "šest"
+  },
+  "seven": {
+    "text": "sedam"
+  },
+  "eight": {
+    "text": "osam"
+  },
+  "nine": {
+    "text": "devet"
+  },
+  "ten": {
+    "text": "deset"
+  },
+  "hundred": {
+    "text": "sto"
+  },
+  "thousand": {
+    "text": "hiljada"
+  },
+  "first": {
+    "text": "prvi"
+  },
+  "last": {
+    "text": "poslednji"
+  },
+  "half": {
+    "text": "pola"
+  },
+  "hour": {
+    "text": "sat",
+    "gender": "m"
+  },
+  "minute": {
+    "text": "minut",
+    "gender": "m"
+  },
+  "spring": {
+    "text": "proleće",
+    "gender": "n"
+  },
+  "summer": {
+    "text": "leto",
+    "gender": "n"
+  },
+  "autumn": {
+    "text": "jesen",
+    "gender": "f"
+  },
+  "winter": {
+    "text": "zima",
+    "gender": "f"
+  },
+  "monday": {
+    "text": "ponedeljak"
+  },
+  "tuesday": {
+    "text": "utorak"
+  },
+  "wednesday": {
+    "text": "sreda"
+  },
+  "thursday": {
+    "text": "četvrtak"
+  },
+  "friday": {
+    "text": "petak"
+  },
+  "saturday": {
+    "text": "subota"
+  },
+  "sunday": {
+    "text": "nedelja"
+  },
+  "january": {
+    "text": "januar"
+  },
+  "february": {
+    "text": "februar"
+  },
+  "march": {
+    "text": "mart"
+  },
+  "april": {
+    "text": "april"
+  },
+  "may": {
+    "text": "maj"
+  },
+  "june": {
+    "text": "jun"
+  },
+  "july": {
+    "text": "jul"
+  },
+  "august": {
+    "text": "avgust"
+  },
+  "september": {
+    "text": "septembar"
+  },
+  "october": {
+    "text": "oktobar"
+  },
+  "november": {
+    "text": "novembar"
+  },
+  "december": {
+    "text": "decembar"
+  },
+  "bird": {
+    "text": "ptica",
+    "gender": "f"
+  },
+  "fish_animal": {
+    "text": "riba",
+    "gender": "f"
+  },
+  "horse": {
+    "text": "konj",
+    "gender": "m"
+  },
+  "cow": {
+    "text": "krava",
+    "gender": "f"
+  },
+  "pig": {
+    "text": "svinja",
+    "gender": "f"
+  },
+  "chicken_animal": {
+    "text": "kokoška",
+    "gender": "f"
+  },
+  "mouse": {
+    "text": "miš",
+    "gender": "m"
+  },
+  "snake": {
+    "text": "zmija",
+    "gender": "f"
+  },
+  "bear": {
+    "text": "medved",
+    "gender": "m"
+  },
+  "lion": {
+    "text": "lav",
+    "gender": "m"
+  },
+  "monkey": {
+    "text": "majmun",
+    "gender": "m"
+  },
+  "elephant": {
+    "text": "slon",
+    "gender": "m"
+  },
+  "rabbit": {
+    "text": "zec",
+    "gender": "m"
+  },
+  "insect": {
+    "text": "insekt",
+    "gender": "m"
+  },
+  "sheep": {
+    "text": "ovca",
+    "gender": "f"
+  },
+  "mountain": {
+    "text": "planina",
+    "gender": "f"
+  },
+  "river": {
+    "text": "reka",
+    "gender": "f"
+  },
+  "sea": {
+    "text": "more",
+    "gender": "n"
+  },
+  "cloud": {
+    "text": "oblak",
+    "gender": "m"
+  },
+  "snow": {
+    "text": "sneg",
+    "gender": "m"
+  },
+  "wind": {
+    "text": "vetar",
+    "gender": "m"
+  },
+  "star": {
+    "text": "zvezda",
+    "gender": "f"
+  },
+  "fire": {
+    "text": "vatra",
+    "gender": "f"
+  },
+  "ice": {
+    "text": "led",
+    "gender": "m"
+  },
+  "forest": {
+    "text": "šuma",
+    "gender": "f"
+  },
+  "earth": {
+    "text": "zemlja",
+    "gender": "f"
+  },
+  "storm": {
+    "text": "oluja",
+    "gender": "f"
+  },
+  "weather": {
+    "text": "vreme",
+    "gender": "n"
+  },
+  "grass": {
+    "text": "trava",
+    "gender": "f"
+  },
+  "ocean": {
+    "text": "okean",
+    "gender": "m"
+  },
+  "teacher": {
+    "text": "učitelj",
+    "gender": "m"
+  },
+  "student": {
+    "text": "student",
+    "gender": "m"
+  },
+  "nurse": {
+    "text": "medicinska sestra",
+    "gender": "f"
+  },
+  "driver": {
+    "text": "vozač",
+    "gender": "m"
+  },
+  "worker": {
+    "text": "radnik",
+    "gender": "m"
+  },
+  "bank": {
+    "text": "banka",
+    "gender": "f"
+  },
+  "price": {
+    "text": "cena",
+    "gender": "f"
+  },
+  "cash": {
+    "text": "gotovina",
+    "gender": "f"
+  },
+  "neighbor": {
+    "text": "komšija",
+    "gender": "m"
+  },
+  "parent": {
+    "text": "roditelj",
+    "gender": "m"
+  },
+  "farmer": {
+    "text": "farmer",
+    "gender": "m"
+  },
+  "engineer": {
+    "text": "inženjer",
+    "gender": "m"
+  },
+  "lawyer": {
+    "text": "advokat",
+    "gender": "m"
+  },
+  "soldier": {
+    "text": "vojnik",
+    "gender": "m"
+  },
+  "waiter": {
+    "text": "konobar",
+    "gender": "m"
+  },
+  "artist": {
+    "text": "umetnik",
+    "gender": "m"
+  },
+  "boss": {
+    "text": "šef",
+    "gender": "m"
+  },
+  "church": {
+    "text": "crkva",
+    "gender": "f"
+  },
+  "market": {
+    "text": "pijaca",
+    "gender": "f"
+  },
+  "train_vehicle": {
+    "text": "voz",
+    "gender": "m"
+  },
+  "plane": {
+    "text": "avion",
+    "gender": "m"
+  },
+  "bicycle": {
+    "text": "bicikl",
+    "gender": "m"
+  },
+  "taxi": {
+    "text": "taksi",
+    "gender": "m"
+  },
+  "road": {
+    "text": "put",
+    "gender": "m"
+  },
+  "passport": {
+    "text": "pasoš",
+    "gender": "m"
+  },
+  "luggage": {
+    "text": "prtljag",
+    "gender": "m"
+  },
+  "reservation": {
+    "text": "rezervacija",
+    "gender": "f"
+  },
+  "visa": {
+    "text": "viza",
+    "gender": "f"
+  },
+  "currency_exchange": {
+    "text": "menjačnica",
+    "gender": "f"
+  },
+  "map": {
+    "text": "mapa",
+    "gender": "f"
+  },
+  "payment": {
+    "text": "plaćanje",
+    "gender": "n"
+  },
+  "boat": {
+    "text": "čamac",
+    "gender": "m"
+  },
+  "bridge": {
+    "text": "most",
+    "gender": "m"
+  },
+  "trip": {
+    "text": "putovanje",
+    "gender": "n"
+  },
+  "customs": {
+    "text": "carina",
+    "gender": "f"
+  },
+  "embassy": {
+    "text": "ambasada",
+    "gender": "f"
+  },
+  "hostel": {
+    "text": "hostel",
+    "gender": "m"
+  },
+  "guide": {
+    "text": "vodič",
+    "gender": "m"
+  },
+  "destination": {
+    "text": "odredište",
+    "gender": "n"
+  },
+  "account": {
+    "text": "račun",
+    "gender": "m"
+  },
+  "transfer": {
+    "text": "transfer",
+    "gender": "m"
+  },
+  "receipt": {
+    "text": "račun",
+    "gender": "m",
+    "note": "for receipt/bill"
+  },
+  "tax": {
+    "text": "porez",
+    "gender": "m"
+  },
+  "and": {
+    "text": "i"
+  },
+  "or": {
+    "text": "ili"
+  },
+  "who": {
+    "text": "ko"
+  },
+  "how": {
+    "text": "kako"
+  },
+  "but": {
+    "text": "ali"
+  },
+  "because": {
+    "text": "zato što"
+  },
+  "if": {
+    "text": "ako"
+  },
+  "also": {
+    "text": "također"
+  },
+  "however": {
+    "text": "međutim"
+  },
+  "therefore": {
+    "text": "zato"
+  },
+  "although": {
+    "text": "iako"
+  },
+  "while": {
+    "text": "dok"
+  },
+  "unless": {
+    "text": "osim ako"
+  },
+  "whether": {
+    "text": "da li"
+  },
+  "either": {
+    "text": "ili"
+  },
+  "neither": {
+    "text": "ni"
+  },
+  "instead": {
+    "text": "umesto"
+  },
+  "otherwise": {
+    "text": "inače"
+  },
+  "important": {
+    "m": "važan",
+    "f": "važna",
+    "n": "važno"
+  },
+  "possible": {
+    "m": "moguć",
+    "f": "moguća",
+    "n": "moguće"
+  },
+  "necessary": {
+    "m": "potreban",
+    "f": "potrebna",
+    "n": "potrebno"
+  },
+  "different": {
+    "m": "drugačiji",
+    "f": "drugačija",
+    "n": "drugačije"
+  },
+  "same": {
+    "m": "isti",
+    "f": "ista",
+    "n": "isto"
+  },
+  "long": {
+    "m": "dugačak",
+    "f": "dugačka",
+    "n": "dugačko"
+  },
+  "short": {
+    "m": "kratak",
+    "f": "kratka",
+    "n": "kratko"
+  },
+  "tall": {
+    "m": "visok",
+    "f": "visoka",
+    "n": "visoko"
+  },
+  "heavy": {
+    "m": "težak",
+    "f": "teška",
+    "n": "teško"
+  },
+  "full": {
+    "m": "pun",
+    "f": "puna",
+    "n": "puno"
+  },
+  "empty": {
+    "m": "prazan",
+    "f": "prazna",
+    "n": "prazno"
+  },
+  "loud": {
+    "m": "glasan",
+    "f": "glasna",
+    "n": "glasno"
+  },
+  "quiet": {
+    "m": "tih",
+    "f": "tiha",
+    "n": "tiho"
+  },
+  "wide": {
+    "m": "širok",
+    "f": "široka",
+    "n": "široko"
+  },
+  "deep": {
+    "m": "dubok",
+    "f": "duboka",
+    "n": "duboko"
+  },
+  "round": {
+    "m": "okrugao",
+    "f": "okrugla",
+    "n": "okruglo"
+  },
+  "sick": {
+    "m": "bolestan",
+    "f": "bolesna",
+    "n": "bolesno"
+  },
+  "healthy": {
+    "m": "zdrav",
+    "f": "zdrava",
+    "n": "zdravo"
+  },
+  "alive": {
+    "m": "živ",
+    "f": "živa",
+    "n": "živo"
+  },
+  "dead": {
+    "m": "mrtav",
+    "f": "mrtva",
+    "n": "mrtvo"
+  },
+  "pregnant": {
+    "m": "trudan",
+    "f": "trudna",
+    "n": "trudno"
+  },
+  "blind": {
+    "m": "slep",
+    "f": "slepa",
+    "n": "slepo"
+  },
+  "deaf": {
+    "m": "gluv",
+    "f": "gluva",
+    "n": "gluvo"
+  },
+  "naked": {
+    "m": "go",
+    "f": "gola",
+    "n": "golo"
+  },
+  "single": {
+    "m": "sam",
+    "f": "sama",
+    "n": "samo",
+    "note": "unmarried/alone"
+  },
+  "guilty": {
+    "m": "kriv",
+    "f": "kriva",
+    "n": "krivo"
+  },
+  "innocent": {
+    "m": "nevin",
+    "f": "nevina",
+    "n": "nevino"
+  },
+  "erotic": {
+    "m": "erotičan",
+    "f": "erotična",
+    "n": "erotično"
+  },
+  "sensual": {
+    "m": "čulan",
+    "f": "čulna",
+    "n": "čulno"
+  },
+  "accident_car": {
+    "text": "[SR:accident_car]"
+  },
+  "actor": {
+    "text": "[SR:actor]"
+  },
+  "affair": {
+    "text": "[SR:affair]"
+  },
+  "algorithm": {
+    "text": "[SR:algorithm]"
+  },
+  "allergy": {
+    "text": "[SR:allergy]"
+  },
+  "anniversary": {
+    "text": "[SR:anniversary]"
+  },
+  "ant": {
+    "text": "[SR:ant]"
+  },
+  "apology": {
+    "text": "[SR:apology]"
+  },
+  "app": {
+    "text": "[SR:app]"
+  },
+  "argument": {
+    "text": "[SR:argument]"
+  },
+  "arousal": {
+    "text": "[SR:arousal]"
+  },
+  "arrest": {
+    "text": "[SR:arrest]"
+  },
+  "artery": {
+    "text": "[SR:artery]"
+  },
+  "athlete": {
+    "text": "[SR:athlete]"
+  },
+  "atom": {
+    "text": "[SR:atom]"
+  },
+  "attorney": {
+    "text": "[SR:attorney]"
+  },
+  "attraction": {
+    "text": "[SR:attraction]"
+  },
+  "audience": {
+    "text": "[SR:audience]"
+  },
+  "baby": {
+    "text": "[SR:baby]"
+  },
+  "ball": {
+    "text": "[SR:ball]"
+  },
+  "bandage": {
+    "text": "[SR:bandage]"
+  },
+  "basket": {
+    "text": "[SR:basket]"
+  },
+  "battery": {
+    "text": "[SR:battery]"
+  },
+  "bee": {
+    "text": "[SR:bee]"
+  },
+  "birth": {
+    "text": "[SR:birth]"
+  },
+  "blood_pressure": {
+    "text": "[SR:blood_pressure]"
+  },
+  "border": {
+    "text": "[SR:border]"
+  },
+  "boyfriend": {
+    "text": "[SR:boyfriend]"
+  },
+  "brake": {
+    "text": "[SR:brake]"
+  },
+  "breakup": {
+    "text": "[SR:breakup]"
+  },
+  "broom": {
+    "text": "[SR:broom]"
+  },
+  "browser": {
+    "text": "[SR:browser]"
+  },
+  "brush_hygiene": {
+    "text": "[SR:brush_hygiene]"
+  },
+  "budget": {
+    "text": "[SR:budget]"
+  },
+  "bug": {
+    "text": "[SR:bug]"
+  },
+  "cabinet": {
+    "text": "[SR:cabinet]"
+  },
+  "camera": {
+    "text": "[SR:camera]"
+  },
+  "canvas": {
+    "text": "[SR:canvas]"
+  },
+  "canyon": {
+    "text": "[SR:canyon]"
+  },
+  "cave": {
+    "text": "[SR:cave]"
+  },
+  "celebration": {
+    "text": "[SR:celebration]"
+  },
+  "cell": {
+    "text": "[SR:cell]"
+  },
+  "ceremony": {
+    "text": "[SR:ceremony]"
+  },
+  "certificate": {
+    "text": "[SR:certificate]"
+  },
+  "champion": {
+    "text": "[SR:champion]"
+  },
+  "chance": {
+    "text": "[SR:chance]"
+  },
+  "channel": {
+    "text": "[SR:channel]"
+  },
+  "chemical": {
+    "text": "[SR:chemical]"
+  },
+  "cinnamon": {
+    "text": "[SR:cinnamon]"
+  },
+  "classroom": {
+    "text": "[SR:classroom]"
+  },
+  "clay": {
+    "text": "[SR:clay]"
+  },
+  "client": {
+    "text": "[SR:client]"
+  },
+  "cliff": {
+    "text": "[SR:cliff]"
+  },
+  "cloth": {
+    "text": "[SR:cloth]"
+  },
+  "cloud_computing": {
+    "text": "[SR:cloud_computing]"
+  },
+  "coach": {
+    "text": "[SR:coach]"
+  },
+  "coast": {
+    "text": "[SR:coast]"
+  },
+  "code": {
+    "text": "[SR:code]"
+  },
+  "comb": {
+    "text": "[SR:comb]"
+  },
+  "company": {
+    "text": "[SR:company]"
+  },
+  "compromise": {
+    "text": "[SR:compromise]"
+  },
+  "concert": {
+    "text": "[SR:concert]"
+  },
+  "condom": {
+    "text": "[SR:condom]"
+  },
+  "consciousness": {
+    "text": "[SR:consciousness]"
+  },
+  "consent": {
+    "text": "[SR:consent]"
+  },
+  "constitution": {
+    "text": "[SR:constitution]"
+  },
+  "continent": {
+    "text": "[SR:continent]"
+  },
+  "contract": {
+    "text": "[SR:contract]"
+  },
+  "coral": {
+    "text": "[SR:coral]"
+  },
+  "cotton": {
+    "text": "[SR:cotton]"
+  },
+  "couple": {
+    "text": "[SR:couple]"
+  },
+  "course": {
+    "text": "[SR:course]"
+  },
+  "court": {
+    "text": "[SR:court]"
+  },
+  "cream": {
+    "text": "[SR:cream]"
+  },
+  "credit_card": {
+    "text": "[SR:credit_card]"
+  },
+  "crime": {
+    "text": "[SR:crime]"
+  },
+  "crimson": {
+    "text": "[SR:crimson]"
+  },
+  "crocodile": {
+    "text": "[SR:crocodile]"
+  },
+  "currency": {
+    "text": "[SR:currency]"
+  },
+  "data": {
+    "text": "[SR:data]"
+  },
+  "database": {
+    "text": "[SR:database]"
+  },
+  "date_romantic": {
+    "text": "[SR:date_romantic]"
+  },
+  "deadline": {
+    "text": "[SR:deadline]"
+  },
+  "death": {
+    "text": "[SR:death]"
+  },
+  "deer": {
+    "text": "[SR:deer]"
+  },
+  "defeat": {
+    "text": "[SR:defeat]"
+  },
+  "degree_education": {
+    "text": "[SR:degree_education]"
+  },
+  "deodorant": {
+    "text": "[SR:deodorant]"
+  },
+  "department": {
+    "text": "[SR:department]"
+  },
+  "desert": {
+    "text": "[SR:desert]"
+  },
+  "desire": {
+    "text": "[SR:desire]"
+  },
+  "destiny": {
+    "text": "[SR:destiny]"
+  },
+  "diagnosis": {
+    "text": "[SR:diagnosis]"
+  },
+  "diploma": {
+    "text": "[SR:diploma]"
+  },
+  "dishwasher": {
+    "text": "[SR:dishwasher]"
+  },
+  "divorce": {
+    "text": "[SR:divorce]"
+  },
+  "dolphin": {
+    "text": "[SR:dolphin]"
+  },
+  "dough": {
+    "text": "[SR:dough]"
+  },
+  "drawer": {
+    "text": "[SR:drawer]"
+  },
+  "dream_n": {
+    "text": "[SR:dream_n]"
+  },
+  "dresser": {
+    "text": "[SR:dresser]"
+  },
+  "drill": {
+    "text": "[SR:drill]"
+  },
+  "eagle": {
+    "text": "[SR:eagle]"
+  },
+  "employee": {
+    "text": "[SR:employee]"
+  },
+  "encryption": {
+    "text": "[SR:encryption]"
+  },
+  "energy": {
+    "text": "[SR:energy]"
+  },
+  "engagement": {
+    "text": "[SR:engagement]"
+  },
+  "engine": {
+    "text": "[SR:engine]"
+  },
+  "enlightenment": {
+    "text": "[SR:enlightenment]"
+  },
+  "essay": {
+    "text": "[SR:essay]"
+  },
+  "eternity": {
+    "text": "[SR:eternity]"
+  },
+  "ethics": {
+    "text": "[SR:ethics]"
+  },
+  "evidence": {
+    "text": "[SR:evidence]"
+  },
+  "evolution": {
+    "text": "[SR:evolution]"
+  },
+  "exam": {
+    "text": "[SR:exam]"
+  },
+  "exchange_rate": {
+    "text": "[SR:exchange_rate]"
+  },
+  "exercise": {
+    "text": "[SR:exercise]"
+  },
+  "existence": {
+    "text": "[SR:existence]"
+  },
+  "experience": {
+    "text": "[SR:experience]"
+  },
+  "experiment": {
+    "text": "[SR:experiment]"
+  },
+  "fact": {
+    "text": "[SR:fact]"
+  },
+  "failure": {
+    "text": "[SR:failure]"
+  },
+  "fantasy": {
+    "text": "[SR:fantasy]"
+  },
+  "fate": {
+    "text": "[SR:fate]"
+  },
+  "fear_n": {
+    "text": "[SR:fear_n]"
+  },
+  "fever": {
+    "text": "[SR:fever]"
+  },
+  "field": {
+    "text": "[SR:field]"
+  },
+  "film": {
+    "text": "[SR:film]"
+  },
+  "fine_n": {
+    "text": "[SR:fine_n]"
+  },
+  "flirt": {
+    "text": "[SR:flirt]"
+  },
+  "flour": {
+    "text": "[SR:flour]"
+  },
+  "foreplay": {
+    "text": "[SR:foreplay]"
+  },
+  "fracture": {
+    "text": "[SR:fracture]"
+  },
+  "freedom": {
+    "text": "[SR:freedom]"
+  },
+  "frog": {
+    "text": "[SR:frog]"
+  },
+  "fuel": {
+    "text": "[SR:fuel]"
+  },
+  "game_n": {
+    "text": "[SR:game_n]"
+  },
+  "garage": {
+    "text": "[SR:garage]"
+  },
+  "garlic": {
+    "text": "[SR:garlic]"
+  },
+  "gas_station": {
+    "text": "[SR:gas_station]"
+  },
+  "gene": {
+    "text": "[SR:gene]"
+  },
+  "gift": {
+    "text": "[SR:gift]"
+  },
+  "ginger": {
+    "text": "[SR:ginger]"
+  },
+  "girlfriend": {
+    "text": "[SR:girlfriend]"
+  },
+  "glass_material": {
+    "text": "[SR:glass_material]"
+  },
+  "glue": {
+    "text": "[SR:glue]"
+  },
+  "goal": {
+    "text": "[SR:goal]"
+  },
+  "god": {
+    "text": "[SR:god]"
+  },
+  "grade": {
+    "text": "[SR:grade]"
+  },
+  "gravity": {
+    "text": "[SR:gravity]"
+  },
+  "gym": {
+    "text": "[SR:gym]"
+  },
+  "hammer": {
+    "text": "[SR:hammer]"
+  },
+  "hardware": {
+    "text": "[SR:hardware]"
+  },
+  "highway": {
+    "text": "[SR:highway]"
+  },
+  "hill": {
+    "text": "[SR:hill]"
+  },
+  "homework": {
+    "text": "[SR:homework]"
+  },
+  "honey": {
+    "text": "[SR:honey]"
+  },
+  "honeymoon": {
+    "text": "[SR:honeymoon]"
+  },
+  "hookup": {
+    "text": "[SR:hookup]"
+  },
+  "hope_n": {
+    "text": "[SR:hope_n]"
+  },
+  "hormone": {
+    "text": "[SR:hormone]"
+  },
+  "horn": {
+    "text": "[SR:horn]"
+  },
+  "hug": {
+    "text": "[SR:hug]"
+  },
+  "hypothesis": {
+    "text": "[SR:hypothesis]"
+  },
+  "ignorance": {
+    "text": "[SR:ignorance]"
+  },
+  "illusion": {
+    "text": "[SR:illusion]"
+  },
+  "infection": {
+    "text": "[SR:infection]"
+  },
+  "infinity": {
+    "text": "[SR:infinity]"
+  },
+  "inflammation": {
+    "text": "[SR:inflammation]"
+  },
+  "insurance": {
+    "text": "[SR:insurance]"
+  },
+  "interface": {
+    "text": "[SR:interface]"
+  },
+  "intimacy": {
+    "text": "[SR:intimacy]"
+  },
+  "invitation": {
+    "text": "[SR:invitation]"
+  },
+  "invoice": {
+    "text": "[SR:invoice]"
+  },
+  "iron_appliance": {
+    "text": "[SR:iron_appliance]"
+  },
+  "island": {
+    "text": "[SR:island]"
+  },
+  "ivory": {
+    "text": "[SR:ivory]"
+  },
+  "jellyfish": {
+    "text": "[SR:jellyfish]"
+  },
+  "judge": {
+    "text": "[SR:judge]"
+  },
+  "jungle": {
+    "text": "[SR:jungle]"
+  },
+  "justice": {
+    "text": "[SR:justice]"
+  },
+  "kidney": {
+    "text": "[SR:kidney]"
+  },
+  "laboratory": {
+    "text": "[SR:laboratory]"
+  },
+  "ladder": {
+    "text": "[SR:ladder]"
+  },
+  "lake": {
+    "text": "[SR:lake]"
+  },
+  "lamb": {
+    "text": "[SR:lamb]"
+  },
+  "language": {
+    "text": "[SR:language]"
+  },
+  "law": {
+    "text": "[SR:law]"
+  },
+  "lawsuit": {
+    "text": "[SR:lawsuit]"
+  },
+  "league": {
+    "text": "[SR:league]"
+  },
+  "leather": {
+    "text": "[SR:leather]"
+  },
+  "lecture": {
+    "text": "[SR:lecture]"
+  },
+  "letter": {
+    "text": "[SR:letter]"
+  },
+  "libido": {
+    "text": "[SR:libido]"
+  },
+  "library": {
+    "text": "[SR:library]"
+  },
+  "license": {
+    "text": "[SR:license]"
+  },
+  "lie_n": {
+    "text": "[SR:lie_n]"
+  },
+  "liver": {
+    "text": "[SR:liver]"
+  },
+  "loan": {
+    "text": "[SR:loan]"
+  },
+  "lock_n": {
+    "text": "[SR:lock_n]"
+  },
+  "logic": {
+    "text": "[SR:logic]"
+  },
+  "loss_n": {
+    "text": "[SR:loss_n]"
+  },
+  "lotion": {
+    "text": "[SR:lotion]"
+  },
+  "lover": {
+    "text": "[SR:lover]"
+  },
+  "loyalty": {
+    "text": "[SR:loyalty]"
+  },
+  "lung": {
+    "text": "[SR:lung]"
+  },
+  "makeup": {
+    "text": "[SR:makeup]"
+  },
+  "maroon": {
+    "text": "[SR:maroon]"
+  },
+  "match": {
+    "text": "[SR:match]"
+  },
+  "meaning": {
+    "text": "[SR:meaning]"
+  },
+  "meeting": {
+    "text": "[SR:meeting]"
+  },
+  "memory": {
+    "text": "[SR:memory]"
+  },
+  "message": {
+    "text": "[SR:message]"
+  },
+  "metal": {
+    "text": "[SR:metal]"
+  },
+  "microwave": {
+    "text": "[SR:microwave]"
+  },
+  "molecule": {
+    "text": "[SR:molecule]"
+  },
+  "morality": {
+    "text": "[SR:morality]"
+  },
+  "movie": {
+    "text": "[SR:movie]"
+  },
+  "muscle": {
+    "text": "[SR:muscle]"
+  },
+  "mushroom": {
+    "text": "[SR:mushroom]"
+  },
+  "music": {
+    "text": "[SR:music]"
+  },
+  "nail_clipper": {
+    "text": "[SR:nail_clipper]"
+  },
+  "nail_tool": {
+    "text": "[SR:nail_tool]"
+  },
+  "navy": {
+    "text": "[SR:navy]"
+  },
+  "network": {
+    "text": "[SR:network]"
+  },
+  "news": {
+    "text": "[SR:news]"
+  },
+  "nightstand": {
+    "text": "[SR:nightstand]"
+  },
+  "noodle": {
+    "text": "[SR:noodle]"
+  },
+  "octopus": {
+    "text": "[SR:octopus]"
+  },
+  "odometer": {
+    "text": "[SR:odometer]"
+  },
+  "one_night_stand": {
+    "text": "[SR:one_night_stand]"
+  },
+  "orgasm": {
+    "text": "[SR:orgasm]"
+  },
+  "oven": {
+    "text": "[SR:oven]"
+  },
+  "owl": {
+    "text": "[SR:owl]"
+  },
+  "pain": {
+    "text": "[SR:pain]"
+  },
+  "pancreas": {
+    "text": "[SR:pancreas]"
+  },
+  "paper": {
+    "text": "[SR:paper]"
+  },
+  "paradox": {
+    "text": "[SR:paradox]"
+  },
+  "parking": {
+    "text": "[SR:parking]"
+  },
+  "parrot": {
+    "text": "[SR:parrot]"
+  },
+  "partner": {
+    "text": "[SR:partner]"
+  },
+  "passion": {
+    "text": "[SR:passion]"
+  },
+  "password": {
+    "text": "[SR:password]"
+  },
+  "pattern": {
+    "text": "[SR:pattern]"
+  },
+  "peace": {
+    "text": "[SR:peace]"
+  },
+  "penguin": {
+    "text": "[SR:penguin]"
+  },
+  "peninsula": {
+    "text": "[SR:peninsula]"
+  },
+  "perception": {
+    "text": "[SR:perception]"
+  },
+  "perfume": {
+    "text": "[SR:perfume]"
+  },
+  "photo": {
+    "text": "[SR:photo]"
+  },
+  "physics": {
+    "text": "[SR:physics]"
+  },
+  "pipe": {
+    "text": "[SR:pipe]"
+  },
+  "place": {
+    "text": "[SR:place]"
+  },
+  "plastic": {
+    "text": "[SR:plastic]"
+  },
+  "plateau": {
+    "text": "[SR:plateau]"
+  },
+  "player": {
+    "text": "[SR:player]"
+  },
+  "pleasure": {
+    "text": "[SR:pleasure]"
+  },
+  "plug": {
+    "text": "[SR:plug]"
+  },
+  "power": {
+    "text": "[SR:power]"
+  },
+  "prescription": {
+    "text": "[SR:prescription]"
+  },
+  "presentation": {
+    "text": "[SR:presentation]"
+  },
+  "pressure": {
+    "text": "[SR:pressure]"
+  },
+  "professor": {
+    "text": "[SR:professor]"
+  },
+  "profit": {
+    "text": "[SR:profit]"
+  },
+  "project": {
+    "text": "[SR:project]"
+  },
+  "proposal_n": {
+    "text": "[SR:proposal_n]"
+  },
+  "race": {
+    "text": "[SR:race]"
+  },
+  "radiation": {
+    "text": "[SR:radiation]"
+  },
+  "radio": {
+    "text": "[SR:radio]"
+  },
+  "razor": {
+    "text": "[SR:razor]"
+  },
+  "reaction": {
+    "text": "[SR:reaction]"
+  },
+  "reality": {
+    "text": "[SR:reality]"
+  },
+  "referee": {
+    "text": "[SR:referee]"
+  },
+  "relationship": {
+    "text": "[SR:relationship]"
+  },
+  "research": {
+    "text": "[SR:research]"
+  },
+  "rights": {
+    "text": "[SR:rights]"
+  },
+  "rope": {
+    "text": "[SR:rope]"
+  },
+  "rubber": {
+    "text": "[SR:rubber]"
+  },
+  "salary": {
+    "text": "[SR:salary]"
+  },
+  "sauce": {
+    "text": "[SR:sauce]"
+  },
+  "sausage": {
+    "text": "[SR:sausage]"
+  },
+  "saw": {
+    "text": "[SR:saw]"
+  },
+  "scholarship": {
+    "text": "[SR:scholarship]"
+  },
+  "score": {
+    "text": "[SR:score]"
+  },
+  "screen": {
+    "text": "[SR:screen]"
+  },
+  "screw": {
+    "text": "[SR:screw]"
+  },
+  "screwdriver": {
+    "text": "[SR:screwdriver]"
+  },
+  "seal": {
+    "text": "[SR:seal]"
+  },
+  "seasoning": {
+    "text": "[SR:seasoning]"
+  },
+  "seatbelt": {
+    "text": "[SR:seatbelt]"
+  },
+  "secret": {
+    "text": "[SR:secret]"
+  },
+  "seduce": {
+    "text": "[SR:seduce]"
+  },
+  "seduction": {
+    "text": "[SR:seduction]"
+  },
+  "semester": {
+    "text": "[SR:semester]"
+  },
+  "sentence_legal": {
+    "text": "[SR:sentence_legal]"
+  },
+  "series": {
+    "text": "[SR:series]"
+  },
+  "server": {
+    "text": "[SR:server]"
+  },
+  "sex": {
+    "text": "[SR:sex]"
+  },
+  "shade": {
+    "text": "[SR:shade]"
+  },
+  "shampoo": {
+    "text": "[SR:shampoo]"
+  },
+  "shark": {
+    "text": "[SR:shark]"
+  },
+  "shelf": {
+    "text": "[SR:shelf]"
+  },
+  "show_n": {
+    "text": "[SR:show_n]"
+  },
+  "shrimp": {
+    "text": "[SR:shrimp]"
+  },
+  "sin": {
+    "text": "[SR:sin]"
+  },
+  "sink": {
+    "text": "[SR:sink]"
+  },
+  "software": {
+    "text": "[SR:software]"
+  },
+  "song": {
+    "text": "[SR:song]"
+  },
+  "soul": {
+    "text": "[SR:soul]"
+  },
+  "species": {
+    "text": "[SR:species]"
+  },
+  "speech": {
+    "text": "[SR:speech]"
+  },
+  "speed": {
+    "text": "[SR:speed]"
+  },
+  "spider": {
+    "text": "[SR:spider]"
+  },
+  "spine": {
+    "text": "[SR:spine]"
+  },
+  "steering": {
+    "text": "[SR:steering]"
+  },
+  "stone": {
+    "text": "[SR:stone]"
+  },
+  "story": {
+    "text": "[SR:story]"
+  },
+  "strategy": {
+    "text": "[SR:strategy]"
+  },
+  "stripe": {
+    "text": "[SR:stripe]"
+  },
+  "success": {
+    "text": "[SR:success]"
+  },
+  "sunscreen": {
+    "text": "[SR:sunscreen]"
+  },
+  "surgery": {
+    "text": "[SR:surgery]"
+  },
+  "swimming_pool": {
+    "text": "[SR:swimming_pool]"
+  },
+  "switch_n": {
+    "text": "[SR:switch_n]"
+  },
+  "symptom": {
+    "text": "[SR:symptom]"
+  },
+  "tape": {
+    "text": "[SR:tape]"
+  },
+  "teal": {
+    "text": "[SR:teal]"
+  },
+  "team": {
+    "text": "[SR:team]"
+  },
+  "temperature": {
+    "text": "[SR:temperature]"
+  },
+  "textbook": {
+    "text": "[SR:textbook]"
+  },
+  "texture": {
+    "text": "[SR:texture]"
+  },
+  "theater": {
+    "text": "[SR:theater]"
+  },
+  "theory": {
+    "text": "[SR:theory]"
+  },
+  "tire": {
+    "text": "[SR:tire]"
+  },
+  "tissue": {
+    "text": "[SR:tissue]"
+  },
+  "toolbox": {
+    "text": "[SR:toolbox]"
+  },
+  "toothbrush": {
+    "text": "[SR:toothbrush]"
+  },
+  "toothpaste": {
+    "text": "[SR:toothpaste]"
+  },
+  "tournament": {
+    "text": "[SR:tournament]"
+  },
+  "traffic": {
+    "text": "[SR:traffic]"
+  },
+  "training_n": {
+    "text": "[SR:training_n]"
+  },
+  "tray": {
+    "text": "[SR:tray]"
+  },
+  "trial": {
+    "text": "[SR:trial]"
+  },
+  "trust_n": {
+    "text": "[SR:trust_n]"
+  },
+  "truth": {
+    "text": "[SR:truth]"
+  },
+  "turquoise": {
+    "text": "[SR:turquoise]"
+  },
+  "turtle": {
+    "text": "[SR:turtle]"
+  },
+  "utensil": {
+    "text": "[SR:utensil]"
+  },
+  "vacuum": {
+    "text": "[SR:vacuum]"
+  },
+  "valley": {
+    "text": "[SR:valley]"
+  },
+  "vase": {
+    "text": "[SR:vase]"
+  },
+  "vehicle": {
+    "text": "[SR:vehicle]"
+  },
+  "vein": {
+    "text": "[SR:vein]"
+  },
+  "verdict": {
+    "text": "[SR:verdict]"
+  },
+  "victim": {
+    "text": "[SR:victim]"
+  },
+  "victory": {
+    "text": "[SR:victory]"
+  },
+  "video": {
+    "text": "[SR:video]"
+  },
+  "vinegar": {
+    "text": "[SR:vinegar]"
+  },
+  "virgin": {
+    "text": "[SR:virgin]"
+  },
+  "virtue": {
+    "text": "[SR:virtue]"
+  },
+  "voice": {
+    "text": "[SR:voice]"
+  },
+  "volcano": {
+    "text": "[SR:volcano]"
+  },
+  "war": {
+    "text": "[SR:war]"
+  },
+  "wardrobe": {
+    "text": "[SR:wardrobe]"
+  },
+  "washing_machine": {
+    "text": "[SR:washing_machine]"
+  },
+  "waterfall": {
+    "text": "[SR:waterfall]"
+  },
+  "way": {
+    "text": "[SR:way]"
+  },
+  "website": {
+    "text": "[SR:website]"
+  },
+  "wedding": {
+    "text": "[SR:wedding]"
+  },
+  "whale": {
+    "text": "[SR:whale]"
+  },
+  "wheel": {
+    "text": "[SR:wheel]"
+  },
+  "wire": {
+    "text": "[SR:wire]"
+  },
+  "wisdom": {
+    "text": "[SR:wisdom]"
+  },
+  "witness": {
+    "text": "[SR:witness]"
+  },
+  "wolf": {
+    "text": "[SR:wolf]"
+  },
+  "wood": {
+    "text": "[SR:wood]"
+  },
+  "wound": {
+    "text": "[SR:wound]"
+  },
+  "wrench": {
+    "text": "[SR:wrench]"
+  },
   "meta": {
     "levels": {
       "survival": {
-        "name": "Prezivljavanje"
+        "name": "Preživljavanje"
       },
-      "intro": {
-        "name": "Uvod"
+      "foundation": {
+        "name": "Osnove"
       },
-      "basic": {
-        "name": "Osnovno"
+      "elementary": {
+        "name": "Početni"
       },
-      "moderate": {
-        "name": "Srednje"
+      "intermediate": {
+        "name": "Srednji"
       },
       "advanced": {
-        "name": "Napredno"
+        "name": "Napredni"
+      },
+      "specialized": {
+        "name": "Specijalizovani"
       }
     },
     "groups": {
@@ -1691,92 +3829,231 @@
         "name": "Snalaziti se"
       },
       "staying_alive": {
-        "name": "Ostati ziv"
+        "name": "Ostati živ"
       },
       "making_sense": {
-        "name": "Imate smisla"
+        "name": "Ima smisla"
       },
-      "base": {
-        "name": "Osnova"
+      "core_verbs": {
+        "name": "Osnovni glagoli"
       },
-      "basic_verbs_00": {
-        "name": "Osnovni glagoli (dev)"
+      "daily_actions": {
+        "name": "Svakodnevne aktivnosti"
       },
-      "basic_verbs_01": {
-        "name": "Osnovni glagoli 01"
+      "head_to_toe": {
+        "name": "Od glave do prstiju"
       },
-      "basic_verbs_02": {
-        "name": "Osnovni glagoli 02"
+      "my_people": {
+        "name": "Moji ljudi"
       },
-      "basic_verbs_03": {
-        "name": "Osnovni glagoli 03"
+      "bread_and_water": {
+        "name": "Hleb i voda"
       },
-      "basic_verbs_04": {
-        "name": "Osnovni glagoli 04"
+      "four_walls": {
+        "name": "Četiri zida"
       },
-      "basic_verbs_05": {
-        "name": "Osnovni glagoli 05"
+      "zero_to_ten": {
+        "name": "Od nule do deset"
       },
-      "basic_verbs_06": {
-        "name": "Osnovni glagoli 06"
+      "on_the_road": {
+        "name": "Na putu"
       },
-      "basic_verbs_07": {
-        "name": "Osnovni glagoli 07"
+      "good_and_bad": {
+        "name": "Dobro i loše"
       },
-      "basic_verbs_08": {
-        "name": "Osnovni glagoli 08"
+      "glue_words": {
+        "name": "Vezni reči"
       },
-      "basic_verbs_09": {
-        "name": "Osnovni glagoli 09"
+      "doing_things": {
+        "name": "Radi stvari"
       },
-      "basic_verbs_10": {
-        "name": "Osnovni glagoli 10"
+      "hands_on": {
+        "name": "Praktično"
       },
-      "basic_verbs_11": {
-        "name": "Osnovni glagoli 11"
+      "laugh_and_cry": {
+        "name": "Smeh i plač"
       },
-      "adverbs_of_time": {
-        "name": "Prilozi za vreme"
+      "shoulder_to_knee": {
+        "name": "Od ramena do kolena"
       },
-      "prepositions": {
-        "name": "Predlozi"
+      "brothers_and_sisters": {
+        "name": "Braća i sestre"
       },
-      "demonstrative_pronouns": {
-        "name": "Pokazne zamenice"
+      "market_basket": {
+        "name": "Tržna korpa"
       },
-      "relative_direction": {
-        "name": "Relativni pravac"
+      "around_the_house": {
+        "name": "Po kući"
       },
-      "degree_quantity": {
-        "name": "Stepen i količina"
+      "rainbow": {
+        "name": "Duga"
       },
-      "people": {
-        "name": "Ljudi"
+      "days_and_months": {
+        "name": "Dani i meseci"
       },
-      "places": {
-        "name": "Mesta"
+      "when_and_how_often": {
+        "name": "Kada i kako često"
       },
-      "daily_items_objects": {
-        "name": "Svakodnevni predmeti"
+      "creatures_and_sky": {
+        "name": "Živine i nebo"
       },
-      "time_nature": {
-        "name": "Vreme i priroda"
+      "city_life": {
+        "name": "Život u gradu"
       },
-      "abstract_concepts": {
-        "name": "Apstraktni pojmovi"
+      "how_things_are": {
+        "name": "Kako stvari jesu"
       },
-      "general_qualities": {
-        "name": "Opšte osobine"
+      "world_words": {
+        "name": "Svetske reči"
       },
-      "people_emotions": {
-        "name": "Ljudi i emocije"
+      "bags_packed": {
+        "name": "Putni prtljag"
       },
-      "senses_feelings": {
-        "name": "Čula i osećanja"
+      "heart_and_mind": {
+        "name": "Srce i um"
       },
-      "colors": {
-        "name": "Boje"
+      "coming_and_going": {
+        "name": "Dolazak i odlazak"
+      },
+      "build_and_break": {
+        "name": "Graditi i slomiti"
+      },
+      "two_word_wonders": {
+        "name": "Dva reči čuda"
+      },
+      "skin_deep": {
+        "name": "Ispod kože"
+      },
+      "home_sweet_home": {
+        "name": "Slatko kućno"
+      },
+      "at_the_table": {
+        "name": "Za stolom"
+      },
+      "wild_side": {
+        "name": "Divlja strana"
+      },
+      "taste_and_touch": {
+        "name": "Ukus i dodir"
+      },
+      "people_and_places": {
+        "name": "Ljudi i mesta"
+      },
+      "life_and_work": {
+        "name": "Život i rad"
+      },
+      "when_and_where": {
+        "name": "Kada i gde"
+      },
+      "going_places": {
+        "name": "Putovanja"
+      },
+      "dating_scene": {
+        "name": "Scena upoznavanja"
+      },
+      "sick_and_stuff": {
+        "name": "Bolestan i ostalo"
+      },
+      "higher_ground": {
+        "name": "Više tlo"
+      },
+      "making_it_happen": {
+        "name": "Čini se da se dešava"
+      },
+      "tying_loose_ends": {
+        "name": "Vezivanje rastavljenih krajeva"
+      },
+      "three_word_moves": {
+        "name": "Tri reči poteza"
+      },
+      "bones_and_blood": {
+        "name": "Kosti i krv"
+      },
+      "what_matters": {
+        "name": "Šta je važno"
+      },
+      "shades_of_grey": {
+        "name": "Nijanse sive"
+      },
+      "words_and_stories": {
+        "name": "Reči i priče"
+      },
+      "peace_and_war": {
+        "name": "Mir i rat"
+      },
+      "however_therefore": {
+        "name": "Međutim, zato"
+      },
+      "stuff_and_coins": {
+        "name": "Stvari i novčići"
+      },
+      "after_dark": {
+        "name": "Posle mračnjenja"
+      },
+      "last_of_the_wild": {
+        "name": "Poslednji od divljakih"
+      },
+      "medical_anatomy": {
+        "name": "Medicinska anatomija"
+      },
+      "extended_animals": {
+        "name": "Proširene životinje"
+      },
+      "extended_food": {
+        "name": "Proširena hrana"
+      },
+      "extended_colors_art": {
+        "name": "Proširene boje i umetnost"
+      },
+      "business": {
+        "name": "Biznisu"
+      },
+      "legal": {
+        "name": "Pravni"
+      },
+      "tech_it": {
+        "name": "Tehnologija IT"
+      },
+      "science": {
+        "name": "Nauka"
+      },
+      "furniture_utensils": {
+        "name": "Nameštvaj i utenzilijа"
+      },
+      "philosophy": {
+        "name": "Filozofija"
+      },
+      "sports_fitness": {
+        "name": "Sportovi i fitnes"
+      },
+      "hygiene": {
+        "name": "Higijena"
+      },
+      "entertainment": {
+        "name": "Zabava"
+      },
+      "education": {
+        "name": "Obrazovanje"
+      },
+      "geography": {
+        "name": "Geografija"
+      },
+      "automotive": {
+        "name": "Automobilizmu"
+      },
+      "tools_repair": {
+        "name": "Alati i popravka"
+      },
+      "relationships": {
+        "name": "Odnosi"
+      },
+      "romance_intimacy": {
+        "name": "Romantika i intimnost"
       }
     }
+  },
+  "atm": {
+    "text": "bankomat",
+    "gender": "m"
   }
 }
