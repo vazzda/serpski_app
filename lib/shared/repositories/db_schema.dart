@@ -13,10 +13,12 @@ abstract final class DbSchema {
   static const String colValue = 'value';
 
   // app_settings key values (stored as row identifiers in key column)
-  static const String colTargetLang    = 'target_lang';
-  static const String colNativeLang    = 'native_lang';
-  static const String colUiLang        = 'ui_lang';
-  static const String colDecayFormula  = 'decay_formula';
+  static const String colTargetLang          = 'target_lang';
+  static const String colNativeLang          = 'native_lang';
+  static const String colUiLang              = 'ui_lang';
+  static const String colDecayFormula        = 'decay_formula';
+  // Prefix for per-language level fold override keys: e.g. "level_fold_overrides_sr"
+  static const String colLevelFoldOverridesPrefix = 'level_fold_overrides_';
 
   // Shared columns across tables
   static const String colGroupId = 'group_id';

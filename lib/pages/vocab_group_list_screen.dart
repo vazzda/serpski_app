@@ -15,6 +15,7 @@ import '../entities/language/lang_entry.dart';
 import '../entities/language/language_pack.dart';
 import '../entities/plan/level_tier.dart';
 import '../features/quiz/session_notifier.dart';
+import '../features/vocab/services/level_fold_notifier.dart';
 import '../features/vocab/widgets/vocab_daily_activity_card.dart';
 import '../features/vocab/widgets/vocab_layout.dart';
 import '../features/vocab/widgets/vocab_level_card.dart';
@@ -91,6 +92,7 @@ class _VocabGroupListScreenState extends ConsumerState<VocabGroupListScreen> {
     final dictionary = asyncDict.valueOrNull;
     final targetPack = asyncTarget.valueOrNull;
     final nativePack = asyncNative.valueOrNull;
+    final foldOverrides = ref.watch(levelFoldOverridesProvider);
 
     if (dictionary == null || targetPack == null || nativePack == null) {
       final hasError =
@@ -115,6 +117,9 @@ class _VocabGroupListScreenState extends ConsumerState<VocabGroupListScreen> {
       settings: settings,
     );
 
+    final specializedId = dictionary.levels.last.id;
+    final activeLevelId = _computeActiveLevelId(levels);
+
     return ScreenLayoutWidget(
       title: l10n.navVocabulary,
       showBottomNav: true,
@@ -132,11 +137,22 @@ class _VocabGroupListScreenState extends ConsumerState<VocabGroupListScreen> {
             );
           }
           final level = levels[index - 1];
+          final levelId = level.level.id;
+          final isExpanded = _isLevelExpanded(
+            levelId: levelId,
+            specializedId: specializedId,
+            activeLevelId: activeLevelId,
+            overrides: foldOverrides,
+          );
           return Padding(
             padding: const EdgeInsets.only(bottom: VocabLayout.levelCardBottomGap),
             child: VocabLevelCard(
               item: level,
               l10n: l10n,
+              isExpanded: isExpanded,
+              onToggle: () => ref
+                  .read(levelFoldOverridesProvider.notifier)
+                  .toggle(levelId, currentlyExpanded: isExpanded),
               onGroupTap: (group, cardCount) => _onGroupTap(
                 context,
                 group,
@@ -274,6 +290,34 @@ class _VocabGroupListScreenState extends ConsumerState<VocabGroupListScreen> {
         withSessions.map((g) => g.retention).reduce((a, b) => a + b) /
         withSessions.length;
     return ProgressCalculator.getRetentionLevel(avgRetention, levelProgress);
+  }
+
+  /// Returns the id of the most recently sessioned level, or null if none.
+  String? _computeActiveLevelId(List<VocabLevelData> levels) {
+    String? activeId;
+    DateTime? latest;
+    for (final level in levels) {
+      final d = level.latestDate;
+      if (d != null && (latest == null || d.isAfter(latest))) {
+        latest = d;
+        activeId = level.level.id;
+      }
+    }
+    return activeId;
+  }
+
+  /// Computes whether a level should be expanded, respecting user overrides
+  /// and falling back to defaults (specialized + active = expanded).
+  bool _isLevelExpanded({
+    required String levelId,
+    required String specializedId,
+    required String? activeLevelId,
+    required Map<String, bool> overrides,
+  }) {
+    if (overrides.containsKey(levelId)) return overrides[levelId]!;
+    if (levelId == specializedId) return true;
+    if (levelId == activeLevelId) return true;
+    return false;
   }
 
   int _countCards(

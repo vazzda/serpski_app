@@ -16,11 +16,15 @@ class VocabLevelCard extends StatelessWidget {
     super.key,
     required this.item,
     required this.l10n,
+    required this.isExpanded,
+    required this.onToggle,
     required this.onGroupTap,
   });
 
   final VocabLevelData item;
   final AppLocalizations l10n;
+  final bool isExpanded;
+  final VoidCallback onToggle;
   final void Function(VocabGroupModel group, int cardCount) onGroupTap;
 
   @override
@@ -34,94 +38,102 @@ class VocabLevelCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          // Header
-          Row(
-            children: [
-              Expanded(
-                child: Text(
-                  item.name,
-                  style: AppFontStyles.textLevelHeader.copyWith(
-                    color: t.textPrimary,
-                  ),
-                ),
-              ),
-              if (isPremium)
-                Icon(Icons.lock_outline, size: 16, color: t.textSecondary),
-            ],
-          ),
-          const SizedBox(height: VocabLayout.headerToProgressGap),
-          // Progress bar + counter + percentage
-          Row(
-            children: [
-              SizedBox(
-                width: VocabLayout.progressWordsWidth,
-                child: Text(
-                  '${item.totalCardCount}',
-                  textAlign: TextAlign.start,
-                  style: AppFontStyles.textLevelCounter.copyWith(
-                    color: t.textPrimary,
-                  ),
-                ),
-              ),
-              const SizedBox(width: VocabLayout.progressPercentGap),
-              Expanded(
-                child: ProjectProgressBar(
-                  value: (item.levelProgress / 100.0).clamp(0.0, 1.0),
-                  mode: ProgressBarMode.detailed,
-                ),
-              ),
-              const SizedBox(width: VocabLayout.progressPercentGap),
-              SizedBox(
-                width: VocabLayout.progressPercentWidth,
-                child: Text(
-                  '${item.levelProgress.round()}%',
-                  textAlign: TextAlign.end,
-                  style: AppFontStyles.textLevelCounter.copyWith(
-                    color: t.textPrimary,
-                  ),
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: VocabLayout.progressSpacingAfter),
-          // Optional description
-          if (item.description != null) ...[
-            Text(
-              item.description!,
-              style: AppFontStyles.textCaption.copyWith(color: t.textSecondary),
-            ),
-            const SizedBox(height: VocabLayout.descSpacingAfter),
-          ],
-          // Group tiles
-          LayoutBuilder(
-            builder: (context, constraints) {
-              final t = AppThemes.of(context);
-              final n =
-                  ((constraints.maxWidth + t.tileGap) /
-                          (t.tileMinWidth + t.tileGap))
-                      .floor()
-                      .clamp(1, 100);
-              final tileWidth =
-                  (constraints.maxWidth - t.tileGap * (n - 1)) / n;
-              return Wrap(
-                spacing: t.tileGap,
-                runSpacing: t.tileGap,
-                children: item.groups
-                    .map(
-                      (g) => VocabGroupTile(
-                        item: g,
-                        l10n: l10n,
-                        width: tileWidth,
-                        onTap: () => onGroupTap(g.group, g.cardCount),
+          // Tappable header: name row + progress bar row
+          GestureDetector(
+            onTap: onToggle,
+            behavior: HitTestBehavior.opaque,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        item.name,
+                        style: AppFontStyles.textLevelHeader.copyWith(
+                          color: t.textPrimary,
+                        ),
                       ),
-                    )
-                    .toList(),
-              );
-            },
+                    ),
+                    if (isPremium)
+                      Icon(Icons.lock_outline, size: 16, color: t.textSecondary),
+                  ],
+                ),
+                const SizedBox(height: VocabLayout.headerToProgressGap),
+                Row(
+                  children: [
+                    SizedBox(
+                      width: VocabLayout.progressWordsWidth,
+                      child: Text(
+                        '${item.totalCardCount}',
+                        textAlign: TextAlign.start,
+                        style: AppFontStyles.textLevelCounter.copyWith(
+                          color: t.textPrimary,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: VocabLayout.progressPercentGap),
+                    Expanded(
+                      child: ProjectProgressBar(
+                        value: (item.levelProgress / 100.0).clamp(0.0, 1.0),
+                        mode: ProgressBarMode.detailed,
+                      ),
+                    ),
+                    const SizedBox(width: VocabLayout.progressPercentGap),
+                    SizedBox(
+                      width: VocabLayout.progressPercentWidth,
+                      child: Text(
+                        '${item.levelProgress.round()}%',
+                        textAlign: TextAlign.end,
+                        style: AppFontStyles.textLevelCounter.copyWith(
+                          color: t.textPrimary,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
-          const SizedBox(height: VocabLayout.tilesToStatsGap),
-          // Level stats row
-          VocabLevelStatsRow(item: item, l10n: l10n),
+          // Body: visible only when expanded
+          if (isExpanded) ...[
+            const SizedBox(height: VocabLayout.progressSpacingAfter),
+            if (item.description != null) ...[
+              Text(
+                item.description!,
+                style: AppFontStyles.textCaption.copyWith(color: t.textSecondary),
+              ),
+              const SizedBox(height: VocabLayout.descSpacingAfter),
+            ],
+            LayoutBuilder(
+              builder: (context, constraints) {
+                final t = AppThemes.of(context);
+                final n =
+                    ((constraints.maxWidth + t.tileGap) /
+                            (t.tileMinWidth + t.tileGap))
+                        .floor()
+                        .clamp(1, 100);
+                final tileWidth =
+                    (constraints.maxWidth - t.tileGap * (n - 1)) / n;
+                return Wrap(
+                  spacing: t.tileGap,
+                  runSpacing: t.tileGap,
+                  children: item.groups
+                      .map(
+                        (g) => VocabGroupTile(
+                          item: g,
+                          l10n: l10n,
+                          width: tileWidth,
+                          onTap: () => onGroupTap(g.group, g.cardCount),
+                        ),
+                      )
+                      .toList(),
+                );
+              },
+            ),
+            const SizedBox(height: VocabLayout.tilesToStatsGap),
+            VocabLevelStatsRow(item: item, l10n: l10n),
+          ],
         ],
       ),
     );
