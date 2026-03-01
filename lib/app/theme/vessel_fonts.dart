@@ -31,10 +31,6 @@ class VesselFonts {
     fontSize: 14,
     fontWeight: FontWeight.w600,
   );
-  static TextStyle get _headerM => GoogleFonts.bigShouldersDisplay(
-    fontSize: 20,
-    fontWeight: FontWeight.w600,
-  );
   static TextStyle get _headerL => GoogleFonts.bigShouldersDisplay(
     fontSize: 20,
     fontWeight: FontWeight.w600,

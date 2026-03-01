@@ -110,7 +110,7 @@ const VesselThemeData theme01Theme = VesselThemeData(
   dividerWidth: 1.0,
   // Progress bar
   progressBarFilled: Theme01Palette.gunMetal,
-  progressBarUnfilled: Theme01Palette.alabaster,
+  progressBarUnfilled: Theme01Palette.pureBlackA12,
   progressBarBorderRadius: 4.0,
   progressBarCompactHeight: 6.0,
   progressBarDetailedHeight: 8.0,
@@ -134,6 +134,10 @@ const VesselThemeData theme01Theme = VesselThemeData(
   tileBorderColor: Theme01Palette.platinum,
   tileBorderWidth: 2.0,
   tileBorderRadius: 8.0,
+  // Deck icon
+  deckIconColor: Theme01Palette.gunMetal,
+  deckIconBackground: Theme01Palette.pureBlackA12,
+  deckIconBorderRadius: 8.0,
   // Dash
   dashCardBackground: Theme01Palette.platinum,
   dashCardBorderColor: Theme01Palette.platinum,

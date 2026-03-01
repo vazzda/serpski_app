@@ -133,6 +133,10 @@ const VesselThemeData theme03Theme = VesselThemeData(
   tileBorderColor: Theme03Palette.gunMetal,
   tileBorderWidth: 2.0,
   tileBorderRadius: 4.0,
+  // Deck icon
+  deckIconColor: Theme03Palette.gunMetal,
+  deckIconBackground: Theme03Palette.platinum,
+  deckIconBorderRadius: 4.0,
   // Dash
   dashCardBackground: Theme03Palette.pureWhite,
   dashCardBorderColor: Theme03Palette.gunMetal,

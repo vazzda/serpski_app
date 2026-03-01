@@ -129,6 +129,10 @@ const VesselThemeData theme04Theme = VesselThemeData(
   tileBorderColor: Theme04Palette.silverdust,
   tileBorderWidth: 2.0,
   tileBorderRadius: 8.0,
+  // Deck icon
+  deckIconColor: Theme04Palette.deepWalnut,
+  deckIconBackground: Theme04Palette.silverdust,
+  deckIconBorderRadius: 8.0,
   // Dash
   dashCardBackground: Theme04Palette.oldlace,
   dashCardBorderColor: Theme04Palette.oldlace,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../../../app/theme/vessel_themes.dart';
 import '../../../l10n/app_localizations.dart';
@@ -25,6 +26,9 @@ class VocabGroupTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = VesselThemes.of(context);
     final barValue = item.percentage != null ? item.percentage! / 100.0 : 0.0;
+    final iconData = item.icon != null
+        ? MdiIcons.fromString(item.icon!) ?? Icons.category
+        : Icons.category;
 
     return SizedBox(
       width: width,
@@ -33,6 +37,76 @@ class VocabGroupTile extends StatelessWidget {
         onTap: item.cardCount > 0 ? onTap : null,
         child: Stack(
           children: [
+            // Header: icon (left) + stats column (right)
+            Positioned(
+              top: VesselLayout.vocabTileHeaderTop,
+              left: VesselLayout.vocabTileHeaderLeft,
+              right: VesselLayout.vocabTileHeaderRight,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Transform.translate(
+                    offset: const Offset(0, VesselLayout.deckIconTopOffset),
+                    child: Container(
+                      padding: const EdgeInsets.all(VesselLayout.deckIconPadding),
+                      decoration: BoxDecoration(
+                        color: t.deckIconBackground,
+                        borderRadius: BorderRadius.circular(
+                          t.deckIconBorderRadius,
+                        ),
+                      ),
+                      child: Icon(
+                        iconData,
+                        size: VesselLayout.vocabTileIconSize,
+                        color: t.deckIconColor,
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: VesselLayout.vocabTileHeaderGap),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          l10n.vocab_conceptsCount(item.cardCount),
+                          textAlign: TextAlign.end,
+                          style: VesselFonts.textTileCounter.copyWith(
+                            color: t.tileForeground,
+                          ),
+                        ),
+                        SizedBox(height: VesselLayout.vocabTileHeaderRowGap),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: VesselProgressBar(
+                                value: barValue,
+                                mode: VesselProgressBarMode.compact,
+                              ),
+                            ),
+                            const SizedBox(
+                              width: VesselLayout.vocabTileProgressPercentGap,
+                            ),
+                            SizedBox(
+                              width: VesselLayout.vocabTileProgressPercentWidth,
+                              child: Text(
+                                '${item.percentage ?? 0}%',
+                                textAlign: TextAlign.end,
+                                style: VesselFonts.textTileCounter.copyWith(
+                                  color: item.percentage != null
+                                      ? t.tileForeground
+                                      : t.textPrimaryDimmed,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
             // Title
             Positioned(
               top: VesselLayout.vocabTileNameTop,
@@ -54,50 +128,9 @@ class VocabGroupTile extends StatelessWidget {
               right: VesselLayout.vocabTileWordsRight,
               child: Text(
                 item.words.join(', '),
-                maxLines: 4,
+                maxLines: 2,
                 overflow: TextOverflow.ellipsis,
                 style: VesselFonts.textTileContent.copyWith(
-                  color: t.tileForeground,
-                ),
-              ),
-            ),
-            // Progress bar row
-            Positioned(
-              bottom: VesselLayout.vocabTileProgressBottom,
-              left: VesselLayout.vocabTileProgressLeft,
-              right: VesselLayout.vocabTileProgressRight,
-              child: Row(
-                children: [
-                  Expanded(
-                    child: VesselProgressBar(
-                      value: barValue,
-                      mode: VesselProgressBarMode.compact,
-                    ),
-                  ),
-                  const SizedBox(width: VesselLayout.vocabTileProgressPercentGap),
-                  SizedBox(
-                    width: VesselLayout.vocabTileProgressPercentWidth,
-                    child: Text(
-                      '${item.percentage ?? 0}%',
-                      textAlign: TextAlign.end,
-                      style: VesselFonts.textTileCounter.copyWith(
-                        color: item.percentage != null
-                            ? t.tileForeground
-                            : t.textPrimaryDimmed,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            // Counter row
-            Positioned(
-              bottom: VesselLayout.vocabTileCounterBottom,
-              left: VesselLayout.vocabTileCounterLeft,
-              right: VesselLayout.vocabTileCounterRight,
-              child: Text(
-                l10n.wordsCount(item.cardCount),
-                style: VesselFonts.textTileCounter.copyWith(
                   color: t.tileForeground,
                 ),
               ),

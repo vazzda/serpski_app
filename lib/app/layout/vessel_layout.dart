@@ -50,9 +50,12 @@ abstract class VesselLayout {
   static const double vocabLevelCardBottomGap = 12.0;
 
   // Vocab — tile sizing
-  static const double vocabTileHeight = 150.0;
+  static const double vocabTileHeight = 180.0;
   static const double vocabTileMinWidth = 120.0;
   static const double vocabTileGap = 12.0;
+  static const double vocabTileIconSize = 40.0;
+  static const double deckIconPadding = 8.0;
+  static const double deckIconTopOffset = -2.0;
 
   // Vocab — daily activity card
   static const double vocabDailyCardTitleGap = 4.0;
@@ -65,18 +68,17 @@ abstract class VesselLayout {
   static const double vocabTilesToStatsGap = 16.0;
 
   // Vocab — tile rows (Positioned offsets)
-  static const double vocabTileNameTop = _contentPaddingS;
+  static const double vocabTileHeaderTop = 10.0;
+  static const double vocabTileHeaderLeft = _contentPaddingS;
+  static const double vocabTileHeaderRight = _contentPaddingS;
+  static const double vocabTileHeaderGap = 10.0;
+  static const double vocabTileHeaderRowGap = 2.0;
+  static const double vocabTileNameTop = 76.0;
   static const double vocabTileNameLeft = _contentPaddingS;
   static const double vocabTileNameRight = _contentPaddingS;
-  static const double vocabTileWordsTop = 34.0;
+  static const double vocabTileWordsTop = 104.0;
   static const double vocabTileWordsLeft = _contentPaddingS;
   static const double vocabTileWordsRight = _contentPaddingS;
-  static const double vocabTileProgressBottom = 4.0;
-  static const double vocabTileProgressLeft = _contentPaddingS;
-  static const double vocabTileProgressRight = _contentPaddingS;
-  static const double vocabTileCounterBottom = 22.0;
-  static const double vocabTileCounterLeft = _contentPaddingS;
-  static const double vocabTileCounterRight = _contentPaddingS;
 
   // Vocab — tile progress row internals
   static const double vocabTileProgressPercentGap = 4.0;

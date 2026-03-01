@@ -220,6 +220,7 @@ class _VocabGroupListScreenState extends ConsumerState<VocabGroupListScreen> {
           VocabGroupTileData(
             group: group,
             name: groupName,
+            icon: group.icon,
             cardCount: cardCount,
             words: words,
             percentage: percentage,

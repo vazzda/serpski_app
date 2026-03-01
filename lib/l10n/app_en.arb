@@ -25,6 +25,14 @@
       }
     }
   },
+  "vocab_conceptsCount": "{count, plural, =1{1 concept} other{{count} concepts}}",
+  "@vocab_conceptsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "wordsCountWithPreview": "{count} words: {preview}",
   "@wordsCountWithPreview": {
     "placeholders": {

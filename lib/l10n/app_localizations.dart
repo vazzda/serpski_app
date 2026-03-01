@@ -160,6 +160,12 @@ abstract class AppLocalizations {
   /// **'{count} words'**
   String wordsCount(int count);
 
+  /// No description provided for @vocab_conceptsCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 concept} other{{count} concepts}}'**
+  String vocab_conceptsCount(int count);
+
   /// No description provided for @wordsCountWithPreview.
   ///
   /// In en, this message translates to:

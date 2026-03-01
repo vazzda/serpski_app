@@ -46,6 +46,17 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String vocab_conceptsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count concepts',
+      one: '1 concept',
+    );
+    return '$_temp0';
+  }
+
+  @override
   String wordsCountWithPreview(int count, String preview) {
     return '$count words: $preview';
   }

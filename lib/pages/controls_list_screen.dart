@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
+import '../app/layout/vessel_layout.dart';
 import '../l10n/app_localizations.dart';
 import '../app/theme/vessel_themes.dart';
 import '../entities/tag/tag.dart';
@@ -18,10 +20,12 @@ import '../shared/ui/inputs/vessel_text_input.dart';
 import '../shared/ui/inputs/vessel_time_slider.dart';
 import '../shared/ui/inputs/vessel_toggles.dart';
 import '../shared/ui/note/vessel_note.dart';
+import '../shared/ui/progress_bar/vessel_progress_bar.dart';
 import '../shared/ui/snackbar/vessel_snackbar.dart';
 import '../shared/ui/tag/vessel_tag_chip.dart';
 import '../shared/ui/tag/vessel_tag_label.dart';
 import '../shared/ui/text/vessel_header.dart';
+import '../shared/ui/tile/vessel_tile.dart';
 import '../shared/ui/bottom_sheet/vessel_bottom_sheet.dart';
 import '../shared/ui/bottom_sheet/quiz_bottom_sheets.dart';
 import '../shared/ui/gap/vessel_gap.dart';
@@ -130,6 +134,102 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
             child: Text('Danger-tinted attention card.'),
           ),
           const SizedBox(height: 16),
+
+          // 1b. TILES
+          _buildSection('Tiles', [
+            SizedBox(
+              width: 160,
+              height: VesselLayout.vocabTileHeight,
+              child: VesselTile(
+                onTap: () {},
+                child: Stack(
+                  children: [
+                    Positioned(
+                      top: VesselLayout.vocabTileHeaderTop,
+                      left: VesselLayout.vocabTileHeaderLeft,
+                      right: VesselLayout.vocabTileHeaderRight,
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Transform.translate(
+                            offset: const Offset(
+                              0,
+                              VesselLayout.deckIconTopOffset,
+                            ),
+                            child: Container(
+                              padding: const EdgeInsets.all(
+                                VesselLayout.deckIconPadding,
+                              ),
+                              decoration: BoxDecoration(
+                                color: t.deckIconBackground,
+                                borderRadius: BorderRadius.circular(
+                                  t.deckIconBorderRadius,
+                                ),
+                              ),
+                              child: Icon(
+                                MdiIcons.handWave,
+                                size: VesselLayout.vocabTileIconSize,
+                                color: t.deckIconColor,
+                              ),
+                            ),
+                          ),
+                          SizedBox(width: VesselLayout.vocabTileHeaderGap),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text(
+                                  '14 concepts',
+                                  textAlign: TextAlign.end,
+                                  style: VesselFonts.textTileCounter.copyWith(
+                                    color: t.tileForeground,
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: VesselLayout.vocabTileHeaderRowGap,
+                                ),
+                                const VesselProgressBar(
+                                  value: 0.42,
+                                  mode: VesselProgressBarMode.compact,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Positioned(
+                      top: VesselLayout.vocabTileNameTop,
+                      left: VesselLayout.vocabTileNameLeft,
+                      right: VesselLayout.vocabTileNameRight,
+                      child: Text(
+                        'First Contact',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: VesselFonts.textTileHeader.copyWith(
+                          color: t.tileForeground,
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      top: VesselLayout.vocabTileWordsTop,
+                      left: VesselLayout.vocabTileWordsLeft,
+                      right: VesselLayout.vocabTileWordsRight,
+                      child: Text(
+                        'hello, goodbye, please, thank you',
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: VesselFonts.textTileContent.copyWith(
+                          color: t.tileForeground,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ]),
 
           // 2. HEADER
           _buildSection('Header', [

@@ -97,6 +97,13 @@ class VesselThemeData {
   final double tileBorderRadius;
 
   // ==========================================================================
+  // DECK ICON
+  // ==========================================================================
+  final Color deckIconColor;
+  final Color deckIconBackground;
+  final double deckIconBorderRadius;
+
+  // ==========================================================================
   // DASH
   // ==========================================================================
   final Color dashCardBackground;
@@ -313,6 +320,10 @@ class VesselThemeData {
     required this.tileBorderColor,
     required this.tileBorderWidth,
     required this.tileBorderRadius,
+    // Deck icon
+    required this.deckIconColor,
+    required this.deckIconBackground,
+    required this.deckIconBorderRadius,
     // Dash
     required this.dashCardBackground,
     required this.dashCardBorderColor,
