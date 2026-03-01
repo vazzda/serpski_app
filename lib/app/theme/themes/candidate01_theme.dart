@@ -193,4 +193,8 @@ const AppThemeData candidate01Theme = AppThemeData(
   snackbarBackground: Candidate01Palette.pureBlack,
   snackbarTextColor: Candidate01Palette.pureWhite,
   snackbarBorderRadius: 4.0,
+  // Note accent
+  noteAccentBackground: Candidate01Palette.gunMetal,
+  noteAccentBorderColor: Candidate01Palette.gunMetal,
+  noteAccentTextColor: Candidate01Palette.platinum,
 );

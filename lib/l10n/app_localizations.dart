@@ -784,6 +784,12 @@ abstract class AppLocalizations {
   /// **'Not gonna work! Same as learning language selected'**
   String get language_sameAsLearning;
 
+  /// No description provided for @language_serbianNativeNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Tnx for the hospitality! Now and forever every serbian speaker learning new language get all the languages for free, no need for subscription!'**
+  String get language_serbianNativeNote;
+
   /// No description provided for @language_myProgress.
   ///
   /// In en, this message translates to:

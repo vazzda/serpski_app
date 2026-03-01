@@ -271,6 +271,13 @@ class AppThemeData {
   // ==========================================================================
   final double disabledOpacity;
 
+  // ==========================================================================
+  // NOTE ACCENT
+  // ==========================================================================
+  final Color noteAccentBackground;
+  final Color noteAccentBorderColor;
+  final Color noteAccentTextColor;
+
   const AppThemeData({
     required this.themeType,
     // Accent
@@ -424,6 +431,10 @@ class AppThemeData {
     required this.toggleBorderRadius,
     // Disabled
     required this.disabledOpacity,
+    // Note accent
+    required this.noteAccentBackground,
+    required this.noteAccentBorderColor,
+    required this.noteAccentTextColor,
   });
 
   // Computed — derived from existing fields, no constructor param needed

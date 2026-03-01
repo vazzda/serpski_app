@@ -83,7 +83,7 @@ class AppFontStyles {
   static TextStyle get textButtonLarge => _headerL;
 
   // Note styles
-  static TextStyle get textNote => _bodyS;
+  static TextStyle get textNote => _bodyM;
 
   // Body & Caption
   static TextStyle get textCaption => _bodyS;

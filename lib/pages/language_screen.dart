@@ -55,6 +55,10 @@ class LanguageScreen extends ConsumerWidget {
                 onTargetSelected: (code) =>
                     ref.read(languageSettingsProvider.notifier).setTargetLang(code),
               ),
+              if (langSettings.nativeLang == LangCodes.serbian) ...[
+                const SizedBox(height: 16),
+                ProjectNote(text: l10n.language_serbianNativeNote, accented: true),
+              ],
               if (langSettings.targetLang == langSettings.nativeLang) ...[
                 const SizedBox(height: 8),
                 ProjectNote(text: l10n.language_sameAsLearning),
