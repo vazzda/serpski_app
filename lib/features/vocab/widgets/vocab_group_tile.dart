@@ -70,7 +70,7 @@ class VocabGroupTile extends StatelessWidget {
                       children: [
                         Text(
                           l10n.vocab_conceptsCount(item.cardCount),
-                          textAlign: TextAlign.end,
+                          textAlign: TextAlign.start,
                           style: VesselFonts.textTileCounter.copyWith(
                             color: t.tileForeground,
                           ),
@@ -128,7 +128,7 @@ class VocabGroupTile extends StatelessWidget {
               right: VesselLayout.vocabTileWordsRight,
               child: Text(
                 item.words.join(', '),
-                maxLines: 2,
+                maxLines: 3,
                 overflow: TextOverflow.ellipsis,
                 style: VesselFonts.textTileContent.copyWith(
                   color: t.tileForeground,

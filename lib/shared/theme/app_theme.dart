@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../app/theme/vessel_fonts.dart';
+
 /// Central theme for the app. All colors and text styles come from here.
 /// Do not use raw colors or fonts in feature code. Modify colors here only.
 class AppTheme {
@@ -102,14 +104,14 @@ class AppTheme {
   static TextTheme get _textTheme =>
       GoogleFonts.robotoMonoTextTheme(_baseTextTheme);
 
-  /// Header (AppBar title): Big Shoulders Display, +8px vs titleLarge. Display title in uppercase at use site.
+  /// Header (AppBar title): IosevkaCustom3, +8px vs titleLarge. Display title in uppercase at use site.
   static TextStyle get headerTextStyle =>
-      GoogleFonts.bigShouldersDisplay(
-        textStyle: _baseTextTheme.titleLarge,
-      ).copyWith(
-        color: _lightColorScheme.onSurface,
+      const TextStyle(
+        fontFamily: VesselFonts.headerFontFamily,
         fontWeight: FontWeight.w600,
         fontSize: 28,
+      ).copyWith(
+        color: _lightColorScheme.onSurface,
       );
 
   static ThemeData get light {

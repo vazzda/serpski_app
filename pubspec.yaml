@@ -67,6 +67,28 @@ flutter:
     - assets/icon/
   generate: true
 
+  fonts:
+    - family: IosevkaCustom3
+      fonts:
+        - asset: assets/fonts/IosevkaCustom3/IosevkaCustom-Thin.ttf
+          weight: 100
+        - asset: assets/fonts/IosevkaCustom3/IosevkaCustom-ExtraLight.ttf
+          weight: 200
+        - asset: assets/fonts/IosevkaCustom3/IosevkaCustom-Light.ttf
+          weight: 300
+        - asset: assets/fonts/IosevkaCustom3/IosevkaCustom-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/IosevkaCustom3/IosevkaCustom-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/IosevkaCustom3/IosevkaCustom-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/IosevkaCustom3/IosevkaCustom-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/IosevkaCustom3/IosevkaCustom-ExtraBold.ttf
+          weight: 800
+        - asset: assets/fonts/IosevkaCustom3/IosevkaCustom-Heavy.ttf
+          weight: 900
+
 # Icon and splash generation (run: dart run flutter_launcher_icons, dart run flutter_native_splash:create)
 flutter_launcher_icons:
   android: true
@@ -81,29 +103,3 @@ flutter_native_splash:
   image: "assets/icon/logo.png"
   android: true
   ios: true
-
-  # An image asset can refer to one or more resolution-specific "variants", see
-  # https://flutter.dev/to/resolution-aware-images
-
-  # For details regarding adding assets from package dependencies, see
-  # https://flutter.dev/to/asset-from-package
-
-  # To add custom fonts to your application, add a fonts section here,
-  # in this "flutter" section. Each entry in this list should have a
-  # "family" key with the font family name, and a "fonts" key with a
-  # list giving the asset and other descriptors for the font. For
-  # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
-  #
-  # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/to/font-from-package

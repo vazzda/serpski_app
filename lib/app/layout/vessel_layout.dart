@@ -68,15 +68,15 @@ abstract class VesselLayout {
   static const double vocabTilesToStatsGap = 16.0;
 
   // Vocab — tile rows (Positioned offsets)
-  static const double vocabTileHeaderTop = 10.0;
+  static const double vocabTileHeaderTop = 49.0;
   static const double vocabTileHeaderLeft = _contentPaddingS;
   static const double vocabTileHeaderRight = _contentPaddingS;
   static const double vocabTileHeaderGap = 10.0;
   static const double vocabTileHeaderRowGap = 2.0;
-  static const double vocabTileNameTop = 76.0;
-  static const double vocabTileNameLeft = _contentPaddingS;
+  static const double vocabTileNameTop = _contentPaddingS;
+  static const double vocabTileNameLeft = _contentPaddingS + 2.0;
   static const double vocabTileNameRight = _contentPaddingS;
-  static const double vocabTileWordsTop = 104.0;
+  static const double vocabTileWordsTop = 116.0;
   static const double vocabTileWordsLeft = _contentPaddingS;
   static const double vocabTileWordsRight = _contentPaddingS;
 

@@ -591,12 +591,14 @@ class VesselThemes {
 
   static TextTheme _getTextTheme(Color color) {
     return TextTheme(
-      headlineMedium: GoogleFonts.bigShouldersDisplay(
+      headlineMedium: TextStyle(
+        fontFamily: VesselFonts.headerFontFamily,
         fontSize: 24,
         fontWeight: FontWeight.w600,
         color: color,
       ),
-      titleLarge: GoogleFonts.bigShouldersDisplay(
+      titleLarge: TextStyle(
+        fontFamily: VesselFonts.headerFontFamily,
         fontSize: 20,
         fontWeight: FontWeight.w600,
         color: color,

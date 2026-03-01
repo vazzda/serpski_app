@@ -4,11 +4,14 @@ import 'package:google_fonts/google_fonts.dart';
 class VesselFonts {
   VesselFonts._();
 
+  /// Font family used for headers and display text.
+  static const headerFontFamily = 'IosevkaCustom3';
+
   // ---------------------------------------------------------------------------
   // GLOBAL FONT STYLES (PRIVATE)
   // ---------------------------------------------------------------------------
 
-  // Body styles — Roboto Mono
+  // Body styles — Montserrat
   static TextStyle get _bodyXs =>
       GoogleFonts.montserrat(fontSize: 9, fontWeight: FontWeight.normal);
   static TextStyle get _bodyXsAccented =>
@@ -26,20 +29,29 @@ class VesselFonts {
   static TextStyle get _bodyLAccented =>
       GoogleFonts.montserrat(fontSize: 16, fontWeight: FontWeight.bold);
 
-  // Header styles — Big Shoulders Display
-  static TextStyle get _headerS => GoogleFonts.bigShouldersDisplay(
+  // Header styles — IosevkaCustom3
+  static const TextStyle _headerS = TextStyle(
+    fontFamily: headerFontFamily,
     fontSize: 14,
     fontWeight: FontWeight.w600,
   );
-  static TextStyle get _headerL => GoogleFonts.bigShouldersDisplay(
-    fontSize: 20,
-    fontWeight: FontWeight.w600,
+  static const TextStyle _headerM = TextStyle(
+    fontFamily: headerFontFamily,
+    fontSize: 18,
+    fontWeight: FontWeight.w900,
   );
-  static TextStyle get _headerXl => GoogleFonts.bigShouldersDisplay(
+  static const TextStyle _headerL = TextStyle(
+    fontFamily: headerFontFamily,
+    fontSize: 20,
+    fontWeight: FontWeight.w700,
+  );
+  static const TextStyle _headerXl = TextStyle(
+    fontFamily: headerFontFamily,
     fontSize: 24,
     fontWeight: FontWeight.w600,
   );
-  static TextStyle get _headerXxl => GoogleFonts.bigShouldersDisplay(
+  static const TextStyle _headerXxl = TextStyle(
+    fontFamily: headerFontFamily,
     fontSize: 28,
     fontWeight: FontWeight.w600,
   );
@@ -89,7 +101,7 @@ class VesselFonts {
   static TextStyle get textBodyLargeAccented => _bodyLAccented;
 
   // Tile styles
-  static TextStyle get textTileHeader => _bodyLAccented;
+  static TextStyle get textTileHeader => _headerM;
   static TextStyle get textTileContent => _bodyS;
   static TextStyle get textTileCounter => _bodySAccented;
 
