@@ -5,7 +5,7 @@ import '../../../l10n/app_localizations.dart';
 import '../../../shared/ui/buttons/project_buttons.dart';
 import '../../../pages/group_list_screen.dart'
     show retentionColor, retentionLabel, formatRelativeDate;
-import 'vocab_layout.dart';
+import '../../../app/layout/app_layout.dart';
 import 'vocab_tile_data.dart';
 
 class VocabLevelStatsRow extends StatelessWidget {
@@ -28,8 +28,8 @@ class VocabLevelStatsRow extends StatelessWidget {
     final levelLabel = retentionLabel(item.strengthLevel, l10n);
 
     const chipPadding = EdgeInsets.symmetric(
-      horizontal: VocabLayout.chipPaddingH,
-      vertical: VocabLayout.chipPaddingV,
+      horizontal: AppLayout.chipPaddingH,
+      vertical: AppLayout.chipPaddingV,
     );
     final outlineChipStyle = AppFontStyles.textProgressChip.copyWith(
       color: t.textPrimary,
@@ -49,7 +49,7 @@ class VocabLevelStatsRow extends StatelessWidget {
           ),
           child: Text(dateText, style: outlineChipStyle),
         ),
-        const SizedBox(width: VocabLayout.chipSpacing),
+        const SizedBox(width: AppLayout.chipSpacing),
         Container(
           padding: chipPadding,
           decoration: BoxDecoration(

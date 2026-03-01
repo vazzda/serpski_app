@@ -17,7 +17,7 @@ import '../entities/plan/level_tier.dart';
 import '../features/quiz/session_notifier.dart';
 import '../features/vocab/services/level_fold_notifier.dart';
 import '../features/vocab/widgets/vocab_daily_activity_card.dart';
-import '../features/vocab/widgets/vocab_layout.dart';
+import '../app/layout/app_layout.dart';
 import '../features/vocab/widgets/vocab_level_card.dart';
 import '../features/vocab/widgets/vocab_tile_data.dart';
 import '../shared/repositories/models/group_progress.dart';
@@ -125,13 +125,13 @@ class _VocabGroupListScreenState extends ConsumerState<VocabGroupListScreen> {
       showBottomNav: true,
       child: ListView.builder(
         controller: _scrollController,
-        padding: const EdgeInsets.all(VocabLayout.listPadding),
+        padding: const EdgeInsets.all(AppLayout.vocabListPadding),
         itemCount: levels.length + 1,
         itemBuilder: (context, index) {
           if (index == 0) {
             return Padding(
               padding: const EdgeInsets.only(
-                bottom: VocabLayout.dailyCardBottomGap,
+                bottom: AppLayout.vocabDailyCardBottomGap,
               ),
               child: VocabDailyActivityCard(asyncStats: asyncStats, l10n: l10n),
             );
@@ -145,7 +145,7 @@ class _VocabGroupListScreenState extends ConsumerState<VocabGroupListScreen> {
             overrides: foldOverrides,
           );
           return Padding(
-            padding: const EdgeInsets.only(bottom: VocabLayout.levelCardBottomGap),
+            padding: const EdgeInsets.only(bottom: AppLayout.vocabLevelCardBottomGap),
             child: VocabLevelCard(
               item: level,
               l10n: l10n,

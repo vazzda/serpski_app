@@ -17,6 +17,8 @@ import '../shared/ui/bottom_sheet/quiz_bottom_sheets.dart';
 import 'package:srpski_card/shared/lib/group_label.dart';
 import 'package:srpski_card/shared/lib/progress_calculator.dart';
 import 'group_list_screen.dart' show formatRelativeDate, retentionColor, retentionLabel;
+import '../shared/ui/gap/project_gap.dart';
+import '../app/layout/app_layout.dart';
 
 /// Screen to select an adjective group for an agreement session.
 class AgreementGroupListScreen extends ConsumerStatefulWidget {
@@ -109,14 +111,14 @@ class _AgreementGroupListScreenState extends ConsumerState<AgreementGroupListScr
             }
             return ListView.builder(
               controller: _scrollController,
-              padding: const EdgeInsets.all(16),
+              padding: const EdgeInsets.all(AppLayout.screenPadding),
               itemCount: adjectiveGroupsList.length,
               itemBuilder: (context, index) {
                 final group = adjectiveGroupsList[index];
                 final groupId = 'agreement:${group.id}';
                 final progress = allProgress[groupId];
                 return Padding(
-                  padding: const EdgeInsets.only(bottom: 12),
+                  padding: const EdgeInsets.only(bottom: AppLayout.listItemGap),
                   child: _AgreementGroupTile(
                     group: group,
                     l10n: l10n,
@@ -211,7 +213,7 @@ class _AgreementGroupTile extends StatelessWidget {
         children: [
           // Main content
           Padding(
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.all(AppLayout.screenPadding),
             child: Row(
               children: [
                 Expanded(
@@ -223,7 +225,7 @@ class _AgreementGroupTile extends StatelessWidget {
                         label,
                         style: AppFontStyles.textListItem.copyWith(color: t.textPrimary),
                       ),
-                      const SizedBox(height: 2),
+                      const ProjectGap.xxs(),
                       Text(
                         countText,
                         maxLines: 1,
@@ -233,7 +235,7 @@ class _AgreementGroupTile extends StatelessWidget {
                     ],
                   ),
                 ),
-                const SizedBox(width: 16),
+                const ProjectGap.hl(),
               ],
             ),
           ),
@@ -279,7 +281,7 @@ class _ProgressBadge extends StatelessWidget {
         ? formatRelativeDate(progress.lastSessionDate!, l10n)
         : '-';
 
-    const chipPadding = EdgeInsets.symmetric(horizontal: 6, vertical: 4);
+    const chipPadding = EdgeInsets.symmetric(horizontal: AppLayout.chipPaddingH, vertical: AppLayout.chipPaddingV);
     final outlinedChipStyle = AppFontStyles.textProgressChip.copyWith(
       color: t.textPrimary,
     );
@@ -305,7 +307,7 @@ class _ProgressBadge extends StatelessWidget {
           ),
           child: Text('$percentage%', style: outlinedChipStyle),
         ),
-        const SizedBox(width: 4),
+        const ProjectGap.hxs(),
         // Chip 2: Date (outlined)
         Container(
           padding: chipPadding,
@@ -318,7 +320,7 @@ class _ProgressBadge extends StatelessWidget {
           ),
           child: Text(dateText, style: outlinedChipStyle),
         ),
-        const SizedBox(width: 4),
+        const ProjectGap.hxs(),
         // Chip 3: Retention level (filled with level color)
         Container(
           padding: chipPadding,

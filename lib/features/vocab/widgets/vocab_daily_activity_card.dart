@@ -5,7 +5,7 @@ import '../../../app/theme/app_themes.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/repositories/daily_activity_repository.dart';
 import '../../../shared/ui/card/project_card.dart';
-import 'vocab_layout.dart';
+import '../../../app/layout/app_layout.dart';
 
 class VocabDailyActivityCard extends StatelessWidget {
   const VocabDailyActivityCard({
@@ -31,7 +31,7 @@ class VocabDailyActivityCard extends StatelessWidget {
               l10n.dailyActivityTitle,
               style: AppFontStyles.textListItem.copyWith(color: t.textPrimary),
             ),
-            const SizedBox(height: VocabLayout.dailyCardTitleGap),
+            const SizedBox(height: AppLayout.vocabDailyCardTitleGap),
             asyncStats.when(
               data: (stats) {
                 final isEmpty =

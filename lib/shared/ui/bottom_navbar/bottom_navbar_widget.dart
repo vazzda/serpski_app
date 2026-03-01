@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../l10n/app_localizations.dart';
+import '../../../app/layout/app_layout.dart';
 import '../../../app/router/app_router.dart';
 import '../../../app/theme/app_themes.dart';
 import 'navbar_icon_button.dart';
@@ -39,7 +40,7 @@ class BottomNavBarWidget extends StatelessWidget {
       child: SafeArea(
         top: false,
         child: SizedBox(
-          height: 56,
+          height: AppLayout.navbarHeight,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [

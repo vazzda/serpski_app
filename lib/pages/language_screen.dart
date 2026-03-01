@@ -17,6 +17,8 @@ import '../shared/ui/card/project_card.dart';
 import '../shared/ui/note/project_note.dart';
 import '../shared/ui/progress_bar/project_progress_bar.dart';
 import '../shared/ui/screen_layout/screen_layout_widget.dart';
+import '../shared/ui/gap/project_gap.dart';
+import '../app/layout/app_layout.dart';
 
 class LanguageScreen extends ConsumerWidget {
   const LanguageScreen({super.key});
@@ -42,7 +44,7 @@ class LanguageScreen extends ConsumerWidget {
           final packByCode = {for (final p in packs) p.code: p};
 
           return ListView(
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.all(AppLayout.screenPadding),
             children: [
               _LangPairSelector(
                 codes: allCodes,
@@ -56,14 +58,14 @@ class LanguageScreen extends ConsumerWidget {
                     ref.read(languageSettingsProvider.notifier).setTargetLang(code),
               ),
               if (langSettings.nativeLang == LangCodes.serbian) ...[
-                const SizedBox(height: 16),
+                const ProjectGap.l(),
                 ProjectNote(text: l10n.language_serbianNativeNote, accented: true),
               ],
               if (langSettings.targetLang == langSettings.nativeLang) ...[
-                const SizedBox(height: 8),
+                const ProjectGap.s(),
                 ProjectNote(text: l10n.language_sameAsLearning),
               ],
-              const SizedBox(height: 20),
+              const ProjectGap.l(),
 
               // Progression card
               _ProgressionCard(
@@ -71,13 +73,13 @@ class LanguageScreen extends ConsumerWidget {
                 packByCode: packByCode,
                 l10n: l10n,
               ),
-              const SizedBox(height: 12),
+              const ProjectGap.m(),
 
               // Incomplete dictionaries (dev mode only)
               if (showDevSection) ...packs
                   .where((p) => !p.isPublic)
                   .map((p) => Padding(
-                        padding: const EdgeInsets.only(bottom: 8),
+                        padding: const EdgeInsets.only(bottom: AppLayout.listItemGapSmall),
                         child: ProjectCard(
                           child: Row(
                             children: [
@@ -125,7 +127,7 @@ Future<String?> _showLangPicker(
             ...codes.map((code) {
               final pack = packByCode[code]!;
               return Padding(
-                padding: const EdgeInsets.only(bottom: 8),
+                padding: const EdgeInsets.only(bottom: AppLayout.listItemGapSmall),
                 child: ProjectLangButton(
                   langCode: code,
                   label: l10n.langLabel(pack.labelKey),
@@ -160,7 +162,7 @@ class _LangPairSelector extends StatelessWidget {
   final ValueChanged<String> onTargetSelected;
 
   // Width of the arrow zone (icon 20 + padding 8×2) — keeps labels aligned with boxes.
-  static const _arrowZoneWidth = 36.0;
+  static const _arrowZoneWidth = AppLayout.langArrowZoneWidth;
 
   @override
   Widget build(BuildContext context) {
@@ -186,7 +188,7 @@ class _LangPairSelector extends StatelessWidget {
             ),
           ],
         ),
-        const SizedBox(height: 4),
+        const ProjectGap.xs(),
         // Boxes row
         Row(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -204,7 +206,7 @@ class _LangPairSelector extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8),
+              padding: const EdgeInsets.symmetric(horizontal: AppLayout.gapS),
               child: Icon(Icons.arrow_forward, color: t.textSecondary, size: 20),
             ),
             Expanded(
@@ -245,7 +247,7 @@ class _LangBox extends StatelessWidget {
       onTap: onTap,
       child: Container(
             width: double.infinity,
-            padding: const EdgeInsets.fromLTRB(12, 14, 12, 8),
+            padding: const EdgeInsets.fromLTRB(AppLayout.langBoxPaddingLeft, AppLayout.langBoxPaddingTop, AppLayout.langBoxPaddingRight, AppLayout.langBoxPaddingBottom),
             decoration: BoxDecoration(
               color: t.cardBackground,
               border: Border.all(
@@ -262,14 +264,14 @@ class _LangBox extends StatelessWidget {
                   CountryFlag.fromCountryCode(
                     countryCode,
                     theme: const ImageTheme(
-                      width: 64,
-                      height: 44,
+                      width: AppLayout.langFlagWidth,
+                      height: AppLayout.langFlagHeight,
                       shape: RoundedRectangle(4),
                     ),
                   )
                 else
                   Icon(Icons.keyboard_arrow_down, color: t.textSecondary, size: 18),
-                const SizedBox(height: 6),
+                const ProjectGap.xs(),
                 Text(
                   selectedLabel,
                   style: AppFontStyles.textLangPickerValue
@@ -316,7 +318,7 @@ class _ProgressionCard extends StatelessWidget {
               return Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const SizedBox(height: 12),
+                  const ProjectGap.m(),
                   ...List.generate(entries.length, (i) {
                     final e = entries[i];
                     final pack = packByCode[e.key]!;
@@ -324,11 +326,11 @@ class _ProgressionCard extends StatelessWidget {
                     final pct = (e.value * 100).round();
                     return Padding(
                       padding: EdgeInsets.only(
-                          bottom: i < entries.length - 1 ? 8 : 0),
+                          bottom: i < entries.length - 1 ? AppLayout.listItemGapSmall : 0),
                       child: Row(
                         children: [
                           SizedBox(
-                            width: 72,
+                            width: AppLayout.langProgressLabelWidth,
                             child: Text(
                               label,
                               style: AppFontStyles.textCaption.copyWith(
@@ -336,16 +338,16 @@ class _ProgressionCard extends StatelessWidget {
                               ),
                             ),
                           ),
-                          const SizedBox(width: 8),
+                          const ProjectGap.hs(),
                           Expanded(
                             child: ProjectProgressBar(
                               value: e.value,
                               mode: ProgressBarMode.detailed,
                             ),
                           ),
-                          const SizedBox(width: 8),
+                          const ProjectGap.hs(),
                           SizedBox(
-                            width: 36,
+                            width: AppLayout.langProgressPercentWidth,
                             child: Text(
                               '$pct%',
                               textAlign: TextAlign.end,

@@ -17,6 +17,8 @@ import '../shared/ui/screen_layout/screen_layout_widget.dart';
 import '../shared/ui/bottom_sheet/quiz_bottom_sheets.dart';
 import 'package:srpski_card/shared/lib/group_label.dart';
 import 'package:srpski_card/shared/lib/progress_calculator.dart';
+import '../shared/ui/gap/project_gap.dart';
+import '../app/layout/app_layout.dart';
 
 enum ParentCategory { vocabulary, conjugations }
 
@@ -110,7 +112,7 @@ class _GroupTile extends StatelessWidget {
             children: [
               // Main content
               Padding(
-                padding: const EdgeInsets.all(16),
+                padding: const EdgeInsets.all(AppLayout.screenPadding),
                 child: Row(
                   children: [
                     Expanded(
@@ -119,7 +121,7 @@ class _GroupTile extends StatelessWidget {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Text(label, style: AppFontStyles.textListItem.copyWith(color: t.textPrimary)),
-                          const SizedBox(height: 2),
+                          const ProjectGap.xxs(),
                           Text(
                             countText,
                             maxLines: 1,
@@ -130,7 +132,7 @@ class _GroupTile extends StatelessWidget {
                       ),
                     ),
                     // Space reserved for badge
-                    const SizedBox(width: 16),
+                    const ProjectGap.hl(),
                   ],
                 ),
               ),
@@ -178,7 +180,7 @@ class _ProgressBadge extends StatelessWidget {
         ? formatRelativeDate(progress.lastSessionDate!, l10n)
         : '-';
 
-    const chipPadding = EdgeInsets.symmetric(horizontal: 6, vertical: 4);
+    const chipPadding = EdgeInsets.symmetric(horizontal: AppLayout.chipPaddingH, vertical: AppLayout.chipPaddingV);
     final outlinedChipStyle = AppFontStyles.textProgressChip.copyWith(
       color: t.textPrimary,
     );
@@ -204,7 +206,7 @@ class _ProgressBadge extends StatelessWidget {
           ),
           child: Text('$percentage%', style: outlinedChipStyle),
         ),
-        const SizedBox(width: 4),
+        const ProjectGap.hxs(),
         // Chip 2: Date (outlined)
         Container(
           padding: chipPadding,
@@ -217,7 +219,7 @@ class _ProgressBadge extends StatelessWidget {
           ),
           child: Text(dateText, style: outlinedChipStyle),
         ),
-        const SizedBox(width: 4),
+        const ProjectGap.hxs(),
         // Chip 3: Retention level (filled with level color)
         Container(
           padding: chipPadding,
@@ -332,13 +334,13 @@ class _ChildGroupListScreenState extends ConsumerState<ChildGroupListScreen> {
             if (filterType == GroupType.endings) {
               return ListView.builder(
                 controller: _scrollController,
-                padding: const EdgeInsets.all(16),
+                padding: const EdgeInsets.all(AppLayout.screenPadding),
                 itemCount: childGroups.length,
                 itemBuilder: (context, index) {
                   final group = childGroups[index];
                   final progress = allProgress[group.id];
                   return Padding(
-                    padding: const EdgeInsets.only(bottom: 12),
+                    padding: const EdgeInsets.only(bottom: AppLayout.listItemGap),
                     child: _GroupTile(
                       group: group,
                       l10n: l10n,
@@ -403,15 +405,15 @@ class _ChildGroupListScreenState extends ConsumerState<ChildGroupListScreen> {
             }
             return ListView.builder(
               controller: _scrollController,
-              padding: const EdgeInsets.all(16),
+              padding: const EdgeInsets.all(AppLayout.screenPadding),
               itemCount: items.length,
               itemBuilder: (context, index) {
                 final item = items[index];
                 if (item is String) {
                   return Padding(
                     padding: EdgeInsets.only(
-                      top: index == 0 ? 0 : 12,
-                      bottom: 8,
+                      top: index == 0 ? 0 : AppLayout.listItemGap,
+                      bottom: AppLayout.listItemGapSmall,
                     ),
                     child: Text(
                       item,
@@ -422,7 +424,7 @@ class _ChildGroupListScreenState extends ConsumerState<ChildGroupListScreen> {
                 final group = item as GroupModel;
                 final progress = allProgress[group.id];
                 return Padding(
-                  padding: const EdgeInsets.only(bottom: 12),
+                  padding: const EdgeInsets.only(bottom: AppLayout.listItemGap),
                   child: _GroupTile(
                     group: group,
                     l10n: l10n,

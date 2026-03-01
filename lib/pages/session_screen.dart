@@ -25,6 +25,8 @@ import '../shared/ui/card/project_card.dart';
 import '../shared/ui/note/project_note.dart';
 import '../shared/ui/screen_layout/screen_layout_widget.dart';
 import '../shared/ui/inputs/project_text_input.dart';
+import '../shared/ui/gap/project_gap.dart';
+import '../app/layout/app_layout.dart';
 
 class SessionScreen extends ConsumerStatefulWidget {
   const SessionScreen({super.key});
@@ -130,7 +132,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
         ),
       ],
       child: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(AppLayout.screenPadding),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -147,7 +149,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
                 ),
               ],
             ),
-            const SizedBox(height: 16),
+            const ProjectGap.l(),
             ProjectCard(
               child: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -162,7 +164,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
                               ? card.targetNote
                               : card.nativeNote) !=
                           null) ...[
-                    const SizedBox(height: 8),
+                    const ProjectGap.s(),
                     ProjectNote(
                       text: session.mode == QuizMode.targetShown
                           ? card.targetNote!
@@ -171,13 +173,13 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
                   ],
                   if (card is PairVocabCard &&
                       session.mode == QuizMode.write) ...[
-                    const SizedBox(height: 8),
+                    const ProjectGap.s(),
                     ProjectNote(text: l10n.quiz_aspectPairPrompt),
                   ],
                 ],
               ),
             ),
-            const SizedBox(height: 24),
+            const ProjectGap.xl(),
             if (_wrongFeedback != null) ...[
               if (_pairImperfective != null && _pairPerfective != null) ...[
                 Text(
@@ -186,7 +188,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
                     color: _pairImperfective!.ok ? t.accentColor : t.dangerColor,
                   ),
                 ),
-                const SizedBox(height: 8),
+                const ProjectGap.s(),
                 Text(
                   '${l10n.quiz_aspectImperfective} ${_pairImperfective!.typed.isEmpty ? l10n.emptyAnswer : _pairImperfective!.typed}',
                   style: AppFontStyles.textBodyLarge.copyWith(
@@ -194,20 +196,20 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
                   ),
                 ),
                 if (!_pairImperfective!.ok) ...[
-                  const SizedBox(height: 4),
+                  const ProjectGap.xs(),
                   Text(
                     '${l10n.correctAnswerLabel} ${_pairImperfective!.correct}',
                     style: AppFontStyles.textBodyLarge.copyWith(color: t.textPrimary),
                   ),
                 ],
-                const SizedBox(height: 16),
+                const ProjectGap.l(),
                 Text(
                   _pairPerfective!.ok ? l10n.correct : l10n.wrong,
                   style: AppFontStyles.textContentHeader.copyWith(
                     color: _pairPerfective!.ok ? t.accentColor : t.dangerColor,
                   ),
                 ),
-                const SizedBox(height: 8),
+                const ProjectGap.s(),
                 Text(
                   '${l10n.quiz_aspectPerfective} ${_pairPerfective!.typed.isEmpty ? l10n.emptyAnswer : _pairPerfective!.typed}',
                   style: AppFontStyles.textBodyLarge.copyWith(
@@ -215,7 +217,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
                   ),
                 ),
                 if (!_pairPerfective!.ok) ...[
-                  const SizedBox(height: 4),
+                  const ProjectGap.xs(),
                   Text(
                     '${l10n.correctAnswerLabel} ${_pairPerfective!.correct}',
                     style: AppFontStyles.textBodyLarge.copyWith(color: t.textPrimary),
@@ -226,18 +228,18 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
                   l10n.wrong,
                   style: AppFontStyles.textContentHeader.copyWith(color: t.dangerColor),
                 ),
-                const SizedBox(height: 8),
+                const ProjectGap.s(),
                 Text(
                   '${session.mode == QuizMode.write ? l10n.youWrote : l10n.youPicked} ${(_wrongUserAnswerDisplay ?? '').isEmpty ? l10n.emptyAnswer : _wrongUserAnswerDisplay}',
                   style: AppFontStyles.textBodyLarge.copyWith(color: t.textPrimary),
                 ),
-                const SizedBox(height: 8),
+                const ProjectGap.s(),
                 Text(
                   '${l10n.correctAnswerLabel} ${_wrongFeedbackDisplay ?? _wrongFeedback}',
                   style: AppFontStyles.textBodyLarge.copyWith(color: t.textPrimary),
                 ),
               ],
-              const SizedBox(height: 24),
+              const ProjectGap.xl(),
               AccentButton(
                 label: l10n.next,
                 onPressed: () => _onNextAfterWrong(ref),
@@ -248,7 +250,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
                   l10n.quiz_aspectImperfective,
                   style: AppFontStyles.textControlLabel.copyWith(color: t.textPrimary),
                 ),
-                const SizedBox(height: 8),
+                const ProjectGap.s(),
                 ProjectTextInput(
                   controller: _writeController,
                   autofocus: true,
@@ -256,12 +258,12 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
                   autocorrect: false,
                   enableSuggestions: false,
                 ),
-                const SizedBox(height: 12),
+                const ProjectGap.m(),
                 Text(
                   l10n.quiz_aspectPerfective,
                   style: AppFontStyles.textControlLabel.copyWith(color: t.textPrimary),
                 ),
-                const SizedBox(height: 8),
+                const ProjectGap.s(),
                 ProjectTextInput(
                   controller: _writeController2,
                   onSubmitted: (_) => _submitWritePair(context, ref),
@@ -269,7 +271,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
                   autocorrect: false,
                   enableSuggestions: false,
                 ),
-                const SizedBox(height: 16),
+                const ProjectGap.l(),
                 AccentButton(
                   label: l10n.submit,
                   onPressed: () => _submitWritePair(context, ref),
@@ -279,7 +281,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
                   l10n.yourAnswer,
                   style: AppFontStyles.textControlLabel.copyWith(color: t.textPrimary),
                 ),
-                const SizedBox(height: 8),
+                const ProjectGap.s(),
                 ProjectTextInput(
                   controller: _writeController,
                   onSubmitted: (_) => _submitWrite(context, ref),
@@ -288,7 +290,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
                   autocorrect: false,
                   enableSuggestions: false,
                 ),
-                const SizedBox(height: 16),
+                const ProjectGap.l(),
                 AccentButton(
                   label: l10n.submit,
                   onPressed: () => _submitWrite(context, ref),
@@ -328,12 +330,12 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
             l10n.exitSession,
             style: AppFontStyles.textSheetTitle.copyWith(color: t.textPrimary),
           ),
-          const SizedBox(height: 12),
+          const ProjectGap.m(),
           Text(
             l10n.exitSessionConfirm,
             style: AppFontStyles.textSheetContent.copyWith(color: t.textPrimary),
           ),
-          const SizedBox(height: 24),
+          const ProjectGap.xl(),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
@@ -341,7 +343,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
                 label: l10n.cancel,
                 onPressed: () => Navigator.of(sheetContext).pop(),
               ),
-              const SizedBox(width: 8),
+              const ProjectGap.hs(),
               DangerTextButton(
                 label: l10n.exit,
                 onPressed: () {
@@ -429,7 +431,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
       return optionCards
           .map(
             (optionCard) => Padding(
-              padding: const EdgeInsets.only(bottom: 8),
+              padding: const EdgeInsets.only(bottom: AppLayout.listItemGapSmall),
               child: BaseButton(
                 label: displayNativeForCard(optionCard, l10n),
                 onPressed: () => _onOptionSelectedSerbianShown(context, ref, correctCard, optionCard, l10n),
@@ -447,7 +449,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
     return options
         .map(
           (opt) => Padding(
-            padding: const EdgeInsets.only(bottom: 8),
+            padding: const EdgeInsets.only(bottom: AppLayout.listItemGapSmall),
             child: BaseButton(
               label: opt,
               onPressed: () => _onOptionSelectedEnglishShown(context, ref, correctAnswer, opt, l10n),

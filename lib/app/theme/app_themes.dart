@@ -95,10 +95,6 @@ class AppThemeData {
   final Color tileBorderColor;
   final double tileBorderWidth;
   final double tileBorderRadius;
-  // Sizing — universal defaults, override per theme only if needed
-  final double tileMinWidth;
-  final double tileHeight;
-  final double tileGap;
 
   // ==========================================================================
   // DASH
@@ -317,9 +313,6 @@ class AppThemeData {
     required this.tileBorderColor,
     required this.tileBorderWidth,
     required this.tileBorderRadius,
-    this.tileMinWidth = 120.0,
-    this.tileHeight = 150.0,
-    this.tileGap = 12.0,
     // Dash
     required this.dashCardBackground,
     required this.dashCardBorderColor,

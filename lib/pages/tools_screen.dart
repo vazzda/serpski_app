@@ -9,6 +9,7 @@ import '../app/router/app_router.dart';
 import '../app/theme/app_themes.dart';
 import '../shared/ui/card/project_card.dart';
 import '../shared/ui/screen_layout/screen_layout_widget.dart';
+import '../app/layout/app_layout.dart';
 
 /// Tools screen — language-specific practice tools.
 /// For Serbian: conjugation endings and gender agreement drills.
@@ -35,11 +36,11 @@ class ToolsScreen extends ConsumerWidget {
               ),
             )
           : ListView(
-              padding: const EdgeInsets.all(16),
+              padding: const EdgeInsets.all(AppLayout.screenPadding),
               children: tools.map((tool) {
                 final label = _toolLabel(tool, l10n);
                 return Padding(
-                  padding: const EdgeInsets.only(bottom: 12),
+                  padding: const EdgeInsets.only(bottom: AppLayout.listItemGap),
                   child: ProjectCard(
                     onTap: () => _onToolTap(context, tool),
                     child: Row(

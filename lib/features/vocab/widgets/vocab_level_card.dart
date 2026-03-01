@@ -7,7 +7,7 @@ import '../../../l10n/app_localizations.dart';
 import '../../../shared/ui/card/project_card.dart';
 import '../../../shared/ui/progress_bar/project_progress_bar.dart';
 import 'vocab_group_tile.dart';
-import 'vocab_layout.dart';
+import '../../../app/layout/app_layout.dart';
 import 'vocab_level_stats_row.dart';
 import 'vocab_tile_data.dart';
 
@@ -33,7 +33,7 @@ class VocabLevelCard extends StatelessWidget {
     final isPremium = item.tier == LevelTier.premium;
 
     return ProjectCard(
-      padding: const EdgeInsets.all(VocabLayout.levelCardPadding),
+      padding: const EdgeInsets.all(AppLayout.vocabLevelCardPadding),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
@@ -59,11 +59,11 @@ class VocabLevelCard extends StatelessWidget {
                       Icon(Icons.lock_outline, size: 16, color: t.textSecondary),
                   ],
                 ),
-                const SizedBox(height: VocabLayout.headerToProgressGap),
+                const SizedBox(height: AppLayout.vocabHeaderToProgressGap),
                 Row(
                   children: [
                     SizedBox(
-                      width: VocabLayout.progressWordsWidth,
+                      width: AppLayout.vocabProgressWordsWidth,
                       child: Text(
                         '${item.totalCardCount}',
                         textAlign: TextAlign.start,
@@ -72,16 +72,16 @@ class VocabLevelCard extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(width: VocabLayout.progressPercentGap),
+                    const SizedBox(width: AppLayout.vocabProgressPercentGap),
                     Expanded(
                       child: ProjectProgressBar(
                         value: (item.levelProgress / 100.0).clamp(0.0, 1.0),
                         mode: ProgressBarMode.detailed,
                       ),
                     ),
-                    const SizedBox(width: VocabLayout.progressPercentGap),
+                    const SizedBox(width: AppLayout.vocabProgressPercentGap),
                     SizedBox(
-                      width: VocabLayout.progressPercentWidth,
+                      width: AppLayout.vocabProgressPercentWidth,
                       child: Text(
                         '${item.levelProgress.round()}%',
                         textAlign: TextAlign.end,
@@ -97,27 +97,26 @@ class VocabLevelCard extends StatelessWidget {
           ),
           // Body: visible only when expanded
           if (isExpanded) ...[
-            const SizedBox(height: VocabLayout.progressSpacingAfter),
+            const SizedBox(height: AppLayout.vocabProgressSpacingAfter),
             if (item.description != null) ...[
               Text(
                 item.description!,
                 style: AppFontStyles.textCaption.copyWith(color: t.textSecondary),
               ),
-              const SizedBox(height: VocabLayout.descSpacingAfter),
+              const SizedBox(height: AppLayout.vocabDescSpacingAfter),
             ],
             LayoutBuilder(
               builder: (context, constraints) {
-                final t = AppThemes.of(context);
                 final n =
-                    ((constraints.maxWidth + t.tileGap) /
-                            (t.tileMinWidth + t.tileGap))
+                    ((constraints.maxWidth + AppLayout.vocabTileGap) /
+                            (AppLayout.vocabTileMinWidth + AppLayout.vocabTileGap))
                         .floor()
                         .clamp(1, 100);
                 final tileWidth =
-                    (constraints.maxWidth - t.tileGap * (n - 1)) / n;
+                    (constraints.maxWidth - AppLayout.vocabTileGap * (n - 1)) / n;
                 return Wrap(
-                  spacing: t.tileGap,
-                  runSpacing: t.tileGap,
+                  spacing: AppLayout.vocabTileGap,
+                  runSpacing: AppLayout.vocabTileGap,
                   children: item.groups
                       .map(
                         (g) => VocabGroupTile(
@@ -131,7 +130,7 @@ class VocabLevelCard extends StatelessWidget {
                 );
               },
             ),
-            const SizedBox(height: VocabLayout.tilesToStatsGap),
+            const SizedBox(height: AppLayout.vocabTilesToStatsGap),
             VocabLevelStatsRow(item: item, l10n: l10n),
           ],
         ],

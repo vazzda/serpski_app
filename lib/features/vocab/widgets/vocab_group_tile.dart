@@ -4,7 +4,7 @@ import '../../../app/theme/app_themes.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/ui/progress_bar/project_progress_bar.dart';
 import '../../../shared/ui/tile/project_tile.dart';
-import 'vocab_layout.dart';
+import '../../../app/layout/app_layout.dart';
 import 'vocab_tile_data.dart';
 
 class VocabGroupTile extends StatelessWidget {
@@ -28,16 +28,16 @@ class VocabGroupTile extends StatelessWidget {
 
     return SizedBox(
       width: width,
-      height: t.tileHeight,
+      height: AppLayout.vocabTileHeight,
       child: ProjectTile(
         onTap: item.cardCount > 0 ? onTap : null,
         child: Stack(
           children: [
             // Title
             Positioned(
-              top: VocabLayout.tileNameTop,
-              left: VocabLayout.tileNameLeft,
-              right: VocabLayout.tileNameRight,
+              top: AppLayout.vocabTileNameTop,
+              left: AppLayout.vocabTileNameLeft,
+              right: AppLayout.vocabTileNameRight,
               child: Text(
                 item.name,
                 maxLines: 1,
@@ -49,9 +49,9 @@ class VocabGroupTile extends StatelessWidget {
             ),
             // Word list
             Positioned(
-              top: VocabLayout.tileWordsTop,
-              left: VocabLayout.tileWordsLeft,
-              right: VocabLayout.tileWordsRight,
+              top: AppLayout.vocabTileWordsTop,
+              left: AppLayout.vocabTileWordsLeft,
+              right: AppLayout.vocabTileWordsRight,
               child: Text(
                 item.words.join(', '),
                 maxLines: 4,
@@ -63,9 +63,9 @@ class VocabGroupTile extends StatelessWidget {
             ),
             // Progress bar row
             Positioned(
-              bottom: VocabLayout.tileProgressBottom,
-              left: VocabLayout.tileProgressLeft,
-              right: VocabLayout.tileProgressRight,
+              bottom: AppLayout.vocabTileProgressBottom,
+              left: AppLayout.vocabTileProgressLeft,
+              right: AppLayout.vocabTileProgressRight,
               child: Row(
                 children: [
                   Expanded(
@@ -74,9 +74,9 @@ class VocabGroupTile extends StatelessWidget {
                       mode: ProgressBarMode.compact,
                     ),
                   ),
-                  const SizedBox(width: VocabLayout.tileProgressPercentGap),
+                  const SizedBox(width: AppLayout.vocabTileProgressPercentGap),
                   SizedBox(
-                    width: VocabLayout.tileProgressPercentWidth,
+                    width: AppLayout.vocabTileProgressPercentWidth,
                     child: Text(
                       '${item.percentage ?? 0}%',
                       textAlign: TextAlign.end,
@@ -92,9 +92,9 @@ class VocabGroupTile extends StatelessWidget {
             ),
             // Counter row
             Positioned(
-              bottom: VocabLayout.tileCounterBottom,
-              left: VocabLayout.tileCounterLeft,
-              right: VocabLayout.tileCounterRight,
+              bottom: AppLayout.vocabTileCounterBottom,
+              left: AppLayout.vocabTileCounterLeft,
+              right: AppLayout.vocabTileCounterRight,
               child: Text(
                 l10n.wordsCount(item.cardCount),
                 style: AppFontStyles.textTileCounter.copyWith(

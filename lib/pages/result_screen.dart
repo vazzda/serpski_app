@@ -14,6 +14,8 @@ import '../app/theme/app_themes.dart';
 import '../shared/ui/buttons/project_buttons.dart';
 import '../shared/ui/card/project_card.dart';
 import '../shared/ui/screen_layout/screen_layout_widget.dart';
+import '../shared/ui/gap/project_gap.dart';
+import '../app/layout/app_layout.dart';
 
 class ResultScreen extends ConsumerWidget {
   const ResultScreen({super.key});
@@ -32,7 +34,7 @@ class ResultScreen extends ConsumerWidget {
     return ScreenLayoutWidget(
       title: l10n.resultTitle,
       child: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(AppLayout.screenPadding),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -44,7 +46,7 @@ class ResultScreen extends ConsumerWidget {
                     l10n.correctCount(session.correctCount),
                     style: AppFontStyles.textContentHeader.copyWith(color: t.accentColor),
                   ),
-                  const SizedBox(height: 8),
+                  const ProjectGap.s(),
                   Text(
                     l10n.wrongCount(session.wrongCount),
                     style: AppFontStyles.textContentHeader.copyWith(color: t.dangerColor),
@@ -52,7 +54,7 @@ class ResultScreen extends ConsumerWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 24),
+            const ProjectGap.xl(),
             Row(
               children: [
                 Expanded(
@@ -113,7 +115,7 @@ class ResultScreen extends ConsumerWidget {
                     },
                   ),
                 ),
-                const SizedBox(width: 12),
+                const ProjectGap.hm(),
                 Expanded(
                   child: BaseButton(
                     label: l10n.back,
@@ -129,17 +131,17 @@ class ResultScreen extends ConsumerWidget {
               ],
             ),
             if (session.missedEntries.isNotEmpty) ...[
-              const SizedBox(height: 32),
+              const ProjectGap.xl(),
               Text(
                 l10n.reviewWrongTitle,
                 style: AppFontStyles.textContentHeader.copyWith(color: t.textPrimary),
               ),
-              const SizedBox(height: 4),
+              const ProjectGap.xs(),
               Text(
                 l10n.reviewWrongSubtitle,
                 style: AppFontStyles.textBody.copyWith(color: t.textPrimary),
               ),
-              const SizedBox(height: 12),
+              const ProjectGap.m(),
               ...session.missedEntries.map(
                 (entry) => _MissedEntryTile(entry: entry, mode: session.mode),
               ),
@@ -166,9 +168,9 @@ class _MissedEntryTile extends StatelessWidget {
     final isWriteWithTyped = mode == QuizMode.write && entry.userTypedAnswer != null;
 
     return Padding(
-      padding: const EdgeInsets.only(bottom: 8),
+      padding: const EdgeInsets.only(bottom: AppLayout.listItemGapSmall),
       child: ProjectCard(
-        padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+        padding: const EdgeInsets.symmetric(vertical: AppLayout.resultEntryPaddingV, horizontal: AppLayout.resultEntryPaddingH),
         child: isWriteWithTyped
             ? Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -178,7 +180,7 @@ class _MissedEntryTile extends StatelessWidget {
                     '${l10n.youWrote} ${entry.userTypedAnswer!.isEmpty ? l10n.emptyAnswer : entry.userTypedAnswer}',
                     style: AppFontStyles.textBodyLarge.copyWith(color: t.textPrimary),
                   ),
-                  const SizedBox(height: 4),
+                  const ProjectGap.xs(),
                   Text(
                     '${l10n.correctAnswerLabel} ${card.targetAnswer} → ${displayNativeForCard(card, l10n)}',
                     style: AppFontStyles.textBodyLargeAccented.copyWith(color: t.textPrimary),

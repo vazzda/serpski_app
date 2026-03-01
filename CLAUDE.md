@@ -43,6 +43,7 @@ This gate runs at plan time — not as a post-implementation cleanup step.
   - **Tiles**: `ProjectTile`
   - **Progress bar**: `ProjectProgressBar`
   - **Bottom sheets**: `showProjectBottomSheet()`
+  - **Gaps**: `ProjectGap`
   - **Navigation**: `ScreenLayoutWidget`
 
 **When adding a new project control:**

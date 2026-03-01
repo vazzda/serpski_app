@@ -24,6 +24,7 @@ import '../shared/ui/tag/tag_label.dart';
 import '../shared/ui/text/project_header.dart';
 import '../shared/ui/bottom_sheet/project_bottom_sheet.dart';
 import '../shared/ui/bottom_sheet/quiz_bottom_sheets.dart';
+import '../shared/ui/gap/project_gap.dart';
 import '../shared/ui/screen_layout/screen_layout_widget.dart';
 
 /// Developer controls list screen - Showcase all UI components
@@ -83,6 +84,7 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final t = AppThemes.of(context);
 
     return ScreenLayoutWidget(
       title: 'Controls List',
@@ -972,7 +974,29 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
             const ProjectNote(text: 'Slider range adjusts based on your history. Give it some time :)'),
           ]),
 
-          // 21. BOTTOM SHEETS (srpski-specific)
+          // 21. GAPS
+          _buildSection('Gaps (ProjectGap)', [
+            const Text('Vertical:'),
+            const SizedBox(height: 8),
+            _vGapDemo('xxs (2)', const ProjectGap.xxs(), t),
+            _vGapDemo('xs (4)', const ProjectGap.xs(), t),
+            _vGapDemo('s (8)', const ProjectGap.s(), t),
+            _vGapDemo('m (12)', const ProjectGap.m(), t),
+            _vGapDemo('l (16)', const ProjectGap.l(), t),
+            _vGapDemo('xl (24)', const ProjectGap.xl(), t),
+            _vGapDemo('xxl (48)', const ProjectGap.xxl(), t),
+            const SizedBox(height: 16),
+            const Text('Horizontal:'),
+            const SizedBox(height: 8),
+            _hGapDemo('hxxs (2)', const ProjectGap.hxxs(), t),
+            _hGapDemo('hxs (4)', const ProjectGap.hxs(), t),
+            _hGapDemo('hs (8)', const ProjectGap.hs(), t),
+            _hGapDemo('hm (12)', const ProjectGap.hm(), t),
+            _hGapDemo('hl (16)', const ProjectGap.hl(), t),
+            _hGapDemo('hxl (24)', const ProjectGap.hxl(), t),
+          ]),
+
+          // 22. BOTTOM SHEETS (srpski-specific)
           _buildSection('Bottom Sheets', [
             Wrap(
               spacing: 8,
@@ -1099,6 +1123,47 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
           Text(title, style: AppFontStyles.textSubtitle),
           const SizedBox(height: 16),
           ...children,
+        ],
+      ),
+    );
+  }
+
+  Widget _vGapDemo(String label, Widget gap, AppThemeData t) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8),
+      child: Row(
+        children: [
+          SizedBox(
+            width: 72,
+            child: Text(label, style: AppFontStyles.textCaption.copyWith(color: t.textSecondary)),
+          ),
+          Expanded(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(height: 2, color: t.accentColor),
+                gap,
+                Container(height: 2, color: t.accentColor),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _hGapDemo(String label, Widget gap, AppThemeData t) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8),
+      child: Row(
+        children: [
+          SizedBox(
+            width: 72,
+            child: Text(label, style: AppFontStyles.textCaption.copyWith(color: t.textSecondary)),
+          ),
+          Container(width: 2, height: 24, color: t.accentColor),
+          gap,
+          Container(width: 2, height: 24, color: t.accentColor),
         ],
       ),
     );

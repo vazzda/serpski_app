@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../app/layout/app_layout.dart';
 import '../../../app/theme/app_themes.dart';
 import '../bottom_navbar/bottom_navbar_widget.dart';
 
@@ -28,6 +29,7 @@ class ScreenLayoutWidget extends StatelessWidget {
     return Scaffold(
       backgroundColor: t.scaffoldBackground,
       appBar: AppBar(
+        toolbarHeight: AppLayout.appBarHeight,
         leading: leading,
         title: Text(title.toUpperCase()),
         actions: actions,

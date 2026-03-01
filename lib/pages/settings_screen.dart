@@ -21,6 +21,8 @@ import '../shared/ui/screen_layout/screen_layout_widget.dart';
 import '../shared/ui/card/project_card.dart';
 import '../shared/ui/inputs/project_radio_tile.dart';
 import 'package:srpski_card/shared/lib/constants.dart';
+import '../shared/ui/gap/project_gap.dart';
+import '../app/layout/app_layout.dart';
 
 /// Settings screen for app configuration.
 class SettingsScreen extends ConsumerStatefulWidget {
@@ -75,7 +77,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                   style: AppFontStyles.textSheetTitle
                       .copyWith(color: t.textPrimary),
                 ),
-                const SizedBox(height: 16),
+                const ProjectGap.l(),
                 ProjectTextInput(
                   controller: passwordController,
                   autofocus: true,
@@ -97,7 +99,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                         }
                       : null,
                 ),
-                const SizedBox(height: 8),
+                const ProjectGap.s(),
                 Opacity(
                   opacity: error != null ? 1.0 : 0.0,
                   child: Text(
@@ -106,7 +108,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                         .copyWith(color: t.dangerColor),
                   ),
                 ),
-                const SizedBox(height: 2),
+                const ProjectGap.xxs(),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
@@ -114,7 +116,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                       label: l10n.cancel,
                       onPressed: () => Navigator.of(stateContext).pop(),
                     ),
-                    const SizedBox(width: 8),
+                    const ProjectGap.hs(),
                     AccentButton(
                       label: l10n.dev_unlock,
                       onPressed: hasText
@@ -165,11 +167,11 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
       showBottomNav: true,
       onSettingsDisabledTap: _handleTitleTap,
       child: ListView(
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(AppLayout.screenPadding),
         children: [
           // App language section
           Padding(
-            padding: const EdgeInsets.only(bottom: 8),
+            padding: const EdgeInsets.only(bottom: AppLayout.listItemGapSmall),
             child: Text(
               l10n.language_appLanguage,
               style:
@@ -206,10 +208,10 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
               );
             },
           ),
-          const SizedBox(height: 24),
+          const ProjectGap.xl(),
           // Theme section
           Padding(
-            padding: const EdgeInsets.only(bottom: 12),
+            padding: const EdgeInsets.only(bottom: AppLayout.listItemGap),
             child: Text(
               l10n.settingsTheme,
               style:
@@ -234,10 +236,10 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
               ],
             ),
           ),
-          const SizedBox(height: 24),
+          const ProjectGap.xl(),
           // Decay section
           Padding(
-            padding: const EdgeInsets.only(bottom: 12),
+            padding: const EdgeInsets.only(bottom: AppLayout.listItemGap),
             child: Text(
               l10n.settingsDecaySpeed,
               style:
@@ -252,7 +254,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                 .read(appSettingsProvider.notifier)
                 .setDecayFormula(DecayFormula.relaxed),
           ),
-          const SizedBox(height: 8),
+          const ProjectGap.s(),
           _DecayOption(
             title: l10n.decayStandard,
             description: l10n.decayStandardDesc,
@@ -261,7 +263,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                 .read(appSettingsProvider.notifier)
                 .setDecayFormula(DecayFormula.standard),
           ),
-          const SizedBox(height: 8),
+          const ProjectGap.s(),
           _DecayOption(
             title: l10n.decayIntensive,
             description: l10n.decayIntensiveDesc,
@@ -270,7 +272,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                 .read(appSettingsProvider.notifier)
                 .setDecayFormula(DecayFormula.intensive),
           ),
-          const SizedBox(height: 8),
+          const ProjectGap.s(),
           _DecayOption(
             title: l10n.decayHardcore,
             description: l10n.decayHardcoreDesc,
@@ -281,9 +283,9 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
           ),
           // Developer section (hidden until unlocked)
           if (showDevSection) ...[
-            const SizedBox(height: 24),
+            const ProjectGap.xl(),
             Padding(
-              padding: const EdgeInsets.only(bottom: 12),
+              padding: const EdgeInsets.only(bottom: AppLayout.listItemGap),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -353,7 +355,7 @@ class _DecayOption extends StatelessWidget {
                           .copyWith(color: t.textPrimary)
                       : AppFontStyles.textListItem.copyWith(color: t.textPrimary),
                 ),
-                const SizedBox(height: 2),
+                const ProjectGap.xxs(),
                 Text(
                   description,
                   style: AppFontStyles.textCaption.copyWith(color: t.textSecondary),
