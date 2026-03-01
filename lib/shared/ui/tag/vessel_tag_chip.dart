@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:srpski_card/app/theme/vessel_themes.dart';
 import 'package:srpski_card/entities/tag/tag.dart';
 
@@ -100,7 +101,7 @@ class VesselTagColorPreview extends StatelessWidget {
         ),
         child: isTransparent
             ? Icon(
-                Icons.do_not_disturb_alt,
+                PhosphorIconsRegular.prohibit,
                 size: 16,
                 color: themeData.tagChipBorder,
               )

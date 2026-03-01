@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 import '../../../app/theme/vessel_themes.dart';
 import '../../../entities/deck/vocab_deck_model.dart';
@@ -56,7 +57,7 @@ class VocabLevelCard extends StatelessWidget {
                       ),
                     ),
                     if (isPremium)
-                      Icon(Icons.lock_outline, size: 16, color: t.textSecondary),
+                      Icon(PhosphorIconsRegular.lock, size: 16, color: t.textSecondary),
                   ],
                 ),
                 const SizedBox(height: VesselLayout.vocabHeaderToProgressGap),

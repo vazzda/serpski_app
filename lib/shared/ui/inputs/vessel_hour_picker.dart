@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:srpski_card/app/theme/vessel_themes.dart';
 import 'package:srpski_card/shared/ui/bottom_sheet/vessel_bottom_sheet.dart';
 
@@ -69,7 +70,7 @@ class VesselHourPicker extends StatelessWidget {
                   _formatHour(selectedHour),
                   style: VesselFonts.textControlInput.copyWith(color: theme.controlForeground),
                 ),
-                Icon(Icons.schedule, color: theme.controlForeground, size: 20),
+                Icon(PhosphorIconsRegular.clock, color: theme.controlForeground, size: 20),
               ],
             ),
           ),

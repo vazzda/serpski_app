@@ -1,6 +1,7 @@
 import 'package:country_flags/country_flags.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 import '../l10n/app_localizations.dart';
 import '../l10n/app_localizations_ext.dart';
@@ -207,7 +208,7 @@ class _LangPairSelector extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: VesselLayout.gapS),
-              child: Icon(Icons.arrow_forward, color: t.textSecondary, size: 20),
+              child: Icon(PhosphorIconsRegular.arrowRight, color: t.textSecondary, size: 20),
             ),
             Expanded(
               child: _LangBox(
@@ -270,7 +271,7 @@ class _LangBox extends StatelessWidget {
                     ),
                   )
                 else
-                  Icon(Icons.keyboard_arrow_down, color: t.textSecondary, size: 18),
+                  Icon(PhosphorIconsRegular.caretDown, color: t.textSecondary, size: 18),
                 const VesselGap.xs(),
                 Text(
                   selectedLabel,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 import '../app/layout/vessel_layout.dart';
 import '../l10n/app_localizations.dart';
@@ -167,7 +167,7 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
                                 ),
                               ),
                               child: Icon(
-                                MdiIcons.handWave,
+                                PhosphorIconsRegular.handWaving,
                                 size: VesselLayout.vocabTileIconSize,
                                 color: t.deckIconColor,
                               ),
@@ -244,8 +244,8 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
             Row(
               children: [
                 VesselButton(label: 'Base', onPressed: () {}),
-                VesselButton(label: 'Base', icon: Icons.star, onPressed: () {}),
-                VesselButton(icon: Icons.star, onPressed: () {}),
+                VesselButton(label: 'Base', icon: PhosphorIconsRegular.star, onPressed: () {}),
+                VesselButton(icon: PhosphorIconsRegular.star, onPressed: () {}),
               ],
             ),
             const SizedBox(height: 8),
@@ -254,10 +254,10 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
                 VesselAccentButton(label: 'Accent', onPressed: () {}),
                 VesselAccentButton(
                   label: 'Accent',
-                  icon: Icons.check,
+                  icon: PhosphorIconsRegular.check,
                   onPressed: () {},
                 ),
-                VesselAccentButton(icon: Icons.check, onPressed: () {}),
+                VesselAccentButton(icon: PhosphorIconsRegular.check, onPressed: () {}),
               ],
             ),
             const SizedBox(height: 8),
@@ -266,10 +266,10 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
                 VesselDangerButton(label: 'Danger', onPressed: () {}),
                 VesselDangerButton(
                   label: 'Danger',
-                  icon: Icons.warning,
+                  icon: PhosphorIconsRegular.warning,
                   onPressed: () {},
                 ),
-                VesselDangerButton(icon: Icons.warning, onPressed: () {}),
+                VesselDangerButton(icon: PhosphorIconsRegular.warning, onPressed: () {}),
               ],
             ),
             const SizedBox(height: 16),
@@ -285,12 +285,12 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
                 ),
                 VesselButton(
                   label: 'Small',
-                  icon: Icons.star,
+                  icon: PhosphorIconsRegular.star,
                   onPressed: () {},
                   size: VesselButtonSize.small,
                 ),
                 VesselButton(
-                  icon: Icons.star,
+                  icon: PhosphorIconsRegular.star,
                   onPressed: () {},
                   size: VesselButtonSize.small,
                 ),
@@ -300,8 +300,8 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
             Row(
               children: [
                 VesselButton(label: 'Medium', onPressed: () {}),
-                VesselButton(label: 'Medium', icon: Icons.star, onPressed: () {}),
-                VesselButton(icon: Icons.star, onPressed: () {}),
+                VesselButton(label: 'Medium', icon: PhosphorIconsRegular.star, onPressed: () {}),
+                VesselButton(icon: PhosphorIconsRegular.star, onPressed: () {}),
               ],
             ),
             const SizedBox(height: 8),
@@ -314,12 +314,12 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
                 ),
                 VesselButton(
                   label: 'Large',
-                  icon: Icons.star,
+                  icon: PhosphorIconsRegular.star,
                   onPressed: () {},
                   size: VesselButtonSize.large,
                 ),
                 VesselButton(
-                  icon: Icons.star,
+                  icon: PhosphorIconsRegular.star,
                   onPressed: () {},
                   size: VesselButtonSize.large,
                 ),
@@ -334,10 +334,10 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
                 VesselButton(label: 'Disabled', onPressed: null),
                 VesselButton(
                   label: 'Disabled',
-                  icon: Icons.star,
+                  icon: PhosphorIconsRegular.star,
                   onPressed: null,
                 ),
-                VesselButton(icon: Icons.star, onPressed: null),
+                VesselButton(icon: PhosphorIconsRegular.star, onPressed: null),
               ],
             ),
             const SizedBox(height: 16),
@@ -354,13 +354,13 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
                 ),
                 VesselButton(
                   label: 'Small',
-                  icon: Icons.star,
+                  icon: PhosphorIconsRegular.star,
                   onPressed: () {},
                   size: VesselButtonSize.small,
                   condensed: true,
                 ),
                 VesselButton(
-                  icon: Icons.star,
+                  icon: PhosphorIconsRegular.star,
                   onPressed: () {},
                   size: VesselButtonSize.small,
                   condensed: true,
@@ -379,12 +379,12 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
                 ),
                 VesselButton(
                   label: 'Medium',
-                  icon: Icons.star,
+                  icon: PhosphorIconsRegular.star,
                   onPressed: () {},
                   condensed: true,
                 ),
                 VesselButton(
-                  icon: Icons.star,
+                  icon: PhosphorIconsRegular.star,
                   onPressed: () {},
                   condensed: true,
                 ),
@@ -403,13 +403,13 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
                 ),
                 VesselButton(
                   label: 'Large',
-                  icon: Icons.star,
+                  icon: PhosphorIconsRegular.star,
                   onPressed: () {},
                   size: VesselButtonSize.large,
                   condensed: true,
                 ),
                 VesselButton(
-                  icon: Icons.star,
+                  icon: PhosphorIconsRegular.star,
                   onPressed: () {},
                   size: VesselButtonSize.large,
                   condensed: true,
@@ -432,12 +432,12 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
                 ),
                 VesselTextButton(
                   label: 'Small',
-                  icon: Icons.refresh,
+                  icon: PhosphorIconsRegular.arrowClockwise,
                   onPressed: () {},
                   size: VesselButtonSize.small,
                 ),
                 VesselTextButton(
-                  icon: Icons.refresh,
+                  icon: PhosphorIconsRegular.arrowClockwise,
                   onPressed: () {},
                   size: VesselButtonSize.small,
                 ),
@@ -449,10 +449,10 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
                 VesselTextButton(label: 'Medium', onPressed: () {}),
                 VesselTextButton(
                   label: 'Medium',
-                  icon: Icons.refresh,
+                  icon: PhosphorIconsRegular.arrowClockwise,
                   onPressed: () {},
                 ),
-                VesselTextButton(icon: Icons.refresh, onPressed: () {}),
+                VesselTextButton(icon: PhosphorIconsRegular.arrowClockwise, onPressed: () {}),
               ],
             ),
             const SizedBox(height: 8),
@@ -465,12 +465,12 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
                 ),
                 VesselTextButton(
                   label: 'Large',
-                  icon: Icons.refresh,
+                  icon: PhosphorIconsRegular.arrowClockwise,
                   onPressed: () {},
                   size: VesselButtonSize.large,
                 ),
                 VesselTextButton(
-                  icon: Icons.refresh,
+                  icon: PhosphorIconsRegular.arrowClockwise,
                   onPressed: () {},
                   size: VesselButtonSize.large,
                 ),
@@ -485,10 +485,10 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
                 VesselAccentTextButton(label: 'Accent', onPressed: () {}),
                 VesselAccentTextButton(
                   label: 'Accent',
-                  icon: Icons.check,
+                  icon: PhosphorIconsRegular.check,
                   onPressed: () {},
                 ),
-                VesselAccentTextButton(icon: Icons.check, onPressed: () {}),
+                VesselAccentTextButton(icon: PhosphorIconsRegular.check, onPressed: () {}),
               ],
             ),
             const SizedBox(height: 8),
@@ -500,10 +500,10 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
                 VesselDangerTextButton(label: 'Danger', onPressed: () {}),
                 VesselDangerTextButton(
                   label: 'Danger',
-                  icon: Icons.warning,
+                  icon: PhosphorIconsRegular.warning,
                   onPressed: () {},
                 ),
-                VesselDangerTextButton(icon: Icons.warning, onPressed: () {}),
+                VesselDangerTextButton(icon: PhosphorIconsRegular.warning, onPressed: () {}),
               ],
             ),
             const SizedBox(height: 16),
@@ -515,10 +515,10 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
                 VesselTextButton(label: 'Disabled', onPressed: null),
                 VesselTextButton(
                   label: 'Disabled',
-                  icon: Icons.refresh,
+                  icon: PhosphorIconsRegular.arrowClockwise,
                   onPressed: null,
                 ),
-                VesselTextButton(icon: Icons.refresh, onPressed: null),
+                VesselTextButton(icon: PhosphorIconsRegular.arrowClockwise, onPressed: null),
               ],
             ),
             const SizedBox(height: 16),
@@ -534,19 +534,19 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
                   condensed: true,
                 ),
                 VesselTextButton(
-                  icon: Icons.refresh,
+                  icon: PhosphorIconsRegular.arrowClockwise,
                   onPressed: () {},
                   size: VesselButtonSize.small,
                   condensed: true,
                 ),
                 VesselAccentTextButton(
-                  icon: Icons.check,
+                  icon: PhosphorIconsRegular.check,
                   onPressed: () {},
                   size: VesselButtonSize.small,
                   condensed: true,
                 ),
                 VesselDangerTextButton(
-                  icon: Icons.warning,
+                  icon: PhosphorIconsRegular.warning,
                   onPressed: () {},
                   size: VesselButtonSize.small,
                   condensed: true,
@@ -564,17 +564,17 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
                   condensed: true,
                 ),
                 VesselTextButton(
-                  icon: Icons.refresh,
+                  icon: PhosphorIconsRegular.arrowClockwise,
                   onPressed: () {},
                   condensed: true,
                 ),
                 VesselAccentTextButton(
-                  icon: Icons.check,
+                  icon: PhosphorIconsRegular.check,
                   onPressed: () {},
                   condensed: true,
                 ),
                 VesselDangerTextButton(
-                  icon: Icons.warning,
+                  icon: PhosphorIconsRegular.warning,
                   onPressed: () {},
                   condensed: true,
                 ),
@@ -589,8 +589,8 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
             ProjectButtonGroup(
               size: VesselButtonSize.small,
               items: [
-                VesselButtonGroupItem(icon: Icons.remove, onPressed: () {}),
-                VesselButtonGroupItem(icon: Icons.add, onPressed: () {}),
+                VesselButtonGroupItem(icon: PhosphorIconsRegular.minus, onPressed: () {}),
+                VesselButtonGroupItem(icon: PhosphorIconsRegular.plus, onPressed: () {}),
               ],
             ),
             const SizedBox(height: 16),
@@ -598,8 +598,8 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
             const SizedBox(height: 8),
             ProjectButtonGroup(
               items: [
-                VesselButtonGroupItem(icon: Icons.remove, onPressed: () {}),
-                VesselButtonGroupItem(icon: Icons.add, onPressed: () {}),
+                VesselButtonGroupItem(icon: PhosphorIconsRegular.minus, onPressed: () {}),
+                VesselButtonGroupItem(icon: PhosphorIconsRegular.plus, onPressed: () {}),
               ],
             ),
             const SizedBox(height: 16),
@@ -609,12 +609,12 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
               items: [
                 VesselButtonGroupItem(
                   label: 'Prev',
-                  icon: Icons.arrow_back,
+                  icon: PhosphorIconsRegular.arrowLeft,
                   onPressed: () {},
                 ),
                 VesselButtonGroupItem(
                   label: 'Next',
-                  icon: Icons.arrow_forward,
+                  icon: PhosphorIconsRegular.arrowRight,
                   onPressed: () {},
                 ),
               ],
@@ -625,15 +625,15 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
             ProjectButtonGroup(
               items: [
                 VesselButtonGroupItem(
-                  icon: Icons.format_align_left,
+                  icon: PhosphorIconsRegular.textAlignLeft,
                   onPressed: () {},
                 ),
                 VesselButtonGroupItem(
-                  icon: Icons.format_align_center,
+                  icon: PhosphorIconsRegular.textAlignCenter,
                   onPressed: () {},
                 ),
                 VesselButtonGroupItem(
-                  icon: Icons.format_align_right,
+                  icon: PhosphorIconsRegular.textAlignRight,
                   onPressed: () {},
                 ),
               ],
@@ -644,8 +644,8 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
             ProjectButtonGroup(
               expanded: true,
               items: [
-                VesselButtonGroupItem(icon: Icons.remove, onPressed: () {}),
-                VesselButtonGroupItem(icon: Icons.add, onPressed: () {}),
+                VesselButtonGroupItem(icon: PhosphorIconsRegular.minus, onPressed: () {}),
+                VesselButtonGroupItem(icon: PhosphorIconsRegular.plus, onPressed: () {}),
               ],
             ),
             const SizedBox(height: 16),
@@ -654,10 +654,10 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
             ProjectButtonGroup(
               items: [
                 const VesselButtonGroupItem(
-                  icon: Icons.remove,
+                  icon: PhosphorIconsRegular.minus,
                   onPressed: null,
                 ),
-                VesselButtonGroupItem(icon: Icons.add, onPressed: () {}),
+                VesselButtonGroupItem(icon: PhosphorIconsRegular.plus, onPressed: () {}),
               ],
             ),
           ]),
@@ -806,22 +806,22 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
                 VesselRadioGridOption(
                   value: 'Time',
                   label: 'Time',
-                  icon: Icons.timer,
+                  icon: PhosphorIconsRegular.timer,
                 ),
                 VesselRadioGridOption(
                   value: 'Counter',
                   label: 'Counter',
-                  icon: Icons.exposure_plus_1,
+                  icon: PhosphorIconsRegular.plusCircle,
                 ),
                 VesselRadioGridOption(
                   value: 'Check',
                   label: 'Check',
-                  icon: Icons.check,
+                  icon: PhosphorIconsRegular.check,
                 ),
                 VesselRadioGridOption(
                   value: 'Streak',
                   label: 'Streak',
-                  icon: Icons.local_fire_department,
+                  icon: PhosphorIconsRegular.fire,
                 ),
               ],
               selectedValue: _demoGridRadio,

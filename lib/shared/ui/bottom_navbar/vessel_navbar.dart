@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 import '../../../l10n/app_localizations.dart';
 import '../../../app/layout/vessel_layout.dart';
@@ -45,7 +46,8 @@ class VesselNavBar extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               VesselNavBarIcon(
-                icon: Icons.language,
+                icon: PhosphorIconsRegular.globe,
+                activeIcon: PhosphorIconsFill.globe,
                 tooltip: l10n.navLanguage,
                 isEnabled: !isLanguage,
                 enabledColor: t.navbarIconColor,
@@ -55,7 +57,8 @@ class VesselNavBar extends StatelessWidget {
                     : null,
               ),
               VesselNavBarIcon(
-                icon: Icons.menu_book,
+                icon: PhosphorIconsRegular.books,
+                activeIcon: PhosphorIconsFill.books,
                 tooltip: l10n.navVocabulary,
                 isEnabled: !isVocabulary,
                 enabledColor: t.navbarIconColor,
@@ -65,7 +68,8 @@ class VesselNavBar extends StatelessWidget {
                     : null,
               ),
               VesselNavBarIcon(
-                icon: Icons.build,
+                icon: PhosphorIconsRegular.wrench,
+                activeIcon: PhosphorIconsFill.wrench,
                 tooltip: l10n.navTools,
                 isEnabled: !isTools,
                 enabledColor: t.navbarIconColor,
@@ -75,7 +79,8 @@ class VesselNavBar extends StatelessWidget {
                     : null,
               ),
               VesselNavBarIcon(
-                icon: Icons.settings,
+                icon: PhosphorIconsRegular.gearSix,
+                activeIcon: PhosphorIconsFill.gearSix,
                 tooltip: l10n.navSettings,
                 isEnabled: !isSettings,
                 enabledColor: t.navbarIconColor,

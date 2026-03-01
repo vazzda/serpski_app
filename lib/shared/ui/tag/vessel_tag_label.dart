@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:srpski_card/app/theme/vessel_themes.dart';
 import 'package:srpski_card/entities/tag/tag.dart';
 
@@ -75,7 +76,7 @@ class VesselTagLabel extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           if (showIcon) ...[
-            Icon(Icons.label, size: 24.0, color: iconColor),
+            Icon(PhosphorIconsRegular.tag, size: 24.0, color: iconColor),
             const SizedBox(width: 4),
           ],
           Text(displayText, style: textStyle),

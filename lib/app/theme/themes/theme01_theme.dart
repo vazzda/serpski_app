@@ -63,8 +63,8 @@ const VesselThemeData theme01Theme = VesselThemeData(
   navbarBackground: Theme01Palette.pureWhite,
   navbarBorderColor: Theme01Palette.gunMetal,
   navbarBorderWidth: 2.0,
-  navbarIconColor: Theme01Palette.gunMetal,
-  navbarDisabledIconColor: Theme01Palette.pureBlackA40,
+  navbarIconColor: Theme01Palette.pureBlackA67,
+  navbarDisabledIconColor: Theme01Palette.gunMetal,
   // Fab
   fabBackground: Theme01Palette.pureWhite,
   fabBorderColor: Theme01Palette.gunMetal,

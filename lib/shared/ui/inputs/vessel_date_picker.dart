@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:srpski_card/app/theme/vessel_themes.dart';
 
 /// A project-wide date picker control
@@ -73,7 +74,7 @@ class VesselDatePicker extends StatelessWidget {
                     color: hasValue ? theme.controlForeground : theme.textSecondary,
                   ),
                 ),
-                Icon(Icons.calendar_today, color: theme.controlForeground, size: 20),
+                Icon(PhosphorIconsRegular.calendar, color: theme.controlForeground, size: 20),
               ],
             ),
           ),

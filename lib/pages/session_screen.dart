@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 import '../entities/card/card_model.dart';
 import '../entities/card/vocab_card.dart';
@@ -126,7 +127,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
       title: title,
       actions: [
         IconButton(
-          icon: const Icon(Icons.close),
+          icon: const Icon(PhosphorIconsRegular.x),
           tooltip: l10n.exitSession,
           onPressed: () => _showExitConfirm(context, ref, l10n),
         ),

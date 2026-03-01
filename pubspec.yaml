@@ -40,7 +40,7 @@ dependencies:
   path: ^1.9.1
   shared_preferences: ^2.3.4
   country_flags: ^4.1.2
-  material_design_icons_flutter: ^7.0.7296
+  phosphor_flutter: ^2.1.0
 
 dev_dependencies:
   flutter_test:

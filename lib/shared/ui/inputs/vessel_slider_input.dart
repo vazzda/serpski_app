@@ -1,6 +1,7 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:srpski_card/app/theme/vessel_themes.dart';
 import 'package:srpski_card/shared/ui/buttons/vessel_button_group.dart';
 import 'package:srpski_card/shared/ui/buttons/vessel_button_styles.dart' show VesselButtonSize;
@@ -380,13 +381,13 @@ class _VesselSliderInputState extends State<VesselSliderInput> {
       expanded: expanded,
       items: [
         VesselButtonGroupItem(
-          icon: Icons.remove,
+          icon: PhosphorIconsRegular.minus,
           onPressed: canDecrement && widget.onChanged != null
               ? () => widget.onChanged!(math.max(widget.min, widget.value - increment))
               : null,
         ),
         VesselButtonGroupItem(
-          icon: Icons.add,
+          icon: PhosphorIconsRegular.plus,
           onPressed: widget.onChanged != null
               ? () => widget.onChanged!(widget.value + increment)
               : null,

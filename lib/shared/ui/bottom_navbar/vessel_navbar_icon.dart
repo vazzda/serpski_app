@@ -5,6 +5,7 @@ import '../../../app/layout/vessel_layout.dart';
 /// Icon button for bottom navbar with explicit enabled/disabled states.
 class VesselNavBarIcon extends StatelessWidget {
   final IconData icon;
+  final IconData? activeIcon;
   final String tooltip;
   final bool isEnabled;
   final Color enabledColor;
@@ -15,6 +16,7 @@ class VesselNavBarIcon extends StatelessWidget {
   const VesselNavBarIcon({
     super.key,
     required this.icon,
+    this.activeIcon,
     required this.tooltip,
     required this.isEnabled,
     required this.enabledColor,
@@ -26,7 +28,8 @@ class VesselNavBarIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final iconColor = isEnabled ? enabledColor : disabledColor;
-    final iconWidget = Icon(icon, size: 28, color: iconColor);
+    final resolvedIcon = isEnabled ? icon : (activeIcon ?? icon);
+    final iconWidget = Icon(resolvedIcon, size: 28, color: iconColor);
 
     if (isEnabled && onPressed != null) {
       return Tooltip(

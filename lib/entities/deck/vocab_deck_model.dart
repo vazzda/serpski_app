@@ -15,7 +15,7 @@ class VocabDeckModel {
   /// Ordered list of concept IDs in this deck.
   final List<String> conceptIds;
 
-  /// MDI icon name (kebab-case), resolved at runtime via MdiIcons.fromString().
+  /// Icon name (kebab-case), resolved at runtime via DeckIcons.fromString().
   final String? icon;
 
   factory VocabDeckModel.fromJson(Map<String, dynamic> json) {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../../../app/theme/vessel_themes.dart';
+import 'package:srpski_card/shared/lib/deck_icons.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/ui/progress_bar/vessel_progress_bar.dart';
 import '../../../shared/ui/tile/vessel_tile.dart';
@@ -27,8 +27,8 @@ class VocabDeckTile extends StatelessWidget {
     final t = VesselThemes.of(context);
     final barValue = item.percentage != null ? item.percentage! / 100.0 : 0.0;
     final iconData = item.icon != null
-        ? MdiIcons.fromString(item.icon!) ?? Icons.category
-        : Icons.category;
+        ? DeckIcons.fromString(item.icon!)
+        : DeckIcons.fallback;
 
     return SizedBox(
       width: width,
