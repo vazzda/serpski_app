@@ -748,6 +748,18 @@ abstract class AppLocalizations {
   /// **'imperfective'**
   String get aspect_imperfective;
 
+  /// No description provided for @language_iSpeak.
+  ///
+  /// In en, this message translates to:
+  /// **'I speak'**
+  String get language_iSpeak;
+
+  /// No description provided for @language_iLearn.
+  ///
+  /// In en, this message translates to:
+  /// **'I learn'**
+  String get language_iLearn;
+
   /// No description provided for @language_learning.
   ///
   /// In en, this message translates to:
@@ -769,7 +781,7 @@ abstract class AppLocalizations {
   /// No description provided for @language_sameAsLearning.
   ///
   /// In en, this message translates to:
-  /// **'Same as learning language selected'**
+  /// **'Not gonna work! Same as learning language selected'**
   String get language_sameAsLearning;
 
   /// No description provided for @language_myProgress.

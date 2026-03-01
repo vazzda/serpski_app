@@ -1,3 +1,4 @@
+import 'package:country_flags/country_flags.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -8,9 +9,10 @@ import '../app/providers/dev_section_provider.dart';
 import '../app/providers/dictionary_provider.dart';
 import '../app/providers/language_settings_provider.dart';
 import '../app/theme/app_themes.dart';
+import '../entities/language/lang_codes.dart';
 import '../entities/language/language_pack.dart';
-import '../shared/ui/buttons/project_button_group.dart';
-import '../shared/ui/buttons/project_buttons.dart' show ButtonSize;
+import '../shared/ui/bottom_sheet/project_bottom_sheet.dart';
+import '../shared/ui/lang_button/project_lang_button.dart';
 import '../shared/ui/card/project_card.dart';
 import '../shared/ui/note/project_note.dart';
 import '../shared/ui/progress_bar/project_progress_bar.dart';
@@ -42,35 +44,16 @@ class LanguageScreen extends ConsumerWidget {
           return ListView(
             padding: const EdgeInsets.all(16),
             children: [
-              // Target language selector
-              _SectionHeader(label: l10n.language_learning),
-              const SizedBox(height: 8),
-              _LangButtonGroup(
+              _LangPairSelector(
                 codes: allCodes,
-                selectedCode: langSettings.targetLang,
                 packByCode: packByCode,
+                nativeCode: langSettings.nativeLang,
+                targetCode: langSettings.targetLang,
                 l10n: l10n,
-                onSelected: (code) {
-                  ref
-                      .read(languageSettingsProvider.notifier)
-                      .setTargetLang(code);
-                },
-              ),
-              const SizedBox(height: 20),
-
-              // Native language selector
-              _SectionHeader(label: l10n.language_native),
-              const SizedBox(height: 8),
-              _LangButtonGroup(
-                codes: allCodes,
-                selectedCode: langSettings.nativeLang,
-                packByCode: packByCode,
-                l10n: l10n,
-                onSelected: (code) {
-                  ref
-                      .read(languageSettingsProvider.notifier)
-                      .setNativeLang(code);
-                },
+                onNativeSelected: (code) =>
+                    ref.read(languageSettingsProvider.notifier).setNativeLang(code),
+                onTargetSelected: (code) =>
+                    ref.read(languageSettingsProvider.notifier).setTargetLang(code),
               ),
               if (langSettings.targetLang == langSettings.nativeLang) ...[
                 const SizedBox(height: 8),
@@ -119,50 +102,177 @@ class LanguageScreen extends ConsumerWidget {
   }
 }
 
-class _SectionHeader extends StatelessWidget {
-  const _SectionHeader({required this.label});
-  final String label;
+Future<String?> _showLangPicker(
+  BuildContext context,
+  List<String> codes,
+  Map<String, LanguagePack> packByCode,
+  AppLocalizations l10n,
+) {
+  return showProjectBottomSheet<String>(
+    context: context,
+    builder: (sheetContext) {
+      final t = AppThemes.of(sheetContext);
+      return Padding(
+        padding: EdgeInsets.all(t.bottomSheetPadding),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            ...codes.map((code) {
+              final pack = packByCode[code]!;
+              return Padding(
+                padding: const EdgeInsets.only(bottom: 8),
+                child: ProjectLangButton(
+                  langCode: code,
+                  label: l10n.langLabel(pack.labelKey),
+                  onPressed: () => Navigator.of(sheetContext).pop(code),
+                ),
+              );
+            }),
+          ],
+        ),
+      );
+    },
+  );
+}
+
+class _LangPairSelector extends StatelessWidget {
+  const _LangPairSelector({
+    required this.codes,
+    required this.packByCode,
+    required this.nativeCode,
+    required this.targetCode,
+    required this.l10n,
+    required this.onNativeSelected,
+    required this.onTargetSelected,
+  });
+
+  final List<String> codes;
+  final Map<String, LanguagePack> packByCode;
+  final String nativeCode;
+  final String targetCode;
+  final AppLocalizations l10n;
+  final ValueChanged<String> onNativeSelected;
+  final ValueChanged<String> onTargetSelected;
+
+  // Width of the arrow zone (icon 20 + padding 8×2) — keeps labels aligned with boxes.
+  static const _arrowZoneWidth = 36.0;
 
   @override
   Widget build(BuildContext context) {
     final t = AppThemes.of(context);
-    return Text(
-      label,
-      style: AppFontStyles.textSectionHeader.copyWith(color: t.textPrimary),
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        // Labels row
+        Row(
+          children: [
+            Expanded(
+              child: Text(
+                l10n.language_iSpeak.toUpperCase(),
+                style: AppFontStyles.textLangPickerLabel.copyWith(color: t.textSecondary),
+              ),
+            ),
+            const SizedBox(width: _arrowZoneWidth),
+            Expanded(
+              child: Text(
+                l10n.language_iLearn.toUpperCase(),
+                style: AppFontStyles.textLangPickerLabel.copyWith(color: t.textSecondary),
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 4),
+        // Boxes row
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Expanded(
+              child: _LangBox(
+                selectedLabel: l10n.langLabel(packByCode[nativeCode]!.labelKey),
+                langCode: nativeCode,
+                onTap: () async {
+                  final picked = await _showLangPicker(context, codes, packByCode, l10n);
+                  if (picked != null) onNativeSelected(picked);
+                },
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              child: Icon(Icons.arrow_forward, color: t.textSecondary, size: 20),
+            ),
+            Expanded(
+              child: _LangBox(
+                selectedLabel: l10n.langLabel(packByCode[targetCode]!.labelKey),
+                langCode: targetCode,
+                onTap: () async {
+                  final picked = await _showLangPicker(context, codes, packByCode, l10n);
+                  if (picked != null) onTargetSelected(picked);
+                },
+              ),
+            ),
+          ],
+        ),
+      ],
     );
   }
 }
 
-class _LangButtonGroup extends StatelessWidget {
-  const _LangButtonGroup({
-    required this.codes,
-    required this.selectedCode,
-    required this.packByCode,
-    required this.l10n,
-    required this.onSelected,
+class _LangBox extends StatelessWidget {
+  const _LangBox({
+    required this.selectedLabel,
+    required this.langCode,
+    required this.onTap,
   });
 
-  final List<String> codes;
-  final String selectedCode;
-  final Map<String, LanguagePack> packByCode;
-  final AppLocalizations l10n;
-  final ValueChanged<String> onSelected;
+  final String selectedLabel;
+  final String langCode;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
-    return ProjectButtonGroup(
-      expanded: true,
-      size: ButtonSize.small,
-      items: codes.map((code) {
-        final pack = packByCode[code]!;
-        final isSelected = code == selectedCode;
-        return ProjectButtonGroupItem(
-          label: l10n.langLabel(pack.labelKey),
-          isSelected: isSelected,
-          onPressed: isSelected ? null : () => onSelected(code),
+    final t = AppThemes.of(context);
+    final countryCode = LangCodes.flagCountryCode(langCode);
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+            width: double.infinity,
+            padding: const EdgeInsets.fromLTRB(12, 14, 12, 8),
+            decoration: BoxDecoration(
+              color: t.cardBackground,
+              border: Border.all(
+                color: t.tileBorderColor,
+                width: t.tileBorderWidth,
+              ),
+              borderRadius: BorderRadius.circular(t.tileBorderRadius),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                if (countryCode != null)
+                  CountryFlag.fromCountryCode(
+                    countryCode,
+                    theme: const ImageTheme(
+                      width: 64,
+                      height: 44,
+                      shape: RoundedRectangle(4),
+                    ),
+                  )
+                else
+                  Icon(Icons.keyboard_arrow_down, color: t.textSecondary, size: 18),
+                const SizedBox(height: 6),
+                Text(
+                  selectedLabel,
+                  style: AppFontStyles.textLangPickerValue
+                      .copyWith(color: t.textPrimary),
+                  overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+          ),
         );
-      }).toList(),
-    );
   }
 }
 

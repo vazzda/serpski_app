@@ -186,10 +186,12 @@
   "aspect_perfective": "perfective",
   "aspect_imperfective": "imperfective",
 
+  "language_iSpeak": "I speak",
+  "language_iLearn": "I learn",
   "language_learning": "Learning",
   "language_native": "Native language",
   "language_appLanguage": "App language",
-  "language_sameAsLearning": "Same as learning language selected",
+  "language_sameAsLearning": "Not gonna work! Same as learning language selected",
   "language_myProgress": "My progress",
   "language_progression": "Progression",
   "language_incompleteDictionaries": "Incomplete dictionaries",

@@ -5,4 +5,13 @@ abstract final class LangCodes {
   static const String serbian = 'sr';
   static const String russian = 'ru';
   static const String italian = 'it';
+
+  /// Maps a language code to an ISO 3166-1 alpha-2 country code for flag display.
+  /// Returns null for unknown codes.
+  static String? flagCountryCode(String langCode) => const {
+    english: 'GB',
+    serbian: 'RS',
+    russian: 'RU',
+    italian: 'IT',
+  }[langCode];
 }

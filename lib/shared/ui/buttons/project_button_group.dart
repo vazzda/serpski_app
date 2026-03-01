@@ -20,17 +20,35 @@ class ProjectButtonGroupItem {
 }
 
 /// A group of buttons that share borders and appear as a single connected unit.
+///
+/// When [maxPerRow] is set, items are chunked into rows of that size.
+/// Each row is independently rounded and rows are separated by a small gap.
 class ProjectButtonGroup extends ConsumerWidget {
   final List<ProjectButtonGroupItem> items;
   final ButtonSize size;
   final bool expanded;
+
+  /// When set, wraps items into rows of this many buttons.
+  /// null = single row (default behavior).
+  final int? maxPerRow;
 
   const ProjectButtonGroup({
     super.key,
     required this.items,
     this.size = ButtonSize.medium,
     this.expanded = false,
+    this.maxPerRow,
   }) : assert(items.length >= 1, 'Button group must have at least 1 item');
+
+
+  List<List<ProjectButtonGroupItem>> get _chunks {
+    final n = maxPerRow!;
+    final result = <List<ProjectButtonGroupItem>>[];
+    for (var i = 0; i < items.length; i += n) {
+      result.add(items.sublist(i, (i + n).clamp(0, items.length)));
+    }
+    return result;
+  }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -51,6 +69,30 @@ class ProjectButtonGroup extends ConsumerWidget {
     final borderWidth = size == ButtonSize.large
         ? theme.buttonBorderWidth * 2
         : theme.buttonBorderWidth;
+
+    if (maxPerRow != null) {
+      final chunks = _chunks;
+      return Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: List.generate(chunks.length, (rowIndex) {
+          final isLastRow = rowIndex == chunks.length - 1;
+          final chunk = chunks[rowIndex];
+          return Row(
+            mainAxisSize: expanded ? MainAxisSize.max : MainAxisSize.min,
+            children: List.generate(chunk.length, (index) {
+              final item = chunk[index];
+              final isFirst = index == 0;
+              final isLast = index == chunk.length - 1;
+              final colors = item.isSelected ? accentColors : baseColors;
+              return expanded
+                  ? Expanded(child: _buildButton(context, item, isFirst, isLast, colors, borderRadius, borderWidth, isLastRow: isLastRow))
+                  : _buildButton(context, item, isFirst, isLast, colors, borderRadius, borderWidth, isLastRow: isLastRow);
+            }),
+          );
+        }),
+      );
+    }
 
     return Row(
       mainAxisSize: expanded ? MainAxisSize.max : MainAxisSize.min,
@@ -74,8 +116,9 @@ class ProjectButtonGroup extends ConsumerWidget {
     bool isLast,
     ProjectButtonColors colors,
     double borderRadius,
-    double borderWidth,
-  ) {
+    double borderWidth, {
+    bool isLastRow = true,
+  }) {
     final isEnabled = item.onPressed != null;
     final useFullColors = isEnabled || item.isSelected;
     final bgColor = useFullColors ? colors.background : colors.disabledBackground;
@@ -86,6 +129,11 @@ class ProjectButtonGroup extends ConsumerWidget {
     const noRadius = Radius.zero;
 
     final borderSide = BorderSide(color: borderColor, width: borderWidth);
+    // Non-last rows suppress their bottom border to avoid double-border at seam.
+    final bottomBorder = isLastRow ? borderSide : BorderSide.none;
+    // Bottom radius only on last row.
+    final bottomLeftRadius = isFirst && isLastRow ? radius : noRadius;
+    final bottomRightRadius = isLast && isLastRow ? radius : noRadius;
 
     final double minHeight;
     final double hPadding;
@@ -144,13 +192,13 @@ class ProjectButtonGroup extends ConsumerWidget {
           color: bgColor,
           borderRadius: BorderRadius.only(
             topLeft: isFirst ? radius : noRadius,
-            bottomLeft: isFirst ? radius : noRadius,
+            bottomLeft: bottomLeftRadius,
             topRight: isLast ? radius : noRadius,
-            bottomRight: isLast ? radius : noRadius,
+            bottomRight: bottomRightRadius,
           ),
           border: Border(
             top: borderSide,
-            bottom: borderSide,
+            bottom: bottomBorder,
             left: isFirst ? borderSide : BorderSide.none,
             right: borderSide,
           ),

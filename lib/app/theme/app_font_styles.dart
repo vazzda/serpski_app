@@ -118,4 +118,8 @@ class AppFontStyles {
 
   // Score
   static TextStyle get textScore => _headerS;
+
+  // Lang picker
+  static TextStyle get textLangPickerLabel => _bodyMAccented;
+  static TextStyle get textLangPickerValue => _bodyLAccented;
 }

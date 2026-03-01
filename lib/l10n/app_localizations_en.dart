@@ -356,6 +356,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get aspect_imperfective => 'imperfective';
 
   @override
+  String get language_iSpeak => 'I speak';
+
+  @override
+  String get language_iLearn => 'I learn';
+
+  @override
   String get language_learning => 'Learning';
 
   @override
@@ -365,7 +371,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get language_appLanguage => 'App language';
 
   @override
-  String get language_sameAsLearning => 'Same as learning language selected';
+  String get language_sameAsLearning =>
+      'Not gonna work! Same as learning language selected';
 
   @override
   String get language_myProgress => 'My progress';
