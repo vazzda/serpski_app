@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:srpski_card/app/theme/app_themes.dart';
+import 'package:srpski_card/app/theme/vessel_themes.dart';
 
 /// Tag color options
 /// Each theme defines specific colors for color1-color5
@@ -34,7 +34,7 @@ extension TagColorExtension on TagColor {
   }
 
   /// Get the accent color from theme (for picker/editor controls)
-  Color getColor(AppThemeData themeData) {
+  Color getColor(VesselThemeData themeData) {
     switch (this) {
       case TagColor.none:
         return Colors.transparent;
@@ -52,7 +52,7 @@ extension TagColorExtension on TagColor {
   }
 
   /// Get the background color for atom tile badges
-  Color getBgColor(AppThemeData themeData) {
+  Color getBgColor(VesselThemeData themeData) {
     switch (this) {
       case TagColor.none:
         return themeData.tagNoneBg;
@@ -70,7 +70,7 @@ extension TagColorExtension on TagColor {
   }
 
   /// Get the border color for atom tile badges
-  Color getBorderColor(AppThemeData themeData) {
+  Color getBorderColor(VesselThemeData themeData) {
     switch (this) {
       case TagColor.none:
         return themeData.tagNoneBorderColor;
@@ -88,7 +88,7 @@ extension TagColorExtension on TagColor {
   }
 
   /// Get the text color for atom tile badges
-  Color getTextColor(AppThemeData themeData) {
+  Color getTextColor(VesselThemeData themeData) {
     switch (this) {
       case TagColor.none:
         return themeData.tagNoneTextColor;

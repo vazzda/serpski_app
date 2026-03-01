@@ -1,6 +1,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:srpski_card/app/theme/app_themes.dart';
+import 'package:srpski_card/app/theme/vessel_themes.dart';
 
 /// Show a themed bottom sheet with consistent styling across the app.
 ///
@@ -13,7 +13,7 @@ import 'package:srpski_card/app/theme/app_themes.dart';
 ///
 /// The [builder] receives the BuildContext and should return the sheet content.
 /// Content should use `theme.bottomSheetPadding` for consistent padding.
-Future<T?> showProjectBottomSheet<T>({
+Future<T?> showVesselBottomSheet<T>({
   required BuildContext context,
   required Widget Function(BuildContext context) builder,
   bool isScrollControlled = true,
@@ -23,7 +23,7 @@ Future<T?> showProjectBottomSheet<T>({
   double draggableMaxSize = 0.9,
   bool isDismissible = true,
 }) {
-  final theme = AppThemes.of(context);
+  final theme = VesselThemes.of(context);
 
   return showModalBottomSheet<T>(
     context: context,
@@ -65,7 +65,7 @@ Future<T?> showProjectBottomSheet<T>({
 /// Helper to build a bottom sheet with optional blur effect.
 /// If [theme.bottomSheetBlurSigma] > 0, applies backdrop blur.
 Widget _buildBlurredSheet({
-  required AppThemeData theme,
+  required VesselThemeData theme,
   required Color backgroundColor,
   required Widget child,
 }) {

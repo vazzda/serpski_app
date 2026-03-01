@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:srpski_card/app/theme/app_themes.dart';
-import 'package:srpski_card/shared/ui/inputs/project_slider_input.dart';
+import 'package:srpski_card/app/theme/vessel_themes.dart';
+import 'package:srpski_card/shared/ui/inputs/vessel_slider_input.dart';
 
 /// A dual-slider time input with hours (left) and minutes (right).
-class ProjectTimeSlider extends StatelessWidget {
+class VesselTimeSlider extends StatelessWidget {
   final int value;
   final ValueChanged<int>? onChanged;
   final int max;
@@ -11,7 +11,7 @@ class ProjectTimeSlider extends StatelessWidget {
   final bool showInput;
   final String? label;
 
-  const ProjectTimeSlider({
+  const VesselTimeSlider({
     super.key,
     required this.value,
     this.onChanged,
@@ -23,7 +23,7 @@ class ProjectTimeSlider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = AppThemes.of(context);
+    final theme = VesselThemes.of(context);
     final hours = value ~/ 60;
     final minutes = value % 60;
     final maxHours = max ~/ 60;
@@ -35,7 +35,7 @@ class ProjectTimeSlider extends StatelessWidget {
         if (label != null) ...[
           Text(
             label!,
-            style: AppFontStyles.textFormLabel.copyWith(color: theme.textPrimary),
+            style: VesselFonts.textFormLabel.copyWith(color: theme.textPrimary),
           ),
           const SizedBox(height: 8),
         ],
@@ -43,7 +43,7 @@ class ProjectTimeSlider extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Expanded(
-              child: ProjectSliderInput(
+              child: VesselSliderInput(
                 value: hours,
                 min: 0,
                 max: maxHours,
@@ -58,7 +58,7 @@ class ProjectTimeSlider extends StatelessWidget {
             ),
             const SizedBox(width: 8),
             Expanded(
-              child: ProjectSliderInput(
+              child: VesselSliderInput(
                 value: minutes,
                 min: 0,
                 max: 59,

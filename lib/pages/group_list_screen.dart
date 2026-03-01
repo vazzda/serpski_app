@@ -11,14 +11,14 @@ import '../app/providers/app_settings_provider.dart';
 import '../app/providers/group_progress_provider.dart';
 import '../app/providers/groups_provider.dart';
 import '../app/router/app_router.dart';
-import '../app/theme/app_themes.dart';
-import '../shared/ui/card/project_card.dart';
-import '../shared/ui/screen_layout/screen_layout_widget.dart';
+import '../app/theme/vessel_themes.dart';
+import '../shared/ui/card/vessel_card.dart';
+import '../shared/ui/screen_layout/vessel_scaffold.dart';
 import '../shared/ui/bottom_sheet/quiz_bottom_sheets.dart';
 import 'package:srpski_card/shared/lib/group_label.dart';
 import 'package:srpski_card/shared/lib/progress_calculator.dart';
-import '../shared/ui/gap/project_gap.dart';
-import '../app/layout/app_layout.dart';
+import '../shared/ui/gap/vessel_gap.dart';
+import '../app/layout/vessel_layout.dart';
 
 enum ParentCategory { vocabulary, conjugations }
 
@@ -44,7 +44,7 @@ String formatRelativeDate(DateTime date, AppLocalizations l10n) {
 }
 
 /// Returns background color for a retention level.
-Color retentionColor(RetentionLevel level, AppThemeData t) {
+Color retentionColor(RetentionLevel level, VesselThemeData t) {
   switch (level) {
     case RetentionLevel.none:
       return t.retentionNone;
@@ -92,7 +92,7 @@ class _GroupTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final t = AppThemes.of(context);
+    final t = VesselThemes.of(context);
     final label = groupLabel(l10n, group.labelKey);
     final count = wordCount(group);
     final preview = groupPreviewText(group);
@@ -103,7 +103,7 @@ class _GroupTile extends StatelessWidget {
     // Show badge if there's any progress
     final showBadge = progress != null && progress!.recentSessions.isNotEmpty;
 
-    return ProjectCard(
+    return VesselCard(
       onTap: onTap,
       padding: EdgeInsets.zero,
       child: LayoutBuilder(
@@ -112,7 +112,7 @@ class _GroupTile extends StatelessWidget {
             children: [
               // Main content
               Padding(
-                padding: const EdgeInsets.all(AppLayout.screenPadding),
+                padding: const EdgeInsets.all(VesselLayout.screenPadding),
                 child: Row(
                   children: [
                     Expanded(
@@ -120,19 +120,19 @@ class _GroupTile extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Text(label, style: AppFontStyles.textListItem.copyWith(color: t.textPrimary)),
-                          const ProjectGap.xxs(),
+                          Text(label, style: VesselFonts.textListItem.copyWith(color: t.textPrimary)),
+                          const VesselGap.xxs(),
                           Text(
                             countText,
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
-                            style: AppFontStyles.textCaption.copyWith(color: t.textSecondary),
+                            style: VesselFonts.textCaption.copyWith(color: t.textSecondary),
                           ),
                         ],
                       ),
                     ),
                     // Space reserved for badge
-                    const ProjectGap.hl(),
+                    const VesselGap.hl(),
                   ],
                 ),
               ),
@@ -168,7 +168,7 @@ class _ProgressBadge extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final t = AppThemes.of(context);
+    final t = VesselThemes.of(context);
     final percentage = progress.totalProgress.round();
     final level = ProgressCalculator.getRetentionLevel(
       retention,
@@ -180,11 +180,11 @@ class _ProgressBadge extends StatelessWidget {
         ? formatRelativeDate(progress.lastSessionDate!, l10n)
         : '-';
 
-    const chipPadding = EdgeInsets.symmetric(horizontal: AppLayout.chipPaddingH, vertical: AppLayout.chipPaddingV);
-    final outlinedChipStyle = AppFontStyles.textProgressChip.copyWith(
+    const chipPadding = EdgeInsets.symmetric(horizontal: VesselLayout.chipPaddingH, vertical: VesselLayout.chipPaddingV);
+    final outlinedChipStyle = VesselFonts.textProgressChip.copyWith(
       color: t.textPrimary,
     );
-    final filledChipStyle = AppFontStyles.textProgressChip.copyWith(
+    final filledChipStyle = VesselFonts.textProgressChip.copyWith(
       color: t.retentionText,
     );
 
@@ -206,7 +206,7 @@ class _ProgressBadge extends StatelessWidget {
           ),
           child: Text('$percentage%', style: outlinedChipStyle),
         ),
-        const ProjectGap.hxs(),
+        const VesselGap.hxs(),
         // Chip 2: Date (outlined)
         Container(
           padding: chipPadding,
@@ -219,7 +219,7 @@ class _ProgressBadge extends StatelessWidget {
           ),
           child: Text(dateText, style: outlinedChipStyle),
         ),
-        const ProjectGap.hxs(),
+        const VesselGap.hxs(),
         // Chip 3: Retention level (filled with level color)
         Container(
           padding: chipPadding,
@@ -289,7 +289,7 @@ class _ChildGroupListScreenState extends ConsumerState<ChildGroupListScreen> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
-    final t = AppThemes.of(context);
+    final t = VesselThemes.of(context);
     final asyncGroups = ref.watch(groupsProvider);
     final allProgress = ref.watch(groupProgressProvider);
     final settings = ref.watch(appSettingsProvider);
@@ -322,7 +322,7 @@ class _ChildGroupListScreenState extends ConsumerState<ChildGroupListScreen> {
       onPopInvokedWithResult: (didPop, result) {
         if (!didPop) context.go(AppRoutes.tools);
       },
-      child: ScreenLayoutWidget(
+      child: VesselScaffold(
         title: title,
         showBottomNav: true,
         leading: BackButton(onPressed: () => context.go(AppRoutes.tools)),
@@ -334,13 +334,13 @@ class _ChildGroupListScreenState extends ConsumerState<ChildGroupListScreen> {
             if (filterType == GroupType.endings) {
               return ListView.builder(
                 controller: _scrollController,
-                padding: const EdgeInsets.all(AppLayout.screenPadding),
+                padding: const EdgeInsets.all(VesselLayout.screenPadding),
                 itemCount: childGroups.length,
                 itemBuilder: (context, index) {
                   final group = childGroups[index];
                   final progress = allProgress[group.id];
                   return Padding(
-                    padding: const EdgeInsets.only(bottom: AppLayout.listItemGap),
+                    padding: const EdgeInsets.only(bottom: VesselLayout.listItemGap),
                     child: _GroupTile(
                       group: group,
                       l10n: l10n,
@@ -405,26 +405,26 @@ class _ChildGroupListScreenState extends ConsumerState<ChildGroupListScreen> {
             }
             return ListView.builder(
               controller: _scrollController,
-              padding: const EdgeInsets.all(AppLayout.screenPadding),
+              padding: const EdgeInsets.all(VesselLayout.screenPadding),
               itemCount: items.length,
               itemBuilder: (context, index) {
                 final item = items[index];
                 if (item is String) {
                   return Padding(
                     padding: EdgeInsets.only(
-                      top: index == 0 ? 0 : AppLayout.listItemGap,
-                      bottom: AppLayout.listItemGapSmall,
+                      top: index == 0 ? 0 : VesselLayout.listItemGap,
+                      bottom: VesselLayout.listItemGapSmall,
                     ),
                     child: Text(
                       item,
-                      style: AppFontStyles.textSectionHeader.copyWith(color: t.textPrimary),
+                      style: VesselFonts.textSectionHeader.copyWith(color: t.textPrimary),
                     ),
                   );
                 }
                 final group = item as GroupModel;
                 final progress = allProgress[group.id];
                 return Padding(
-                  padding: const EdgeInsets.only(bottom: AppLayout.listItemGap),
+                  padding: const EdgeInsets.only(bottom: VesselLayout.listItemGap),
                   child: _GroupTile(
                     group: group,
                     l10n: l10n,

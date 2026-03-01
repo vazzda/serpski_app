@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../../app/layout/app_layout.dart';
+import '../../../app/layout/vessel_layout.dart';
 
 /// Icon button for bottom navbar with explicit enabled/disabled states.
-class NavBarIconButton extends StatelessWidget {
+class VesselNavBarIcon extends StatelessWidget {
   final IconData icon;
   final String tooltip;
   final bool isEnabled;
@@ -12,7 +12,7 @@ class NavBarIconButton extends StatelessWidget {
   final VoidCallback? onPressed;
   final VoidCallback? onDisabledTap;
 
-  const NavBarIconButton({
+  const VesselNavBarIcon({
     super.key,
     required this.icon,
     required this.tooltip,
@@ -39,7 +39,7 @@ class NavBarIconButton extends StatelessWidget {
             splashColor: Colors.transparent,
             highlightColor: Colors.transparent,
             child: Padding(
-              padding: const EdgeInsets.all(AppLayout.navbarIconPadding),
+              padding: const EdgeInsets.all(VesselLayout.navbarIconPadding),
               child: iconWidget,
             ),
           ),
@@ -52,7 +52,7 @@ class NavBarIconButton extends StatelessWidget {
         onTap: onDisabledTap,
         behavior: HitTestBehavior.opaque,
         child: Padding(
-          padding: const EdgeInsets.all(AppLayout.navbarIconPadding),
+          padding: const EdgeInsets.all(VesselLayout.navbarIconPadding),
           child: iconWidget,
         ),
       );
@@ -63,7 +63,7 @@ class NavBarIconButton extends StatelessWidget {
       child: Tooltip(
         message: tooltip,
         child: Padding(
-          padding: const EdgeInsets.all(AppLayout.navbarIconPadding),
+          padding: const EdgeInsets.all(VesselLayout.navbarIconPadding),
           child: iconWidget,
         ),
       ),

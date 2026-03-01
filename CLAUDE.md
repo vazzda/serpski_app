@@ -17,47 +17,72 @@ Before writing any code, perform a senior-level design review of the planned imp
 
 This gate runs at plan time — not as a post-implementation cleanup step.
 
-### No hardcoded colors
-- NEVER hardcode color values (hex, RGB, opacity modifications like `.withOpacity()`, `Color(0x...)`)
-- ALWAYS use themed colors from `AppThemeData` via `AppThemes.of(context)`
-- Theme definitions: `lib/app/theme/app_themes.dart`
-- Theme instances: `lib/app/theme/themes/serpski_yellow_theme.dart`
-- If a needed color doesn't exist in the theme, propose adding it to `AppThemeData` first
+### Vessel Design System
 
-### No hardcoded font styles
+All visual code goes through Vessel. Five layers, each with explicit restrictions.
+
+**Theme** (`VesselThemes.of(context)` → `VesselThemeData`)
+- NEVER hardcode color values (hex, RGB, `.withOpacity()`, `Color(0x...)`)
+- ALWAYS use `VesselThemeData` properties via `VesselThemes.of(context)`
+- If a needed color doesn't exist, propose adding it to `VesselThemeData` first
+- Definitions: `lib/app/theme/vessel_themes.dart`
+- Instances: `lib/app/theme/themes/theme01_theme.dart` etc.
+
+**Fonts** (`VesselFonts`)
 - NEVER hardcode font size, weight, family, or letter spacing in widget code
-- ALWAYS use product-level styles from `AppFontStyles` (e.g. `AppFontStyles.textBody`, `AppFontStyles.textSheetTitle`)
-- Font styles file: `lib/app/theme/app_font_styles.dart`
-- If a needed style doesn't exist, first add it to `AppFontStyles`, then use it
-- Only allowed inline modification: `.copyWith(color: ...)` for theming and text transforms like `.toUpperCase()` on the string itself
+- ALWAYS use `VesselFonts` styles (e.g. `VesselFonts.textBody`, `VesselFonts.textSheetTitle`)
+- Only allowed inline modification: `.copyWith(color: ...)` for theming and `.toUpperCase()` on the string itself
+- If a needed style doesn't exist, first add it to `VesselFonts`, then use it
+- File: `lib/app/theme/vessel_fonts.dart`
 
-### No raw Material controls
-- NEVER use raw Material/Flutter widgets directly in screens — ALWAYS use project controls from `lib/shared/ui/`
-- If a needed control doesn't exist, first add it to the project controls, then use it
-- NEVER inline/hardcode a control inside a widget unless explicitly discussed and agreed upon
-- NEVER pass ad-hoc overrides (iconSize, padding, margin, etc.) to bypass a control's built-in sizing/styling — if the control doesn't support the needed variant, add a proper variant to the control itself
-- Project controls (replace Material equivalents):
-  - **Buttons**: `AccentButton`, `BaseButton`, `ProjectTextButton`, `DangerTextButton`
-  - **Text input**: `ProjectTextInput`
-  - **Cards**: `ProjectCard`
-  - **Tiles**: `ProjectTile`
-  - **Progress bar**: `ProjectProgressBar`
-  - **Bottom sheets**: `showProjectBottomSheet()`
-  - **Gaps**: `ProjectGap`
-  - **Navigation**: `ScreenLayoutWidget`
+**Layout** (`VesselLayout`, `VesselGap`)
+- NEVER hardcode heights, widths, paddings, gaps, or spacing values in widget code
+- All dimensions live in `VesselLayout`
+- All spacing between widgets uses `VesselGap` (not raw `SizedBox`)
+- Tiers: xxs(2), xs(4), s(8), m(12), l(16), xl(24), xxl(48). Vertical: `VesselGap.s()`. Horizontal: `VesselGap.hs()`
+- Files: `lib/app/layout/vessel_layout.dart`, `lib/shared/ui/gap/vessel_gap.dart`
 
-**When adding a new project control:**
-1. Add any required sizing/radius/color properties to `AppThemeData` first, then to all theme files
-2. The control uses only `AppThemeData` properties — zero hardcoded values
-3. Add the control to the controls list above
-4. Name: `Project` prefix + the UI concept (not the Flutter widget name). `ProjectProgressBar` not `ProjectLinearIndicator`
+**Controls** (`Vessel*` widgets in `lib/shared/ui/`)
+- NEVER use raw Material/Flutter widgets directly in screens
+- ALWAYS use Vessel controls from `lib/shared/ui/`
+- If a needed control doesn't exist, first create it as a Vessel control, then use it
+- NEVER inline/hardcode a control inside a widget unless explicitly discussed
+- NEVER pass ad-hoc overrides (iconSize, padding, margin, etc.) to bypass a control's built-in sizing — add a proper variant to the control itself
+- Every Vessel control MUST have a showcase entry on the dev screen (`controls_list_screen.dart`)
+
+When adding a new Vessel control:
+1. Add any required sizing/radius/color properties to `VesselThemeData` first, then to all theme files
+2. The control uses only `VesselThemeData` properties — zero hardcoded values
+3. Add the control to the inventory below
+4. Name: `Vessel` prefix + the UI concept (not the Flutter widget name). `VesselProgressBar` not `VesselLinearIndicator`
 5. Folder: `lib/shared/ui/<concept>/` matching the control name
+6. Add showcase to dev screen
 
-### No hardcoded text strings
+Controls inventory:
+- **Buttons**: `VesselButton`, `VesselAccentButton`, `VesselDangerButton`, `VesselTextButton`, `VesselAccentTextButton`, `VesselDangerTextButton`
+- **Button groups**: `VesselButtonGroup`
+- **Cards**: `VesselCard`, `VesselAttentionCard`
+- **Gaps**: `VesselGap`
+- **Text input**: `VesselTextInput`
+- **Tiles**: `VesselTile`
+- **Progress bar**: `VesselProgressBar`
+- **Bottom sheets**: `showVesselBottomSheet()`
+- **Navigation**: `VesselScaffold`
+- **Toggles**: `VesselCheckbox`, `VesselSwitch` (+ labeled variants)
+- **Radio**: `VesselRadioTile`, `VesselRadioGrid`
+- **Sliders**: `VesselSliderInput`, `VesselTimeSlider`
+- **Pickers**: `VesselDatePicker`, `VesselHourPicker`
+- **Divider**: `VesselDivider`
+- **Header**: `VesselHeader`
+- **Note**: `VesselNote`
+- **Snackbar**: `VesselSnackBar`
+- **Tags**: `VesselTagChip`, `VesselTagLabel`
+- **Lang button**: `VesselLangButton`
+- **Navbar**: `VesselNavBar`, `VesselNavBarIcon`
+
+**Copy** (`AppLocalizations`)
 - NEVER hardcode user-facing text — ALWAYS use `AppLocalizations` (accessed as `l10n`)
 - If a needed string doesn't exist, first add it to `lib/l10n/app_en.arb`, then use it
-- Localization stack: `flutter_localizations` + `intl` + `generate: true` (auto-generates `AppLocalizations`)
-- Dict file: `lib/l10n/app_en.arb`
 - Key naming convention: `section_descriptiveName` (e.g. `session_exitConfirm`, `common_cancel`)
 - Parameterized strings use `{placeholder}` syntax with `@key` metadata block
 
@@ -96,3 +121,4 @@ This gate runs at plan time — not as a post-implementation cleanup step.
 - Address user as male (he/him).
 - No flattery. No ass-kissing. No patronizing. Never act like a friendly manager or a customer service agent.
 - Be critical. Have opinions. If the approach is bad, say so directly. Push back when something is wrong — don't agree just because the user said it.
+- State opinions as opinions, not decisions. "I suggest X" or "X is better because Y" — never "X stays" or "we do Y" as if deciding for the user. Direct, not arrogant.

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../../app/theme/app_themes.dart';
+import '../../../app/theme/vessel_themes.dart';
 
 /// Content card using theme card style.
-class ProjectCard extends StatelessWidget {
-  const ProjectCard({
+class VesselCard extends StatelessWidget {
+  const VesselCard({
     super.key,
     required this.child,
     this.onTap,
@@ -19,7 +19,7 @@ class ProjectCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final t = AppThemes.of(context);
+    final t = VesselThemes.of(context);
 
     if (transparent) {
       return Padding(
@@ -68,14 +68,14 @@ class ProjectCard extends StatelessWidget {
 }
 
 /// Attention card with danger-tinted background.
-class ProjectAttentionCard extends StatelessWidget {
+class VesselAttentionCard extends StatelessWidget {
   final Widget child;
 
-  const ProjectAttentionCard({super.key, required this.child});
+  const VesselAttentionCard({super.key, required this.child});
 
   @override
   Widget build(BuildContext context) {
-    final t = AppThemes.of(context);
+    final t = VesselThemes.of(context);
 
     return Card(
       color: t.controlDangerBackground.withValues(alpha: 0.15),

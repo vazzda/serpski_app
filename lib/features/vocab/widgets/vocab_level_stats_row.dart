@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-import '../../../app/theme/app_themes.dart';
+import '../../../app/theme/vessel_themes.dart';
 import '../../../l10n/app_localizations.dart';
-import '../../../shared/ui/buttons/project_buttons.dart';
+import '../../../shared/ui/buttons/vessel_buttons.dart';
 import '../../../pages/group_list_screen.dart'
     show retentionColor, retentionLabel, formatRelativeDate;
-import '../../../app/layout/app_layout.dart';
+import '../../../app/layout/vessel_layout.dart';
 import 'vocab_tile_data.dart';
 
 class VocabLevelStatsRow extends StatelessWidget {
@@ -20,7 +20,7 @@ class VocabLevelStatsRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final t = AppThemes.of(context);
+    final t = VesselThemes.of(context);
     final dateText = item.latestDate != null
         ? formatRelativeDate(item.latestDate!, l10n)
         : '-';
@@ -28,13 +28,13 @@ class VocabLevelStatsRow extends StatelessWidget {
     final levelLabel = retentionLabel(item.strengthLevel, l10n);
 
     const chipPadding = EdgeInsets.symmetric(
-      horizontal: AppLayout.chipPaddingH,
-      vertical: AppLayout.chipPaddingV,
+      horizontal: VesselLayout.chipPaddingH,
+      vertical: VesselLayout.chipPaddingV,
     );
-    final outlineChipStyle = AppFontStyles.textProgressChip.copyWith(
+    final outlineChipStyle = VesselFonts.textProgressChip.copyWith(
       color: t.textPrimary,
     );
-    final filledChipStyle = AppFontStyles.textProgressChip.copyWith(
+    final filledChipStyle = VesselFonts.textProgressChip.copyWith(
       color: t.retentionText,
     );
 
@@ -49,7 +49,7 @@ class VocabLevelStatsRow extends StatelessWidget {
           ),
           child: Text(dateText, style: outlineChipStyle),
         ),
-        const SizedBox(width: AppLayout.chipSpacing),
+        const SizedBox(width: VesselLayout.chipSpacing),
         Container(
           padding: chipPadding,
           decoration: BoxDecoration(
@@ -60,10 +60,10 @@ class VocabLevelStatsRow extends StatelessWidget {
           child: Text(levelLabel, style: filledChipStyle),
         ),
         const Spacer(),
-        AccentButton(
+        VesselAccentButton(
           label: l10n.vocab_train,
           onPressed: null,
-          size: ButtonSize.small,
+          size: VesselButtonSize.small,
           margin: EdgeInsets.zero,
         ),
       ],

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:srpski_card/app/theme/app_themes.dart';
+import 'package:srpski_card/app/theme/vessel_themes.dart';
 
 /// A project-wide date picker control
-class ProjectDatePicker extends StatelessWidget {
+class VesselDatePicker extends StatelessWidget {
   final String label;
   final DateTime? selectedDate;
   final String? placeholder;
@@ -11,7 +11,7 @@ class ProjectDatePicker extends StatelessWidget {
   final DateTime? lastDate;
   final DateTime? initialDate;
 
-  const ProjectDatePicker({
+  const VesselDatePicker({
     super.key,
     required this.label,
     required this.selectedDate,
@@ -41,7 +41,7 @@ class ProjectDatePicker extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = AppThemes.of(context);
+    final theme = VesselThemes.of(context);
     final hasValue = selectedDate != null;
     final displayText = hasValue ? _formatDate(selectedDate!) : (placeholder ?? '');
 
@@ -51,7 +51,7 @@ class ProjectDatePicker extends StatelessWidget {
       children: [
         Text(
           label,
-          style: AppFontStyles.textBodyAccent.copyWith(color: theme.textPrimary),
+          style: VesselFonts.textBodyAccent.copyWith(color: theme.textPrimary),
         ),
         const SizedBox(height: 4),
         GestureDetector(
@@ -69,7 +69,7 @@ class ProjectDatePicker extends StatelessWidget {
               children: [
                 Text(
                   displayText,
-                  style: AppFontStyles.textControlInput.copyWith(
+                  style: VesselFonts.textControlInput.copyWith(
                     color: hasValue ? theme.controlForeground : theme.textSecondary,
                   ),
                 ),

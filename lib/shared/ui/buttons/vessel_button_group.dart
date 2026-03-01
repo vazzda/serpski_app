@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:srpski_card/app/theme/app_themes.dart';
+import 'package:srpski_card/app/theme/vessel_themes.dart';
 import 'package:srpski_card/app/providers/theme_provider.dart';
-import 'package:srpski_card/shared/ui/buttons/project_button_styles.dart';
+import 'package:srpski_card/shared/ui/buttons/vessel_button_styles.dart';
 
 /// Configuration for a single button in a button group
-class ProjectButtonGroupItem {
+class VesselButtonGroupItem {
   final IconData? icon;
   final String? label;
   final VoidCallback? onPressed;
   final bool isSelected;
 
-  const ProjectButtonGroupItem({
+  const VesselButtonGroupItem({
     this.icon,
     this.label,
     this.onPressed,
@@ -24,8 +24,8 @@ class ProjectButtonGroupItem {
 /// When [maxPerRow] is set, items are chunked into rows of that size.
 /// Each row is independently rounded and rows are separated by a small gap.
 class ProjectButtonGroup extends ConsumerWidget {
-  final List<ProjectButtonGroupItem> items;
-  final ButtonSize size;
+  final List<VesselButtonGroupItem> items;
+  final VesselButtonSize size;
   final bool expanded;
 
   /// When set, wraps items into rows of this many buttons.
@@ -35,15 +35,15 @@ class ProjectButtonGroup extends ConsumerWidget {
   const ProjectButtonGroup({
     super.key,
     required this.items,
-    this.size = ButtonSize.medium,
+    this.size = VesselButtonSize.medium,
     this.expanded = false,
     this.maxPerRow,
   }) : assert(items.length >= 1, 'Button group must have at least 1 item');
 
 
-  List<List<ProjectButtonGroupItem>> get _chunks {
+  List<List<VesselButtonGroupItem>> get _chunks {
     final n = maxPerRow!;
-    final result = <List<ProjectButtonGroupItem>>[];
+    final result = <List<VesselButtonGroupItem>>[];
     for (var i = 0; i < items.length; i += n) {
       result.add(items.sublist(i, (i + n).clamp(0, items.length)));
     }
@@ -52,21 +52,21 @@ class ProjectButtonGroup extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final theme = AppThemes.of(context);
+    final theme = VesselThemes.of(context);
     final appTheme = ref.watch(themeProvider);
-    final baseColors = ProjectButtonStyleResolver.resolveColors(
+    final baseColors = VesselButtonStyleResolver.resolveColors(
       context,
       theme: appTheme,
       variant: ButtonVariant.base,
     );
-    final accentColors = ProjectButtonStyleResolver.resolveColors(
+    final accentColors = VesselButtonStyleResolver.resolveColors(
       context,
       theme: appTheme,
       variant: ButtonVariant.accent,
     );
 
     final borderRadius = theme.buttonBorderRadius;
-    final borderWidth = size == ButtonSize.large
+    final borderWidth = size == VesselButtonSize.large
         ? theme.buttonBorderWidth * 2
         : theme.buttonBorderWidth;
 
@@ -111,10 +111,10 @@ class ProjectButtonGroup extends ConsumerWidget {
 
   Widget _buildButton(
     BuildContext context,
-    ProjectButtonGroupItem item,
+    VesselButtonGroupItem item,
     bool isFirst,
     bool isLast,
-    ProjectButtonColors colors,
+    VesselButtonColors colors,
     double borderRadius,
     double borderWidth, {
     bool isLastRow = true,
@@ -141,23 +141,23 @@ class ProjectButtonGroup extends ConsumerWidget {
     final TextStyle textStyle;
 
     switch (size) {
-      case ButtonSize.small:
+      case VesselButtonSize.small:
         minHeight = 32.0;
         hPadding = 10.0;
         iconSize = 20.0;
-        textStyle = AppFontStyles.textButtonSmall;
+        textStyle = VesselFonts.textButtonSmall;
         break;
-      case ButtonSize.medium:
+      case VesselButtonSize.medium:
         minHeight = 44.0;
         hPadding = 16.0;
         iconSize = 28.0;
-        textStyle = AppFontStyles.textButton;
+        textStyle = VesselFonts.textButton;
         break;
-      case ButtonSize.large:
+      case VesselButtonSize.large:
         minHeight = 56.0;
         hPadding = 24.0;
         iconSize = 32.0;
-        textStyle = AppFontStyles.textButtonLarge;
+        textStyle = VesselFonts.textButtonLarge;
         break;
     }
 

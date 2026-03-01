@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-import '../../../app/layout/app_layout.dart';
-import '../../../app/theme/app_themes.dart';
-import '../bottom_navbar/bottom_navbar_widget.dart';
+import '../../../app/layout/vessel_layout.dart';
+import '../../../app/theme/vessel_themes.dart';
+import '../bottom_navbar/vessel_navbar.dart';
 
 /// Screen scaffold with themed app bar. No direct colors.
-class ScreenLayoutWidget extends StatelessWidget {
-  const ScreenLayoutWidget({
+class VesselScaffold extends StatelessWidget {
+  const VesselScaffold({
     super.key,
     required this.title,
     required this.child,
@@ -25,11 +25,11 @@ class ScreenLayoutWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final t = AppThemes.of(context);
+    final t = VesselThemes.of(context);
     return Scaffold(
       backgroundColor: t.scaffoldBackground,
       appBar: AppBar(
-        toolbarHeight: AppLayout.appBarHeight,
+        toolbarHeight: VesselLayout.appBarHeight,
         leading: leading,
         title: Text(title.toUpperCase()),
         actions: actions,
@@ -42,7 +42,7 @@ class ScreenLayoutWidget extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: showBottomNav
-          ? BottomNavBarWidget(onSettingsDisabledTap: onSettingsDisabledTap)
+          ? VesselNavBar(onSettingsDisabledTap: onSettingsDisabledTap)
           : null,
       body: SafeArea(child: child),
     );

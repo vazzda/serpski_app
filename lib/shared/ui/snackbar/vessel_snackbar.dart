@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:srpski_card/app/theme/app_themes.dart';
+import 'package:srpski_card/app/theme/vessel_themes.dart';
 
 /// Themed SnackBar — replaces raw SnackBar throughout the app.
 /// Applies snackbar colors, border radius, and font style from the current theme.
-class ProjectSnackBar {
-  ProjectSnackBar._();
+class VesselSnackBar {
+  VesselSnackBar._();
 
   /// Create a themed [SnackBar] widget.
   static SnackBar of(BuildContext context, String message) {
-    final theme = AppThemes.of(context);
+    final theme = VesselThemes.of(context);
     return SnackBar(
       backgroundColor: theme.snackbarBackground,
       behavior: SnackBarBehavior.floating,
@@ -17,7 +17,7 @@ class ProjectSnackBar {
       ),
       content: Text(
         message,
-        style: AppFontStyles.textSnackbar.copyWith(color: theme.snackbarTextColor),
+        style: VesselFonts.textSnackbar.copyWith(color: theme.snackbarTextColor),
       ),
     );
   }

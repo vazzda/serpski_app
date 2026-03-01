@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import '../../../app/theme/app_themes.dart';
+import '../../../app/theme/vessel_themes.dart';
 
 /// Text input field using theme. No hardcoded colors.
-class ProjectTextInput extends StatelessWidget {
-  const ProjectTextInput({
+class VesselTextInput extends StatelessWidget {
+  const VesselTextInput({
     super.key,
     this.controller,
     this.label,
@@ -34,7 +34,7 @@ class ProjectTextInput extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final t = AppThemes.of(context);
+    final t = VesselThemes.of(context);
     return TextField(
       controller: controller,
       decoration: InputDecoration(
@@ -63,7 +63,7 @@ class ProjectTextInput extends StatelessWidget {
       autocorrect: autocorrect,
       enableSuggestions: enableSuggestions,
       obscureText: obscureText,
-      style: AppFontStyles.textFormInput.copyWith(color: t.controlForeground),
+      style: VesselFonts.textFormInput.copyWith(color: t.controlForeground),
     );
   }
 }

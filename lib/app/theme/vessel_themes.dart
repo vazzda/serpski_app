@@ -7,14 +7,14 @@ import 'themes/theme02_theme.dart';
 import 'themes/theme03_theme.dart';
 import 'themes/theme04_theme.dart';
 import 'themes/theme05_theme.dart';
-import 'app_font_styles.dart';
+import 'vessel_fonts.dart';
 
 export 'themes/theme01_theme.dart';
 export 'themes/theme02_theme.dart';
 export 'themes/theme03_theme.dart';
 export 'themes/theme04_theme.dart';
 export 'themes/theme05_theme.dart';
-export 'app_font_styles.dart';
+export 'vessel_fonts.dart';
 
 // ============================================================================
 // SECTION 1: THEME IDENTIFIERS
@@ -29,10 +29,10 @@ enum AppTheme {
 }
 
 // ============================================================================
-// SECTION 2: AppThemeData - Structure Definition
+// SECTION 2: VesselThemeData - Structure Definition
 // ============================================================================
 
-class AppThemeData {
+class VesselThemeData {
   // ==========================================================================
   // THEME IDENTIFIER
   // ==========================================================================
@@ -274,7 +274,7 @@ class AppThemeData {
   final Color noteAccentBorderColor;
   final Color noteAccentTextColor;
 
-  const AppThemeData({
+  const VesselThemeData({
     required this.themeType,
     // Accent
     required this.accentColor,
@@ -493,34 +493,34 @@ class NoAnimationPageTransitionsBuilder extends PageTransitionsBuilder {
   }
 }
 
-class AppThemeDataExtension extends ThemeExtension<AppThemeDataExtension> {
-  final AppThemeData data;
+class VesselThemeDataExtension extends ThemeExtension<VesselThemeDataExtension> {
+  final VesselThemeData data;
 
-  const AppThemeDataExtension(this.data);
+  const VesselThemeDataExtension(this.data);
 
   @override
-  ThemeExtension<AppThemeDataExtension> copyWith({AppThemeData? data}) {
-    return AppThemeDataExtension(data ?? this.data);
+  ThemeExtension<VesselThemeDataExtension> copyWith({VesselThemeData? data}) {
+    return VesselThemeDataExtension(data ?? this.data);
   }
 
   @override
-  ThemeExtension<AppThemeDataExtension> lerp(
-    covariant ThemeExtension<AppThemeDataExtension>? other,
+  ThemeExtension<VesselThemeDataExtension> lerp(
+    covariant ThemeExtension<VesselThemeDataExtension>? other,
     double t,
   ) {
-    if (other is! AppThemeDataExtension) return this;
+    if (other is! VesselThemeDataExtension) return this;
     return t < 0.5 ? this : other;
   }
 }
 
 // ============================================================================
-// SECTION 5: AppThemes - Main Access Point
+// SECTION 5: VesselThemes - Main Access Point
 // ============================================================================
 
-class AppThemes {
-  AppThemes._();
+class VesselThemes {
+  VesselThemes._();
 
-  static AppThemeData getThemeData(AppTheme theme) {
+  static VesselThemeData getThemeData(AppTheme theme) {
     switch (theme) {
       case AppTheme.theme01:
         return theme01Theme;
@@ -559,7 +559,7 @@ class AppThemes {
         elevation: 0,
         shadowColor: Colors.transparent,
         surfaceTintColor: Colors.transparent,
-        titleTextStyle: AppFontStyles.textTitle.copyWith(
+        titleTextStyle: VesselFonts.textTitle.copyWith(
           color: data.appBarTitleColor,
         ),
       ),
@@ -574,7 +574,7 @@ class AppThemes {
           TargetPlatform.fuchsia: NoAnimationPageTransitionsBuilder(),
         },
       ),
-      extensions: <ThemeExtension<dynamic>>[AppThemeDataExtension(data)],
+      extensions: <ThemeExtension<dynamic>>[VesselThemeDataExtension(data)],
     );
   }
 
@@ -606,7 +606,7 @@ class AppThemes {
     );
   }
 
-  static AppThemeData of(BuildContext context) {
-    return Theme.of(context).extension<AppThemeDataExtension>()!.data;
+  static VesselThemeData of(BuildContext context) {
+    return Theme.of(context).extension<VesselThemeDataExtension>()!.data;
   }
 }

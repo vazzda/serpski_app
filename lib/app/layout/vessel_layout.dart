@@ -1,13 +1,13 @@
 // ---------------------------------------------------------------------------
 // Layout constants — all numeric dimensions in one place for easy finetuning.
-// Analogous to AppFontStyles (typography) and AppThemeData (colors/radii).
+// Analogous to VesselFonts (typography) and VesselThemeData (colors/radii).
 // ---------------------------------------------------------------------------
 
 const double _contentPaddingS = 8.0;
 
-abstract class AppLayout {
+abstract class VesselLayout {
   // ==========================================================================
-  // GAP SIZES (consumed by ProjectGap)
+  // GAP SIZES (consumed by VesselGap)
   // ==========================================================================
   static const double gapXxs = 2.0;
   static const double gapXs = 4.0;

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:srpski_card/app/theme/app_themes.dart';
+import 'package:srpski_card/app/theme/vessel_themes.dart';
 import 'package:srpski_card/entities/tag/tag.dart';
 
-/// Size variants for TagLabel
-enum TagLabelSize {
+/// Size variants for VesselTagLabel
+enum VesselTagLabelSize {
   icon, // Used in tile displays - 2-letter abbreviation, no icon
   tiny, // Used in list displays - full name, no icon
   regular, // Used in detailed displays - full name with icon
@@ -17,22 +17,22 @@ enum TagLabelSize {
 /// - Contrast: tag color background/border, white text/icon
 /// - Colorful: tag color background/border, black text/icon
 /// - "no color" tags: transparent background, theme border, theme text
-class TagLabel extends StatelessWidget {
+class VesselTagLabel extends StatelessWidget {
   final Tag tag;
-  final TagLabelSize size;
+  final VesselTagLabelSize size;
 
-  const TagLabel({
+  const VesselTagLabel({
     super.key,
     required this.tag,
-    this.size = TagLabelSize.regular,
+    this.size = VesselTagLabelSize.regular,
   });
 
   @override
   Widget build(BuildContext context) {
-    final themeData = AppThemes.of(context);
+    final themeData = VesselThemes.of(context);
 
     // Cluster size uses different color system (tile-specific colors)
-    if (size == TagLabelSize.cluster) {
+    if (size == VesselTagLabelSize.cluster) {
       return _buildClusterBadge(themeData);
     }
 
@@ -42,22 +42,22 @@ class TagLabel extends StatelessWidget {
     final colors = _getColors(themeData, isNoColor);
 
     // Size-dependent values
-    final bool isSmall = size == TagLabelSize.tiny || size == TagLabelSize.icon;
+    final bool isSmall = size == VesselTagLabelSize.tiny || size == VesselTagLabelSize.icon;
     final padding = isSmall
         ? const EdgeInsets.symmetric(horizontal: 6, vertical: 2)
         : const EdgeInsets.only(left: 8, right: 16, top: 8, bottom: 8);
-    final showIcon = size == TagLabelSize.regular;
+    final showIcon = size == VesselTagLabelSize.regular;
 
     // Icon color: use border color (same as tag color for colored tags)
     final iconColor = colors.border;
 
     // Text style: icon and tiny use small bold font, regular uses medium button font
     final textStyle = isSmall
-        ? AppFontStyles.textTagIcon.copyWith(color: colors.foreground)
-        : AppFontStyles.textButton.copyWith(color: colors.foreground);
+        ? VesselFonts.textTagIcon.copyWith(color: colors.foreground)
+        : VesselFonts.textButton.copyWith(color: colors.foreground);
 
     // Display text: icon size uses 2-letter abbreviation, others use full name
-    final displayText = size == TagLabelSize.icon
+    final displayText = size == VesselTagLabelSize.icon
         ? _getAbbreviation(tag.name)
         : tag.name.toUpperCase();
 
@@ -86,7 +86,7 @@ class TagLabel extends StatelessWidget {
 
   /// Build cluster badge - full name, single line, clipped overflow
   /// Uses tile-specific colors from theme (tag*Bg, tag*BorderColor, tag*TextColor)
-  Widget _buildClusterBadge(AppThemeData themeData) {
+  Widget _buildClusterBadge(VesselThemeData themeData) {
     final bgColor = tag.color.getBgColor(themeData);
     final borderColor = tag.color.getBorderColor(themeData);
     final textColor = tag.color.getTextColor(themeData);
@@ -103,7 +103,7 @@ class TagLabel extends StatelessWidget {
       ),
       child: Text(
         tag.name.toUpperCase(),
-        style: AppFontStyles.textTagIcon.copyWith(color: textColor, height: 1.0),
+        style: VesselFonts.textTagIcon.copyWith(color: textColor, height: 1.0),
         maxLines: 1,
         overflow: TextOverflow.clip,
         softWrap: false,
@@ -132,7 +132,7 @@ class TagLabel extends StatelessWidget {
 
   /// Get colors based on tag color using theme variables
   ({Color background, Color border, Color foreground}) _getColors(
-    AppThemeData themeData,
+    VesselThemeData themeData,
     bool isNoColor,
   ) {
     return (

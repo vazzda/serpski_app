@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../theme/app_themes.dart';
+import '../theme/vessel_themes.dart';
 
 const _prefKey = 'app_theme';
 

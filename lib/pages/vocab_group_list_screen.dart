@@ -17,14 +17,14 @@ import '../entities/plan/level_tier.dart';
 import '../features/quiz/session_notifier.dart';
 import '../features/vocab/services/level_fold_notifier.dart';
 import '../features/vocab/widgets/vocab_daily_activity_card.dart';
-import '../app/layout/app_layout.dart';
+import '../app/layout/vessel_layout.dart';
 import '../features/vocab/widgets/vocab_level_card.dart';
 import '../features/vocab/widgets/vocab_tile_data.dart';
 import '../shared/repositories/models/group_progress.dart';
 import '../shared/repositories/models/retention_level.dart';
 import '../app/providers/daily_activity_provider.dart';
 import '../shared/ui/bottom_sheet/quiz_bottom_sheets.dart';
-import '../shared/ui/screen_layout/screen_layout_widget.dart';
+import '../shared/ui/screen_layout/vessel_scaffold.dart';
 import 'package:srpski_card/shared/lib/progress_calculator.dart';
 
 class VocabGroupListScreen extends ConsumerStatefulWidget {
@@ -97,7 +97,7 @@ class _VocabGroupListScreenState extends ConsumerState<VocabGroupListScreen> {
     if (dictionary == null || targetPack == null || nativePack == null) {
       final hasError =
           asyncDict.hasError || asyncTarget.hasError || asyncNative.hasError;
-      return ScreenLayoutWidget(
+      return VesselScaffold(
         title: l10n.navVocabulary,
         showBottomNav: true,
         child: Center(
@@ -120,18 +120,18 @@ class _VocabGroupListScreenState extends ConsumerState<VocabGroupListScreen> {
     final firstLevelId = dictionary.levels.first.id;
     final lastLevelId = dictionary.levels.last.id;
 
-    return ScreenLayoutWidget(
+    return VesselScaffold(
       title: l10n.navVocabulary,
       showBottomNav: true,
       child: ListView.builder(
         controller: _scrollController,
-        padding: const EdgeInsets.all(AppLayout.vocabListPadding),
+        padding: const EdgeInsets.all(VesselLayout.vocabListPadding),
         itemCount: levels.length + 1,
         itemBuilder: (context, index) {
           if (index == 0) {
             return Padding(
               padding: const EdgeInsets.only(
-                bottom: AppLayout.vocabDailyCardBottomGap,
+                bottom: VesselLayout.vocabDailyCardBottomGap,
               ),
               child: VocabDailyActivityCard(asyncStats: asyncStats, l10n: l10n),
             );
@@ -145,7 +145,7 @@ class _VocabGroupListScreenState extends ConsumerState<VocabGroupListScreen> {
             overrides: foldOverrides,
           );
           return Padding(
-            padding: const EdgeInsets.only(bottom: AppLayout.vocabLevelCardBottomGap),
+            padding: const EdgeInsets.only(bottom: VesselLayout.vocabLevelCardBottomGap),
             child: VocabLevelCard(
               item: level,
               l10n: l10n,

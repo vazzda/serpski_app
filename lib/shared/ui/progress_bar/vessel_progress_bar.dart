@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../../app/theme/app_themes.dart';
+import '../../../app/theme/vessel_themes.dart';
 
 /// Display mode for the progress bar.
-enum ProgressBarMode {
+enum VesselProgressBarMode {
   /// Compact: thinner bar, suitable for list rows and tiles.
   compact,
 
@@ -14,21 +14,21 @@ enum ProgressBarMode {
 /// A themed linear progress bar.
 ///
 /// [value] must be between 0.0 and 1.0.
-/// Sizing and colors come entirely from [AppThemeData].
-class ProjectProgressBar extends StatelessWidget {
-  const ProjectProgressBar({
+/// Sizing and colors come entirely from [VesselThemeData].
+class VesselProgressBar extends StatelessWidget {
+  const VesselProgressBar({
     super.key,
     required this.value,
-    this.mode = ProgressBarMode.compact,
+    this.mode = VesselProgressBarMode.compact,
   });
 
   final double value;
-  final ProgressBarMode mode;
+  final VesselProgressBarMode mode;
 
   @override
   Widget build(BuildContext context) {
-    final t = AppThemes.of(context);
-    final height = mode == ProgressBarMode.compact
+    final t = VesselThemes.of(context);
+    final height = mode == VesselProgressBarMode.compact
         ? t.progressBarCompactHeight
         : t.progressBarDetailedHeight;
 

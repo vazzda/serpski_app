@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:srpski_card/app/theme/app_themes.dart';
+import 'package:srpski_card/app/theme/vessel_themes.dart';
 import 'package:srpski_card/entities/tag/tag.dart';
 
 /// A small colored chip that displays a tag
 ///
 /// For tags with color: filled background with white text
 /// For tags with no color (TagColor.none): transparent with border
-class TagChip extends StatelessWidget {
+class VesselTagChip extends StatelessWidget {
   final Tag tag;
   final VoidCallback? onTap;
   final bool showName;
 
-  const TagChip({
+  const VesselTagChip({
     super.key,
     required this.tag,
     this.onTap,
@@ -20,7 +20,7 @@ class TagChip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final themeData = AppThemes.of(context);
+    final themeData = VesselThemes.of(context);
     final tagColor = tag.color.getColor(themeData);
     final isTransparent = tag.color == TagColor.none;
 
@@ -52,7 +52,7 @@ class TagChip extends StatelessWidget {
               const SizedBox(width: 6),
               Text(
                 tag.name,
-                style: AppFontStyles.textTagChip.copyWith(
+                style: VesselFonts.textVesselTagChip.copyWith(
                   color: isTransparent ? themeData.textPrimary : themeData.controlAccentForeground,
                 ),
               ),
@@ -65,12 +65,12 @@ class TagChip extends StatelessWidget {
 }
 
 /// A small colored square preview for tag color selection
-class TagColorPreview extends StatelessWidget {
+class VesselTagColorPreview extends StatelessWidget {
   final TagColor tagColor;
   final bool isSelected;
   final VoidCallback? onTap;
 
-  const TagColorPreview({
+  const VesselTagColorPreview({
     super.key,
     required this.tagColor,
     this.isSelected = false,
@@ -79,7 +79,7 @@ class TagColorPreview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final themeData = AppThemes.of(context);
+    final themeData = VesselThemes.of(context);
     final color = tagColor.getColor(themeData);
     final isTransparent = tagColor == TagColor.none;
 

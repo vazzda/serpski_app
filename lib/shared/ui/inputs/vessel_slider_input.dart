@@ -1,12 +1,12 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:srpski_card/app/theme/app_themes.dart';
-import 'package:srpski_card/shared/ui/buttons/project_button_group.dart';
-import 'package:srpski_card/shared/ui/buttons/project_button_styles.dart' show ButtonSize;
+import 'package:srpski_card/app/theme/vessel_themes.dart';
+import 'package:srpski_card/shared/ui/buttons/vessel_button_group.dart';
+import 'package:srpski_card/shared/ui/buttons/vessel_button_styles.dart' show VesselButtonSize;
 
 /// Mode for the slider input control
-enum SliderInputMode { counter }
+enum VesselSliderInputMode { counter }
 
 /// Zone configuration for non-linear slider behavior
 class SliderZoneConfig {
@@ -58,12 +58,12 @@ List<SliderZoneConfig> counterZonesForTarget(int? targetOrLimit) {
   });
 }
 
-class ProjectSliderInput extends StatefulWidget {
+class VesselSliderInput extends StatefulWidget {
   final int value;
   final int min;
   final int max;
   final ValueChanged<int>? onChanged;
-  final SliderInputMode mode;
+  final VesselSliderInputMode mode;
   final String? label;
   final bool zoned;
   final List<SliderZoneConfig>? zones;
@@ -73,13 +73,13 @@ class ProjectSliderInput extends StatefulWidget {
   final String? inputSuffix;
   final bool expandedButtons;
 
-  const ProjectSliderInput({
+  const VesselSliderInput({
     super.key,
     required this.value,
     this.min = 0,
     this.max = 100,
     this.onChanged,
-    this.mode = SliderInputMode.counter,
+    this.mode = VesselSliderInputMode.counter,
     this.label,
     this.zoned = false,
     this.zones,
@@ -91,10 +91,10 @@ class ProjectSliderInput extends StatefulWidget {
   });
 
   @override
-  State<ProjectSliderInput> createState() => _ProjectSliderInputState();
+  State<VesselSliderInput> createState() => _VesselSliderInputState();
 }
 
-class _ProjectSliderInputState extends State<ProjectSliderInput> {
+class _VesselSliderInputState extends State<VesselSliderInput> {
   late TextEditingController _counterController;
 
   bool get _isZoned => widget.zoned;
@@ -108,7 +108,7 @@ class _ProjectSliderInputState extends State<ProjectSliderInput> {
   }
 
   @override
-  void didUpdateWidget(ProjectSliderInput oldWidget) {
+  void didUpdateWidget(VesselSliderInput oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.value != widget.value) {
       _updateControllersFromValue(widget.value);
@@ -203,7 +203,7 @@ class _ProjectSliderInputState extends State<ProjectSliderInput> {
         if (widget.label != null) ...[
           Text(
             widget.label!,
-            style: AppFontStyles.textFormLabel.copyWith(color: AppThemes.of(context).textPrimary),
+            style: VesselFonts.textFormLabel.copyWith(color: VesselThemes.of(context).textPrimary),
           ),
           const SizedBox(height: 8),
         ],
@@ -235,7 +235,7 @@ class _ProjectSliderInputState extends State<ProjectSliderInput> {
   }
 
   Widget _buildCounterInput(BuildContext context) {
-    final theme = AppThemes.of(context);
+    final theme = VesselThemes.of(context);
     final hasSuffix = widget.inputSuffix != null;
 
     return TextField(
@@ -243,11 +243,11 @@ class _ProjectSliderInputState extends State<ProjectSliderInput> {
       keyboardType: TextInputType.number,
       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
       textAlign: hasSuffix ? TextAlign.center : TextAlign.start,
-      style: AppFontStyles.textControlInput.copyWith(color: theme.controlForeground),
+      style: VesselFonts.textControlInput.copyWith(color: theme.controlForeground),
       decoration: InputDecoration(
         suffixText: widget.inputSuffix,
         suffixStyle: hasSuffix
-            ? AppFontStyles.textControlHint.copyWith(color: theme.textSecondary)
+            ? VesselFonts.textControlHint.copyWith(color: theme.textSecondary)
             : null,
         filled: true,
         fillColor: theme.controlBackground,
@@ -269,7 +269,7 @@ class _ProjectSliderInputState extends State<ProjectSliderInput> {
   }
 
   Widget _buildSlider(BuildContext context) {
-    final theme = AppThemes.of(context);
+    final theme = VesselThemes.of(context);
     final position = _valueToPosition(widget.value);
 
     return SizedBox(
@@ -316,7 +316,7 @@ class _ProjectSliderInputState extends State<ProjectSliderInput> {
   }
 
   Widget _buildZoneLabels(BuildContext context) {
-    final theme = AppThemes.of(context);
+    final theme = VesselThemes.of(context);
 
     return Row(
       children: List.generate(_zones.length, (index) {
@@ -325,7 +325,7 @@ class _ProjectSliderInputState extends State<ProjectSliderInput> {
           flex: (zone.portion * 100).round(),
           child: Text(
             zone.label.toUpperCase(),
-            style: AppFontStyles.textControlHint.copyWith(
+            style: VesselFonts.textControlHint.copyWith(
               color: theme.textSecondary,
               fontSize: 10,
             ),
@@ -376,16 +376,16 @@ class _ProjectSliderInputState extends State<ProjectSliderInput> {
     final canDecrement = widget.value > widget.min;
 
     return ProjectButtonGroup(
-      size: ButtonSize.small,
+      size: VesselButtonSize.small,
       expanded: expanded,
       items: [
-        ProjectButtonGroupItem(
+        VesselButtonGroupItem(
           icon: Icons.remove,
           onPressed: canDecrement && widget.onChanged != null
               ? () => widget.onChanged!(math.max(widget.min, widget.value - increment))
               : null,
         ),
-        ProjectButtonGroupItem(
+        VesselButtonGroupItem(
           icon: Icons.add,
           onPressed: widget.onChanged != null
               ? () => widget.onChanged!(widget.value + increment)

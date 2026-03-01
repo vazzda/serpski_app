@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:srpski_card/app/providers/theme_provider.dart';
-import 'package:srpski_card/app/theme/app_themes.dart';
-import 'package:srpski_card/shared/ui/buttons/project_button_styles.dart';
+import 'package:srpski_card/app/theme/vessel_themes.dart';
+import 'package:srpski_card/shared/ui/buttons/vessel_button_styles.dart';
 
-export 'project_button_styles.dart' show ButtonSize;
+export 'vessel_button_styles.dart' show VesselButtonSize;
 
-class BaseButton extends ConsumerWidget {
+class VesselButton extends ConsumerWidget {
   final VoidCallback? onPressed;
   final String? label;
   final IconData? icon;
-  final ButtonSize size;
+  final VesselButtonSize size;
   final bool condensed;
   final EdgeInsets margin;
 
-  const BaseButton({
+  const VesselButton({
     super.key,
     this.onPressed,
     this.label,
     this.icon,
-    this.size = ButtonSize.medium,
+    this.size = VesselButtonSize.medium,
     this.condensed = false,
     this.margin = const EdgeInsets.symmetric(horizontal: 4),
   });
@@ -27,7 +27,7 @@ class BaseButton extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = ref.watch(themeProvider);
-    final colors = ProjectButtonStyleResolver.resolveColors(
+    final colors = VesselButtonStyleResolver.resolveColors(
       context,
       theme: theme,
       variant: ButtonVariant.base,
@@ -35,16 +35,16 @@ class BaseButton extends ConsumerWidget {
     final iconOnly = icon != null && (label == null || label!.isEmpty);
     final hasIconAndText = icon != null && label != null && label!.isNotEmpty;
     final iconSize = iconOnly
-        ? ProjectButtonStyleResolver.getIconOnlySize(size)
-        : ProjectButtonStyleResolver.getIconWithTextSize(size);
+        ? VesselButtonStyleResolver.getIconOnlySize(size)
+        : VesselButtonStyleResolver.getIconWithTextSize(size);
     final effectiveMargin = condensed
         ? EdgeInsets.symmetric(horizontal: margin.horizontal / 4)
         : margin;
 
-    final themeData = AppThemes.getThemeData(theme);
+    final themeData = VesselThemes.getThemeData(theme);
     final button = OutlinedButton(
       onPressed: onPressed,
-      style: ProjectButtonStyleResolver.style(
+      style: VesselButtonStyleResolver.style(
         context: context,
         colors: colors,
         iconOnly: iconOnly,
@@ -85,20 +85,20 @@ class BaseButton extends ConsumerWidget {
   }
 }
 
-class AccentButton extends ConsumerWidget {
+class VesselAccentButton extends ConsumerWidget {
   final VoidCallback? onPressed;
   final String? label;
   final IconData? icon;
-  final ButtonSize size;
+  final VesselButtonSize size;
   final bool condensed;
   final EdgeInsets margin;
 
-  const AccentButton({
+  const VesselAccentButton({
     super.key,
     this.onPressed,
     this.label,
     this.icon,
-    this.size = ButtonSize.medium,
+    this.size = VesselButtonSize.medium,
     this.condensed = false,
     this.margin = const EdgeInsets.symmetric(horizontal: 4),
   });
@@ -106,7 +106,7 @@ class AccentButton extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = ref.watch(themeProvider);
-    final colors = ProjectButtonStyleResolver.resolveColors(
+    final colors = VesselButtonStyleResolver.resolveColors(
       context,
       theme: theme,
       variant: ButtonVariant.accent,
@@ -114,16 +114,16 @@ class AccentButton extends ConsumerWidget {
     final iconOnly = icon != null && (label == null || label!.isEmpty);
     final hasIconAndText = icon != null && label != null && label!.isNotEmpty;
     final iconSize = iconOnly
-        ? ProjectButtonStyleResolver.getIconOnlySize(size)
-        : ProjectButtonStyleResolver.getIconWithTextSize(size);
+        ? VesselButtonStyleResolver.getIconOnlySize(size)
+        : VesselButtonStyleResolver.getIconWithTextSize(size);
     final effectiveMargin = condensed
         ? EdgeInsets.symmetric(horizontal: margin.horizontal / 4)
         : margin;
 
-    final themeData = AppThemes.getThemeData(theme);
+    final themeData = VesselThemes.getThemeData(theme);
     final button = OutlinedButton(
       onPressed: onPressed,
-      style: ProjectButtonStyleResolver.style(
+      style: VesselButtonStyleResolver.style(
         context: context,
         colors: colors,
         iconOnly: iconOnly,
@@ -164,20 +164,20 @@ class AccentButton extends ConsumerWidget {
   }
 }
 
-class DangerButton extends ConsumerWidget {
+class VesselDangerButton extends ConsumerWidget {
   final VoidCallback? onPressed;
   final String? label;
   final IconData? icon;
-  final ButtonSize size;
+  final VesselButtonSize size;
   final bool condensed;
   final EdgeInsets margin;
 
-  const DangerButton({
+  const VesselDangerButton({
     super.key,
     this.onPressed,
     this.label,
     this.icon,
-    this.size = ButtonSize.medium,
+    this.size = VesselButtonSize.medium,
     this.condensed = false,
     this.margin = const EdgeInsets.symmetric(horizontal: 4),
   });
@@ -185,7 +185,7 @@ class DangerButton extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = ref.watch(themeProvider);
-    final colors = ProjectButtonStyleResolver.resolveColors(
+    final colors = VesselButtonStyleResolver.resolveColors(
       context,
       theme: theme,
       variant: ButtonVariant.danger,
@@ -193,16 +193,16 @@ class DangerButton extends ConsumerWidget {
     final iconOnly = icon != null && (label == null || label!.isEmpty);
     final hasIconAndText = icon != null && label != null && label!.isNotEmpty;
     final iconSize = iconOnly
-        ? ProjectButtonStyleResolver.getIconOnlySize(size)
-        : ProjectButtonStyleResolver.getIconWithTextSize(size);
+        ? VesselButtonStyleResolver.getIconOnlySize(size)
+        : VesselButtonStyleResolver.getIconWithTextSize(size);
     final effectiveMargin = condensed
         ? EdgeInsets.symmetric(horizontal: margin.horizontal / 4)
         : margin;
 
-    final themeData = AppThemes.getThemeData(theme);
+    final themeData = VesselThemes.getThemeData(theme);
     final button = OutlinedButton(
       onPressed: onPressed,
-      style: ProjectButtonStyleResolver.style(
+      style: VesselButtonStyleResolver.style(
         context: context,
         colors: colors,
         iconOnly: iconOnly,
@@ -243,20 +243,20 @@ class DangerButton extends ConsumerWidget {
   }
 }
 
-class AccentTextButton extends ConsumerWidget {
+class VesselAccentTextButton extends ConsumerWidget {
   final VoidCallback? onPressed;
   final String? label;
   final IconData? icon;
-  final ButtonSize size;
+  final VesselButtonSize size;
   final bool condensed;
   final EdgeInsets margin;
 
-  const AccentTextButton({
+  const VesselAccentTextButton({
     super.key,
     this.onPressed,
     this.label,
     this.icon,
-    this.size = ButtonSize.medium,
+    this.size = VesselButtonSize.medium,
     this.condensed = false,
     this.margin = const EdgeInsets.symmetric(horizontal: 4),
   });
@@ -264,7 +264,7 @@ class AccentTextButton extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = ref.watch(themeProvider);
-    final colors = ProjectButtonStyleResolver.resolveColors(
+    final colors = VesselButtonStyleResolver.resolveColors(
       context,
       theme: theme,
       variant: ButtonVariant.textAccent,
@@ -272,15 +272,15 @@ class AccentTextButton extends ConsumerWidget {
     final iconOnly = icon != null && (label == null || label!.isEmpty);
     final hasIconAndText = icon != null && label != null && label!.isNotEmpty;
     final iconSize = iconOnly
-        ? ProjectButtonStyleResolver.getIconOnlySize(size)
-        : ProjectButtonStyleResolver.getIconWithTextSize(size);
+        ? VesselButtonStyleResolver.getIconOnlySize(size)
+        : VesselButtonStyleResolver.getIconWithTextSize(size);
     final effectiveMargin = condensed
         ? EdgeInsets.symmetric(horizontal: margin.horizontal / 4)
         : margin;
 
     final button = OutlinedButton(
       onPressed: onPressed,
-      style: ProjectButtonStyleResolver.style(
+      style: VesselButtonStyleResolver.style(
         context: context,
         colors: colors,
         iconOnly: iconOnly,
@@ -310,20 +310,20 @@ class AccentTextButton extends ConsumerWidget {
   }
 }
 
-class ProjectTextButton extends ConsumerWidget {
+class VesselTextButton extends ConsumerWidget {
   final VoidCallback? onPressed;
   final String? label;
   final IconData? icon;
-  final ButtonSize size;
+  final VesselButtonSize size;
   final bool condensed;
   final EdgeInsets margin;
 
-  const ProjectTextButton({
+  const VesselTextButton({
     super.key,
     this.onPressed,
     this.label,
     this.icon,
-    this.size = ButtonSize.medium,
+    this.size = VesselButtonSize.medium,
     this.condensed = false,
     this.margin = const EdgeInsets.symmetric(horizontal: 4),
   });
@@ -331,7 +331,7 @@ class ProjectTextButton extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = ref.watch(themeProvider);
-    final colors = ProjectButtonStyleResolver.resolveColors(
+    final colors = VesselButtonStyleResolver.resolveColors(
       context,
       theme: theme,
       variant: ButtonVariant.text,
@@ -339,15 +339,15 @@ class ProjectTextButton extends ConsumerWidget {
     final iconOnly = icon != null && (label == null || label!.isEmpty);
     final hasIconAndText = icon != null && label != null && label!.isNotEmpty;
     final iconSize = iconOnly
-        ? ProjectButtonStyleResolver.getIconOnlySize(size)
-        : ProjectButtonStyleResolver.getIconWithTextSize(size);
+        ? VesselButtonStyleResolver.getIconOnlySize(size)
+        : VesselButtonStyleResolver.getIconWithTextSize(size);
     final effectiveMargin = condensed
         ? EdgeInsets.symmetric(horizontal: margin.horizontal / 4)
         : margin;
 
     final button = OutlinedButton(
       onPressed: onPressed,
-      style: ProjectButtonStyleResolver.style(
+      style: VesselButtonStyleResolver.style(
         context: context,
         colors: colors,
         iconOnly: iconOnly,
@@ -377,20 +377,20 @@ class ProjectTextButton extends ConsumerWidget {
   }
 }
 
-class DangerTextButton extends ConsumerWidget {
+class VesselDangerTextButton extends ConsumerWidget {
   final VoidCallback? onPressed;
   final String? label;
   final IconData? icon;
-  final ButtonSize size;
+  final VesselButtonSize size;
   final bool condensed;
   final EdgeInsets margin;
 
-  const DangerTextButton({
+  const VesselDangerTextButton({
     super.key,
     this.onPressed,
     this.label,
     this.icon,
-    this.size = ButtonSize.medium,
+    this.size = VesselButtonSize.medium,
     this.condensed = false,
     this.margin = const EdgeInsets.symmetric(horizontal: 4),
   });
@@ -398,7 +398,7 @@ class DangerTextButton extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = ref.watch(themeProvider);
-    final colors = ProjectButtonStyleResolver.resolveColors(
+    final colors = VesselButtonStyleResolver.resolveColors(
       context,
       theme: theme,
       variant: ButtonVariant.textDanger,
@@ -406,15 +406,15 @@ class DangerTextButton extends ConsumerWidget {
     final iconOnly = icon != null && (label == null || label!.isEmpty);
     final hasIconAndText = icon != null && label != null && label!.isNotEmpty;
     final iconSize = iconOnly
-        ? ProjectButtonStyleResolver.getIconOnlySize(size)
-        : ProjectButtonStyleResolver.getIconWithTextSize(size);
+        ? VesselButtonStyleResolver.getIconOnlySize(size)
+        : VesselButtonStyleResolver.getIconWithTextSize(size);
     final effectiveMargin = condensed
         ? EdgeInsets.symmetric(horizontal: margin.horizontal / 4)
         : margin;
 
     final button = OutlinedButton(
       onPressed: onPressed,
-      style: ProjectButtonStyleResolver.style(
+      style: VesselButtonStyleResolver.style(
         context: context,
         colors: colors,
         iconOnly: iconOnly,

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class AppFontStyles {
-  AppFontStyles._();
+class VesselFonts {
+  VesselFonts._();
 
   // ---------------------------------------------------------------------------
   // GLOBAL FONT STYLES (PRIVATE)
@@ -110,7 +110,7 @@ class AppFontStyles {
   static TextStyle get textPrompt => _headerXxl;
 
   // Tag styles
-  static TextStyle get textTagChip => _bodySAccented;
+  static TextStyle get textVesselTagChip => _bodySAccented;
   static TextStyle get textTagIcon => _bodyXs;
 
   // Snackbar styles

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:srpski_card/app/theme/app_themes.dart';
+import 'package:srpski_card/app/theme/vessel_themes.dart';
 
 /// A single option for ProjectRadioGrid
-class ProjectRadioGridOption<T> {
+class VesselRadioGridOption<T> {
   final T value;
   final String label;
   final IconData? icon;
 
-  const ProjectRadioGridOption({
+  const VesselRadioGridOption({
     required this.value,
     required this.label,
     this.icon,
@@ -16,7 +16,7 @@ class ProjectRadioGridOption<T> {
 
 /// A grid-based radio selector with configurable columns
 class ProjectRadioGrid<T> extends StatelessWidget {
-  final List<ProjectRadioGridOption<T>> options;
+  final List<VesselRadioGridOption<T>> options;
   final T selectedValue;
   final ValueChanged<T>? onChanged;
   final int columns;
@@ -35,7 +35,7 @@ class ProjectRadioGrid<T> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = AppThemes.of(context);
+    final theme = VesselThemes.of(context);
 
     return LayoutBuilder(
       builder: (context, constraints) {
@@ -62,11 +62,11 @@ class ProjectRadioGrid<T> extends StatelessWidget {
 }
 
 class _RadioGridItem<T> extends StatelessWidget {
-  final ProjectRadioGridOption<T> option;
+  final VesselRadioGridOption<T> option;
   final bool isSelected;
   final VoidCallback? onTap;
   final double width;
-  final AppThemeData theme;
+  final VesselThemeData theme;
 
   const _RadioGridItem({
     required this.option,
@@ -106,7 +106,7 @@ class _RadioGridItem<T> extends StatelessWidget {
             Flexible(
               child: Text(
                 option.label,
-                style: AppFontStyles.textControlInput.copyWith(
+                style: VesselFonts.textControlInput.copyWith(
                   color: isSelected ? theme.scaffoldBackground : theme.textPrimary,
                 ),
                 textAlign: TextAlign.center,

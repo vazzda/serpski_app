@@ -6,10 +6,10 @@ import '../l10n/app_localizations.dart';
 import '../app/providers/language_settings_provider.dart';
 import '../entities/language/lang_codes.dart';
 import '../app/router/app_router.dart';
-import '../app/theme/app_themes.dart';
-import '../shared/ui/card/project_card.dart';
-import '../shared/ui/screen_layout/screen_layout_widget.dart';
-import '../app/layout/app_layout.dart';
+import '../app/theme/vessel_themes.dart';
+import '../shared/ui/card/vessel_card.dart';
+import '../shared/ui/screen_layout/vessel_scaffold.dart';
+import '../app/layout/vessel_layout.dart';
 
 /// Tools screen — language-specific practice tools.
 /// For Serbian: conjugation endings and gender agreement drills.
@@ -19,36 +19,36 @@ class ToolsScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context)!;
-    final t = AppThemes.of(context);
+    final t = VesselThemes.of(context);
     final langSettings = ref.watch(languageSettingsProvider);
 
     // Tools available per target language.
     final tools = _toolsForLanguage(langSettings.targetLang);
 
-    return ScreenLayoutWidget(
+    return VesselScaffold(
       title: l10n.navTools,
       showBottomNav: true,
       child: tools.isEmpty
           ? Center(
               child: Text(
                 l10n.tools_emptyState,
-                style: AppFontStyles.textBody.copyWith(color: t.textSecondary),
+                style: VesselFonts.textBody.copyWith(color: t.textSecondary),
               ),
             )
           : ListView(
-              padding: const EdgeInsets.all(AppLayout.screenPadding),
+              padding: const EdgeInsets.all(VesselLayout.screenPadding),
               children: tools.map((tool) {
                 final label = _toolLabel(tool, l10n);
                 return Padding(
-                  padding: const EdgeInsets.only(bottom: AppLayout.listItemGap),
-                  child: ProjectCard(
+                  padding: const EdgeInsets.only(bottom: VesselLayout.listItemGap),
+                  child: VesselCard(
                     onTap: () => _onToolTap(context, tool),
                     child: Row(
                       children: [
                         Expanded(
                           child: Text(
                             label,
-                            style: AppFontStyles.textListItem.copyWith(color: t.textPrimary),
+                            style: VesselFonts.textListItem.copyWith(color: t.textPrimary),
                           ),
                         ),
                         Icon(

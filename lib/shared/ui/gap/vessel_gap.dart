@@ -1,56 +1,56 @@
 import 'package:flutter/widgets.dart';
 
-import '../../../app/layout/app_layout.dart';
+import '../../../app/layout/vessel_layout.dart';
 
 /// Standardised spacing widget replacing raw [SizedBox] gaps.
 ///
 /// Vertical (default): use in [Column], [ListView], etc.
 /// Horizontal: prefixed with `h` — use in [Row].
-class ProjectGap extends StatelessWidget {
+class VesselGap extends StatelessWidget {
   final double _size;
   final bool _horizontal;
 
   // ── Vertical ──────────────────────────────────────────────────────────────
-  const ProjectGap.xxs({super.key})
-      : _size = AppLayout.gapXxs,
+  const VesselGap.xxs({super.key})
+      : _size = VesselLayout.gapXxs,
         _horizontal = false;
-  const ProjectGap.xs({super.key})
-      : _size = AppLayout.gapXs,
+  const VesselGap.xs({super.key})
+      : _size = VesselLayout.gapXs,
         _horizontal = false;
-  const ProjectGap.s({super.key})
-      : _size = AppLayout.gapS,
+  const VesselGap.s({super.key})
+      : _size = VesselLayout.gapS,
         _horizontal = false;
-  const ProjectGap.m({super.key})
-      : _size = AppLayout.gapM,
+  const VesselGap.m({super.key})
+      : _size = VesselLayout.gapM,
         _horizontal = false;
-  const ProjectGap.l({super.key})
-      : _size = AppLayout.gapL,
+  const VesselGap.l({super.key})
+      : _size = VesselLayout.gapL,
         _horizontal = false;
-  const ProjectGap.xl({super.key})
-      : _size = AppLayout.gapXl,
+  const VesselGap.xl({super.key})
+      : _size = VesselLayout.gapXl,
         _horizontal = false;
-  const ProjectGap.xxl({super.key})
-      : _size = AppLayout.gapXxl,
+  const VesselGap.xxl({super.key})
+      : _size = VesselLayout.gapXxl,
         _horizontal = false;
 
   // ── Horizontal ────────────────────────────────────────────────────────────
-  const ProjectGap.hxxs({super.key})
-      : _size = AppLayout.gapXxs,
+  const VesselGap.hxxs({super.key})
+      : _size = VesselLayout.gapXxs,
         _horizontal = true;
-  const ProjectGap.hxs({super.key})
-      : _size = AppLayout.gapXs,
+  const VesselGap.hxs({super.key})
+      : _size = VesselLayout.gapXs,
         _horizontal = true;
-  const ProjectGap.hs({super.key})
-      : _size = AppLayout.gapS,
+  const VesselGap.hs({super.key})
+      : _size = VesselLayout.gapS,
         _horizontal = true;
-  const ProjectGap.hm({super.key})
-      : _size = AppLayout.gapM,
+  const VesselGap.hm({super.key})
+      : _size = VesselLayout.gapM,
         _horizontal = true;
-  const ProjectGap.hl({super.key})
-      : _size = AppLayout.gapL,
+  const VesselGap.hl({super.key})
+      : _size = VesselLayout.gapL,
         _horizontal = true;
-  const ProjectGap.hxl({super.key})
-      : _size = AppLayout.gapXl,
+  const VesselGap.hxl({super.key})
+      : _size = VesselLayout.gapXl,
         _horizontal = true;
 
   @override

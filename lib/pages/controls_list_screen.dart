@@ -1,31 +1,31 @@
 import 'package:flutter/material.dart';
 
 import '../l10n/app_localizations.dart';
-import '../app/theme/app_themes.dart';
+import '../app/theme/vessel_themes.dart';
 import '../entities/tag/tag.dart';
-import '../shared/ui/buttons/project_buttons.dart';
-import '../shared/ui/buttons/project_button_group.dart';
-import '../shared/ui/card/project_card.dart';
-import '../shared/ui/divider/project_divider.dart';
-import '../shared/ui/inputs/project_date_picker.dart';
-import '../shared/ui/inputs/project_hour_picker.dart';
-import '../shared/ui/inputs/project_input_row.dart';
-import '../shared/ui/inputs/project_input_styles.dart';
-import '../shared/ui/inputs/project_radio_grid.dart';
-import '../shared/ui/inputs/project_radio_tile.dart';
-import '../shared/ui/inputs/project_slider_input.dart';
-import '../shared/ui/inputs/project_text_input.dart';
-import '../shared/ui/inputs/project_time_slider.dart';
-import '../shared/ui/inputs/project_toggles.dart';
-import '../shared/ui/note/project_note.dart';
-import '../shared/ui/snackbar/project_snackbar.dart';
-import '../shared/ui/tag/tag_chip.dart';
-import '../shared/ui/tag/tag_label.dart';
-import '../shared/ui/text/project_header.dart';
-import '../shared/ui/bottom_sheet/project_bottom_sheet.dart';
+import '../shared/ui/buttons/vessel_buttons.dart';
+import '../shared/ui/buttons/vessel_button_group.dart';
+import '../shared/ui/card/vessel_card.dart';
+import '../shared/ui/divider/vessel_divider.dart';
+import '../shared/ui/inputs/vessel_date_picker.dart';
+import '../shared/ui/inputs/vessel_hour_picker.dart';
+import '../shared/ui/inputs/vessel_input_row.dart';
+import '../shared/ui/inputs/vessel_input_styles.dart';
+import '../shared/ui/inputs/vessel_radio_grid.dart';
+import '../shared/ui/inputs/vessel_radio_tile.dart';
+import '../shared/ui/inputs/vessel_slider_input.dart';
+import '../shared/ui/inputs/vessel_text_input.dart';
+import '../shared/ui/inputs/vessel_time_slider.dart';
+import '../shared/ui/inputs/vessel_toggles.dart';
+import '../shared/ui/note/vessel_note.dart';
+import '../shared/ui/snackbar/vessel_snackbar.dart';
+import '../shared/ui/tag/vessel_tag_chip.dart';
+import '../shared/ui/tag/vessel_tag_label.dart';
+import '../shared/ui/text/vessel_header.dart';
+import '../shared/ui/bottom_sheet/vessel_bottom_sheet.dart';
 import '../shared/ui/bottom_sheet/quiz_bottom_sheets.dart';
-import '../shared/ui/gap/project_gap.dart';
-import '../shared/ui/screen_layout/screen_layout_widget.dart';
+import '../shared/ui/gap/vessel_gap.dart';
+import '../shared/ui/screen_layout/vessel_scaffold.dart';
 
 /// Developer controls list screen - Showcase all UI components
 class ControlsListScreen extends StatefulWidget {
@@ -52,11 +52,11 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
   final _weekExclusiveController = TextEditingController();
   final _monthExclusiveController = TextEditingController();
 
-  // State for ProjectDatePicker demo
+  // State for VesselDatePicker demo
   DateTime? _demoStartDate;
   DateTime? _demoEndDate;
 
-  // State for ProjectSliderInput demo
+  // State for VesselSliderInput demo
   int _demoSliderCounter = 50;
   int _demoSliderCounterZoned = 500;
   int _demoSliderCounterButtons = 250;
@@ -84,9 +84,9 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
-    final t = AppThemes.of(context);
+    final t = VesselThemes.of(context);
 
-    return ScreenLayoutWidget(
+    return VesselScaffold(
       title: 'Controls List',
       showBottomNav: false,
       leading: BackButton(onPressed: () => Navigator.of(context).pop()),
@@ -94,16 +94,16 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
         padding: const EdgeInsets.all(16),
         children: [
           // 1. CARDS (standalone, not in _buildSection)
-          const ProjectHeader(text: 'Cards'),
+          const VesselHeader(text: 'Cards'),
           const SizedBox(height: 16),
           const Text('Regular:'),
           const SizedBox(height: 8),
-          const ProjectCard(
+          const VesselCard(
             child: Text(
               'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             ),
           ),
-          const ProjectCard(
+          const VesselCard(
             child: Text(
               'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
             ),
@@ -111,13 +111,13 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
           const SizedBox(height: 8),
           const Text('Transparent:'),
           const SizedBox(height: 8),
-          const ProjectCard(
+          const VesselCard(
             transparent: true,
             child: Text(
               'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
             ),
           ),
-          const ProjectCard(
+          const VesselCard(
             transparent: true,
             child: Text(
               'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
@@ -126,14 +126,14 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
           const SizedBox(height: 8),
           const Text('Attention:'),
           const SizedBox(height: 8),
-          const ProjectAttentionCard(
+          const VesselAttentionCard(
             child: Text('Danger-tinted attention card.'),
           ),
           const SizedBox(height: 16),
 
           // 2. HEADER
           _buildSection('Header', [
-            const ProjectHeader(text: 'Section Header'),
+            const VesselHeader(text: 'Section Header'),
           ]),
 
           // 3. BUTTONS
@@ -143,33 +143,33 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
             const SizedBox(height: 8),
             Row(
               children: [
-                BaseButton(label: 'Base', onPressed: () {}),
-                BaseButton(label: 'Base', icon: Icons.star, onPressed: () {}),
-                BaseButton(icon: Icons.star, onPressed: () {}),
+                VesselButton(label: 'Base', onPressed: () {}),
+                VesselButton(label: 'Base', icon: Icons.star, onPressed: () {}),
+                VesselButton(icon: Icons.star, onPressed: () {}),
               ],
             ),
             const SizedBox(height: 8),
             Row(
               children: [
-                AccentButton(label: 'Accent', onPressed: () {}),
-                AccentButton(
+                VesselAccentButton(label: 'Accent', onPressed: () {}),
+                VesselAccentButton(
                   label: 'Accent',
                   icon: Icons.check,
                   onPressed: () {},
                 ),
-                AccentButton(icon: Icons.check, onPressed: () {}),
+                VesselAccentButton(icon: Icons.check, onPressed: () {}),
               ],
             ),
             const SizedBox(height: 8),
             Row(
               children: [
-                DangerButton(label: 'Danger', onPressed: () {}),
-                DangerButton(
+                VesselDangerButton(label: 'Danger', onPressed: () {}),
+                VesselDangerButton(
                   label: 'Danger',
                   icon: Icons.warning,
                   onPressed: () {},
                 ),
-                DangerButton(icon: Icons.warning, onPressed: () {}),
+                VesselDangerButton(icon: Icons.warning, onPressed: () {}),
               ],
             ),
             const SizedBox(height: 16),
@@ -178,50 +178,50 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
             const SizedBox(height: 8),
             Row(
               children: [
-                BaseButton(
+                VesselButton(
                   label: 'Small',
                   onPressed: () {},
-                  size: ButtonSize.small,
+                  size: VesselButtonSize.small,
                 ),
-                BaseButton(
+                VesselButton(
                   label: 'Small',
                   icon: Icons.star,
                   onPressed: () {},
-                  size: ButtonSize.small,
+                  size: VesselButtonSize.small,
                 ),
-                BaseButton(
+                VesselButton(
                   icon: Icons.star,
                   onPressed: () {},
-                  size: ButtonSize.small,
+                  size: VesselButtonSize.small,
                 ),
               ],
             ),
             const SizedBox(height: 8),
             Row(
               children: [
-                BaseButton(label: 'Medium', onPressed: () {}),
-                BaseButton(label: 'Medium', icon: Icons.star, onPressed: () {}),
-                BaseButton(icon: Icons.star, onPressed: () {}),
+                VesselButton(label: 'Medium', onPressed: () {}),
+                VesselButton(label: 'Medium', icon: Icons.star, onPressed: () {}),
+                VesselButton(icon: Icons.star, onPressed: () {}),
               ],
             ),
             const SizedBox(height: 8),
             Row(
               children: [
-                BaseButton(
+                VesselButton(
                   label: 'Large',
                   onPressed: () {},
-                  size: ButtonSize.large,
+                  size: VesselButtonSize.large,
                 ),
-                BaseButton(
+                VesselButton(
                   label: 'Large',
                   icon: Icons.star,
                   onPressed: () {},
-                  size: ButtonSize.large,
+                  size: VesselButtonSize.large,
                 ),
-                BaseButton(
+                VesselButton(
                   icon: Icons.star,
                   onPressed: () {},
-                  size: ButtonSize.large,
+                  size: VesselButtonSize.large,
                 ),
               ],
             ),
@@ -231,13 +231,13 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
             const SizedBox(height: 8),
             const Row(
               children: [
-                BaseButton(label: 'Disabled', onPressed: null),
-                BaseButton(
+                VesselButton(label: 'Disabled', onPressed: null),
+                VesselButton(
                   label: 'Disabled',
                   icon: Icons.star,
                   onPressed: null,
                 ),
-                BaseButton(icon: Icons.star, onPressed: null),
+                VesselButton(icon: Icons.star, onPressed: null),
               ],
             ),
             const SizedBox(height: 16),
@@ -246,23 +246,23 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
             const SizedBox(height: 8),
             Row(
               children: [
-                BaseButton(
+                VesselButton(
                   label: 'Small',
                   onPressed: () {},
-                  size: ButtonSize.small,
+                  size: VesselButtonSize.small,
                   condensed: true,
                 ),
-                BaseButton(
+                VesselButton(
                   label: 'Small',
                   icon: Icons.star,
                   onPressed: () {},
-                  size: ButtonSize.small,
+                  size: VesselButtonSize.small,
                   condensed: true,
                 ),
-                BaseButton(
+                VesselButton(
                   icon: Icons.star,
                   onPressed: () {},
-                  size: ButtonSize.small,
+                  size: VesselButtonSize.small,
                   condensed: true,
                 ),
               ],
@@ -272,18 +272,18 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
             const SizedBox(height: 8),
             Row(
               children: [
-                BaseButton(
+                VesselButton(
                   label: 'Medium',
                   onPressed: () {},
                   condensed: true,
                 ),
-                BaseButton(
+                VesselButton(
                   label: 'Medium',
                   icon: Icons.star,
                   onPressed: () {},
                   condensed: true,
                 ),
-                BaseButton(
+                VesselButton(
                   icon: Icons.star,
                   onPressed: () {},
                   condensed: true,
@@ -295,23 +295,23 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
             const SizedBox(height: 8),
             Row(
               children: [
-                BaseButton(
+                VesselButton(
                   label: 'Large',
                   onPressed: () {},
-                  size: ButtonSize.large,
+                  size: VesselButtonSize.large,
                   condensed: true,
                 ),
-                BaseButton(
+                VesselButton(
                   label: 'Large',
                   icon: Icons.star,
                   onPressed: () {},
-                  size: ButtonSize.large,
+                  size: VesselButtonSize.large,
                   condensed: true,
                 ),
-                BaseButton(
+                VesselButton(
                   icon: Icons.star,
                   onPressed: () {},
-                  size: ButtonSize.large,
+                  size: VesselButtonSize.large,
                   condensed: true,
                 ),
               ],
@@ -325,54 +325,54 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
             const SizedBox(height: 8),
             Row(
               children: [
-                ProjectTextButton(
+                VesselTextButton(
                   label: 'Small',
                   onPressed: () {},
-                  size: ButtonSize.small,
+                  size: VesselButtonSize.small,
                 ),
-                ProjectTextButton(
+                VesselTextButton(
                   label: 'Small',
                   icon: Icons.refresh,
                   onPressed: () {},
-                  size: ButtonSize.small,
+                  size: VesselButtonSize.small,
                 ),
-                ProjectTextButton(
+                VesselTextButton(
                   icon: Icons.refresh,
                   onPressed: () {},
-                  size: ButtonSize.small,
+                  size: VesselButtonSize.small,
                 ),
               ],
             ),
             const SizedBox(height: 8),
             Row(
               children: [
-                ProjectTextButton(label: 'Medium', onPressed: () {}),
-                ProjectTextButton(
+                VesselTextButton(label: 'Medium', onPressed: () {}),
+                VesselTextButton(
                   label: 'Medium',
                   icon: Icons.refresh,
                   onPressed: () {},
                 ),
-                ProjectTextButton(icon: Icons.refresh, onPressed: () {}),
+                VesselTextButton(icon: Icons.refresh, onPressed: () {}),
               ],
             ),
             const SizedBox(height: 8),
             Row(
               children: [
-                ProjectTextButton(
+                VesselTextButton(
                   label: 'Large',
                   onPressed: () {},
-                  size: ButtonSize.large,
+                  size: VesselButtonSize.large,
                 ),
-                ProjectTextButton(
+                VesselTextButton(
                   label: 'Large',
                   icon: Icons.refresh,
                   onPressed: () {},
-                  size: ButtonSize.large,
+                  size: VesselButtonSize.large,
                 ),
-                ProjectTextButton(
+                VesselTextButton(
                   icon: Icons.refresh,
                   onPressed: () {},
-                  size: ButtonSize.large,
+                  size: VesselButtonSize.large,
                 ),
               ],
             ),
@@ -382,13 +382,13 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
             const SizedBox(height: 8),
             Row(
               children: [
-                AccentTextButton(label: 'Accent', onPressed: () {}),
-                AccentTextButton(
+                VesselAccentTextButton(label: 'Accent', onPressed: () {}),
+                VesselAccentTextButton(
                   label: 'Accent',
                   icon: Icons.check,
                   onPressed: () {},
                 ),
-                AccentTextButton(icon: Icons.check, onPressed: () {}),
+                VesselAccentTextButton(icon: Icons.check, onPressed: () {}),
               ],
             ),
             const SizedBox(height: 8),
@@ -397,13 +397,13 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
             const SizedBox(height: 8),
             Row(
               children: [
-                DangerTextButton(label: 'Danger', onPressed: () {}),
-                DangerTextButton(
+                VesselDangerTextButton(label: 'Danger', onPressed: () {}),
+                VesselDangerTextButton(
                   label: 'Danger',
                   icon: Icons.warning,
                   onPressed: () {},
                 ),
-                DangerTextButton(icon: Icons.warning, onPressed: () {}),
+                VesselDangerTextButton(icon: Icons.warning, onPressed: () {}),
               ],
             ),
             const SizedBox(height: 16),
@@ -412,13 +412,13 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
             const SizedBox(height: 8),
             const Row(
               children: [
-                ProjectTextButton(label: 'Disabled', onPressed: null),
-                ProjectTextButton(
+                VesselTextButton(label: 'Disabled', onPressed: null),
+                VesselTextButton(
                   label: 'Disabled',
                   icon: Icons.refresh,
                   onPressed: null,
                 ),
-                ProjectTextButton(icon: Icons.refresh, onPressed: null),
+                VesselTextButton(icon: Icons.refresh, onPressed: null),
               ],
             ),
             const SizedBox(height: 16),
@@ -427,28 +427,28 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
             const SizedBox(height: 8),
             Row(
               children: [
-                ProjectTextButton(
+                VesselTextButton(
                   label: 'Small',
                   onPressed: () {},
-                  size: ButtonSize.small,
+                  size: VesselButtonSize.small,
                   condensed: true,
                 ),
-                ProjectTextButton(
+                VesselTextButton(
                   icon: Icons.refresh,
                   onPressed: () {},
-                  size: ButtonSize.small,
+                  size: VesselButtonSize.small,
                   condensed: true,
                 ),
-                AccentTextButton(
+                VesselAccentTextButton(
                   icon: Icons.check,
                   onPressed: () {},
-                  size: ButtonSize.small,
+                  size: VesselButtonSize.small,
                   condensed: true,
                 ),
-                DangerTextButton(
+                VesselDangerTextButton(
                   icon: Icons.warning,
                   onPressed: () {},
-                  size: ButtonSize.small,
+                  size: VesselButtonSize.small,
                   condensed: true,
                 ),
               ],
@@ -458,22 +458,22 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
             const SizedBox(height: 8),
             Row(
               children: [
-                ProjectTextButton(
+                VesselTextButton(
                   label: 'Medium',
                   onPressed: () {},
                   condensed: true,
                 ),
-                ProjectTextButton(
+                VesselTextButton(
                   icon: Icons.refresh,
                   onPressed: () {},
                   condensed: true,
                 ),
-                AccentTextButton(
+                VesselAccentTextButton(
                   icon: Icons.check,
                   onPressed: () {},
                   condensed: true,
                 ),
-                DangerTextButton(
+                VesselDangerTextButton(
                   icon: Icons.warning,
                   onPressed: () {},
                   condensed: true,
@@ -487,10 +487,10 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
             const Text('Icon only (small):'),
             const SizedBox(height: 8),
             ProjectButtonGroup(
-              size: ButtonSize.small,
+              size: VesselButtonSize.small,
               items: [
-                ProjectButtonGroupItem(icon: Icons.remove, onPressed: () {}),
-                ProjectButtonGroupItem(icon: Icons.add, onPressed: () {}),
+                VesselButtonGroupItem(icon: Icons.remove, onPressed: () {}),
+                VesselButtonGroupItem(icon: Icons.add, onPressed: () {}),
               ],
             ),
             const SizedBox(height: 16),
@@ -498,8 +498,8 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
             const SizedBox(height: 8),
             ProjectButtonGroup(
               items: [
-                ProjectButtonGroupItem(icon: Icons.remove, onPressed: () {}),
-                ProjectButtonGroupItem(icon: Icons.add, onPressed: () {}),
+                VesselButtonGroupItem(icon: Icons.remove, onPressed: () {}),
+                VesselButtonGroupItem(icon: Icons.add, onPressed: () {}),
               ],
             ),
             const SizedBox(height: 16),
@@ -507,12 +507,12 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
             const SizedBox(height: 8),
             ProjectButtonGroup(
               items: [
-                ProjectButtonGroupItem(
+                VesselButtonGroupItem(
                   label: 'Prev',
                   icon: Icons.arrow_back,
                   onPressed: () {},
                 ),
-                ProjectButtonGroupItem(
+                VesselButtonGroupItem(
                   label: 'Next',
                   icon: Icons.arrow_forward,
                   onPressed: () {},
@@ -524,15 +524,15 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
             const SizedBox(height: 8),
             ProjectButtonGroup(
               items: [
-                ProjectButtonGroupItem(
+                VesselButtonGroupItem(
                   icon: Icons.format_align_left,
                   onPressed: () {},
                 ),
-                ProjectButtonGroupItem(
+                VesselButtonGroupItem(
                   icon: Icons.format_align_center,
                   onPressed: () {},
                 ),
-                ProjectButtonGroupItem(
+                VesselButtonGroupItem(
                   icon: Icons.format_align_right,
                   onPressed: () {},
                 ),
@@ -544,8 +544,8 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
             ProjectButtonGroup(
               expanded: true,
               items: [
-                ProjectButtonGroupItem(icon: Icons.remove, onPressed: () {}),
-                ProjectButtonGroupItem(icon: Icons.add, onPressed: () {}),
+                VesselButtonGroupItem(icon: Icons.remove, onPressed: () {}),
+                VesselButtonGroupItem(icon: Icons.add, onPressed: () {}),
               ],
             ),
             const SizedBox(height: 16),
@@ -553,11 +553,11 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
             const SizedBox(height: 8),
             ProjectButtonGroup(
               items: [
-                const ProjectButtonGroupItem(
+                const VesselButtonGroupItem(
                   icon: Icons.remove,
                   onPressed: null,
                 ),
-                ProjectButtonGroupItem(icon: Icons.add, onPressed: () {}),
+                VesselButtonGroupItem(icon: Icons.add, onPressed: () {}),
               ],
             ),
           ]),
@@ -565,25 +565,25 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
           // 6. INPUTS
           _buildSection('Inputs', [
             TextField(
-              style: ProjectInputStyles.textStyle(context),
-              decoration: ProjectInputStyles.decoration(
+              style: VesselInputStyles.textStyle(context),
+              decoration: VesselInputStyles.decoration(
                 context: context,
                 label: 'Text Field',
               ),
             ),
             const SizedBox(height: 16),
             TextField(
-              style: ProjectInputStyles.textStyle(context),
-              decoration: ProjectInputStyles.decoration(
+              style: VesselInputStyles.textStyle(context),
+              decoration: VesselInputStyles.decoration(
                 context: context,
                 label: 'Number Field',
               ),
               keyboardType: TextInputType.number,
             ),
             const SizedBox(height: 16),
-            const Text('ProjectTextInput:'),
+            const Text('VesselTextInput:'),
             const SizedBox(height: 8),
-            ProjectTextInput(
+            VesselTextInput(
               controller: _textController,
               label: 'Label',
               hint: 'Placeholder text',
@@ -592,39 +592,39 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
 
           // 7. CHECKBOXES
           _buildSection('Checkboxes', [
-            const Text('ProjectCheckbox (base):'),
+            const Text('VesselCheckbox (base):'),
             const SizedBox(height: 4),
-            ProjectCheckbox(
+            VesselCheckbox(
               value: _demoCheckbox,
               onChanged: (value) =>
                   setState(() => _demoCheckbox = value ?? false),
             ),
             const SizedBox(height: 16),
-            const Text('ProjectCheckboxLabeled (label right):'),
+            const Text('VesselCheckboxLabeled (label right):'),
             const SizedBox(height: 4),
-            ProjectCheckboxLabeled(
+            VesselCheckboxLabeled(
               label: 'Label Right',
               value: _demoCheckbox,
               onChanged: (value) =>
                   setState(() => _demoCheckbox = value ?? false),
             ),
             const SizedBox(height: 16),
-            const Text('ProjectCheckboxLabeled (label left):'),
+            const Text('VesselCheckboxLabeled (label left):'),
             const SizedBox(height: 4),
-            ProjectCheckboxLabeled(
+            VesselCheckboxLabeled(
               label: 'Label Left',
               value: _demoCheckbox,
-              labelPosition: LabelPosition.left,
+              labelPosition: VesselLabelPosition.left,
               onChanged: (value) =>
                   setState(() => _demoCheckbox = value ?? false),
             ),
             const SizedBox(height: 16),
-            const Text('ProjectCheckboxLabeled (fullWidth):'),
+            const Text('VesselCheckboxLabeled (fullWidth):'),
             const SizedBox(height: 4),
-            ProjectCheckboxLabeled(
+            VesselCheckboxLabeled(
               label: 'Full Width Label',
               value: _demoCheckbox,
-              labelPosition: LabelPosition.left,
+              labelPosition: VesselLabelPosition.left,
               fullWidth: true,
               onChanged: (value) =>
                   setState(() => _demoCheckbox = value ?? false),
@@ -633,36 +633,36 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
 
           // 8. SWITCHES
           _buildSection('Switches', [
-            const Text('ProjectSwitch (base):'),
+            const Text('VesselSwitch (base):'),
             const SizedBox(height: 4),
-            ProjectSwitch(
+            VesselSwitch(
               value: _demoSwitch,
               onChanged: (value) =>
                   setState(() => _demoSwitch = value),
             ),
             const SizedBox(height: 16),
-            const Text('ProjectSwitchLabeled (label left):'),
+            const Text('VesselSwitchLabeled (label left):'),
             const SizedBox(height: 4),
-            ProjectSwitchLabeled(
+            VesselSwitchLabeled(
               label: 'Label Left',
               value: _demoSwitch,
               onChanged: (value) =>
                   setState(() => _demoSwitch = value),
             ),
             const SizedBox(height: 16),
-            const Text('ProjectSwitchLabeled (label right):'),
+            const Text('VesselSwitchLabeled (label right):'),
             const SizedBox(height: 4),
-            ProjectSwitchLabeled(
+            VesselSwitchLabeled(
               label: 'Label Right',
               value: _demoSwitch,
-              labelPosition: LabelPosition.right,
+              labelPosition: VesselLabelPosition.right,
               onChanged: (value) =>
                   setState(() => _demoSwitch = value),
             ),
             const SizedBox(height: 16),
-            const Text('ProjectSwitchLabeled (fullWidth):'),
+            const Text('VesselSwitchLabeled (fullWidth):'),
             const SizedBox(height: 4),
-            ProjectSwitchLabeled(
+            VesselSwitchLabeled(
               label: 'Full Width Label',
               value: _demoSwitch,
               fullWidth: true,
@@ -673,7 +673,7 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
 
           // 9. RADIO TILES (srpski-specific)
           _buildSection('Radio Tiles', [
-            ProjectRadioTile<String>(
+            VesselRadioTile<String>(
               value: 'A',
               groupValue: _radioValue,
               label: 'Option A',
@@ -681,7 +681,7 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
                 if (v != null) setState(() => _radioValue = v);
               },
             ),
-            ProjectRadioTile<String>(
+            VesselRadioTile<String>(
               value: 'B',
               groupValue: _radioValue,
               label: 'Option B',
@@ -689,7 +689,7 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
                 if (v != null) setState(() => _radioValue = v);
               },
             ),
-            ProjectRadioTile<String>(
+            VesselRadioTile<String>(
               value: 'C',
               groupValue: _radioValue,
               label: 'Option C (disabled)',
@@ -703,22 +703,22 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
             const SizedBox(height: 8),
             ProjectRadioGrid<String>(
               options: const [
-                ProjectRadioGridOption(
+                VesselRadioGridOption(
                   value: 'Time',
                   label: 'Time',
                   icon: Icons.timer,
                 ),
-                ProjectRadioGridOption(
+                VesselRadioGridOption(
                   value: 'Counter',
                   label: 'Counter',
                   icon: Icons.exposure_plus_1,
                 ),
-                ProjectRadioGridOption(
+                VesselRadioGridOption(
                   value: 'Check',
                   label: 'Check',
                   icon: Icons.check,
                 ),
-                ProjectRadioGridOption(
+                VesselRadioGridOption(
                   value: 'Streak',
                   label: 'Streak',
                   icon: Icons.local_fire_department,
@@ -732,12 +732,12 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
             const SizedBox(height: 8),
             ProjectRadioGrid<String>(
               options: const [
-                ProjectRadioGridOption(value: 'Time', label: 'Time'),
-                ProjectRadioGridOption(value: 'Counter', label: 'Counter'),
-                ProjectRadioGridOption(value: 'Check', label: 'Check'),
-                ProjectRadioGridOption(value: 'Streak', label: 'Streak'),
-                ProjectRadioGridOption(value: 'Other', label: 'Other'),
-                ProjectRadioGridOption(value: 'More', label: 'More'),
+                VesselRadioGridOption(value: 'Time', label: 'Time'),
+                VesselRadioGridOption(value: 'Counter', label: 'Counter'),
+                VesselRadioGridOption(value: 'Check', label: 'Check'),
+                VesselRadioGridOption(value: 'Streak', label: 'Streak'),
+                VesselRadioGridOption(value: 'Other', label: 'Other'),
+                VesselRadioGridOption(value: 'More', label: 'More'),
               ],
               selectedValue: _demoGridRadio,
               columns: 3,
@@ -749,7 +749,7 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
           _buildSection('Date Picker', [
             const Text('Start Date:'),
             const SizedBox(height: 8),
-            ProjectDatePicker(
+            VesselDatePicker(
               label: 'Start Date',
               selectedDate: _demoStartDate,
               placeholder: 'Select date',
@@ -758,7 +758,7 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
             const SizedBox(height: 16),
             const Text('End Date (optional):'),
             const SizedBox(height: 8),
-            ProjectDatePicker(
+            VesselDatePicker(
               label: 'End Date',
               selectedDate: _demoEndDate,
               placeholder: 'Not set',
@@ -769,7 +769,7 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
 
           // 13. HOUR PICKER (srpski-specific)
           _buildSection('Hour Picker', [
-            ProjectHourPicker(
+            VesselHourPicker(
               label: 'Day start hour',
               description: 'Pick when the day begins',
               selectedHour: _selectedHour,
@@ -781,21 +781,21 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
           _buildSection('Slider - Counter Mode', [
             const Text('Linear (0-100):'),
             const SizedBox(height: 8),
-            ProjectSliderInput(
+            VesselSliderInput(
               value: _demoSliderCounter,
               min: 0,
               max: 100,
-              mode: SliderInputMode.counter,
+              mode: VesselSliderInputMode.counter,
               onChanged: (value) => setState(() => _demoSliderCounter = value),
             ),
             const SizedBox(height: 16),
             const Text('Zoned (0-10000):'),
             const SizedBox(height: 8),
-            ProjectSliderInput(
+            VesselSliderInput(
               value: _demoSliderCounterZoned,
               min: 0,
               max: 10000,
-              mode: SliderInputMode.counter,
+              mode: VesselSliderInputMode.counter,
               zoned: true,
               onChanged: (value) =>
                   setState(() => _demoSliderCounterZoned = value),
@@ -803,11 +803,11 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
             const SizedBox(height: 16),
             const Text('With buttons:'),
             const SizedBox(height: 8),
-            ProjectSliderInput(
+            VesselSliderInput(
               value: _demoSliderCounterButtons,
               min: 0,
               max: 10000,
-              mode: SliderInputMode.counter,
+              mode: VesselSliderInputMode.counter,
               zoned: true,
               showButtons: true,
               onChanged: (value) =>
@@ -819,7 +819,7 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
           _buildSection('Time Slider', [
             const Text('Default:'),
             const SizedBox(height: 8),
-            ProjectTimeSlider(
+            VesselTimeSlider(
               value: _demoSliderTime,
               max: 480,
               onChanged: (value) => setState(() => _demoSliderTime = value),
@@ -827,7 +827,7 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
             const SizedBox(height: 16),
             const Text('With buttons:'),
             const SizedBox(height: 8),
-            ProjectTimeSlider(
+            VesselTimeSlider(
               value: _demoSliderTimeButtons,
               max: 480,
               showButtons: true,
@@ -838,7 +838,7 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
 
           // 16. DIVIDER
           _buildSection('Divider', [
-            const ProjectDivider(),
+            const VesselDivider(),
           ]),
 
           // 17. TAGS
@@ -849,21 +849,21 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
               spacing: 8,
               runSpacing: 8,
               children: const [
-                TagLabel(
+                VesselTagLabel(
                   tag: Tag(id: '1', name: 'Work', color: TagColor.color1),
-                  size: TagLabelSize.icon,
+                  size: VesselTagLabelSize.icon,
                 ),
-                TagLabel(
+                VesselTagLabel(
                   tag: Tag(id: '2', name: 'Very Urgent', color: TagColor.color2),
-                  size: TagLabelSize.icon,
+                  size: VesselTagLabelSize.icon,
                 ),
-                TagLabel(
+                VesselTagLabel(
                   tag: Tag(id: '3', name: 'Personal', color: TagColor.color3),
-                  size: TagLabelSize.icon,
+                  size: VesselTagLabelSize.icon,
                 ),
-                TagLabel(
+                VesselTagLabel(
                   tag: Tag(id: '4', name: 'No Color', color: TagColor.none),
-                  size: TagLabelSize.icon,
+                  size: VesselTagLabelSize.icon,
                 ),
               ],
             ),
@@ -874,21 +874,21 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
               spacing: 8,
               runSpacing: 8,
               children: const [
-                TagLabel(
+                VesselTagLabel(
                   tag: Tag(id: '1', name: 'Blue', color: TagColor.color1),
-                  size: TagLabelSize.tiny,
+                  size: VesselTagLabelSize.tiny,
                 ),
-                TagLabel(
+                VesselTagLabel(
                   tag: Tag(id: '2', name: 'Green', color: TagColor.color2),
-                  size: TagLabelSize.tiny,
+                  size: VesselTagLabelSize.tiny,
                 ),
-                TagLabel(
+                VesselTagLabel(
                   tag: Tag(id: '3', name: 'Purple', color: TagColor.color3),
-                  size: TagLabelSize.tiny,
+                  size: VesselTagLabelSize.tiny,
                 ),
-                TagLabel(
+                VesselTagLabel(
                   tag: Tag(id: '4', name: 'No Color', color: TagColor.none),
-                  size: TagLabelSize.tiny,
+                  size: VesselTagLabelSize.tiny,
                 ),
               ],
             ),
@@ -899,21 +899,21 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
               spacing: 8,
               runSpacing: 8,
               children: const [
-                TagLabel(
+                VesselTagLabel(
                   tag: Tag(id: '1', name: 'Blue', color: TagColor.color1),
-                  size: TagLabelSize.regular,
+                  size: VesselTagLabelSize.regular,
                 ),
-                TagLabel(
+                VesselTagLabel(
                   tag: Tag(id: '2', name: 'Green', color: TagColor.color2),
-                  size: TagLabelSize.regular,
+                  size: VesselTagLabelSize.regular,
                 ),
-                TagLabel(
+                VesselTagLabel(
                   tag: Tag(id: '3', name: 'Purple', color: TagColor.color3),
-                  size: TagLabelSize.regular,
+                  size: VesselTagLabelSize.regular,
                 ),
-                TagLabel(
+                VesselTagLabel(
                   tag: Tag(id: '4', name: 'No Color', color: TagColor.none),
-                  size: TagLabelSize.regular,
+                  size: VesselTagLabelSize.regular,
                 ),
               ],
             ),
@@ -925,10 +925,10 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
               spacing: 8,
               runSpacing: 8,
               children: const [
-                TagChip(tag: Tag(id: '1', name: 'Design', color: TagColor.color1)),
-                TagChip(tag: Tag(id: '2', name: 'Urgent', color: TagColor.color2)),
-                TagChip(tag: Tag(id: '3', name: 'Review', color: TagColor.color3)),
-                TagChip(tag: Tag(id: '4', name: 'No Color', color: TagColor.none)),
+                VesselTagChip(tag: Tag(id: '1', name: 'Design', color: TagColor.color1)),
+                VesselTagChip(tag: Tag(id: '2', name: 'Urgent', color: TagColor.color2)),
+                VesselTagChip(tag: Tag(id: '3', name: 'Review', color: TagColor.color3)),
+                VesselTagChip(tag: Tag(id: '4', name: 'No Color', color: TagColor.none)),
               ],
             ),
             const SizedBox(height: 16),
@@ -938,7 +938,7 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
               spacing: 8,
               runSpacing: 8,
               children: TagColor.values.map((tc) {
-                return TagColorPreview(
+                return VesselTagColorPreview(
                   tagColor: tc,
                   isSelected: tc == _selectedTagColor,
                   onTap: () => setState(() => _selectedTagColor = tc),
@@ -949,14 +949,14 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
 
           // 19. SNACKBAR
           _buildSection('Snackbar', [
-            const Text('ProjectSnackBar (themed):'),
+            const Text('VesselSnackBar (themed):'),
             const SizedBox(height: 8),
             Row(
               children: [
-                BaseButton(
+                VesselButton(
                   label: 'Show Snackbar',
                   onPressed: () {
-                    ProjectSnackBar.show(context, 'This is a themed snackbar message');
+                    VesselSnackBar.show(context, 'This is a themed snackbar message');
                   },
                 ),
               ],
@@ -967,33 +967,33 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
           _buildSection('Notes', [
             const Text('Default:'),
             const SizedBox(height: 8),
-            const ProjectNote(text: 'This is an informational note.'),
+            const VesselNote(text: 'This is an informational note.'),
             const SizedBox(height: 16),
             const Text('Long text:'),
             const SizedBox(height: 8),
-            const ProjectNote(text: 'Slider range adjusts based on your history. Give it some time :)'),
+            const VesselNote(text: 'Slider range adjusts based on your history. Give it some time :)'),
           ]),
 
           // 21. GAPS
-          _buildSection('Gaps (ProjectGap)', [
+          _buildSection('Gaps (VesselGap)', [
             const Text('Vertical:'),
             const SizedBox(height: 8),
-            _vGapDemo('xxs (2)', const ProjectGap.xxs(), t),
-            _vGapDemo('xs (4)', const ProjectGap.xs(), t),
-            _vGapDemo('s (8)', const ProjectGap.s(), t),
-            _vGapDemo('m (12)', const ProjectGap.m(), t),
-            _vGapDemo('l (16)', const ProjectGap.l(), t),
-            _vGapDemo('xl (24)', const ProjectGap.xl(), t),
-            _vGapDemo('xxl (48)', const ProjectGap.xxl(), t),
+            _vGapDemo('xxs (2)', const VesselGap.xxs(), t),
+            _vGapDemo('xs (4)', const VesselGap.xs(), t),
+            _vGapDemo('s (8)', const VesselGap.s(), t),
+            _vGapDemo('m (12)', const VesselGap.m(), t),
+            _vGapDemo('l (16)', const VesselGap.l(), t),
+            _vGapDemo('xl (24)', const VesselGap.xl(), t),
+            _vGapDemo('xxl (48)', const VesselGap.xxl(), t),
             const SizedBox(height: 16),
             const Text('Horizontal:'),
             const SizedBox(height: 8),
-            _hGapDemo('hxxs (2)', const ProjectGap.hxxs(), t),
-            _hGapDemo('hxs (4)', const ProjectGap.hxs(), t),
-            _hGapDemo('hs (8)', const ProjectGap.hs(), t),
-            _hGapDemo('hm (12)', const ProjectGap.hm(), t),
-            _hGapDemo('hl (16)', const ProjectGap.hl(), t),
-            _hGapDemo('hxl (24)', const ProjectGap.hxl(), t),
+            _hGapDemo('hxxs (2)', const VesselGap.hxxs(), t),
+            _hGapDemo('hxs (4)', const VesselGap.hxs(), t),
+            _hGapDemo('hs (8)', const VesselGap.hs(), t),
+            _hGapDemo('hm (12)', const VesselGap.hm(), t),
+            _hGapDemo('hl (16)', const VesselGap.hl(), t),
+            _hGapDemo('hxl (24)', const VesselGap.hxl(), t),
           ]),
 
           // 22. BOTTOM SHEETS (srpski-specific)
@@ -1002,11 +1002,11 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
               spacing: 8,
               runSpacing: 8,
               children: [
-                BaseButton(
+                VesselButton(
                   label: 'Project Sheet',
                   onPressed: () {
-                    final t = AppThemes.of(context);
-                    showProjectBottomSheet(
+                    final t = VesselThemes.of(context);
+                    showVesselBottomSheet(
                       context: context,
                       builder: (sheetContext) => Padding(
                         padding: const EdgeInsets.all(16),
@@ -1015,15 +1015,15 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
                           children: [
                             Text(
                               'Project Bottom Sheet',
-                              style: AppFontStyles.textSheetTitle.copyWith(color: t.textPrimary),
+                              style: VesselFonts.textSheetTitle.copyWith(color: t.textPrimary),
                             ),
                             const SizedBox(height: 12),
                             Text(
                               'With blur support. Content goes here.',
-                              style: AppFontStyles.textBody.copyWith(color: t.textSecondary),
+                              style: VesselFonts.textBody.copyWith(color: t.textSecondary),
                             ),
                             const SizedBox(height: 16),
-                            BaseButton(
+                            VesselButton(
                               label: 'Close',
                               onPressed: () => Navigator.of(sheetContext).pop(),
                             ),
@@ -1033,13 +1033,13 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
                     );
                   },
                 ),
-                BaseButton(
+                VesselButton(
                   label: 'Mode Sheet',
                   onPressed: () {
                     showModeBottomSheet(context, l10n);
                   },
                 ),
-                BaseButton(
+                VesselButton(
                   label: 'Count Sheet',
                   onPressed: () {
                     showCountBottomSheet(context, l10n, totalCount: 20);
@@ -1052,7 +1052,7 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
           // 22. LEGACY HEADER
           const Padding(
             padding: EdgeInsets.symmetric(vertical: 24),
-            child: ProjectHeader(text: 'Legacy'),
+            child: VesselHeader(text: 'Legacy'),
           ),
 
           // 23. INPUT ROWS
@@ -1061,19 +1061,19 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
             const SizedBox(height: 8),
             ProjectInputRow(
               fields: [
-                ProjectInputRowField(
+                VesselInputRowField(
                   label: 'Day',
                   hint: '0',
                   controller: _dayController,
                   keyboardType: TextInputType.number,
                 ),
-                ProjectInputRowField(
+                VesselInputRowField(
                   label: 'Week',
                   hint: '0',
                   controller: _weekController,
                   keyboardType: TextInputType.number,
                 ),
-                ProjectInputRowField(
+                VesselInputRowField(
                   label: 'Month',
                   hint: '0',
                   controller: _monthController,
@@ -1087,19 +1087,19 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
             ProjectInputRow(
               exclusive: true,
               fields: [
-                ProjectInputRowField(
+                VesselInputRowField(
                   label: 'Day',
                   hint: '0',
                   controller: _dayExclusiveController,
                   keyboardType: TextInputType.number,
                 ),
-                ProjectInputRowField(
+                VesselInputRowField(
                   label: 'Week',
                   hint: '0',
                   controller: _weekExclusiveController,
                   keyboardType: TextInputType.number,
                 ),
-                ProjectInputRowField(
+                VesselInputRowField(
                   label: 'Month',
                   hint: '0',
                   controller: _monthExclusiveController,
@@ -1116,11 +1116,11 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
   }
 
   Widget _buildSection(String title, List<Widget> children) {
-    return ProjectCard(
+    return VesselCard(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(title, style: AppFontStyles.textSubtitle),
+          Text(title, style: VesselFonts.textSubtitle),
           const SizedBox(height: 16),
           ...children,
         ],
@@ -1128,14 +1128,14 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
     );
   }
 
-  Widget _vGapDemo(String label, Widget gap, AppThemeData t) {
+  Widget _vGapDemo(String label, Widget gap, VesselThemeData t) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8),
       child: Row(
         children: [
           SizedBox(
             width: 72,
-            child: Text(label, style: AppFontStyles.textCaption.copyWith(color: t.textSecondary)),
+            child: Text(label, style: VesselFonts.textCaption.copyWith(color: t.textSecondary)),
           ),
           Expanded(
             child: Column(
@@ -1152,14 +1152,14 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
     );
   }
 
-  Widget _hGapDemo(String label, Widget gap, AppThemeData t) {
+  Widget _hGapDemo(String label, Widget gap, VesselThemeData t) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8),
       child: Row(
         children: [
           SizedBox(
             width: 72,
-            child: Text(label, style: AppFontStyles.textCaption.copyWith(color: t.textSecondary)),
+            child: Text(label, style: VesselFonts.textCaption.copyWith(color: t.textSecondary)),
           ),
           Container(width: 2, height: 24, color: t.accentColor),
           gap,

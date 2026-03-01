@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:srpski_card/app/theme/app_themes.dart';
-import 'package:srpski_card/shared/ui/bottom_sheet/project_bottom_sheet.dart';
+import 'package:srpski_card/app/theme/vessel_themes.dart';
+import 'package:srpski_card/shared/ui/bottom_sheet/vessel_bottom_sheet.dart';
 
 /// A project-wide hour picker control
-class ProjectHourPicker extends StatelessWidget {
+class VesselHourPicker extends StatelessWidget {
   final String label;
   final String? description;
   final int selectedHour;
   final ValueChanged<int> onHourSelected;
 
-  const ProjectHourPicker({
+  const VesselHourPicker({
     super.key,
     required this.label,
     this.description,
@@ -22,7 +22,7 @@ class ProjectHourPicker extends StatelessWidget {
   }
 
   Future<void> _showPicker(BuildContext context) async {
-    final picked = await showProjectBottomSheet<int>(
+    final picked = await showVesselBottomSheet<int>(
       context: context,
       builder: (context) => _HourPickerSheet(selectedHour: selectedHour),
     );
@@ -34,7 +34,7 @@ class ProjectHourPicker extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = AppThemes.of(context);
+    final theme = VesselThemes.of(context);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -42,13 +42,13 @@ class ProjectHourPicker extends StatelessWidget {
       children: [
         Text(
           label,
-          style: AppFontStyles.textBodyAccent.copyWith(color: theme.textPrimary),
+          style: VesselFonts.textBodyAccent.copyWith(color: theme.textPrimary),
         ),
         if (description != null) ...[
           const SizedBox(height: 4),
           Text(
             description!,
-            style: AppFontStyles.textCaption.copyWith(color: theme.textSecondary),
+            style: VesselFonts.textCaption.copyWith(color: theme.textSecondary),
           ),
         ],
         const SizedBox(height: 8),
@@ -67,7 +67,7 @@ class ProjectHourPicker extends StatelessWidget {
               children: [
                 Text(
                   _formatHour(selectedHour),
-                  style: AppFontStyles.textControlInput.copyWith(color: theme.controlForeground),
+                  style: VesselFonts.textControlInput.copyWith(color: theme.controlForeground),
                 ),
                 Icon(Icons.schedule, color: theme.controlForeground, size: 20),
               ],
@@ -86,7 +86,7 @@ class _HourPickerSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = AppThemes.of(context);
+    final theme = VesselThemes.of(context);
 
     return SafeArea(
       child: Column(
@@ -129,7 +129,7 @@ class _HourPickerSheet extends StatelessWidget {
                     alignment: Alignment.center,
                     child: Text(
                       '${index.toString().padLeft(2, '0')}:00',
-                      style: AppFontStyles.textControlInput.copyWith(
+                      style: VesselFonts.textControlInput.copyWith(
                         color: isSelected ? theme.displayBackground : theme.controlForeground,
                       ),
                     ),

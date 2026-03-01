@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:srpski_card/app/theme/app_themes.dart';
-import 'package:srpski_card/shared/ui/inputs/project_input_styles.dart';
+import 'package:srpski_card/app/theme/vessel_themes.dart';
+import 'package:srpski_card/shared/ui/inputs/vessel_input_styles.dart';
 
 /// A single field configuration for ProjectInputRow
-class ProjectInputRowField {
+class VesselInputRowField {
   final String label;
   final String? hint;
   final TextEditingController? controller;
   final ValueChanged<String>? onChanged;
   final TextInputType keyboardType;
 
-  const ProjectInputRowField({
+  const VesselInputRowField({
     required this.label,
     this.hint,
     this.controller,
@@ -21,7 +21,7 @@ class ProjectInputRowField {
 
 /// A horizontal row of labeled input fields with equal spacing
 class ProjectInputRow extends StatelessWidget {
-  final List<ProjectInputRowField> fields;
+  final List<VesselInputRowField> fields;
   final double spacing;
   final bool exclusive;
 
@@ -60,7 +60,7 @@ class ProjectInputRow extends StatelessWidget {
 }
 
 class _InputField extends StatefulWidget {
-  final ProjectInputRowField field;
+  final VesselInputRowField field;
   final VoidCallback? onFocusGained;
 
   const _InputField({
@@ -101,14 +101,14 @@ class _InputFieldState extends State<_InputField> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = AppThemes.of(context);
+    final theme = VesselThemes.of(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
       children: [
         Text(
           widget.field.label,
-          style: AppFontStyles.textControlLabel.copyWith(color: theme.textSecondary),
+          style: VesselFonts.textControlLabel.copyWith(color: theme.textSecondary),
         ),
         const SizedBox(height: 4),
         TextField(
@@ -116,8 +116,8 @@ class _InputFieldState extends State<_InputField> {
           focusNode: _focusNode,
           onChanged: widget.field.onChanged,
           keyboardType: widget.field.keyboardType,
-          style: ProjectInputStyles.textStyle(context),
-          decoration: ProjectInputStyles.decoration(
+          style: VesselInputStyles.textStyle(context),
+          decoration: VesselInputStyles.decoration(
             context: context,
             hint: widget.field.hint,
           ),

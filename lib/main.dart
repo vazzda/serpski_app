@@ -20,7 +20,7 @@ import 'app/providers/app_settings_provider.dart';
 import 'app/providers/dev_section_provider.dart';
 import 'app/providers/theme_provider.dart';
 import 'app/router/app_router.dart';
-import 'app/theme/app_themes.dart';
+import 'app/theme/vessel_themes.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -69,7 +69,7 @@ class SrpskiCardApp extends ConsumerWidget {
     final theme = ref.watch(themeProvider);
     return MaterialApp.router(
       title: 'Srpski Card',
-      theme: AppThemes.getFlutterThemeData(theme),
+      theme: VesselThemes.getFlutterThemeData(theme),
       routerConfig: router,
       debugShowCheckedModeBanner: false,
       localizationsDelegates: const [

@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-import '../../../app/theme/app_themes.dart';
+import '../../../app/theme/vessel_themes.dart';
 
 /// Radio tile for single-value selection. Theme only.
-class ProjectRadioTile<T> extends StatelessWidget {
+class VesselRadioTile<T> extends StatelessWidget {
   final T value;
   final T groupValue;
   final ValueChanged<T?>? onChanged;
   final String label;
   final EdgeInsets contentPadding;
 
-  const ProjectRadioTile({
+  const VesselRadioTile({
     super.key,
     required this.value,
     required this.groupValue,
@@ -21,7 +21,7 @@ class ProjectRadioTile<T> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = AppThemes.of(context);
+    final theme = VesselThemes.of(context);
     return RadioGroup<T>(
       groupValue: groupValue,
       onChanged: onChanged ?? (_) {},
@@ -29,7 +29,7 @@ class ProjectRadioTile<T> extends StatelessWidget {
         value: value,
         title: Text(
           label,
-          style: AppFontStyles.textControlInput.copyWith(
+          style: VesselFonts.textControlInput.copyWith(
             color: theme.controlForeground,
           ),
         ),

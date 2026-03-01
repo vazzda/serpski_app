@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../app/theme/app_themes.dart';
+import '../../../app/theme/vessel_themes.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/repositories/daily_activity_repository.dart';
-import '../../../shared/ui/card/project_card.dart';
-import '../../../app/layout/app_layout.dart';
+import '../../../shared/ui/card/vessel_card.dart';
+import '../../../app/layout/vessel_layout.dart';
 
 class VocabDailyActivityCard extends StatelessWidget {
   const VocabDailyActivityCard({
@@ -19,8 +19,8 @@ class VocabDailyActivityCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final t = AppThemes.of(context);
-    return ProjectCard(
+    final t = VesselThemes.of(context);
+    return VesselCard(
       child: SizedBox(
         width: double.infinity,
         child: Column(
@@ -29,9 +29,9 @@ class VocabDailyActivityCard extends StatelessWidget {
           children: [
             Text(
               l10n.dailyActivityTitle,
-              style: AppFontStyles.textListItem.copyWith(color: t.textPrimary),
+              style: VesselFonts.textListItem.copyWith(color: t.textPrimary),
             ),
-            const SizedBox(height: AppLayout.vocabDailyCardTitleGap),
+            const SizedBox(height: VesselLayout.vocabDailyCardTitleGap),
             asyncStats.when(
               data: (stats) {
                 final isEmpty =
@@ -44,21 +44,21 @@ class VocabDailyActivityCard extends StatelessWidget {
                       : '${l10n.correctCount(stats.correct)} · ${l10n.wrongCount(stats.wrong)} · ${l10n.wordsCount(stats.wordsTouched)}',
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: AppFontStyles.textCaption.copyWith(
+                  style: VesselFonts.textCaption.copyWith(
                     color: t.textSecondary,
                   ),
                 );
               },
               loading: () => Text(
                 l10n.dailyActivityEmpty,
-                style: AppFontStyles.textCaption.copyWith(
+                style: VesselFonts.textCaption.copyWith(
                   color: t.textSecondary,
                 ),
               ),
               // ignore: unnecessary_underscores
               error: (_, __) => Text(
                 l10n.dailyActivityEmpty,
-                style: AppFontStyles.textCaption.copyWith(
+                style: VesselFonts.textCaption.copyWith(
                   color: t.textSecondary,
                 ),
               ),

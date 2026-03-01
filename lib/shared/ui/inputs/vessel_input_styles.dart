@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:srpski_card/app/theme/app_themes.dart';
+import 'package:srpski_card/app/theme/vessel_themes.dart';
 
-class ProjectInputStyles {
+class VesselInputStyles {
   static OutlineInputBorder _border(BuildContext context) {
-    final theme = AppThemes.of(context);
+    final theme = VesselThemes.of(context);
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(theme.controlBorderRadius),
       borderSide: BorderSide(
@@ -18,15 +18,15 @@ class ProjectInputStyles {
     String? label,
     String? hint,
   }) {
-    final theme = AppThemes.of(context);
+    final theme = VesselThemes.of(context);
     final border = _border(context);
     return InputDecoration(
       labelText: label,
       hintText: hint,
-      labelStyle: AppFontStyles.textControlInput.copyWith(
+      labelStyle: VesselFonts.textControlInput.copyWith(
         color: theme.controlForeground,
       ),
-      hintStyle: AppFontStyles.textControlHint.copyWith(color: theme.textSecondary),
+      hintStyle: VesselFonts.textControlHint.copyWith(color: theme.textSecondary),
       filled: true,
       fillColor: theme.controlBackground,
       isDense: true,
@@ -38,7 +38,7 @@ class ProjectInputStyles {
   }
 
   static TextStyle textStyle(BuildContext context) {
-    final theme = AppThemes.of(context);
-    return AppFontStyles.textControlInput.copyWith(color: theme.controlForeground);
+    final theme = VesselThemes.of(context);
+    return VesselFonts.textControlInput.copyWith(color: theme.controlForeground);
   }
 }

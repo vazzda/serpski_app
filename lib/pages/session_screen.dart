@@ -17,16 +17,16 @@ import '../features/quiz/services/quiz_session_service.dart';
 import '../features/quiz/session_notifier.dart';
 import '../features/quiz/session_state.dart';
 import '../app/router/app_router.dart';
-import '../app/theme/app_themes.dart';
-import '../shared/ui/buttons/project_buttons.dart';
-import '../shared/ui/bottom_sheet/project_bottom_sheet.dart';
+import '../app/theme/vessel_themes.dart';
+import '../shared/ui/buttons/vessel_buttons.dart';
+import '../shared/ui/bottom_sheet/vessel_bottom_sheet.dart';
 import 'package:srpski_card/shared/lib/group_label.dart';
-import '../shared/ui/card/project_card.dart';
-import '../shared/ui/note/project_note.dart';
-import '../shared/ui/screen_layout/screen_layout_widget.dart';
-import '../shared/ui/inputs/project_text_input.dart';
-import '../shared/ui/gap/project_gap.dart';
-import '../app/layout/app_layout.dart';
+import '../shared/ui/card/vessel_card.dart';
+import '../shared/ui/note/vessel_note.dart';
+import '../shared/ui/screen_layout/vessel_scaffold.dart';
+import '../shared/ui/inputs/vessel_text_input.dart';
+import '../shared/ui/gap/vessel_gap.dart';
+import '../app/layout/vessel_layout.dart';
 
 class SessionScreen extends ConsumerStatefulWidget {
   const SessionScreen({super.key});
@@ -62,7 +62,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
-    final t = AppThemes.of(context);
+    final t = VesselThemes.of(context);
     final session = ref.watch(sessionProvider);
     final asyncGroups = ref.watch(groupsProvider);
 
@@ -122,7 +122,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
         ? card.nativeText
         : card.targetAnswer;
 
-    return ScreenLayoutWidget(
+    return VesselScaffold(
       title: title,
       actions: [
         IconButton(
@@ -132,7 +132,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
         ),
       ],
       child: Padding(
-        padding: const EdgeInsets.all(AppLayout.screenPadding),
+        padding: const EdgeInsets.all(VesselLayout.screenPadding),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -141,22 +141,22 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
               children: [
                 Text(
                   l10n.correctCount(session.correctCount),
-                  style: AppFontStyles.textScore.copyWith(color: t.accentColor),
+                  style: VesselFonts.textScore.copyWith(color: t.accentColor),
                 ),
                 Text(
                   l10n.questionsLeft(session.queue.length),
-                  style: AppFontStyles.textScore.copyWith(color: t.textPrimary),
+                  style: VesselFonts.textScore.copyWith(color: t.textPrimary),
                 ),
               ],
             ),
-            const ProjectGap.l(),
-            ProjectCard(
+            const VesselGap.l(),
+            VesselCard(
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
                     promptText,
-                    style: AppFontStyles.textPrompt.copyWith(color: t.textPrimary),
+                    style: VesselFonts.textPrompt.copyWith(color: t.textPrimary),
                     textAlign: TextAlign.center,
                   ),
                   if (card is VocabCard &&
@@ -164,8 +164,8 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
                               ? card.targetNote
                               : card.nativeNote) !=
                           null) ...[
-                    const ProjectGap.s(),
-                    ProjectNote(
+                    const VesselGap.s(),
+                    VesselNote(
                       text: session.mode == QuizMode.targetShown
                           ? card.targetNote!
                           : card.nativeNote!,
@@ -173,74 +173,74 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
                   ],
                   if (card is PairVocabCard &&
                       session.mode == QuizMode.write) ...[
-                    const ProjectGap.s(),
-                    ProjectNote(text: l10n.quiz_aspectPairPrompt),
+                    const VesselGap.s(),
+                    VesselNote(text: l10n.quiz_aspectPairPrompt),
                   ],
                 ],
               ),
             ),
-            const ProjectGap.xl(),
+            const VesselGap.xl(),
             if (_wrongFeedback != null) ...[
               if (_pairImperfective != null && _pairPerfective != null) ...[
                 Text(
                   _pairImperfective!.ok ? l10n.correct : l10n.wrong,
-                  style: AppFontStyles.textContentHeader.copyWith(
+                  style: VesselFonts.textContentHeader.copyWith(
                     color: _pairImperfective!.ok ? t.accentColor : t.dangerColor,
                   ),
                 ),
-                const ProjectGap.s(),
+                const VesselGap.s(),
                 Text(
                   '${l10n.quiz_aspectImperfective} ${_pairImperfective!.typed.isEmpty ? l10n.emptyAnswer : _pairImperfective!.typed}',
-                  style: AppFontStyles.textBodyLarge.copyWith(
+                  style: VesselFonts.textBodyLarge.copyWith(
                     color: _pairImperfective!.ok ? t.textPrimary : t.dangerColor,
                   ),
                 ),
                 if (!_pairImperfective!.ok) ...[
-                  const ProjectGap.xs(),
+                  const VesselGap.xs(),
                   Text(
                     '${l10n.correctAnswerLabel} ${_pairImperfective!.correct}',
-                    style: AppFontStyles.textBodyLarge.copyWith(color: t.textPrimary),
+                    style: VesselFonts.textBodyLarge.copyWith(color: t.textPrimary),
                   ),
                 ],
-                const ProjectGap.l(),
+                const VesselGap.l(),
                 Text(
                   _pairPerfective!.ok ? l10n.correct : l10n.wrong,
-                  style: AppFontStyles.textContentHeader.copyWith(
+                  style: VesselFonts.textContentHeader.copyWith(
                     color: _pairPerfective!.ok ? t.accentColor : t.dangerColor,
                   ),
                 ),
-                const ProjectGap.s(),
+                const VesselGap.s(),
                 Text(
                   '${l10n.quiz_aspectPerfective} ${_pairPerfective!.typed.isEmpty ? l10n.emptyAnswer : _pairPerfective!.typed}',
-                  style: AppFontStyles.textBodyLarge.copyWith(
+                  style: VesselFonts.textBodyLarge.copyWith(
                     color: _pairPerfective!.ok ? t.textPrimary : t.dangerColor,
                   ),
                 ),
                 if (!_pairPerfective!.ok) ...[
-                  const ProjectGap.xs(),
+                  const VesselGap.xs(),
                   Text(
                     '${l10n.correctAnswerLabel} ${_pairPerfective!.correct}',
-                    style: AppFontStyles.textBodyLarge.copyWith(color: t.textPrimary),
+                    style: VesselFonts.textBodyLarge.copyWith(color: t.textPrimary),
                   ),
                 ],
               ] else ...[
                 Text(
                   l10n.wrong,
-                  style: AppFontStyles.textContentHeader.copyWith(color: t.dangerColor),
+                  style: VesselFonts.textContentHeader.copyWith(color: t.dangerColor),
                 ),
-                const ProjectGap.s(),
+                const VesselGap.s(),
                 Text(
                   '${session.mode == QuizMode.write ? l10n.youWrote : l10n.youPicked} ${(_wrongUserAnswerDisplay ?? '').isEmpty ? l10n.emptyAnswer : _wrongUserAnswerDisplay}',
-                  style: AppFontStyles.textBodyLarge.copyWith(color: t.textPrimary),
+                  style: VesselFonts.textBodyLarge.copyWith(color: t.textPrimary),
                 ),
-                const ProjectGap.s(),
+                const VesselGap.s(),
                 Text(
                   '${l10n.correctAnswerLabel} ${_wrongFeedbackDisplay ?? _wrongFeedback}',
-                  style: AppFontStyles.textBodyLarge.copyWith(color: t.textPrimary),
+                  style: VesselFonts.textBodyLarge.copyWith(color: t.textPrimary),
                 ),
               ],
-              const ProjectGap.xl(),
-              AccentButton(
+              const VesselGap.xl(),
+              VesselAccentButton(
                 label: l10n.next,
                 onPressed: () => _onNextAfterWrong(ref),
               ),
@@ -248,41 +248,41 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
               if (card is PairVocabCard) ...[
                 Text(
                   l10n.quiz_aspectImperfective,
-                  style: AppFontStyles.textControlLabel.copyWith(color: t.textPrimary),
+                  style: VesselFonts.textControlLabel.copyWith(color: t.textPrimary),
                 ),
-                const ProjectGap.s(),
-                ProjectTextInput(
+                const VesselGap.s(),
+                VesselTextInput(
                   controller: _writeController,
                   autofocus: true,
                   textInputAction: TextInputAction.next,
                   autocorrect: false,
                   enableSuggestions: false,
                 ),
-                const ProjectGap.m(),
+                const VesselGap.m(),
                 Text(
                   l10n.quiz_aspectPerfective,
-                  style: AppFontStyles.textControlLabel.copyWith(color: t.textPrimary),
+                  style: VesselFonts.textControlLabel.copyWith(color: t.textPrimary),
                 ),
-                const ProjectGap.s(),
-                ProjectTextInput(
+                const VesselGap.s(),
+                VesselTextInput(
                   controller: _writeController2,
                   onSubmitted: (_) => _submitWritePair(context, ref),
                   textInputAction: TextInputAction.done,
                   autocorrect: false,
                   enableSuggestions: false,
                 ),
-                const ProjectGap.l(),
-                AccentButton(
+                const VesselGap.l(),
+                VesselAccentButton(
                   label: l10n.submit,
                   onPressed: () => _submitWritePair(context, ref),
                 ),
               ] else ...[
                 Text(
                   l10n.yourAnswer,
-                  style: AppFontStyles.textControlLabel.copyWith(color: t.textPrimary),
+                  style: VesselFonts.textControlLabel.copyWith(color: t.textPrimary),
                 ),
-                const ProjectGap.s(),
-                ProjectTextInput(
+                const VesselGap.s(),
+                VesselTextInput(
                   controller: _writeController,
                   onSubmitted: (_) => _submitWrite(context, ref),
                   autofocus: true,
@@ -290,8 +290,8 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
                   autocorrect: false,
                   enableSuggestions: false,
                 ),
-                const ProjectGap.l(),
-                AccentButton(
+                const VesselGap.l(),
+                VesselAccentButton(
                   label: l10n.submit,
                   onPressed: () => _submitWrite(context, ref),
                 ),
@@ -319,8 +319,8 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
     AppLocalizations l10n,
   ) {
     final sessionContext = context;
-    final t = AppThemes.of(context);
-    showProjectBottomSheet<void>(
+    final t = VesselThemes.of(context);
+    showVesselBottomSheet<void>(
       context: context,
       builder: (sheetContext) => Column(
         mainAxisSize: MainAxisSize.min,
@@ -328,23 +328,23 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
         children: [
           Text(
             l10n.exitSession,
-            style: AppFontStyles.textSheetTitle.copyWith(color: t.textPrimary),
+            style: VesselFonts.textSheetTitle.copyWith(color: t.textPrimary),
           ),
-          const ProjectGap.m(),
+          const VesselGap.m(),
           Text(
             l10n.exitSessionConfirm,
-            style: AppFontStyles.textSheetContent.copyWith(color: t.textPrimary),
+            style: VesselFonts.textSheetContent.copyWith(color: t.textPrimary),
           ),
-          const ProjectGap.xl(),
+          const VesselGap.xl(),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              ProjectTextButton(
+              VesselTextButton(
                 label: l10n.cancel,
                 onPressed: () => Navigator.of(sheetContext).pop(),
               ),
-              const ProjectGap.hs(),
-              DangerTextButton(
+              const VesselGap.hs(),
+              VesselDangerTextButton(
                 label: l10n.exit,
                 onPressed: () {
                   Navigator.of(sheetContext).pop();
@@ -431,8 +431,8 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
       return optionCards
           .map(
             (optionCard) => Padding(
-              padding: const EdgeInsets.only(bottom: AppLayout.listItemGapSmall),
-              child: BaseButton(
+              padding: const EdgeInsets.only(bottom: VesselLayout.listItemGapSmall),
+              child: VesselButton(
                 label: displayNativeForCard(optionCard, l10n),
                 onPressed: () => _onOptionSelectedSerbianShown(context, ref, correctCard, optionCard, l10n),
               ),
@@ -449,8 +449,8 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
     return options
         .map(
           (opt) => Padding(
-            padding: const EdgeInsets.only(bottom: AppLayout.listItemGapSmall),
-            child: BaseButton(
+            padding: const EdgeInsets.only(bottom: VesselLayout.listItemGapSmall),
+            child: VesselButton(
               label: opt,
               onPressed: () => _onOptionSelectedEnglishShown(context, ref, correctAnswer, opt, l10n),
             ),

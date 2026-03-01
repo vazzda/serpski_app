@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../app_themes.dart';
+import '../vessel_themes.dart';
 
 // ==========================================================================
 // RAW PALETTE
@@ -45,7 +45,7 @@ class Theme01Colors {
   static const Color tag5 = Theme01Palette.deepPurple;
 }
 
-const AppThemeData theme01Theme = AppThemeData(
+const VesselThemeData theme01Theme = VesselThemeData(
   themeType: AppTheme.theme01,
   // Scaffold
   scaffoldBackground: Theme01Palette.pureWhite,

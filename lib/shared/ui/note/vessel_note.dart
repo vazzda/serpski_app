@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:srpski_card/app/theme/app_themes.dart';
+import 'package:srpski_card/app/theme/vessel_themes.dart';
 
 /// Informational note widget with themed background, border, and text.
-class ProjectNote extends StatelessWidget {
+class VesselNote extends StatelessWidget {
   final String text;
   final bool accented;
 
-  const ProjectNote({super.key, required this.text, this.accented = false});
+  const VesselNote({super.key, required this.text, this.accented = false});
 
   @override
   Widget build(BuildContext context) {
-    final theme = AppThemes.of(context);
+    final theme = VesselThemes.of(context);
 
     final bg = accented ? theme.noteAccentBackground : theme.noteBackground;
     final border = accented ? theme.noteAccentBorderColor : theme.noteBorderColor;
@@ -29,7 +29,7 @@ class ProjectNote extends StatelessWidget {
       ),
       child: Text(
         text,
-        style: AppFontStyles.textNote.copyWith(color: textColor),
+        style: VesselFonts.textNote.copyWith(color: textColor),
       ),
     );
   }

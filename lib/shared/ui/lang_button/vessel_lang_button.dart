@@ -3,16 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../app/providers/theme_provider.dart';
-import '../../../app/theme/app_themes.dart';
+import '../../../app/theme/vessel_themes.dart';
 import '../../../entities/language/lang_codes.dart';
-import '../buttons/project_button_styles.dart';
+import '../buttons/vessel_button_styles.dart';
 
 const _kFlagWidth = 32.0;
 const _kFlagHeight = 22.0;
 const _kFlagBorderRadius = 4.0;
 
-class ProjectLangButton extends ConsumerWidget {
-  const ProjectLangButton({
+class VesselLangButton extends ConsumerWidget {
+  const VesselLangButton({
     super.key,
     required this.langCode,
     required this.label,
@@ -26,12 +26,12 @@ class ProjectLangButton extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = ref.watch(themeProvider);
-    final colors = ProjectButtonStyleResolver.resolveColors(
+    final colors = VesselButtonStyleResolver.resolveColors(
       context,
       theme: theme,
       variant: ButtonVariant.base,
     );
-    final themeData = AppThemes.getThemeData(theme);
+    final themeData = VesselThemes.getThemeData(theme);
     final countryCode = LangCodes.flagCountryCode(langCode);
 
     final child = Row(
@@ -54,12 +54,12 @@ class ProjectLangButton extends ConsumerWidget {
 
     final button = OutlinedButton(
       onPressed: onPressed,
-      style: ProjectButtonStyleResolver.style(
+      style: VesselButtonStyleResolver.style(
         context: context,
         colors: colors,
         iconOnly: false,
         hasIconAndText: countryCode != null,
-        size: ButtonSize.medium,
+        size: VesselButtonSize.medium,
         variant: ButtonVariant.base,
       ),
       child: child,

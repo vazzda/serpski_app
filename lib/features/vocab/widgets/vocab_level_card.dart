@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-import '../../../app/theme/app_themes.dart';
+import '../../../app/theme/vessel_themes.dart';
 import '../../../entities/group/vocab_group_model.dart';
 import '../../../entities/plan/level_tier.dart';
 import '../../../l10n/app_localizations.dart';
-import '../../../shared/ui/card/project_card.dart';
-import '../../../shared/ui/progress_bar/project_progress_bar.dart';
+import '../../../shared/ui/card/vessel_card.dart';
+import '../../../shared/ui/progress_bar/vessel_progress_bar.dart';
 import 'vocab_group_tile.dart';
-import '../../../app/layout/app_layout.dart';
+import '../../../app/layout/vessel_layout.dart';
 import 'vocab_level_stats_row.dart';
 import 'vocab_tile_data.dart';
 
@@ -29,11 +29,11 @@ class VocabLevelCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final t = AppThemes.of(context);
+    final t = VesselThemes.of(context);
     final isPremium = item.tier == LevelTier.premium;
 
-    return ProjectCard(
-      padding: const EdgeInsets.all(AppLayout.vocabLevelCardPadding),
+    return VesselCard(
+      padding: const EdgeInsets.all(VesselLayout.vocabLevelCardPadding),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
@@ -50,7 +50,7 @@ class VocabLevelCard extends StatelessWidget {
                     Expanded(
                       child: Text(
                         item.name,
-                        style: AppFontStyles.textLevelHeader.copyWith(
+                        style: VesselFonts.textLevelHeader.copyWith(
                           color: t.textPrimary,
                         ),
                       ),
@@ -59,33 +59,33 @@ class VocabLevelCard extends StatelessWidget {
                       Icon(Icons.lock_outline, size: 16, color: t.textSecondary),
                   ],
                 ),
-                const SizedBox(height: AppLayout.vocabHeaderToProgressGap),
+                const SizedBox(height: VesselLayout.vocabHeaderToProgressGap),
                 Row(
                   children: [
                     SizedBox(
-                      width: AppLayout.vocabProgressWordsWidth,
+                      width: VesselLayout.vocabProgressWordsWidth,
                       child: Text(
                         '${item.totalCardCount}',
                         textAlign: TextAlign.start,
-                        style: AppFontStyles.textLevelCounter.copyWith(
+                        style: VesselFonts.textLevelCounter.copyWith(
                           color: t.textPrimary,
                         ),
                       ),
                     ),
-                    const SizedBox(width: AppLayout.vocabProgressPercentGap),
+                    const SizedBox(width: VesselLayout.vocabProgressPercentGap),
                     Expanded(
-                      child: ProjectProgressBar(
+                      child: VesselProgressBar(
                         value: (item.levelProgress / 100.0).clamp(0.0, 1.0),
-                        mode: ProgressBarMode.detailed,
+                        mode: VesselProgressBarMode.detailed,
                       ),
                     ),
-                    const SizedBox(width: AppLayout.vocabProgressPercentGap),
+                    const SizedBox(width: VesselLayout.vocabProgressPercentGap),
                     SizedBox(
-                      width: AppLayout.vocabProgressPercentWidth,
+                      width: VesselLayout.vocabProgressPercentWidth,
                       child: Text(
                         '${item.levelProgress.round()}%',
                         textAlign: TextAlign.end,
-                        style: AppFontStyles.textLevelCounter.copyWith(
+                        style: VesselFonts.textLevelCounter.copyWith(
                           color: t.textPrimary,
                         ),
                       ),
@@ -97,26 +97,26 @@ class VocabLevelCard extends StatelessWidget {
           ),
           // Body: visible only when expanded
           if (isExpanded) ...[
-            const SizedBox(height: AppLayout.vocabProgressSpacingAfter),
+            const SizedBox(height: VesselLayout.vocabProgressSpacingAfter),
             if (item.description != null) ...[
               Text(
                 item.description!,
-                style: AppFontStyles.textCaption.copyWith(color: t.textSecondary),
+                style: VesselFonts.textCaption.copyWith(color: t.textSecondary),
               ),
-              const SizedBox(height: AppLayout.vocabDescSpacingAfter),
+              const SizedBox(height: VesselLayout.vocabDescSpacingAfter),
             ],
             LayoutBuilder(
               builder: (context, constraints) {
                 final n =
-                    ((constraints.maxWidth + AppLayout.vocabTileGap) /
-                            (AppLayout.vocabTileMinWidth + AppLayout.vocabTileGap))
+                    ((constraints.maxWidth + VesselLayout.vocabTileGap) /
+                            (VesselLayout.vocabTileMinWidth + VesselLayout.vocabTileGap))
                         .floor()
                         .clamp(1, 100);
                 final tileWidth =
-                    (constraints.maxWidth - AppLayout.vocabTileGap * (n - 1)) / n;
+                    (constraints.maxWidth - VesselLayout.vocabTileGap * (n - 1)) / n;
                 return Wrap(
-                  spacing: AppLayout.vocabTileGap,
-                  runSpacing: AppLayout.vocabTileGap,
+                  spacing: VesselLayout.vocabTileGap,
+                  runSpacing: VesselLayout.vocabTileGap,
                   children: item.groups
                       .map(
                         (g) => VocabGroupTile(
@@ -130,7 +130,7 @@ class VocabLevelCard extends StatelessWidget {
                 );
               },
             ),
-            const SizedBox(height: AppLayout.vocabTilesToStatsGap),
+            const SizedBox(height: VesselLayout.vocabTilesToStatsGap),
             VocabLevelStatsRow(item: item, l10n: l10n),
           ],
         ],

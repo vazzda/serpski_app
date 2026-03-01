@@ -11,18 +11,18 @@ import '../app/providers/dictionary_provider.dart';
 import '../app/providers/language_settings_provider.dart';
 import '../app/providers/theme_provider.dart';
 import '../app/router/app_router.dart';
-import '../app/theme/app_themes.dart';
+import '../app/theme/vessel_themes.dart';
 import '../entities/language/language_pack.dart';
-import '../shared/ui/buttons/project_button_group.dart';
-import '../shared/ui/bottom_sheet/project_bottom_sheet.dart';
-import '../shared/ui/buttons/project_buttons.dart';
-import '../shared/ui/inputs/project_text_input.dart';
-import '../shared/ui/screen_layout/screen_layout_widget.dart';
-import '../shared/ui/card/project_card.dart';
-import '../shared/ui/inputs/project_radio_tile.dart';
+import '../shared/ui/buttons/vessel_button_group.dart';
+import '../shared/ui/bottom_sheet/vessel_bottom_sheet.dart';
+import '../shared/ui/buttons/vessel_buttons.dart';
+import '../shared/ui/inputs/vessel_text_input.dart';
+import '../shared/ui/screen_layout/vessel_scaffold.dart';
+import '../shared/ui/card/vessel_card.dart';
+import '../shared/ui/inputs/vessel_radio_tile.dart';
 import 'package:srpski_card/shared/lib/constants.dart';
-import '../shared/ui/gap/project_gap.dart';
-import '../app/layout/app_layout.dart';
+import '../shared/ui/gap/vessel_gap.dart';
+import '../app/layout/vessel_layout.dart';
 
 /// Settings screen for app configuration.
 class SettingsScreen extends ConsumerStatefulWidget {
@@ -45,11 +45,11 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
 
   void _showDevPasswordSheet() {
     final passwordController = TextEditingController();
-    showProjectBottomSheet<void>(
+    showVesselBottomSheet<void>(
       context: context,
       isDismissible: false,
       builder: (sheetContext) {
-        final t = AppThemes.of(sheetContext);
+        final t = VesselThemes.of(sheetContext);
         final l10n = AppLocalizations.of(sheetContext)!;
         String? error;
         var listenerAdded = false;
@@ -74,11 +74,11 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
               children: [
                 Text(
                   l10n.dev_enterPassword,
-                  style: AppFontStyles.textSheetTitle
+                  style: VesselFonts.textSheetTitle
                       .copyWith(color: t.textPrimary),
                 ),
-                const ProjectGap.l(),
-                ProjectTextInput(
+                const VesselGap.l(),
+                VesselTextInput(
                   controller: passwordController,
                   autofocus: true,
                   obscureText: true,
@@ -99,25 +99,25 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                         }
                       : null,
                 ),
-                const ProjectGap.s(),
+                const VesselGap.s(),
                 Opacity(
                   opacity: error != null ? 1.0 : 0.0,
                   child: Text(
                     error ?? ' ',
-                    style: AppFontStyles.textFormError
+                    style: VesselFonts.textFormError
                         .copyWith(color: t.dangerColor),
                   ),
                 ),
-                const ProjectGap.xxs(),
+                const VesselGap.xxs(),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    ProjectTextButton(
+                    VesselTextButton(
                       label: l10n.cancel,
                       onPressed: () => Navigator.of(stateContext).pop(),
                     ),
-                    const ProjectGap.hs(),
-                    AccentButton(
+                    const VesselGap.hs(),
+                    VesselAccentButton(
                       label: l10n.dev_unlock,
                       onPressed: hasText
                           ? () {
@@ -154,7 +154,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
-    final t = AppThemes.of(context);
+    final t = VesselThemes.of(context);
     final settings = ref.watch(appSettingsProvider);
     final currentTheme = ref.watch(themeProvider);
     final showDevSection = ref.watch(devSectionEnabledProvider);
@@ -162,20 +162,20 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
     final asyncAllPacks = ref.watch(allPacksProvider);
     final asyncUiLanguages = ref.watch(uiLanguagesProvider);
 
-    return ScreenLayoutWidget(
+    return VesselScaffold(
       title: l10n.settingsTitle,
       showBottomNav: true,
       onSettingsDisabledTap: _handleTitleTap,
       child: ListView(
-        padding: const EdgeInsets.all(AppLayout.screenPadding),
+        padding: const EdgeInsets.all(VesselLayout.screenPadding),
         children: [
           // App language section
           Padding(
-            padding: const EdgeInsets.only(bottom: AppLayout.listItemGapSmall),
+            padding: const EdgeInsets.only(bottom: VesselLayout.listItemGapSmall),
             child: Text(
               l10n.language_appLanguage,
               style:
-                  AppFontStyles.textSectionHeader.copyWith(color: t.textPrimary),
+                  VesselFonts.textSectionHeader.copyWith(color: t.textPrimary),
             ),
           ),
           asyncAllPacks.when(
@@ -190,11 +190,11 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                 error: (_, __) => const SizedBox.shrink(),
                 data: (uiCodes) => ProjectButtonGroup(
                   expanded: true,
-                  size: ButtonSize.small,
+                  size: VesselButtonSize.small,
                   items: uiCodes.map((code) {
                     final pack = packByCode[code] as LanguagePack;
                     final isSelected = code == langSettings.uiLang;
-                    return ProjectButtonGroupItem(
+                    return VesselButtonGroupItem(
                       label: l10n.langLabel(pack.labelKey),
                       isSelected: isSelected,
                       onPressed: isSelected
@@ -208,21 +208,21 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
               );
             },
           ),
-          const ProjectGap.xl(),
+          const VesselGap.xl(),
           // Theme section
           Padding(
-            padding: const EdgeInsets.only(bottom: AppLayout.listItemGap),
+            padding: const EdgeInsets.only(bottom: VesselLayout.listItemGap),
             child: Text(
               l10n.settingsTheme,
               style:
-                  AppFontStyles.textSectionHeader.copyWith(color: t.textPrimary),
+                  VesselFonts.textSectionHeader.copyWith(color: t.textPrimary),
             ),
           ),
-          ProjectCard(
+          VesselCard(
             child: Column(
               children: [
                 for (final theme in AppTheme.values)
-                  ProjectRadioTile<AppTheme>(
+                  VesselRadioTile<AppTheme>(
                     value: theme,
                     groupValue: currentTheme,
                     label: theme.getDisplayName(l10n),
@@ -236,14 +236,14 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
               ],
             ),
           ),
-          const ProjectGap.xl(),
+          const VesselGap.xl(),
           // Decay section
           Padding(
-            padding: const EdgeInsets.only(bottom: AppLayout.listItemGap),
+            padding: const EdgeInsets.only(bottom: VesselLayout.listItemGap),
             child: Text(
               l10n.settingsDecaySpeed,
               style:
-                  AppFontStyles.textSectionHeader.copyWith(color: t.textPrimary),
+                  VesselFonts.textSectionHeader.copyWith(color: t.textPrimary),
             ),
           ),
           _DecayOption(
@@ -254,7 +254,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                 .read(appSettingsProvider.notifier)
                 .setDecayFormula(DecayFormula.relaxed),
           ),
-          const ProjectGap.s(),
+          const VesselGap.s(),
           _DecayOption(
             title: l10n.decayStandard,
             description: l10n.decayStandardDesc,
@@ -263,7 +263,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                 .read(appSettingsProvider.notifier)
                 .setDecayFormula(DecayFormula.standard),
           ),
-          const ProjectGap.s(),
+          const VesselGap.s(),
           _DecayOption(
             title: l10n.decayIntensive,
             description: l10n.decayIntensiveDesc,
@@ -272,7 +272,7 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
                 .read(appSettingsProvider.notifier)
                 .setDecayFormula(DecayFormula.intensive),
           ),
-          const ProjectGap.s(),
+          const VesselGap.s(),
           _DecayOption(
             title: l10n.decayHardcore,
             description: l10n.decayHardcoreDesc,
@@ -283,32 +283,32 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
           ),
           // Developer section (hidden until unlocked)
           if (showDevSection) ...[
-            const ProjectGap.xl(),
+            const VesselGap.xl(),
             Padding(
-              padding: const EdgeInsets.only(bottom: AppLayout.listItemGap),
+              padding: const EdgeInsets.only(bottom: VesselLayout.listItemGap),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     l10n.settingsDeveloper,
-                    style: AppFontStyles.textSectionHeader
+                    style: VesselFonts.textSectionHeader
                         .copyWith(color: t.textPrimary),
                   ),
-                  BaseButton(
+                  VesselButton(
                     label: l10n.settingsHide,
                     onPressed: _handleHideDevSection,
                   ),
                 ],
               ),
             ),
-            ProjectCard(
+            VesselCard(
               onTap: () => context.push(AppRoutes.devControls),
               child: Row(
                 children: [
                   Expanded(
                     child: Text(
                       l10n.settingsControlsList,
-                      style: AppFontStyles.textListItem
+                      style: VesselFonts.textListItem
                           .copyWith(color: t.textPrimary),
                     ),
                   ),
@@ -338,9 +338,9 @@ class _DecayOption extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final t = AppThemes.of(context);
+    final t = VesselThemes.of(context);
 
-    return ProjectCard(
+    return VesselCard(
       onTap: onTap,
       child: Row(
         children: [
@@ -351,14 +351,14 @@ class _DecayOption extends StatelessWidget {
                 Text(
                   title,
                   style: isSelected
-                      ? AppFontStyles.textListItemAccented
+                      ? VesselFonts.textListItemAccented
                           .copyWith(color: t.textPrimary)
-                      : AppFontStyles.textListItem.copyWith(color: t.textPrimary),
+                      : VesselFonts.textListItem.copyWith(color: t.textPrimary),
                 ),
-                const ProjectGap.xxs(),
+                const VesselGap.xxs(),
                 Text(
                   description,
-                  style: AppFontStyles.textCaption.copyWith(color: t.textSecondary),
+                  style: VesselFonts.textCaption.copyWith(color: t.textSecondary),
                 ),
               ],
             ),

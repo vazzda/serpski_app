@@ -11,7 +11,7 @@ import '../../pages/session_screen.dart';
 import '../../pages/settings_screen.dart';
 import '../../pages/tools_screen.dart';
 import '../../pages/vocab_group_list_screen.dart';
-import '../theme/app_themes.dart';
+import '../theme/vessel_themes.dart';
 
 /// Route names/paths.
 class AppRoutes {
@@ -36,7 +36,7 @@ Page<void> _noTransitionPage(Widget child, GoRouterState state) {
 
 /// Slide page for push-style navigation (session, result).
 Page<void> _slidePage(BuildContext context, Widget child, GoRouterState state) {
-  final scaffoldBg = AppThemes.of(context).scaffoldBackground;
+  final scaffoldBg = VesselThemes.of(context).scaffoldBackground;
   return CustomTransitionPage<void>(
     key: state.pageKey,
     child: Container(

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../../../l10n/app_localizations.dart';
 import '../../../features/quiz/quiz_mode.dart';
-import '../../../app/theme/app_themes.dart';
-import '../buttons/project_buttons.dart';
-import 'project_bottom_sheet.dart';
+import '../../../app/theme/vessel_themes.dart';
+import '../buttons/vessel_buttons.dart';
+import 'vessel_bottom_sheet.dart';
 
 /// Result of mode selection: the quiz mode and whether it's a test.
 class ModeSelection {
@@ -22,8 +22,8 @@ Future<ModeSelection?> showModeBottomSheet(
   AppLocalizations l10n, {
   bool showAllModes = true,
 }) {
-  final t = AppThemes.of(context);
-  return showProjectBottomSheet<ModeSelection>(
+  final t = VesselThemes.of(context);
+  return showVesselBottomSheet<ModeSelection>(
     context: context,
     builder: (context) => Column(
       mainAxisSize: MainAxisSize.min,
@@ -34,7 +34,7 @@ Future<ModeSelection?> showModeBottomSheet(
           padding: const EdgeInsets.only(bottom: 16),
           child: Text(
             l10n.chooseMode,
-            style: AppFontStyles.textSheetTitle.copyWith(color: t.textPrimary),
+            style: VesselFonts.textSheetTitle.copyWith(color: t.textPrimary),
           ),
         ),
         // TRAIN header
@@ -42,14 +42,14 @@ Future<ModeSelection?> showModeBottomSheet(
           padding: const EdgeInsets.only(bottom: 8),
           child: Text(
             l10n.trainHeader,
-            style: AppFontStyles.textControlLabel.copyWith(color: t.textSecondary),
+            style: VesselFonts.textControlLabel.copyWith(color: t.textSecondary),
           ),
         ),
         // Train buttons
         if (showAllModes) ...[
           Padding(
             padding: const EdgeInsets.only(bottom: 8),
-            child: BaseButton(
+            child: VesselButton(
               label: l10n.modeEngCards,
               onPressed: () => Navigator.of(context).pop(
                 const ModeSelection(mode: QuizMode.targetShown, isTest: false),
@@ -58,7 +58,7 @@ Future<ModeSelection?> showModeBottomSheet(
           ),
           Padding(
             padding: const EdgeInsets.only(bottom: 8),
-            child: BaseButton(
+            child: VesselButton(
               label: l10n.modeSrpskiCards,
               onPressed: () => Navigator.of(context).pop(
                 const ModeSelection(mode: QuizMode.nativeShown, isTest: false),
@@ -68,7 +68,7 @@ Future<ModeSelection?> showModeBottomSheet(
         ],
         Padding(
           padding: const EdgeInsets.only(bottom: 16),
-          child: BaseButton(
+          child: VesselButton(
             label: l10n.modeWriting,
             onPressed: () => Navigator.of(context).pop(
               const ModeSelection(mode: QuizMode.write, isTest: false),
@@ -80,13 +80,13 @@ Future<ModeSelection?> showModeBottomSheet(
           padding: const EdgeInsets.only(bottom: 8),
           child: Text(
             l10n.testHeader,
-            style: AppFontStyles.textControlLabel.copyWith(color: t.textSecondary),
+            style: VesselFonts.textControlLabel.copyWith(color: t.textSecondary),
           ),
         ),
         // Test button
         Padding(
           padding: const EdgeInsets.only(bottom: 16),
-          child: AccentButton(
+          child: VesselAccentButton(
             label: l10n.modeTest,
             onPressed: () => Navigator.of(context).pop(
               const ModeSelection(mode: QuizMode.write, isTest: true),
@@ -94,7 +94,7 @@ Future<ModeSelection?> showModeBottomSheet(
           ),
         ),
         // Cancel
-        ProjectTextButton(
+        VesselTextButton(
           label: l10n.cancel,
           onPressed: () => Navigator.of(context).pop(),
         ),
@@ -141,8 +141,8 @@ Future<int?> showCountBottomSheet(
   counts.add(totalCount);
   labels.add(l10n.questionsAll(totalCount));
 
-  final t = AppThemes.of(context);
-  return showProjectBottomSheet<int>(
+  final t = VesselThemes.of(context);
+  return showVesselBottomSheet<int>(
     context: context,
     builder: (context) => Column(
       mainAxisSize: MainAxisSize.min,
@@ -152,13 +152,13 @@ Future<int?> showCountBottomSheet(
           padding: const EdgeInsets.only(bottom: 16),
           child: Text(
             l10n.chooseQuestionsCount,
-            style: AppFontStyles.textSheetTitle.copyWith(color: t.textPrimary),
+            style: VesselFonts.textSheetTitle.copyWith(color: t.textPrimary),
           ),
         ),
         ...List.generate(counts.length, (i) {
           return Padding(
             padding: const EdgeInsets.only(bottom: 8),
-            child: BaseButton(
+            child: VesselButton(
               label: labels[i],
               onPressed: () => Navigator.of(context).pop(counts[i]),
             ),
@@ -166,7 +166,7 @@ Future<int?> showCountBottomSheet(
         }),
         Padding(
           padding: const EdgeInsets.only(top: 8),
-          child: ProjectTextButton(
+          child: VesselTextButton(
             label: l10n.cancel,
             onPressed: () => Navigator.of(context).pop(),
           ),

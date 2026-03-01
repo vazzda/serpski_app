@@ -10,12 +10,12 @@ import '../features/quiz/quiz_mode.dart';
 import '../features/quiz/session_notifier.dart';
 import '../features/quiz/session_state.dart';
 import '../app/router/app_router.dart';
-import '../app/theme/app_themes.dart';
-import '../shared/ui/buttons/project_buttons.dart';
-import '../shared/ui/card/project_card.dart';
-import '../shared/ui/screen_layout/screen_layout_widget.dart';
-import '../shared/ui/gap/project_gap.dart';
-import '../app/layout/app_layout.dart';
+import '../app/theme/vessel_themes.dart';
+import '../shared/ui/buttons/vessel_buttons.dart';
+import '../shared/ui/card/vessel_card.dart';
+import '../shared/ui/screen_layout/vessel_scaffold.dart';
+import '../shared/ui/gap/vessel_gap.dart';
+import '../app/layout/vessel_layout.dart';
 
 class ResultScreen extends ConsumerWidget {
   const ResultScreen({super.key});
@@ -23,7 +23,7 @@ class ResultScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context)!;
-    final t = AppThemes.of(context);
+    final t = VesselThemes.of(context);
     final session = ref.watch(sessionProvider);
 
     if (session == null) {
@@ -31,34 +31,34 @@ class ResultScreen extends ConsumerWidget {
       return const Scaffold(body: Center(child: CircularProgressIndicator()));
     }
 
-    return ScreenLayoutWidget(
+    return VesselScaffold(
       title: l10n.resultTitle,
       child: SingleChildScrollView(
-        padding: const EdgeInsets.all(AppLayout.screenPadding),
+        padding: const EdgeInsets.all(VesselLayout.screenPadding),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            ProjectCard(
+            VesselCard(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     l10n.correctCount(session.correctCount),
-                    style: AppFontStyles.textContentHeader.copyWith(color: t.accentColor),
+                    style: VesselFonts.textContentHeader.copyWith(color: t.accentColor),
                   ),
-                  const ProjectGap.s(),
+                  const VesselGap.s(),
                   Text(
                     l10n.wrongCount(session.wrongCount),
-                    style: AppFontStyles.textContentHeader.copyWith(color: t.dangerColor),
+                    style: VesselFonts.textContentHeader.copyWith(color: t.dangerColor),
                   ),
                 ],
               ),
             ),
-            const ProjectGap.xl(),
+            const VesselGap.xl(),
             Row(
               children: [
                 Expanded(
-                  child: AccentButton(
+                  child: VesselAccentButton(
                     label: l10n.again,
                     onPressed: () {
                       final session = ref.read(sessionProvider);
@@ -115,9 +115,9 @@ class ResultScreen extends ConsumerWidget {
                     },
                   ),
                 ),
-                const ProjectGap.hm(),
+                const VesselGap.hm(),
                 Expanded(
-                  child: BaseButton(
+                  child: VesselButton(
                     label: l10n.back,
                     onPressed: () {
                       final originRoute =
@@ -131,17 +131,17 @@ class ResultScreen extends ConsumerWidget {
               ],
             ),
             if (session.missedEntries.isNotEmpty) ...[
-              const ProjectGap.xl(),
+              const VesselGap.xl(),
               Text(
                 l10n.reviewWrongTitle,
-                style: AppFontStyles.textContentHeader.copyWith(color: t.textPrimary),
+                style: VesselFonts.textContentHeader.copyWith(color: t.textPrimary),
               ),
-              const ProjectGap.xs(),
+              const VesselGap.xs(),
               Text(
                 l10n.reviewWrongSubtitle,
-                style: AppFontStyles.textBody.copyWith(color: t.textPrimary),
+                style: VesselFonts.textBody.copyWith(color: t.textPrimary),
               ),
-              const ProjectGap.m(),
+              const VesselGap.m(),
               ...session.missedEntries.map(
                 (entry) => _MissedEntryTile(entry: entry, mode: session.mode),
               ),
@@ -161,16 +161,16 @@ class _MissedEntryTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final t = AppThemes.of(context);
+    final t = VesselThemes.of(context);
     final l10n = AppLocalizations.of(context)!;
     final card = entry.card;
 
     final isWriteWithTyped = mode == QuizMode.write && entry.userTypedAnswer != null;
 
     return Padding(
-      padding: const EdgeInsets.only(bottom: AppLayout.listItemGapSmall),
-      child: ProjectCard(
-        padding: const EdgeInsets.symmetric(vertical: AppLayout.resultEntryPaddingV, horizontal: AppLayout.resultEntryPaddingH),
+      padding: const EdgeInsets.only(bottom: VesselLayout.listItemGapSmall),
+      child: VesselCard(
+        padding: const EdgeInsets.symmetric(vertical: VesselLayout.resultEntryPaddingV, horizontal: VesselLayout.resultEntryPaddingH),
         child: isWriteWithTyped
             ? Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -178,12 +178,12 @@ class _MissedEntryTile extends StatelessWidget {
                 children: [
                   Text(
                     '${l10n.youWrote} ${entry.userTypedAnswer!.isEmpty ? l10n.emptyAnswer : entry.userTypedAnswer}',
-                    style: AppFontStyles.textBodyLarge.copyWith(color: t.textPrimary),
+                    style: VesselFonts.textBodyLarge.copyWith(color: t.textPrimary),
                   ),
-                  const ProjectGap.xs(),
+                  const VesselGap.xs(),
                   Text(
                     '${l10n.correctAnswerLabel} ${card.targetAnswer} → ${displayNativeForCard(card, l10n)}',
-                    style: AppFontStyles.textBodyLargeAccented.copyWith(color: t.textPrimary),
+                    style: VesselFonts.textBodyLargeAccented.copyWith(color: t.textPrimary),
                   ),
                 ],
               )
@@ -193,19 +193,19 @@ class _MissedEntryTile extends StatelessWidget {
                   Expanded(
                     child: Text(
                       card.targetAnswer,
-                      style: AppFontStyles.textBodyLargeAccented.copyWith(
+                      style: VesselFonts.textBodyLargeAccented.copyWith(
                         color: t.textPrimary,
                       ),
                     ),
                   ),
                   Text(
                     ' → ',
-                    style: AppFontStyles.textBodyLarge.copyWith(color: t.textPrimary),
+                    style: VesselFonts.textBodyLarge.copyWith(color: t.textPrimary),
                   ),
                   Expanded(
                     child: Text(
                       displayNativeForCard(card, l10n),
-                      style: AppFontStyles.textBodyLarge.copyWith(color: t.textPrimary),
+                      style: VesselFonts.textBodyLarge.copyWith(color: t.textPrimary),
                     ),
                   ),
                 ],

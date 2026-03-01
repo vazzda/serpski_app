@@ -8,17 +8,17 @@ import '../app/providers/all_languages_progress_provider.dart';
 import '../app/providers/dev_section_provider.dart';
 import '../app/providers/dictionary_provider.dart';
 import '../app/providers/language_settings_provider.dart';
-import '../app/theme/app_themes.dart';
+import '../app/theme/vessel_themes.dart';
 import '../entities/language/lang_codes.dart';
 import '../entities/language/language_pack.dart';
-import '../shared/ui/bottom_sheet/project_bottom_sheet.dart';
-import '../shared/ui/lang_button/project_lang_button.dart';
-import '../shared/ui/card/project_card.dart';
-import '../shared/ui/note/project_note.dart';
-import '../shared/ui/progress_bar/project_progress_bar.dart';
-import '../shared/ui/screen_layout/screen_layout_widget.dart';
-import '../shared/ui/gap/project_gap.dart';
-import '../app/layout/app_layout.dart';
+import '../shared/ui/bottom_sheet/vessel_bottom_sheet.dart';
+import '../shared/ui/lang_button/vessel_lang_button.dart';
+import '../shared/ui/card/vessel_card.dart';
+import '../shared/ui/note/vessel_note.dart';
+import '../shared/ui/progress_bar/vessel_progress_bar.dart';
+import '../shared/ui/screen_layout/vessel_scaffold.dart';
+import '../shared/ui/gap/vessel_gap.dart';
+import '../app/layout/vessel_layout.dart';
 
 class LanguageScreen extends ConsumerWidget {
   const LanguageScreen({super.key});
@@ -26,13 +26,13 @@ class LanguageScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context)!;
-    final t = AppThemes.of(context);
+    final t = VesselThemes.of(context);
     final langSettings = ref.watch(languageSettingsProvider);
     final asyncAllPacks = ref.watch(allPacksProvider);
     final asyncAllLangProgress = ref.watch(allLanguagesProgressProvider);
     final showDevSection = ref.watch(devSectionEnabledProvider);
 
-    return ScreenLayoutWidget(
+    return VesselScaffold(
       title: l10n.navLanguage,
       showBottomNav: true,
       child: asyncAllPacks.when(
@@ -44,7 +44,7 @@ class LanguageScreen extends ConsumerWidget {
           final packByCode = {for (final p in packs) p.code: p};
 
           return ListView(
-            padding: const EdgeInsets.all(AppLayout.screenPadding),
+            padding: const EdgeInsets.all(VesselLayout.screenPadding),
             children: [
               _LangPairSelector(
                 codes: allCodes,
@@ -58,14 +58,14 @@ class LanguageScreen extends ConsumerWidget {
                     ref.read(languageSettingsProvider.notifier).setTargetLang(code),
               ),
               if (langSettings.nativeLang == LangCodes.serbian) ...[
-                const ProjectGap.l(),
-                ProjectNote(text: l10n.language_serbianNativeNote, accented: true),
+                const VesselGap.l(),
+                VesselNote(text: l10n.language_serbianNativeNote, accented: true),
               ],
               if (langSettings.targetLang == langSettings.nativeLang) ...[
-                const ProjectGap.s(),
-                ProjectNote(text: l10n.language_sameAsLearning),
+                const VesselGap.s(),
+                VesselNote(text: l10n.language_sameAsLearning),
               ],
-              const ProjectGap.l(),
+              const VesselGap.l(),
 
               // Progression card
               _ProgressionCard(
@@ -73,27 +73,27 @@ class LanguageScreen extends ConsumerWidget {
                 packByCode: packByCode,
                 l10n: l10n,
               ),
-              const ProjectGap.m(),
+              const VesselGap.m(),
 
               // Incomplete dictionaries (dev mode only)
               if (showDevSection) ...packs
                   .where((p) => !p.isPublic)
                   .map((p) => Padding(
-                        padding: const EdgeInsets.only(bottom: AppLayout.listItemGapSmall),
-                        child: ProjectCard(
+                        padding: const EdgeInsets.only(bottom: VesselLayout.listItemGapSmall),
+                        child: VesselCard(
                           child: Row(
                             children: [
                               Expanded(
                                 child: Text(
                                   l10n.langLabel(p.labelKey),
-                                  style: AppFontStyles.textListItem
+                                  style: VesselFonts.textListItem
                                       .copyWith(color: t.textPrimary),
                                 ),
                               ),
                               Text(
                                 l10n.language_conceptsCount(
                                     p.translatedCount, p.totalConcepts),
-                                style: AppFontStyles.textCaption
+                                style: VesselFonts.textCaption
                                     .copyWith(color: t.dangerColor),
                               ),
                             ],
@@ -114,10 +114,10 @@ Future<String?> _showLangPicker(
   Map<String, LanguagePack> packByCode,
   AppLocalizations l10n,
 ) {
-  return showProjectBottomSheet<String>(
+  return showVesselBottomSheet<String>(
     context: context,
     builder: (sheetContext) {
-      final t = AppThemes.of(sheetContext);
+      final t = VesselThemes.of(sheetContext);
       return Padding(
         padding: EdgeInsets.all(t.bottomSheetPadding),
         child: Column(
@@ -127,8 +127,8 @@ Future<String?> _showLangPicker(
             ...codes.map((code) {
               final pack = packByCode[code]!;
               return Padding(
-                padding: const EdgeInsets.only(bottom: AppLayout.listItemGapSmall),
-                child: ProjectLangButton(
+                padding: const EdgeInsets.only(bottom: VesselLayout.listItemGapSmall),
+                child: VesselLangButton(
                   langCode: code,
                   label: l10n.langLabel(pack.labelKey),
                   onPressed: () => Navigator.of(sheetContext).pop(code),
@@ -162,11 +162,11 @@ class _LangPairSelector extends StatelessWidget {
   final ValueChanged<String> onTargetSelected;
 
   // Width of the arrow zone (icon 20 + padding 8×2) — keeps labels aligned with boxes.
-  static const _arrowZoneWidth = AppLayout.langArrowZoneWidth;
+  static const _arrowZoneWidth = VesselLayout.langArrowZoneWidth;
 
   @override
   Widget build(BuildContext context) {
-    final t = AppThemes.of(context);
+    final t = VesselThemes.of(context);
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -176,19 +176,19 @@ class _LangPairSelector extends StatelessWidget {
             Expanded(
               child: Text(
                 l10n.language_iSpeak.toUpperCase(),
-                style: AppFontStyles.textLangPickerLabel.copyWith(color: t.textSecondary),
+                style: VesselFonts.textLangPickerLabel.copyWith(color: t.textSecondary),
               ),
             ),
             const SizedBox(width: _arrowZoneWidth),
             Expanded(
               child: Text(
                 l10n.language_iLearn.toUpperCase(),
-                style: AppFontStyles.textLangPickerLabel.copyWith(color: t.textSecondary),
+                style: VesselFonts.textLangPickerLabel.copyWith(color: t.textSecondary),
               ),
             ),
           ],
         ),
-        const ProjectGap.xs(),
+        const VesselGap.xs(),
         // Boxes row
         Row(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -206,7 +206,7 @@ class _LangPairSelector extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: AppLayout.gapS),
+              padding: const EdgeInsets.symmetric(horizontal: VesselLayout.gapS),
               child: Icon(Icons.arrow_forward, color: t.textSecondary, size: 20),
             ),
             Expanded(
@@ -241,13 +241,13 @@ class _LangBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final t = AppThemes.of(context);
+    final t = VesselThemes.of(context);
     final countryCode = LangCodes.flagCountryCode(langCode);
     return GestureDetector(
       onTap: onTap,
       child: Container(
             width: double.infinity,
-            padding: const EdgeInsets.fromLTRB(AppLayout.langBoxPaddingLeft, AppLayout.langBoxPaddingTop, AppLayout.langBoxPaddingRight, AppLayout.langBoxPaddingBottom),
+            padding: const EdgeInsets.fromLTRB(VesselLayout.langBoxPaddingLeft, VesselLayout.langBoxPaddingTop, VesselLayout.langBoxPaddingRight, VesselLayout.langBoxPaddingBottom),
             decoration: BoxDecoration(
               color: t.cardBackground,
               border: Border.all(
@@ -264,17 +264,17 @@ class _LangBox extends StatelessWidget {
                   CountryFlag.fromCountryCode(
                     countryCode,
                     theme: const ImageTheme(
-                      width: AppLayout.langFlagWidth,
-                      height: AppLayout.langFlagHeight,
+                      width: VesselLayout.langFlagWidth,
+                      height: VesselLayout.langFlagHeight,
                       shape: RoundedRectangle(4),
                     ),
                   )
                 else
                   Icon(Icons.keyboard_arrow_down, color: t.textSecondary, size: 18),
-                const ProjectGap.xs(),
+                const VesselGap.xs(),
                 Text(
                   selectedLabel,
-                  style: AppFontStyles.textLangPickerValue
+                  style: VesselFonts.textLangPickerValue
                       .copyWith(color: t.textPrimary),
                   overflow: TextOverflow.ellipsis,
                   textAlign: TextAlign.center,
@@ -299,15 +299,15 @@ class _ProgressionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final t = AppThemes.of(context);
-    return ProjectCard(
+    final t = VesselThemes.of(context);
+    return VesselCard(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
             l10n.language_progression,
-            style: AppFontStyles.textListItem.copyWith(color: t.textPrimary),
+            style: VesselFonts.textListItem.copyWith(color: t.textPrimary),
           ),
           asyncProgress.when(
             data: (langProgress) {
@@ -318,7 +318,7 @@ class _ProgressionCard extends StatelessWidget {
               return Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const ProjectGap.m(),
+                  const VesselGap.m(),
                   ...List.generate(entries.length, (i) {
                     final e = entries[i];
                     final pack = packByCode[e.key]!;
@@ -326,32 +326,32 @@ class _ProgressionCard extends StatelessWidget {
                     final pct = (e.value * 100).round();
                     return Padding(
                       padding: EdgeInsets.only(
-                          bottom: i < entries.length - 1 ? AppLayout.listItemGapSmall : 0),
+                          bottom: i < entries.length - 1 ? VesselLayout.listItemGapSmall : 0),
                       child: Row(
                         children: [
                           SizedBox(
-                            width: AppLayout.langProgressLabelWidth,
+                            width: VesselLayout.langProgressLabelWidth,
                             child: Text(
                               label,
-                              style: AppFontStyles.textCaption.copyWith(
+                              style: VesselFonts.textCaption.copyWith(
                                 color: t.textSecondary,
                               ),
                             ),
                           ),
-                          const ProjectGap.hs(),
+                          const VesselGap.hs(),
                           Expanded(
-                            child: ProjectProgressBar(
+                            child: VesselProgressBar(
                               value: e.value,
-                              mode: ProgressBarMode.detailed,
+                              mode: VesselProgressBarMode.detailed,
                             ),
                           ),
-                          const ProjectGap.hs(),
+                          const VesselGap.hs(),
                           SizedBox(
-                            width: AppLayout.langProgressPercentWidth,
+                            width: VesselLayout.langProgressPercentWidth,
                             child: Text(
                               '$pct%',
                               textAlign: TextAlign.end,
-                              style: AppFontStyles.textCaption.copyWith(
+                              style: VesselFonts.textCaption.copyWith(
                                 color: t.textPrimary,
                               ),
                             ),

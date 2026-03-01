@@ -2,21 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../l10n/app_localizations.dart';
-import '../../../app/layout/app_layout.dart';
+import '../../../app/layout/vessel_layout.dart';
 import '../../../app/router/app_router.dart';
-import '../../../app/theme/app_themes.dart';
-import 'navbar_icon_button.dart';
+import '../../../app/theme/vessel_themes.dart';
+import 'vessel_navbar_icon.dart';
 
 /// Flat bottom navigation bar with 4 tabs.
 /// Active tab is detected from the current route.
-class BottomNavBarWidget extends StatelessWidget {
-  const BottomNavBarWidget({super.key, this.onSettingsDisabledTap});
+class VesselNavBar extends StatelessWidget {
+  const VesselNavBar({super.key, this.onSettingsDisabledTap});
 
   final VoidCallback? onSettingsDisabledTap;
 
   @override
   Widget build(BuildContext context) {
-    final t = AppThemes.of(context);
+    final t = VesselThemes.of(context);
     final l10n = AppLocalizations.of(context)!;
     final currentPath = GoRouterState.of(context).uri.path;
 
@@ -40,11 +40,11 @@ class BottomNavBarWidget extends StatelessWidget {
       child: SafeArea(
         top: false,
         child: SizedBox(
-          height: AppLayout.navbarHeight,
+          height: VesselLayout.navbarHeight,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              NavBarIconButton(
+              VesselNavBarIcon(
                 icon: Icons.language,
                 tooltip: l10n.navLanguage,
                 isEnabled: !isLanguage,
@@ -54,7 +54,7 @@ class BottomNavBarWidget extends StatelessWidget {
                     ? () => context.go(AppRoutes.language)
                     : null,
               ),
-              NavBarIconButton(
+              VesselNavBarIcon(
                 icon: Icons.menu_book,
                 tooltip: l10n.navVocabulary,
                 isEnabled: !isVocabulary,
@@ -64,7 +64,7 @@ class BottomNavBarWidget extends StatelessWidget {
                     ? () => context.go(AppRoutes.home)
                     : null,
               ),
-              NavBarIconButton(
+              VesselNavBarIcon(
                 icon: Icons.build,
                 tooltip: l10n.navTools,
                 isEnabled: !isTools,
@@ -74,7 +74,7 @@ class BottomNavBarWidget extends StatelessWidget {
                     ? () => context.go(AppRoutes.tools)
                     : null,
               ),
-              NavBarIconButton(
+              VesselNavBarIcon(
                 icon: Icons.settings,
                 tooltip: l10n.navSettings,
                 isEnabled: !isSettings,

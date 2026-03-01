@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:srpski_card/app/theme/app_themes.dart';
+import 'package:srpski_card/app/theme/vessel_themes.dart';
 
 /// Label position for labeled controls
-enum LabelPosition { left, right }
+enum VesselLabelPosition { left, right }
 
 CheckboxThemeData _checkboxTheme(BuildContext context) {
-  final theme = AppThemes.of(context);
+  final theme = VesselThemes.of(context);
   return CheckboxThemeData(
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(theme.toggleBorderRadius),
@@ -19,7 +19,7 @@ CheckboxThemeData _checkboxTheme(BuildContext context) {
 }
 
 SwitchThemeData _switchTheme(BuildContext context) {
-  final theme = AppThemes.of(context);
+  final theme = VesselThemes.of(context);
   return SwitchThemeData(
     materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
     thumbColor: WidgetStateProperty.all(theme.controlForeground),
@@ -33,11 +33,11 @@ SwitchThemeData _switchTheme(BuildContext context) {
 // BASE CONTROLS (no label)
 // =============================================================================
 
-class ProjectCheckbox extends StatelessWidget {
+class VesselCheckbox extends StatelessWidget {
   final bool value;
   final ValueChanged<bool?>? onChanged;
 
-  const ProjectCheckbox({
+  const VesselCheckbox({
     super.key,
     required this.value,
     required this.onChanged,
@@ -52,11 +52,11 @@ class ProjectCheckbox extends StatelessWidget {
   }
 }
 
-class ProjectSwitch extends StatelessWidget {
+class VesselSwitch extends StatelessWidget {
   final bool value;
   final ValueChanged<bool>? onChanged;
 
-  const ProjectSwitch({
+  const VesselSwitch({
     super.key,
     required this.value,
     required this.onChanged,
@@ -75,28 +75,28 @@ class ProjectSwitch extends StatelessWidget {
 // LABELED CONTROLS
 // =============================================================================
 
-class ProjectCheckboxLabeled extends StatelessWidget {
+class VesselCheckboxLabeled extends StatelessWidget {
   final bool value;
   final ValueChanged<bool?>? onChanged;
   final String label;
   final String? subtitle;
-  final LabelPosition labelPosition;
+  final VesselLabelPosition labelPosition;
   final bool fullWidth;
 
-  const ProjectCheckboxLabeled({
+  const VesselCheckboxLabeled({
     super.key,
     required this.value,
     required this.onChanged,
     required this.label,
     this.subtitle,
-    this.labelPosition = LabelPosition.right,
+    this.labelPosition = VesselLabelPosition.right,
     this.fullWidth = false,
   });
 
   @override
   Widget build(BuildContext context) {
-    final theme = AppThemes.of(context);
-    final checkbox = ProjectCheckbox(value: value, onChanged: onChanged);
+    final theme = VesselThemes.of(context);
+    final checkbox = VesselCheckbox(value: value, onChanged: onChanged);
 
     final labelWidget = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -104,17 +104,17 @@ class ProjectCheckboxLabeled extends StatelessWidget {
       children: [
         Text(
           label,
-          style: AppFontStyles.textControlInput.copyWith(color: theme.controlForeground),
+          style: VesselFonts.textControlInput.copyWith(color: theme.controlForeground),
         ),
         if (subtitle != null)
           Text(
             subtitle!,
-            style: AppFontStyles.textControlLabel.copyWith(color: theme.controlForeground),
+            style: VesselFonts.textControlLabel.copyWith(color: theme.controlForeground),
           ),
       ],
     );
 
-    final children = labelPosition == LabelPosition.left
+    final children = labelPosition == VesselLabelPosition.left
         ? [
             fullWidth ? Expanded(child: labelWidget) : Flexible(child: labelWidget),
             const SizedBox(width: 8),
@@ -136,33 +136,33 @@ class ProjectCheckboxLabeled extends StatelessWidget {
   }
 }
 
-class ProjectSwitchLabeled extends StatelessWidget {
+class VesselSwitchLabeled extends StatelessWidget {
   final bool value;
   final ValueChanged<bool>? onChanged;
   final String label;
-  final LabelPosition labelPosition;
+  final VesselLabelPosition labelPosition;
   final bool fullWidth;
 
-  const ProjectSwitchLabeled({
+  const VesselSwitchLabeled({
     super.key,
     required this.value,
     required this.onChanged,
     required this.label,
-    this.labelPosition = LabelPosition.left,
+    this.labelPosition = VesselLabelPosition.left,
     this.fullWidth = false,
   });
 
   @override
   Widget build(BuildContext context) {
-    final theme = AppThemes.of(context);
-    final switchWidget = ProjectSwitch(value: value, onChanged: onChanged);
+    final theme = VesselThemes.of(context);
+    final switchWidget = VesselSwitch(value: value, onChanged: onChanged);
 
     final labelWidget = Text(
       label,
-      style: AppFontStyles.textControlInput.copyWith(color: theme.controlForeground),
+      style: VesselFonts.textControlInput.copyWith(color: theme.controlForeground),
     );
 
-    final children = labelPosition == LabelPosition.left
+    final children = labelPosition == VesselLabelPosition.left
         ? [
             fullWidth ? Expanded(child: labelWidget) : Flexible(child: labelWidget),
             const SizedBox(width: 8),

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:srpski_card/app/theme/app_themes.dart';
+import 'package:srpski_card/app/theme/vessel_themes.dart';
 
 /// Button size variants
-enum ButtonSize { small, medium, large }
+enum VesselButtonSize { small, medium, large }
 
 /// Resolved colors for project buttons based on the current theme.
-class ProjectButtonColors {
+class VesselButtonColors {
   final Color background;
   final Color foreground;
   final Color border;
@@ -13,7 +13,7 @@ class ProjectButtonColors {
   final Color disabledForeground;
   final Color disabledBorder;
 
-  const ProjectButtonColors({
+  const VesselButtonColors({
     required this.background,
     required this.foreground,
     required this.border,
@@ -23,7 +23,7 @@ class ProjectButtonColors {
   });
 }
 
-class ProjectButtonStyleResolver {
+class VesselButtonStyleResolver {
   static const _smallMinHeight = 32.0;
   static const _mediumMinHeight = 44.0;
   static const _largeMinHeight = 56.0;
@@ -41,38 +41,38 @@ class ProjectButtonStyleResolver {
   static const _mediumIconOnlyPadding = 8.0;
   static const _largeIconOnlyPadding = 10.0;
 
-  static double getIconOnlySize(ButtonSize size) {
+  static double getIconOnlySize(VesselButtonSize size) {
     switch (size) {
-      case ButtonSize.small:
+      case VesselButtonSize.small:
         return 20.0;
-      case ButtonSize.medium:
+      case VesselButtonSize.medium:
         return 28.0;
-      case ButtonSize.large:
+      case VesselButtonSize.large:
         return 32.0;
     }
   }
 
-  static double getIconWithTextSize(ButtonSize size) {
+  static double getIconWithTextSize(VesselButtonSize size) {
     switch (size) {
-      case ButtonSize.small:
+      case VesselButtonSize.small:
         return 18.0;
-      case ButtonSize.medium:
+      case VesselButtonSize.medium:
         return 24.0;
-      case ButtonSize.large:
+      case VesselButtonSize.large:
         return 28.0;
     }
   }
 
   static ButtonStyle style({
     required BuildContext context,
-    required ProjectButtonColors colors,
+    required VesselButtonColors colors,
     required bool iconOnly,
     bool hasIconAndText = false,
-    ButtonSize size = ButtonSize.medium,
+    VesselButtonSize size = VesselButtonSize.medium,
     bool condensed = false,
     ButtonVariant variant = ButtonVariant.base,
   }) {
-    final theme = AppThemes.of(context);
+    final theme = VesselThemes.of(context);
 
     double minHeight;
     double hPadding;
@@ -81,25 +81,25 @@ class ProjectButtonStyleResolver {
     final double borderWidth;
 
     switch (size) {
-      case ButtonSize.small:
+      case VesselButtonSize.small:
         minHeight = _smallMinHeight;
         hPadding = _smallHPadding;
         iconOnlyPadding = _smallIconOnlyPadding;
-        textStyle = AppFontStyles.textButtonSmall;
+        textStyle = VesselFonts.textButtonSmall;
         borderWidth = theme.buttonBorderWidth;
         break;
-      case ButtonSize.medium:
+      case VesselButtonSize.medium:
         minHeight = _mediumMinHeight;
         hPadding = _mediumHPadding;
         iconOnlyPadding = _mediumIconOnlyPadding;
-        textStyle = AppFontStyles.textButton;
+        textStyle = VesselFonts.textButton;
         borderWidth = theme.buttonBorderWidth;
         break;
-      case ButtonSize.large:
+      case VesselButtonSize.large:
         minHeight = _largeMinHeight;
         hPadding = _largeHPadding;
         iconOnlyPadding = _largeIconOnlyPadding;
-        textStyle = AppFontStyles.textButtonLarge;
+        textStyle = VesselFonts.textButtonLarge;
         borderWidth = theme.buttonBorderWidth * 2;
         break;
     }
@@ -123,7 +123,7 @@ class ProjectButtonStyleResolver {
         ? Size(minHeight, minHeight)
         : Size(0, minHeight);
 
-    final themeData = AppThemes.of(context);
+    final themeData = VesselThemes.of(context);
     final borderRadius = BorderRadius.circular(themeData.buttonBorderRadius);
 
     return OutlinedButton.styleFrom(
@@ -151,16 +151,16 @@ class ProjectButtonStyleResolver {
     );
   }
 
-  static ProjectButtonColors resolveColors(
+  static VesselButtonColors resolveColors(
     BuildContext context, {
     required AppTheme theme,
     required ButtonVariant variant,
   }) {
-    final themeData = AppThemes.getThemeData(theme);
+    final themeData = VesselThemes.getThemeData(theme);
 
     switch (variant) {
       case ButtonVariant.base:
-        return ProjectButtonColors(
+        return VesselButtonColors(
           background: themeData.controlBackground,
           foreground: themeData.controlForeground,
           border: themeData.controlBorder,
@@ -169,7 +169,7 @@ class ProjectButtonStyleResolver {
           disabledBorder: themeData.controlBorder.withValues(alpha: themeData.disabledOpacity),
         );
       case ButtonVariant.accent:
-        return ProjectButtonColors(
+        return VesselButtonColors(
           background: themeData.controlAccentBackground,
           foreground: themeData.controlAccentForeground,
           border: themeData.controlAccentBackground,
@@ -178,7 +178,7 @@ class ProjectButtonStyleResolver {
           disabledBorder: themeData.controlAccentBackground.withValues(alpha: themeData.disabledOpacity),
         );
       case ButtonVariant.danger:
-        return ProjectButtonColors(
+        return VesselButtonColors(
           background: themeData.controlDangerBackground,
           foreground: themeData.controlDangerForeground,
           border: themeData.controlDangerBackground,
@@ -187,7 +187,7 @@ class ProjectButtonStyleResolver {
           disabledBorder: themeData.controlDangerBackground.withValues(alpha: themeData.disabledOpacity),
         );
       case ButtonVariant.text:
-        return ProjectButtonColors(
+        return VesselButtonColors(
           background: Colors.transparent,
           foreground: themeData.textPrimary,
           border: Colors.transparent,
@@ -196,7 +196,7 @@ class ProjectButtonStyleResolver {
           disabledBorder: Colors.transparent,
         );
       case ButtonVariant.textAccent:
-        return ProjectButtonColors(
+        return VesselButtonColors(
           background: Colors.transparent,
           foreground: themeData.controlAccentBackground,
           border: Colors.transparent,
@@ -205,7 +205,7 @@ class ProjectButtonStyleResolver {
           disabledBorder: Colors.transparent,
         );
       case ButtonVariant.textDanger:
-        return ProjectButtonColors(
+        return VesselButtonColors(
           background: Colors.transparent,
           foreground: themeData.controlDangerBackground,
           border: Colors.transparent,
