@@ -7,7 +7,7 @@ const _prefKey = 'app_theme';
 
 /// Theme selection provider.
 final themeProvider = StateProvider<AppTheme>((ref) {
-  return AppTheme.candidate05;
+  return AppTheme.theme01;
 });
 
 /// Load theme from SharedPreferences.
@@ -17,7 +17,7 @@ Future<AppTheme> loadAppTheme() async {
   if (value != null) {
     return AppThemeExtension.fromString(value);
   }
-  return AppTheme.candidate05;
+  return AppTheme.theme01;
 }
 
 /// Save theme to SharedPreferences.

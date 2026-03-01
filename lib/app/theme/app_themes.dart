@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../l10n/app_localizations.dart';
-import 'themes/candidate01_theme.dart';
-import 'themes/candidate02_theme.dart';
-import 'themes/candidate05_theme.dart';
-import 'themes/candidate07_theme.dart';
-import 'themes/candidate08_theme.dart';
+import 'themes/theme01_theme.dart';
+import 'themes/theme02_theme.dart';
+import 'themes/theme03_theme.dart';
+import 'themes/theme04_theme.dart';
+import 'themes/theme05_theme.dart';
 import 'app_font_styles.dart';
 
-export 'themes/candidate01_theme.dart';
-export 'themes/candidate02_theme.dart';
-export 'themes/candidate05_theme.dart';
-export 'themes/candidate07_theme.dart';
-export 'themes/candidate08_theme.dart';
+export 'themes/theme01_theme.dart';
+export 'themes/theme02_theme.dart';
+export 'themes/theme03_theme.dart';
+export 'themes/theme04_theme.dart';
+export 'themes/theme05_theme.dart';
 export 'app_font_styles.dart';
 
 // ============================================================================
@@ -21,11 +21,11 @@ export 'app_font_styles.dart';
 // ============================================================================
 
 enum AppTheme {
-  candidate05,
-  candidate07,
-  candidate08,
-  candidate01,
-  candidate02,
+  theme01,
+  theme02,
+  theme03,
+  theme04,
+  theme05,
 }
 
 // ============================================================================
@@ -450,33 +450,33 @@ class AppThemeData {
 extension AppThemeExtension on AppTheme {
   String getDisplayName(AppLocalizations l10n) {
     switch (this) {
-      case AppTheme.candidate05:
-        return l10n.theme_candidate05;
-      case AppTheme.candidate07:
-        return l10n.theme_candidate07;
-      case AppTheme.candidate08:
-        return l10n.theme_candidate08;
-      case AppTheme.candidate01:
-        return l10n.theme_candidate01;
-      case AppTheme.candidate02:
-        return l10n.theme_candidate02;
+      case AppTheme.theme01:
+        return l10n.theme_01;
+      case AppTheme.theme02:
+        return l10n.theme_02;
+      case AppTheme.theme03:
+        return l10n.theme_03;
+      case AppTheme.theme04:
+        return l10n.theme_04;
+      case AppTheme.theme05:
+        return l10n.theme_05;
     }
   }
 
   static AppTheme fromString(String value) {
     switch (value) {
-      case 'candidate05':
-        return AppTheme.candidate05;
-      case 'candidate07':
-        return AppTheme.candidate07;
-      case 'candidate08':
-        return AppTheme.candidate08;
-      case 'candidate01':
-        return AppTheme.candidate01;
-      case 'candidate02':
-        return AppTheme.candidate02;
+      case 'theme01':
+        return AppTheme.theme01;
+      case 'theme02':
+        return AppTheme.theme02;
+      case 'theme03':
+        return AppTheme.theme03;
+      case 'theme04':
+        return AppTheme.theme04;
+      case 'theme05':
+        return AppTheme.theme05;
       default:
-        return AppTheme.candidate05;
+        return AppTheme.theme01;
     }
   }
 }
@@ -529,16 +529,16 @@ class AppThemes {
 
   static AppThemeData getThemeData(AppTheme theme) {
     switch (theme) {
-      case AppTheme.candidate05:
-        return candidate05Theme;
-      case AppTheme.candidate07:
-        return candidate07Theme;
-      case AppTheme.candidate08:
-        return candidate08Theme;
-      case AppTheme.candidate01:
-        return candidate01Theme;
-      case AppTheme.candidate02:
-        return candidate02Theme;
+      case AppTheme.theme01:
+        return theme01Theme;
+      case AppTheme.theme02:
+        return theme02Theme;
+      case AppTheme.theme03:
+        return theme03Theme;
+      case AppTheme.theme04:
+        return theme04Theme;
+      case AppTheme.theme05:
+        return theme05Theme;
     }
   }
 

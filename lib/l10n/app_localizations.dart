@@ -682,35 +682,35 @@ abstract class AppLocalizations {
   /// **'Theme'**
   String get settingsTheme;
 
-  /// No description provided for @theme_candidate05.
+  /// No description provided for @theme_01.
   ///
   /// In en, this message translates to:
   /// **'Clean'**
-  String get theme_candidate05;
+  String get theme_01;
 
-  /// No description provided for @theme_candidate07.
-  ///
-  /// In en, this message translates to:
-  /// **'Warm'**
-  String get theme_candidate07;
-
-  /// No description provided for @theme_candidate08.
-  ///
-  /// In en, this message translates to:
-  /// **'Dark'**
-  String get theme_candidate08;
-
-  /// No description provided for @theme_candidate01.
-  ///
-  /// In en, this message translates to:
-  /// **'Newspaper'**
-  String get theme_candidate01;
-
-  /// No description provided for @theme_candidate02.
+  /// No description provided for @theme_02.
   ///
   /// In en, this message translates to:
   /// **'Ocean'**
-  String get theme_candidate02;
+  String get theme_02;
+
+  /// No description provided for @theme_03.
+  ///
+  /// In en, this message translates to:
+  /// **'Newspaper'**
+  String get theme_03;
+
+  /// No description provided for @theme_04.
+  ///
+  /// In en, this message translates to:
+  /// **'Warm'**
+  String get theme_04;
+
+  /// No description provided for @theme_05.
+  ///
+  /// In en, this message translates to:
+  /// **'Dark'**
+  String get theme_05;
 
   /// No description provided for @lang_english.
   ///
