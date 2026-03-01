@@ -1,11 +1,11 @@
 import '../../../entities/card/vocab_card.dart';
-import '../../../entities/group/vocab_group_model.dart';
+import '../../../entities/deck/vocab_deck_model.dart';
 import '../../../entities/language/lang_entry.dart';
 import '../../../entities/language/language_pack.dart';
 
-/// Generates VocabCards by joining a group's concepts with target + native translations.
+/// Generates VocabCards by joining a deck's concepts with target + native translations.
 class CardGenerationService {
-  /// Build a list of VocabCards for a vocabulary group.
+  /// Build a list of VocabCards for a vocabulary deck.
   ///
   /// One VocabCard per concept. Entry type determines card subtype:
   ///   [AspectPairEntry] → [PairVocabCard] (two-input write quiz)
@@ -13,13 +13,13 @@ class CardGenerationService {
   ///
   /// Skips concepts missing from either pack.
   List<VocabCard> buildCards({
-    required VocabGroupModel group,
+    required VocabDeckModel deck,
     required LanguagePack targetPack,
     required LanguagePack nativePack,
   }) {
     final cards = <VocabCard>[];
 
-    for (final conceptId in group.conceptIds) {
+    for (final conceptId in deck.conceptIds) {
       final targetEntry = targetPack.translations[conceptId];
       final nativeEntry = nativePack.translations[conceptId];
       if (targetEntry == null || nativeEntry == null) continue;

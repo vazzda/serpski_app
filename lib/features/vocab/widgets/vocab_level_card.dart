@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
 import '../../../app/theme/vessel_themes.dart';
-import '../../../entities/group/vocab_group_model.dart';
+import '../../../entities/deck/vocab_deck_model.dart';
 import '../../../entities/plan/level_tier.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../../shared/ui/card/vessel_card.dart';
 import '../../../shared/ui/progress_bar/vessel_progress_bar.dart';
-import 'vocab_group_tile.dart';
+import 'vocab_deck_tile.dart';
 import '../../../app/layout/vessel_layout.dart';
 import 'vocab_level_stats_row.dart';
-import 'vocab_tile_data.dart';
+import 'vocab_deck_tile_data.dart';
 
 class VocabLevelCard extends StatelessWidget {
   const VocabLevelCard({
@@ -18,14 +18,14 @@ class VocabLevelCard extends StatelessWidget {
     required this.l10n,
     required this.isExpanded,
     required this.onToggle,
-    required this.onGroupTap,
+    required this.onDeckTap,
   });
 
   final VocabLevelData item;
   final AppLocalizations l10n;
   final bool isExpanded;
   final VoidCallback onToggle;
-  final void Function(VocabGroupModel group, int cardCount) onGroupTap;
+  final void Function(VocabDeckModel deck, int cardCount) onDeckTap;
 
   @override
   Widget build(BuildContext context) {
@@ -117,13 +117,13 @@ class VocabLevelCard extends StatelessWidget {
                 return Wrap(
                   spacing: VesselLayout.vocabTileGap,
                   runSpacing: VesselLayout.vocabTileGap,
-                  children: item.groups
+                  children: item.decks
                       .map(
-                        (g) => VocabGroupTile(
+                        (g) => VocabDeckTile(
                           item: g,
                           l10n: l10n,
                           width: tileWidth,
-                          onTap: () => onGroupTap(g.group, g.cardCount),
+                          onTap: () => onDeckTap(g.deck, g.cardCount),
                         ),
                       )
                       .toList(),

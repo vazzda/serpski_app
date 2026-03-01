@@ -10,7 +10,7 @@ import '../../pages/result_screen.dart';
 import '../../pages/session_screen.dart';
 import '../../pages/settings_screen.dart';
 import '../../pages/tools_screen.dart';
-import '../../pages/vocab_group_list_screen.dart';
+import '../../pages/vocab_deck_list_screen.dart';
 import '../theme/vessel_themes.dart';
 
 /// Route names/paths.
@@ -74,7 +74,7 @@ GoRouter createAppRouter() {
       GoRoute(
         path: AppRoutes.home,
         pageBuilder: (context, state) => _noTransitionPage(
-          const VocabGroupListScreen(),
+          const VocabDeckListScreen(),
           state,
         ),
       ),

@@ -5,7 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../entities/card/card_model.dart';
 import '../../entities/card/vocab_card.dart';
 import '../../entities/group/group_model.dart';
-import '../../entities/group/vocab_group_model.dart';
+import '../../entities/deck/vocab_deck_model.dart';
 import '../../entities/language/language_pack.dart';
 import 'agreement_session_builder.dart';
 import 'quiz_mode.dart';
@@ -39,7 +39,7 @@ class SessionNotifier extends StateNotifier<SessionState?> {
 
   /// Start a vocabulary session from the new dictionary system.
   void startVocab({
-    required VocabGroupModel group,
+    required VocabDeckModel deck,
     required LanguagePack targetPack,
     required LanguagePack nativePack,
     required QuizMode mode,
@@ -49,7 +49,7 @@ class SessionNotifier extends StateNotifier<SessionState?> {
   }) {
     final service = CardGenerationService();
     final allCards = service.buildCards(
-      group: group,
+      deck: deck,
       targetPack: targetPack,
       nativePack: nativePack,
     );
@@ -62,11 +62,11 @@ class SessionNotifier extends StateNotifier<SessionState?> {
     final wordIds = selected.map((i) => allCards[i].wordId).toSet();
 
     final resolvedName =
-        nativePack.groupMeta[group.id]?.name ?? group.id;
+        nativePack.deckMeta[deck.id]?.name ?? deck.id;
 
     state = SessionState(
-      groupId: group.id,
-      groupName: resolvedName,
+      deckId: deck.id,
+      deckName: resolvedName,
       mode: mode,
       requestedCount: questionCount,
       sessionType: SessionType.vocabulary,
@@ -91,7 +91,7 @@ class SessionNotifier extends StateNotifier<SessionState?> {
         ? SessionType.conjugations
         : SessionType.vocabulary;
     state = SessionState(
-      groupId: group.id,
+      deckId: group.id,
       mode: mode,
       requestedCount: questionCount,
       sessionType: sessionType,
@@ -120,7 +120,7 @@ class SessionNotifier extends StateNotifier<SessionState?> {
       random: Random(),
     );
     state = SessionState(
-      groupId: 'agreement:${adjectiveGroup.id}',
+      deckId: 'agreement:${adjectiveGroup.id}',
       mode: mode,
       requestedCount: questionCount,
       sessionType: SessionType.agreement,
@@ -165,11 +165,11 @@ class SessionNotifier extends StateNotifier<SessionState?> {
     final queue = selected.map((i) => allCards[i]).toList();
     final wordIds = selected.map((i) {
       final c = allCards[i];
-      return c is VocabCard ? c.wordId : '${state!.groupId}:${c.targetText}';
+      return c is VocabCard ? c.wordId : '${state!.deckId}:${c.targetText}';
     }).toSet();
     state = SessionState(
-      groupId: state!.groupId,
-      groupName: state!.groupName,
+      deckId: state!.deckId,
+      deckName: state!.deckName,
       mode: state!.mode,
       requestedCount: state!.requestedCount,
       sessionType: state!.sessionType,

@@ -5,11 +5,11 @@ import 'package:go_router/go_router.dart';
 import '../l10n/app_localizations.dart';
 import '../app/providers/app_settings_provider.dart';
 import '../app/providers/dictionary_provider.dart';
-import '../app/providers/group_progress_provider.dart';
+import '../app/providers/deck_progress_provider.dart';
 import '../app/providers/groups_provider.dart';
 import '../app/providers/plan_provider.dart';
 import '../app/router/app_router.dart';
-import '../entities/group/vocab_group_model.dart';
+import '../entities/deck/vocab_deck_model.dart';
 import '../entities/language/dictionary.dart';
 import '../entities/language/lang_entry.dart';
 import '../entities/language/language_pack.dart';
@@ -19,23 +19,23 @@ import '../features/vocab/services/level_fold_notifier.dart';
 import '../features/vocab/widgets/vocab_daily_activity_card.dart';
 import '../app/layout/vessel_layout.dart';
 import '../features/vocab/widgets/vocab_level_card.dart';
-import '../features/vocab/widgets/vocab_tile_data.dart';
-import '../shared/repositories/models/group_progress.dart';
+import '../features/vocab/widgets/vocab_deck_tile_data.dart';
+import '../shared/repositories/models/deck_progress.dart';
 import '../shared/repositories/models/retention_level.dart';
 import '../app/providers/daily_activity_provider.dart';
 import '../shared/ui/bottom_sheet/quiz_bottom_sheets.dart';
 import '../shared/ui/screen_layout/vessel_scaffold.dart';
 import 'package:srpski_card/shared/lib/progress_calculator.dart';
 
-class VocabGroupListScreen extends ConsumerStatefulWidget {
-  const VocabGroupListScreen({super.key});
+class VocabDeckListScreen extends ConsumerStatefulWidget {
+  const VocabDeckListScreen({super.key});
 
   @override
-  ConsumerState<VocabGroupListScreen> createState() =>
-      _VocabGroupListScreenState();
+  ConsumerState<VocabDeckListScreen> createState() =>
+      _VocabDeckListScreenState();
 }
 
-class _VocabGroupListScreenState extends ConsumerState<VocabGroupListScreen> {
+class _VocabDeckListScreenState extends ConsumerState<VocabDeckListScreen> {
   final _scrollController = ScrollController();
   double? _pendingScrollOffset;
   bool _scrollRestored = false;
@@ -76,7 +76,7 @@ class _VocabGroupListScreenState extends ConsumerState<VocabGroupListScreen> {
     final asyncDict = ref.watch(dictionaryProvider);
     final asyncTarget = ref.watch(targetPackProvider);
     final asyncNative = ref.watch(nativePackProvider);
-    final allProgress = ref.watch(groupProgressProvider);
+    final allProgress = ref.watch(deckProgressProvider);
     final settings = ref.watch(appSettingsProvider);
     final asyncStats = ref.watch(dailyActivityProvider);
     final levelTiers = ref.watch(levelTiersProvider).valueOrNull ?? {};
@@ -153,9 +153,9 @@ class _VocabGroupListScreenState extends ConsumerState<VocabGroupListScreen> {
               onToggle: () => ref
                   .read(levelFoldOverridesProvider.notifier)
                   .toggle(levelId, currentlyExpanded: isExpanded),
-              onGroupTap: (group, cardCount) => _onGroupTap(
+              onDeckTap: (deck, cardCount) => _onDeckTap(
                 context,
-                group,
+                deck,
                 dictionary,
                 targetPack,
                 nativePack,
@@ -173,11 +173,11 @@ class _VocabGroupListScreenState extends ConsumerState<VocabGroupListScreen> {
     required Dictionary dictionary,
     required LanguagePack nativePack,
     required LanguagePack targetPack,
-    required Map<String, GroupProgress> allProgress,
+    required Map<String, DeckProgress> allProgress,
     required Map<String, LevelTier> levelTiers,
     required dynamic settings,
   }) {
-    final groupsById = dictionary.groupsById;
+    final decksById = dictionary.decksById;
     final result = <VocabLevelData>[];
 
     for (final level in dictionary.levels) {
@@ -185,14 +185,14 @@ class _VocabGroupListScreenState extends ConsumerState<VocabGroupListScreen> {
       final levelName = nativePack.levelMeta[level.id]?.name ?? level.id;
       final levelDesc = nativePack.levelMeta[level.id]?.description;
 
-      final groups = <VocabGroupTileData>[];
-      for (final groupId in level.groupIds) {
-        final group = groupsById[groupId];
-        if (group == null) continue;
+      final decks = <VocabDeckTileData>[];
+      for (final deckId in level.deckIds) {
+        final deck = decksById[deckId];
+        if (deck == null) continue;
 
-        final cardCount = _countCards(group, targetPack, nativePack);
-        final progress = allProgress[groupId];
-        final groupName = nativePack.groupMeta[groupId]?.name ?? group.id;
+        final cardCount = _countCards(deck, targetPack, nativePack);
+        final progress = allProgress[deckId];
+        final deckName = nativePack.deckMeta[deckId]?.name ?? deck.id;
         final retention = progress != null
             ? ProgressCalculator.calculateRetention(
                 progress,
@@ -204,7 +204,7 @@ class _VocabGroupListScreenState extends ConsumerState<VocabGroupListScreen> {
             ? progress.totalProgress.round()
             : null;
         final words = <String>[];
-        for (final cid in group.conceptIds) {
+        for (final cid in deck.conceptIds) {
           final entry = targetPack.translations[cid];
           if (entry == null) continue;
           if (entry is SimpleEntry) {
@@ -216,11 +216,11 @@ class _VocabGroupListScreenState extends ConsumerState<VocabGroupListScreen> {
           }
         }
 
-        groups.add(
-          VocabGroupTileData(
-            group: group,
-            name: groupName,
-            icon: group.icon,
+        decks.add(
+          VocabDeckTileData(
+            deck: deck,
+            name: deckName,
+            icon: deck.icon,
             cardCount: cardCount,
             words: words,
             percentage: percentage,
@@ -230,10 +230,10 @@ class _VocabGroupListScreenState extends ConsumerState<VocabGroupListScreen> {
         );
       }
 
-      final levelProgress = _computeLevelProgress(groups);
-      final latestDate = _computeLatestDate(groups);
+      final levelProgress = _computeLevelProgress(decks);
+      final latestDate = _computeLatestDate(decks);
       final strengthLevel = _computeStrengthLevel(
-        groups,
+        decks,
         levelProgress,
         settings,
       );
@@ -245,10 +245,10 @@ class _VocabGroupListScreenState extends ConsumerState<VocabGroupListScreen> {
           description: levelDesc,
           tier: tier,
           levelProgress: levelProgress,
-          groups: groups,
+          decks: decks,
           latestDate: latestDate,
           strengthLevel: strengthLevel,
-          totalCardCount: groups.fold(0, (s, g) => s + g.cardCount),
+          totalCardCount: decks.fold(0, (s, g) => s + g.cardCount),
         ),
       );
     }
@@ -256,18 +256,18 @@ class _VocabGroupListScreenState extends ConsumerState<VocabGroupListScreen> {
     return result;
   }
 
-  double _computeLevelProgress(List<VocabGroupTileData> groups) {
-    if (groups.isEmpty) return 0.0;
-    final total = groups.fold(
+  double _computeLevelProgress(List<VocabDeckTileData> decks) {
+    if (decks.isEmpty) return 0.0;
+    final total = decks.fold(
       0.0,
       (sum, g) => sum + (g.progress?.totalProgress ?? 0.0),
     );
-    return total / groups.length;
+    return total / decks.length;
   }
 
-  DateTime? _computeLatestDate(List<VocabGroupTileData> groups) {
+  DateTime? _computeLatestDate(List<VocabDeckTileData> decks) {
     DateTime? latest;
-    for (final g in groups) {
+    for (final g in decks) {
       final d = g.progress?.lastSessionDate;
       if (d != null && (latest == null || d.isAfter(latest))) {
         latest = d;
@@ -277,11 +277,11 @@ class _VocabGroupListScreenState extends ConsumerState<VocabGroupListScreen> {
   }
 
   RetentionLevel _computeStrengthLevel(
-    List<VocabGroupTileData> groups,
+    List<VocabDeckTileData> decks,
     double levelProgress,
     dynamic settings,
   ) {
-    final withSessions = groups
+    final withSessions = decks
         .where(
           (g) => g.progress != null && g.progress!.recentSessions.isNotEmpty,
         )
@@ -308,12 +308,12 @@ class _VocabGroupListScreenState extends ConsumerState<VocabGroupListScreen> {
   }
 
   int _countCards(
-    VocabGroupModel group,
+    VocabDeckModel deck,
     LanguagePack target,
     LanguagePack native,
   ) {
     int count = 0;
-    for (final cid in group.conceptIds) {
+    for (final cid in deck.conceptIds) {
       if (target.translations.containsKey(cid) &&
           native.translations.containsKey(cid)) {
         count++;
@@ -322,9 +322,9 @@ class _VocabGroupListScreenState extends ConsumerState<VocabGroupListScreen> {
     return count;
   }
 
-  Future<void> _onGroupTap(
+  Future<void> _onDeckTap(
     BuildContext context,
-    VocabGroupModel group,
+    VocabDeckModel deck,
     Dictionary dictionary,
     LanguagePack targetPack,
     LanguagePack nativePack,
@@ -350,7 +350,7 @@ class _VocabGroupListScreenState extends ConsumerState<VocabGroupListScreen> {
     ref
         .read(sessionProvider.notifier)
         .startVocab(
-          group: group,
+          deck: deck,
           targetPack: targetPack,
           nativePack: nativePack,
           mode: selection.mode,

@@ -1,30 +1,30 @@
 import 'package:sqflite/sqflite.dart';
 
 import 'db_schema.dart';
-import 'models/group_progress.dart';
+import 'models/deck_progress.dart';
 import 'models/session_record.dart';
 import '../../features/quiz/quiz_mode.dart';
 
-/// Persists and reads group progress via SQLite, scoped by target language.
-class GroupProgressRepository {
-  GroupProgressRepository({required Database db}) : _db = db;
+/// Persists and reads deck progress via SQLite, scoped by target language.
+class DeckProgressRepository {
+  DeckProgressRepository({required Database db}) : _db = db;
 
   final Database _db;
 
-  /// Returns progress for a group in a target language, or empty progress if none exists.
-  Future<GroupProgress> getProgress(String targetLang, String groupId) async {
+  /// Returns progress for a deck in a target language, or empty progress if none exists.
+  Future<DeckProgress> getProgress(String targetLang, String deckId) async {
     final rows = await _db.query(
-      DbSchema.tableGroupProgress,
-      where: '${DbSchema.colTargetLang} = ? AND ${DbSchema.colGroupId} = ?',
-      whereArgs: [targetLang, groupId],
+      DbSchema.tableDeckProgress,
+      where: '${DbSchema.colTargetLang} = ? AND ${DbSchema.colDeckId} = ?',
+      whereArgs: [targetLang, deckId],
     );
-    final sessions = await _getRecentSessions(targetLang, groupId);
+    final sessions = await _getRecentSessions(targetLang, deckId);
 
-    if (rows.isEmpty) return GroupProgress(groupId: groupId);
+    if (rows.isEmpty) return DeckProgress(deckId: deckId);
 
     final row = rows.first;
-    return GroupProgress(
-      groupId: groupId,
+    return DeckProgress(
+      deckId: deckId,
       targetShownProgress:
           (row[DbSchema.colTargetShownProgress] as num).toDouble(),
       nativeShownProgress:
@@ -38,20 +38,20 @@ class GroupProgressRepository {
     );
   }
 
-  /// Returns all progress for a target language as a map of groupId → GroupProgress.
-  Future<Map<String, GroupProgress>> getAllProgress(String targetLang) async {
+  /// Returns all progress for a target language as a map of deckId → DeckProgress.
+  Future<Map<String, DeckProgress>> getAllProgress(String targetLang) async {
     final rows = await _db.query(
-      DbSchema.tableGroupProgress,
+      DbSchema.tableDeckProgress,
       where: '${DbSchema.colTargetLang} = ?',
       whereArgs: [targetLang],
     );
-    final results = <String, GroupProgress>{};
+    final results = <String, DeckProgress>{};
 
     for (final row in rows) {
-      final groupId = row[DbSchema.colGroupId] as String;
-      final sessions = await _getRecentSessions(targetLang, groupId);
-      results[groupId] = GroupProgress(
-        groupId: groupId,
+      final deckId = row[DbSchema.colDeckId] as String;
+      final sessions = await _getRecentSessions(targetLang, deckId);
+      results[deckId] = DeckProgress(
+        deckId: deckId,
         targetShownProgress:
             (row[DbSchema.colTargetShownProgress] as num).toDouble(),
         nativeShownProgress:
@@ -67,35 +67,35 @@ class GroupProgressRepository {
     return results;
   }
 
-  /// Records a session result and updates progress for a group.
-  Future<GroupProgress> recordSession({
+  /// Records a session result and updates progress for a deck.
+  Future<DeckProgress> recordSession({
     required String targetLang,
-    required String groupId,
+    required String deckId,
     required double score,
     required QuizMode mode,
   }) async {
-    final current = await getProgress(targetLang, groupId);
+    final current = await getProgress(targetLang, deckId);
     final now = DateTime.now();
 
     // Insert session record
     await _db.insert(DbSchema.tableSessionRecords, {
       DbSchema.colTargetLang: targetLang,
-      DbSchema.colGroupId: groupId,
+      DbSchema.colDeckId: deckId,
       DbSchema.colDate: now.toIso8601String(),
       DbSchema.colScore: score,
       DbSchema.colMode: mode.name,
     });
 
-    // Trim to last 3 session records per (target_lang, group)
+    // Trim to last 3 session records per (target_lang, deck)
     await _db.rawDelete('''
       DELETE FROM ${DbSchema.tableSessionRecords}
-      WHERE ${DbSchema.colTargetLang} = ? AND ${DbSchema.colGroupId} = ? AND id NOT IN (
+      WHERE ${DbSchema.colTargetLang} = ? AND ${DbSchema.colDeckId} = ? AND id NOT IN (
         SELECT id FROM ${DbSchema.tableSessionRecords}
-        WHERE ${DbSchema.colTargetLang} = ? AND ${DbSchema.colGroupId} = ?
+        WHERE ${DbSchema.colTargetLang} = ? AND ${DbSchema.colDeckId} = ?
         ORDER BY ${DbSchema.colDate} DESC
         LIMIT 3
       )
-    ''', [targetLang, groupId, targetLang, groupId]);
+    ''', [targetLang, deckId, targetLang, deckId]);
 
     // Calculate progress contribution
     const sessionContribution = 10.0;
@@ -119,12 +119,12 @@ class GroupProgressRepository {
         break;
     }
 
-    // Upsert group_progress
+    // Upsert deck_progress
     await _db.insert(
-      DbSchema.tableGroupProgress,
+      DbSchema.tableDeckProgress,
       {
         DbSchema.colTargetLang: targetLang,
-        DbSchema.colGroupId: groupId,
+        DbSchema.colDeckId: deckId,
         DbSchema.colTargetShownProgress: newTargetShown,
         DbSchema.colNativeShownProgress: newNativeShown,
         DbSchema.colWriteProgress: newWrite,
@@ -134,52 +134,52 @@ class GroupProgressRepository {
       conflictAlgorithm: ConflictAlgorithm.replace,
     );
 
-    return getProgress(targetLang, groupId);
+    return getProgress(targetLang, deckId);
   }
 
-  /// Updates peak retention for a group (call after calculating current retention).
+  /// Updates peak retention for a deck (call after calculating current retention).
   Future<void> updatePeakRetention(
-      String targetLang, String groupId, double currentRetention) async {
-    final current = await getProgress(targetLang, groupId);
+      String targetLang, String deckId, double currentRetention) async {
+    final current = await getProgress(targetLang, deckId);
     if (currentRetention > current.peakRetention) {
       await _db.update(
-        DbSchema.tableGroupProgress,
+        DbSchema.tableDeckProgress,
         {DbSchema.colPeakRetention: currentRetention},
         where:
-            '${DbSchema.colTargetLang} = ? AND ${DbSchema.colGroupId} = ?',
-        whereArgs: [targetLang, groupId],
+            '${DbSchema.colTargetLang} = ? AND ${DbSchema.colDeckId} = ?',
+        whereArgs: [targetLang, deckId],
       );
     }
   }
 
-  /// Returns summed totalProgress per target language across all groups.
-  /// Only includes languages that have at least one group_progress row.
+  /// Returns summed totalProgress per target language across all decks.
+  /// Only includes languages that have at least one deck_progress row.
   Future<Map<String, double>> getSumProgressAllLanguages() async {
-    final rows = await _db.query(DbSchema.tableGroupProgress);
+    final rows = await _db.query(DbSchema.tableDeckProgress);
     final Map<String, double> sumByLang = {};
     for (final row in rows) {
       final lang = row[DbSchema.colTargetLang] as String;
-      final gp = GroupProgress(
-        groupId: row[DbSchema.colGroupId] as String,
+      final dp = DeckProgress(
+        deckId: row[DbSchema.colDeckId] as String,
         targetShownProgress:
             (row[DbSchema.colTargetShownProgress] as num).toDouble(),
         nativeShownProgress:
             (row[DbSchema.colNativeShownProgress] as num).toDouble(),
         writeProgress: (row[DbSchema.colWriteProgress] as num).toDouble(),
       );
-      sumByLang[lang] = (sumByLang[lang] ?? 0.0) + gp.totalProgress;
+      sumByLang[lang] = (sumByLang[lang] ?? 0.0) + dp.totalProgress;
     }
     return sumByLang;
   }
 
-  /// Returns the last 3 session records for a (target_lang, group), newest first.
+  /// Returns the last 3 session records for a (target_lang, deck), newest first.
   Future<List<SessionRecord>> _getRecentSessions(
-      String targetLang, String groupId) async {
+      String targetLang, String deckId) async {
     final rows = await _db.query(
       DbSchema.tableSessionRecords,
       where:
-          '${DbSchema.colTargetLang} = ? AND ${DbSchema.colGroupId} = ?',
-      whereArgs: [targetLang, groupId],
+          '${DbSchema.colTargetLang} = ? AND ${DbSchema.colDeckId} = ?',
+      whereArgs: [targetLang, deckId],
       orderBy: '${DbSchema.colDate} DESC',
       limit: 3,
     );

@@ -94,7 +94,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
       final groupsList = asyncGroups.valueOrNull;
       final lookupId = session.sessionType == SessionType.agreement
           ? session.adjectiveGroupId
-          : session.groupId;
+          : session.deckId;
       if (lookupId != null && groupsList != null) {
         try {
           group = groupsList.firstWhere((g) => g.id == lookupId);
@@ -107,7 +107,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
       }
     }
 
-    final title = session.groupName
+    final title = session.deckName
         ?? (group != null
             ? groupLabel(l10n, group.labelKey)
             : (session.sessionType == SessionType.agreement

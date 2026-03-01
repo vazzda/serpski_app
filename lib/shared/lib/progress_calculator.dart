@@ -1,18 +1,18 @@
 import 'dart:math' as math;
 
 import '../repositories/models/decay_formula.dart';
-import '../repositories/models/group_progress.dart';
+import '../repositories/models/deck_progress.dart';
 import '../repositories/models/retention_level.dart';
 
-/// Calculates retention and progress for groups.
+/// Calculates retention and progress for decks.
 class ProgressCalculator {
   const ProgressCalculator._();
 
-  /// Calculate current retention percentage (0-100) for a group.
+  /// Calculate current retention percentage (0-100) for a deck.
   /// Uses weighted average of recent sessions with time decay.
   /// Retention cannot drop below floor (half of peak retention).
   static double calculateRetention(
-    GroupProgress progress,
+    DeckProgress progress,
     DecayFormula formula,
   ) {
     if (progress.recentSessions.isEmpty) {
@@ -73,7 +73,7 @@ class ProgressCalculator {
   }
 
   /// Calculate if peak retention should be updated.
-  static bool shouldUpdatePeak(GroupProgress progress, double currentRetention) {
+  static bool shouldUpdatePeak(DeckProgress progress, double currentRetention) {
     return currentRetention > progress.peakRetention;
   }
 }

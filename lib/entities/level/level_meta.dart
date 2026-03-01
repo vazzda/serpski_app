@@ -13,15 +13,15 @@ class LevelMeta {
   }
 }
 
-/// Localized display metadata for a vocabulary group, sourced from the native language pack.
-class GroupMeta {
-  const GroupMeta({required this.name, this.description});
+/// Localized display metadata for a vocabulary deck, sourced from the native language pack.
+class DeckMeta {
+  const DeckMeta({required this.name, this.description});
 
   final String name;
   final String? description;
 
-  factory GroupMeta.fromJson(Map<String, dynamic> json) {
-    return GroupMeta(
+  factory DeckMeta.fromJson(Map<String, dynamic> json) {
+    return DeckMeta(
       name: json['name'] as String,
       description: json['description'] as String?,
     );

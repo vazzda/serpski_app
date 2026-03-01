@@ -4,7 +4,7 @@ import '../level/level_meta.dart';
 /// A loaded language translation pack with completeness info.
 ///
 /// Contains all translations for a single language, plus localized metadata
-/// for levels and groups (used for display names and descriptions).
+/// for levels and decks (used for display names and descriptions).
 class LanguagePack {
   const LanguagePack({
     required this.code,
@@ -13,7 +13,7 @@ class LanguagePack {
     required this.translations,
     required this.totalConcepts,
     this.levelMeta = const {},
-    this.groupMeta = const {},
+    this.deckMeta = const {},
   });
 
   /// ISO-ish language code: "en", "sr", "ru".
@@ -34,8 +34,8 @@ class LanguagePack {
   /// Level ID → localized display metadata (name, description).
   final Map<String, LevelMeta> levelMeta;
 
-  /// Group ID → localized display metadata (name, description).
-  final Map<String, GroupMeta> groupMeta;
+  /// Deck ID → localized display metadata (name, description).
+  final Map<String, DeckMeta> deckMeta;
 
   /// How many concepts have at least one translation in this pack.
   int get translatedCount => translations.length;

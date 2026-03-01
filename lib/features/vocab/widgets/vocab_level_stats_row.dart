@@ -6,7 +6,7 @@ import '../../../shared/ui/buttons/vessel_buttons.dart';
 import '../../../pages/group_list_screen.dart'
     show retentionColor, retentionLabel, formatRelativeDate;
 import '../../../app/layout/vessel_layout.dart';
-import 'vocab_tile_data.dart';
+import 'vocab_deck_tile_data.dart';
 
 class VocabLevelStatsRow extends StatelessWidget {
   const VocabLevelStatsRow({

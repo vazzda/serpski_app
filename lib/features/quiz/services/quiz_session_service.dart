@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../app/providers/app_settings_provider.dart';
 import '../../../app/providers/daily_activity_provider.dart';
-import '../../../app/providers/group_progress_provider.dart';
+import '../../../app/providers/deck_progress_provider.dart';
 import '../../../app/providers/groups_provider.dart';
 import '../../../app/providers/language_settings_provider.dart';
 import '../../../app/providers/language_stats_provider.dart';
@@ -40,8 +40,8 @@ class QuizSessionService {
       final total = session.correctCount + session.wrongCount;
       final score = total > 0 ? (session.correctCount * 100.0 / total) : 0.0;
 
-      await _ref.read(groupProgressProvider.notifier).recordSession(
-            groupId: session.groupId,
+      await _ref.read(deckProgressProvider.notifier).recordSession(
+            deckId: session.deckId,
             score: score,
             mode: session.mode,
           );
@@ -49,13 +49,13 @@ class QuizSessionService {
       // Update peak retention if needed
       final settings = _ref.read(appSettingsProvider);
       final progress =
-          _ref.read(groupProgressProvider.notifier).getProgress(session.groupId);
+          _ref.read(deckProgressProvider.notifier).getProgress(session.deckId);
       final retention =
           ProgressCalculator.calculateRetention(progress, settings.decayFormula);
       if (ProgressCalculator.shouldUpdatePeak(progress, retention)) {
         await _ref
-            .read(groupProgressProvider.notifier)
-            .updatePeakRetention(session.groupId, retention);
+            .read(deckProgressProvider.notifier)
+            .updatePeakRetention(session.deckId, retention);
       }
 
       // Record concepts touched for vocab sessions (language-level progress)

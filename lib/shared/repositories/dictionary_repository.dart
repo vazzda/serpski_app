@@ -26,7 +26,7 @@ class DictionaryRepository {
     final data = <String, dynamic>{
       'concepts':
           (jsonDecode(conceptsJson) as Map<String, dynamic>)['concepts'],
-      'groups': levelsData['groups'],
+      'decks': levelsData['decks'],
       'levels': levelsData['levels'],
     };
     _cachedDictionary = Dictionary.fromJson(data);
@@ -49,17 +49,17 @@ class DictionaryRepository {
 
     final metaJson = data['meta'] as Map<String, dynamic>?;
     final levelMeta = <String, LevelMeta>{};
-    final groupMeta = <String, GroupMeta>{};
+    final deckMeta = <String, DeckMeta>{};
     if (metaJson != null) {
       final levelsJson =
           metaJson['levels'] as Map<String, dynamic>? ?? const {};
       for (final e in levelsJson.entries) {
         levelMeta[e.key] = LevelMeta.fromJson(e.value as Map<String, dynamic>);
       }
-      final groupsJson =
-          metaJson['groups'] as Map<String, dynamic>? ?? const {};
-      for (final e in groupsJson.entries) {
-        groupMeta[e.key] = GroupMeta.fromJson(e.value as Map<String, dynamic>);
+      final decksJson =
+          metaJson['decks'] as Map<String, dynamic>? ?? const {};
+      for (final e in decksJson.entries) {
+        deckMeta[e.key] = DeckMeta.fromJson(e.value as Map<String, dynamic>);
       }
     }
 
@@ -77,7 +77,7 @@ class DictionaryRepository {
       translations: translations,
       totalConcepts: dictionary.concepts.length,
       levelMeta: levelMeta,
-      groupMeta: groupMeta,
+      deckMeta: deckMeta,
     );
 
     _cachedPacks[langCode] = pack;

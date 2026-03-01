@@ -16,14 +16,14 @@ class MissedEntry {
 /// State of an active or finished quiz session.
 class SessionState {
   const SessionState({
-    required this.groupId,
+    required this.deckId,
     required this.mode,
     required this.requestedCount,
     required this.sessionType,
     required this.originRoute,
     this.originScrollOffset = 0.0,
     this.adjectiveGroupId,
-    this.groupName,
+    this.deckName,
     this.queue = const [],
     this.allCards,
     this.correctCount = 0,
@@ -32,7 +32,7 @@ class SessionState {
     this.sessionWordIds = const {},
   });
 
-  final String groupId;
+  final String deckId;
   final QuizMode mode;
   final int requestedCount;
   final SessionType sessionType;
@@ -42,8 +42,8 @@ class SessionState {
   final double originScrollOffset;
   /// For agreement sessions: the adjective group id (without "agreement:" prefix).
   final String? adjectiveGroupId;
-  /// Resolved group name for session title display (from meta system).
-  final String? groupName;
+  /// Resolved deck name for session title display (from meta system).
+  final String? deckName;
 
   /// Remaining cards to answer (front = current). Wrong answers are moved to end.
   final List<CardModel> queue;
@@ -73,14 +73,14 @@ class SessionState {
     Set<String>? sessionWordIds,
   }) {
     return SessionState(
-      groupId: groupId,
+      deckId: deckId,
       mode: mode,
       requestedCount: requestedCount,
       sessionType: sessionType,
       originRoute: originRoute,
       originScrollOffset: originScrollOffset,
       adjectiveGroupId: adjectiveGroupId,
-      groupName: groupName,
+      deckName: deckName,
       queue: queue ?? this.queue,
       allCards: allCards,
       correctCount: correctCount ?? this.correctCount,

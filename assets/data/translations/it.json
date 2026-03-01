@@ -4018,7 +4018,7 @@
       "advanced": { "name": "Avanzato" },
       "specialized": { "name": "Specializzato" }
     },
-    "groups": {
+    "decks": {
       "first_contact": { "name": "Primo contatto" },
       "getting_around": { "name": "Orientamento" },
       "staying_alive": { "name": "Sopravvivenza" },

@@ -6,14 +6,14 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 import 'shared/validators/startup_validator.dart';
 import 'shared/repositories/daily_activity_repository.dart';
-import 'shared/repositories/group_progress_repository.dart';
+import 'shared/repositories/deck_progress_repository.dart';
 import 'shared/repositories/language_settings_repository.dart';
 import 'shared/repositories/language_stats_repository.dart';
 import 'shared/repositories/app_settings_repository.dart';
 import 'l10n/app_localizations.dart';
 import 'app/providers/database_provider.dart';
 import 'app/providers/daily_activity_provider.dart';
-import 'app/providers/group_progress_provider.dart';
+import 'app/providers/deck_progress_provider.dart';
 import 'app/providers/language_settings_provider.dart';
 import 'app/providers/language_stats_provider.dart';
 import 'app/providers/app_settings_provider.dart';
@@ -36,8 +36,8 @@ Future<void> main() async {
         dailyActivityRepositoryProvider.overrideWith(
           (ref) => DailyActivityRepository(db: db),
         ),
-        groupProgressRepositoryProvider.overrideWith(
-          (ref) => GroupProgressRepository(db: db),
+        deckProgressRepositoryProvider.overrideWith(
+          (ref) => DeckProgressRepository(db: db),
         ),
         languageSettingsRepositoryProvider.overrideWith(
           (ref) => LanguageSettingsRepository(db: db),

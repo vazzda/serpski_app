@@ -1,9 +1,9 @@
 import 'session_record.dart';
 
-/// Progress tracking for a single group, scoped by target language.
-class GroupProgress {
-  const GroupProgress({
-    required this.groupId,
+/// Progress tracking for a single deck, scoped by target language.
+class DeckProgress {
+  const DeckProgress({
+    required this.deckId,
     this.targetShownProgress = 0.0,
     this.nativeShownProgress = 0.0,
     this.writeProgress = 0.0,
@@ -12,7 +12,7 @@ class GroupProgress {
     this.lastSessionDate,
   });
 
-  final String groupId;
+  final String deckId;
 
   /// Progress from targetShown mode (0-100). Contributes max 20% to total.
   final double targetShownProgress;
@@ -51,7 +51,7 @@ class GroupProgress {
   /// Decay floor - retention cannot drop below half of peak.
   double get retentionFloor => peakRetention * 0.5;
 
-  GroupProgress copyWith({
+  DeckProgress copyWith({
     double? targetShownProgress,
     double? nativeShownProgress,
     double? writeProgress,
@@ -59,8 +59,8 @@ class GroupProgress {
     List<SessionRecord>? recentSessions,
     DateTime? lastSessionDate,
   }) {
-    return GroupProgress(
-      groupId: groupId,
+    return DeckProgress(
+      deckId: deckId,
       targetShownProgress: targetShownProgress ?? this.targetShownProgress,
       nativeShownProgress: nativeShownProgress ?? this.nativeShownProgress,
       writeProgress: writeProgress ?? this.writeProgress,
@@ -71,7 +71,7 @@ class GroupProgress {
   }
 
   Map<String, dynamic> toMap() => {
-        'groupId': groupId,
+        'deckId': deckId,
         'targetShownProgress': targetShownProgress,
         'nativeShownProgress': nativeShownProgress,
         'writeProgress': writeProgress,
@@ -80,14 +80,14 @@ class GroupProgress {
         'lastSessionDate': lastSessionDate?.toIso8601String(),
       };
 
-  factory GroupProgress.fromMap(Map<dynamic, dynamic> map) {
+  factory DeckProgress.fromMap(Map<dynamic, dynamic> map) {
     final sessionsList = (map['recentSessions'] as List<dynamic>?)
             ?.map((s) => SessionRecord.fromMap(s as Map<dynamic, dynamic>))
             .toList() ??
         [];
     final lastDateStr = map['lastSessionDate'] as String?;
-    return GroupProgress(
-      groupId: map['groupId'] as String,
+    return DeckProgress(
+      deckId: map['deckId'] as String,
       targetShownProgress:
           (map['targetShownProgress'] as num?)?.toDouble() ?? 0.0,
       nativeShownProgress:

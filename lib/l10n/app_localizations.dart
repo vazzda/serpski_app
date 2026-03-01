@@ -838,11 +838,11 @@ abstract class AppLocalizations {
   /// **'Incomplete dictionaries'**
   String get language_incompleteDictionaries;
 
-  /// No description provided for @language_groupsProgress.
+  /// No description provided for @language_decksProgress.
   ///
   /// In en, this message translates to:
-  /// **'{done}/{total} groups'**
-  String language_groupsProgress(int done, int total);
+  /// **'{done}/{total} decks'**
+  String language_decksProgress(int done, int total);
 
   /// No description provided for @language_wordsTouched.
   ///

@@ -100,7 +100,7 @@ class ResultScreen extends ConsumerWidget {
                       // Legacy tool sessions (conjugations)
                       try {
                         final group = groups.firstWhere(
-                          (g) => g.id == session.groupId,
+                          (g) => g.id == session.deckId,
                         );
                         ref.read(sessionProvider.notifier).start(
                               group: group,

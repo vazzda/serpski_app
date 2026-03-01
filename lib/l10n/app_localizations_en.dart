@@ -411,8 +411,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get language_incompleteDictionaries => 'Incomplete dictionaries';
 
   @override
-  String language_groupsProgress(int done, int total) {
-    return '$done/$total groups';
+  String language_decksProgress(int done, int total) {
+    return '$done/$total decks';
   }
 
   @override

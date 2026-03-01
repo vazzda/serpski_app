@@ -3,7 +3,7 @@
 abstract final class DbSchema {
   // Table names
   static const String tableAppSettings    = 'app_settings';
-  static const String tableGroupProgress  = 'group_progress';
+  static const String tableDeckProgress   = 'deck_progress';
   static const String tableSessionRecords = 'session_records';
   static const String tableDailyActivity  = 'daily_activity';
   static const String tableLanguageStats  = 'language_stats';
@@ -21,7 +21,7 @@ abstract final class DbSchema {
   static const String colLevelFoldOverridesPrefix = 'level_fold_overrides_';
 
   // Shared columns across tables
-  static const String colGroupId = 'group_id';
+  static const String colDeckId  = 'deck_id';
   static const String colDate    = 'date';
   static const String colScore   = 'score';
   static const String colMode    = 'mode';
@@ -31,7 +31,7 @@ abstract final class DbSchema {
   static const String colWrong    = 'wrong';
   static const String colWordIds  = 'word_ids';
 
-  // group_progress columns
+  // deck_progress columns
   static const String colTargetShownProgress = 'target_shown_progress';
   static const String colNativeShownProgress = 'native_shown_progress';
   static const String colWriteProgress       = 'write_progress';

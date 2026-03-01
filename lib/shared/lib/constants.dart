@@ -2,7 +2,7 @@
 class AppConstants {
   // Database
   static const String databaseName = 'srpski_card.db';
-  static const int databaseVersion = 3;
+  static const int databaseVersion = 4;
 
   // Developer section
   static const String keyDevSectionEnabled = 'dev_section_enabled';

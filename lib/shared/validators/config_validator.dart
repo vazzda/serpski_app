@@ -22,7 +22,7 @@ class ConfigValidator {
     required Map<String, Map<String, dynamic>> translationsByCode,
   }) {
     final conceptIds = _validateDictionary(dictionaryData);
-    final (groupIds, levelIds) = _validateLevels(levelsData, conceptIds);
+    final (deckIds, levelIds) = _validateLevels(levelsData, conceptIds);
     _validatePlan(planData, levelIds, translationsByCode.keys.toSet());
     for (final entry in translationsByCode.entries) {
       _validateTranslation(
@@ -30,7 +30,7 @@ class ConfigValidator {
         entry.value,
         conceptIds,
         levelIds,
-        groupIds,
+        deckIds,
         LangGrammarProfiles.of(entry.key),
       );
     }
@@ -87,71 +87,71 @@ class ConfigValidator {
     Map<String, dynamic> data,
     Set<String> conceptIds,
   ) {
-    final groupIds = _validateGroups(data, conceptIds);
-    final levelIds = _validateLevelsList(data, groupIds);
-    return (groupIds, levelIds);
+    final deckIds = _validateDecks(data, conceptIds);
+    final levelIds = _validateLevelsList(data, deckIds);
+    return (deckIds, levelIds);
   }
 
-  static Set<String> _validateGroups(
+  static Set<String> _validateDecks(
     Map<String, dynamic> data,
     Set<String> conceptIds,
   ) {
-    final groupsRaw = data['groups'];
-    if (groupsRaw == null) {
-      throw const ConfigValidationError('levels.json: missing required key "groups"');
+    final decksRaw = data['decks'];
+    if (decksRaw == null) {
+      throw const ConfigValidationError('levels.json: missing required key "decks"');
     }
-    if (groupsRaw is! List<dynamic>) {
-      throw const ConfigValidationError('levels.json: "groups" must be an array');
+    if (decksRaw is! List<dynamic>) {
+      throw const ConfigValidationError('levels.json: "decks" must be an array');
     }
 
-    final groupIds = <String>{};
-    for (int i = 0; i < groupsRaw.length; i++) {
-      final group = groupsRaw[i];
-      if (group is! Map<String, dynamic>) {
-        throw ConfigValidationError('levels.json: groups[$i] must be an object');
+    final deckIds = <String>{};
+    for (int i = 0; i < decksRaw.length; i++) {
+      final deck = decksRaw[i];
+      if (deck is! Map<String, dynamic>) {
+        throw ConfigValidationError('levels.json: decks[$i] must be an object');
       }
-      final id = group['id'];
+      final id = deck['id'];
       if (id == null) {
-        throw ConfigValidationError('levels.json: groups[$i] missing required field "id"');
+        throw ConfigValidationError('levels.json: decks[$i] missing required field "id"');
       }
       if (id is! String) {
-        throw ConfigValidationError('levels.json: groups[$i].id must be a string');
+        throw ConfigValidationError('levels.json: decks[$i].id must be a string');
       }
-      if (groupIds.contains(id)) {
-        throw ConfigValidationError('levels.json: duplicate group id "$id"');
+      if (deckIds.contains(id)) {
+        throw ConfigValidationError('levels.json: duplicate deck id "$id"');
       }
-      final concepts = group['concepts'];
+      final concepts = deck['concepts'];
       if (concepts == null) {
         throw ConfigValidationError(
-          'levels.json: group "$id" missing required field "concepts"',
+          'levels.json: deck "$id" missing required field "concepts"',
         );
       }
       if (concepts is! List<dynamic>) {
         throw ConfigValidationError(
-          'levels.json: group "$id".concepts must be an array',
+          'levels.json: deck "$id".concepts must be an array',
         );
       }
       for (int j = 0; j < concepts.length; j++) {
         final conceptId = concepts[j];
         if (conceptId is! String) {
           throw ConfigValidationError(
-            'levels.json: group "$id".concepts[$j] must be a string',
+            'levels.json: deck "$id".concepts[$j] must be a string',
           );
         }
         if (!conceptIds.contains(conceptId)) {
           throw ConfigValidationError(
-            'levels.json: group "$id".concepts[$j] = "$conceptId" does not exist in dictionary.json',
+            'levels.json: deck "$id".concepts[$j] = "$conceptId" does not exist in dictionary.json',
           );
         }
       }
-      groupIds.add(id);
+      deckIds.add(id);
     }
-    return groupIds;
+    return deckIds;
   }
 
   static Set<String> _validateLevelsList(
     Map<String, dynamic> data,
-    Set<String> groupIds,
+    Set<String> deckIds,
   ) {
     final levelsRaw = data['levels'];
     if (levelsRaw == null) {
@@ -177,25 +177,25 @@ class ConfigValidator {
       if (levelIds.contains(id)) {
         throw ConfigValidationError('levels.json: duplicate level id "$id"');
       }
-      final groups = level['groups'];
-      if (groups == null) {
+      final decks = level['decks'];
+      if (decks == null) {
         throw ConfigValidationError(
-          'levels.json: level "$id" missing required field "groups"',
+          'levels.json: level "$id" missing required field "decks"',
         );
       }
-      if (groups is! List<dynamic>) {
-        throw ConfigValidationError('levels.json: level "$id".groups must be an array');
+      if (decks is! List<dynamic>) {
+        throw ConfigValidationError('levels.json: level "$id".decks must be an array');
       }
-      for (int j = 0; j < groups.length; j++) {
-        final groupId = groups[j];
-        if (groupId is! String) {
+      for (int j = 0; j < decks.length; j++) {
+        final deckId = decks[j];
+        if (deckId is! String) {
           throw ConfigValidationError(
-            'levels.json: level "$id".groups[$j] must be a string',
+            'levels.json: level "$id".decks[$j] must be a string',
           );
         }
-        if (!groupIds.contains(groupId)) {
+        if (!deckIds.contains(deckId)) {
           throw ConfigValidationError(
-            'levels.json: level "$id".groups[$j] = "$groupId" does not exist in groups',
+            'levels.json: level "$id".decks[$j] = "$deckId" does not exist in decks',
           );
         }
       }
@@ -376,7 +376,7 @@ class ConfigValidator {
     Map<String, dynamic> data,
     Set<String> conceptIds,
     Set<String> levelIds,
-    Set<String> groupIds,
+    Set<String> deckIds,
     LanguageGrammarProfile profile,
   ) {
     for (final entry in data.entries) {
@@ -403,14 +403,14 @@ class ConfigValidator {
         'translations/$langCode.json: "meta" must be an object',
       );
     }
-    _validateTranslationMeta(langCode, meta, levelIds, groupIds);
+    _validateTranslationMeta(langCode, meta, levelIds, deckIds);
   }
 
   static void _validateTranslationMeta(
     String langCode,
     Map<String, dynamic> meta,
     Set<String> levelIds,
-    Set<String> groupIds,
+    Set<String> deckIds,
   ) {
     final levelsMetaRaw = meta['levels'];
     if (levelsMetaRaw != null) {
@@ -439,28 +439,28 @@ class ConfigValidator {
       }
     }
 
-    final groupsMetaRaw = meta['groups'];
-    if (groupsMetaRaw != null) {
-      if (groupsMetaRaw is! Map<String, dynamic>) {
+    final decksMetaRaw = meta['decks'];
+    if (decksMetaRaw != null) {
+      if (decksMetaRaw is! Map<String, dynamic>) {
         throw ConfigValidationError(
-          'translations/$langCode.json: meta.groups must be an object',
+          'translations/$langCode.json: meta.decks must be an object',
         );
       }
-      for (final e in groupsMetaRaw.entries) {
-        if (!groupIds.contains(e.key)) {
+      for (final e in decksMetaRaw.entries) {
+        if (!deckIds.contains(e.key)) {
           throw ConfigValidationError(
-            'translations/$langCode.json: meta.groups["${e.key}"] does not exist in levels.json',
+            'translations/$langCode.json: meta.decks["${e.key}"] does not exist in levels.json',
           );
         }
         final entry = e.value;
         if (entry is! Map<String, dynamic>) {
           throw ConfigValidationError(
-            'translations/$langCode.json: meta.groups["${e.key}"] must be an object',
+            'translations/$langCode.json: meta.decks["${e.key}"] must be an object',
           );
         }
         if (entry['name'] == null) {
           throw ConfigValidationError(
-            'translations/$langCode.json: meta.groups["${e.key}"] missing required field "name"',
+            'translations/$langCode.json: meta.decks["${e.key}"] missing required field "name"',
           );
         }
       }

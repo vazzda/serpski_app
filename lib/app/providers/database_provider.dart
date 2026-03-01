@@ -50,22 +50,22 @@ class DatabaseProvider {
       )
     ''');
     await db.execute('''
-      CREATE TABLE ${DbSchema.tableGroupProgress} (
+      CREATE TABLE ${DbSchema.tableDeckProgress} (
         ${DbSchema.colTargetLang} TEXT NOT NULL,
-        ${DbSchema.colGroupId} TEXT NOT NULL,
+        ${DbSchema.colDeckId} TEXT NOT NULL,
         ${DbSchema.colTargetShownProgress} REAL NOT NULL DEFAULT 0,
         ${DbSchema.colNativeShownProgress} REAL NOT NULL DEFAULT 0,
         ${DbSchema.colWriteProgress} REAL NOT NULL DEFAULT 0,
         ${DbSchema.colPeakRetention} REAL NOT NULL DEFAULT 0,
         ${DbSchema.colLastSessionDate} TEXT,
-        PRIMARY KEY (${DbSchema.colTargetLang}, ${DbSchema.colGroupId})
+        PRIMARY KEY (${DbSchema.colTargetLang}, ${DbSchema.colDeckId})
       )
     ''');
     await db.execute('''
       CREATE TABLE ${DbSchema.tableSessionRecords} (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         ${DbSchema.colTargetLang} TEXT NOT NULL,
-        ${DbSchema.colGroupId} TEXT NOT NULL,
+        ${DbSchema.colDeckId} TEXT NOT NULL,
         ${DbSchema.colDate} TEXT NOT NULL,
         ${DbSchema.colScore} REAL NOT NULL,
         ${DbSchema.colMode} TEXT NOT NULL

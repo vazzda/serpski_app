@@ -6,10 +6,10 @@ import '../../../l10n/app_localizations.dart';
 import '../../../shared/ui/progress_bar/vessel_progress_bar.dart';
 import '../../../shared/ui/tile/vessel_tile.dart';
 import '../../../app/layout/vessel_layout.dart';
-import 'vocab_tile_data.dart';
+import 'vocab_deck_tile_data.dart';
 
-class VocabGroupTile extends StatelessWidget {
-  const VocabGroupTile({
+class VocabDeckTile extends StatelessWidget {
+  const VocabDeckTile({
     super.key,
     required this.item,
     required this.l10n,
@@ -17,7 +17,7 @@ class VocabGroupTile extends StatelessWidget {
     required this.onTap,
   });
 
-  final VocabGroupTileData item;
+  final VocabDeckTileData item;
   final AppLocalizations l10n;
   final double width;
   final VoidCallback onTap;

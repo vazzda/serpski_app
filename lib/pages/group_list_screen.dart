@@ -4,11 +4,11 @@ import 'package:go_router/go_router.dart';
 
 import '../l10n/app_localizations.dart';
 import '../entities/group/group_model.dart';
-import '../shared/repositories/models/group_progress.dart';
+import '../shared/repositories/models/deck_progress.dart';
 import '../shared/repositories/models/retention_level.dart';
 import '../features/quiz/session_notifier.dart';
 import '../app/providers/app_settings_provider.dart';
-import '../app/providers/group_progress_provider.dart';
+import '../app/providers/deck_progress_provider.dart';
 import '../app/providers/groups_provider.dart';
 import '../app/router/app_router.dart';
 import '../app/theme/vessel_themes.dart';
@@ -87,7 +87,7 @@ class _GroupTile extends StatelessWidget {
   final GroupModel group;
   final AppLocalizations l10n;
   final VoidCallback onTap;
-  final GroupProgress? progress;
+  final DeckProgress? progress;
   final double retention;
 
   @override
@@ -162,7 +162,7 @@ class _ProgressBadge extends StatelessWidget {
     required this.l10n,
   });
 
-  final GroupProgress progress;
+  final DeckProgress progress;
   final double retention;
   final AppLocalizations l10n;
 
@@ -291,7 +291,7 @@ class _ChildGroupListScreenState extends ConsumerState<ChildGroupListScreen> {
     final l10n = AppLocalizations.of(context)!;
     final t = VesselThemes.of(context);
     final asyncGroups = ref.watch(groupsProvider);
-    final allProgress = ref.watch(groupProgressProvider);
+    final allProgress = ref.watch(deckProgressProvider);
     final settings = ref.watch(appSettingsProvider);
     final title = widget.parent == ParentCategory.vocabulary
         ? l10n.parentVocabulary

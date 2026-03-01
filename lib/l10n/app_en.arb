@@ -208,8 +208,8 @@
   "language_myProgress": "My progress",
   "language_progression": "Progression",
   "language_incompleteDictionaries": "Incomplete dictionaries",
-  "language_groupsProgress": "{done}/{total} groups",
-  "@language_groupsProgress": {
+  "language_decksProgress": "{done}/{total} decks",
+  "@language_decksProgress": {
     "placeholders": {
       "done": { "type": "int" },
       "total": { "type": "int" }
