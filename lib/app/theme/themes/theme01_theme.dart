@@ -202,4 +202,11 @@ const VesselThemeData theme01Theme = VesselThemeData(
   noteAccentBackground: Theme01Palette.gunMetal,
   noteAccentBorderColor: Theme01Palette.gunMetal,
   noteAccentTextColor: Theme01Palette.platinum,
+  // Mode tile
+  modeTileBackground: Theme01Palette.alabaster,
+  modeTileForeground: Theme01Palette.gunMetal,
+  modeTileBorderColor: Theme01Palette.platinum,
+  modeTileAccentBackground: Theme01Palette.gunMetal,
+  modeTileAccentForeground: Theme01Palette.platinum,
+  modeTileAccentBorderColor: Theme01Palette.gunMetal,
 );

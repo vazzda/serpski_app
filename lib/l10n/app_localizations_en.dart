@@ -101,31 +101,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get groupIrregular => 'Irregular';
 
   @override
-  String get chooseMode => 'Choose mode';
-
-  @override
-  String get modeSerbianShown => 'Serbian shown (pick English)';
-
-  @override
-  String get modeEnglishShown => 'English shown (pick target)';
-
-  @override
-  String get modeWrite => 'Write (type target)';
-
-  @override
-  String get chooseQuestionsCount => 'How many questions?';
+  String get chooseQuestionsCount => 'How many concepts?';
 
   @override
   String get questions5 => '5';
 
   @override
   String get questions10 => '10';
-
-  @override
-  String get questions20 => '20';
-
-  @override
-  String get questions50 => '50';
 
   @override
   String get start => 'Start';
@@ -224,22 +206,21 @@ class AppLocalizationsEn extends AppLocalizations {
   String get dailyActivityEmpty => 'No activity today';
 
   @override
-  String get trainHeader => 'TRAIN';
+  String get mode_guessingHeader => 'Guessing';
 
   @override
-  String get testHeader => 'TESTING';
+  String get mode_writingHeader => 'Writing';
 
   @override
-  String get modeEngCards => 'TARGET SHOWN';
+  String mode_langCards(String language) {
+    return '$language cards';
+  }
 
   @override
-  String get modeSrpskiCards => 'NATIVE SHOWN';
+  String get mode_training => 'Training';
 
   @override
-  String get modeWriting => 'WRITING';
-
-  @override
-  String get modeTest => 'TEST';
+  String get mode_test => 'Test';
 
   @override
   String get relativeDateToday => 'today';

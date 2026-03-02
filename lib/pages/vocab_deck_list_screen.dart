@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../l10n/app_localizations.dart';
+import '../l10n/app_localizations_ext.dart';
 import '../app/providers/app_settings_provider.dart';
 import '../app/providers/dictionary_provider.dart';
 import '../app/providers/deck_progress_provider.dart';
@@ -333,15 +334,29 @@ class _VocabDeckListScreenState extends ConsumerState<VocabDeckListScreen> {
   ) async {
     if (cardCount <= 0) return;
 
-    final selection = await showModeBottomSheet(context, l10n);
-    if (selection == null || !context.mounted) return;
-
-    final selectedCount = await showCountBottomSheet(
+    final selection = await showModeBottomSheet(
       context,
       l10n,
-      totalCount: cardCount,
+      targetLangCode: targetPack.code,
+      nativeLangCode: nativePack.code,
+      nativeLangName: l10n.langLabel(nativePack.labelKey),
+      targetLangName: l10n.langLabel(targetPack.labelKey),
     );
-    if (selectedCount == null || !context.mounted) return;
+    if (selection == null || !context.mounted) return;
+
+    // Test mode uses all concepts — skip count selection
+    final int selectedCount;
+    if (selection.isTest) {
+      selectedCount = cardCount;
+    } else {
+      final picked = await showCountBottomSheet(
+        context,
+        l10n,
+        totalCount: cardCount,
+      );
+      if (picked == null || !context.mounted) return;
+      selectedCount = picked;
+    }
 
     final scrollOffset = _scrollController.hasClients
         ? _scrollController.offset

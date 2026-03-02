@@ -57,15 +57,9 @@
   "groupEndingsEmUCi": "-ĆI (EM|U)",
   "groupEndingsEmEju": "-ETI (EM|EJU)",
   "groupIrregular": "Irregular",
-  "chooseMode": "Choose mode",
-  "modeSerbianShown": "Serbian shown (pick English)",
-  "modeEnglishShown": "English shown (pick target)",
-  "modeWrite": "Write (type target)",
-  "chooseQuestionsCount": "How many questions?",
+  "chooseQuestionsCount": "How many concepts?",
   "questions5": "5",
   "questions10": "10",
-  "questions20": "20",
-  "questions50": "50",
   "start": "Start",
   "cancel": "Cancel",
   "next": "Next",
@@ -117,12 +111,18 @@
   "exit": "Exit",
   "dailyActivityTitle": "Today",
   "dailyActivityEmpty": "No activity today",
-  "trainHeader": "TRAIN",
-  "testHeader": "TESTING",
-  "modeEngCards": "TARGET SHOWN",
-  "modeSrpskiCards": "NATIVE SHOWN",
-  "modeWriting": "WRITING",
-  "modeTest": "TEST",
+  "mode_guessingHeader": "Guessing",
+  "mode_writingHeader": "Writing",
+  "mode_langCards": "{language} cards",
+  "@mode_langCards": {
+    "placeholders": {
+      "language": {
+        "type": "String"
+      }
+    }
+  },
+  "mode_training": "Training",
+  "mode_test": "Test",
   "relativeDateToday": "today",
   "relativeDateYesterday": "yesterday",
   "relativeDateDays": "{count}d ago",

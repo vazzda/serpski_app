@@ -1136,7 +1136,14 @@ class _ControlsListScreenState extends State<ControlsListScreen> {
                 VesselButton(
                   label: 'Mode Sheet',
                   onPressed: () {
-                    showModeBottomSheet(context, l10n);
+                    showModeBottomSheet(
+                      context,
+                      l10n,
+                      targetLangCode: 'sr',
+                      nativeLangCode: 'en',
+                      nativeLangName: 'English',
+                      targetLangName: 'Serbian',
+                    );
                   },
                 ),
                 VesselButton(

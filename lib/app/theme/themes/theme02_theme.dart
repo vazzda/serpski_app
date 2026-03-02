@@ -202,4 +202,11 @@ const VesselThemeData theme02Theme = VesselThemeData(
   noteAccentBackground: Theme02Palette.darkNavy,
   noteAccentBorderColor: Theme02Palette.darkNavy,
   noteAccentTextColor: Theme02Palette.mintCream,
+  // Mode tile
+  modeTileBackground: Theme02Palette.mintCream,
+  modeTileForeground: Theme02Palette.darkNavy,
+  modeTileBorderColor: Theme02Palette.darkNavy,
+  modeTileAccentBackground: Theme02Palette.darkNavy,
+  modeTileAccentForeground: Theme02Palette.mintCream,
+  modeTileAccentBorderColor: Theme02Palette.darkNavy,
 );

@@ -250,34 +250,10 @@ abstract class AppLocalizations {
   /// **'Irregular'**
   String get groupIrregular;
 
-  /// No description provided for @chooseMode.
-  ///
-  /// In en, this message translates to:
-  /// **'Choose mode'**
-  String get chooseMode;
-
-  /// No description provided for @modeSerbianShown.
-  ///
-  /// In en, this message translates to:
-  /// **'Serbian shown (pick English)'**
-  String get modeSerbianShown;
-
-  /// No description provided for @modeEnglishShown.
-  ///
-  /// In en, this message translates to:
-  /// **'English shown (pick target)'**
-  String get modeEnglishShown;
-
-  /// No description provided for @modeWrite.
-  ///
-  /// In en, this message translates to:
-  /// **'Write (type target)'**
-  String get modeWrite;
-
   /// No description provided for @chooseQuestionsCount.
   ///
   /// In en, this message translates to:
-  /// **'How many questions?'**
+  /// **'How many concepts?'**
   String get chooseQuestionsCount;
 
   /// No description provided for @questions5.
@@ -291,18 +267,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'10'**
   String get questions10;
-
-  /// No description provided for @questions20.
-  ///
-  /// In en, this message translates to:
-  /// **'20'**
-  String get questions20;
-
-  /// No description provided for @questions50.
-  ///
-  /// In en, this message translates to:
-  /// **'50'**
-  String get questions50;
 
   /// No description provided for @start.
   ///
@@ -484,41 +448,35 @@ abstract class AppLocalizations {
   /// **'No activity today'**
   String get dailyActivityEmpty;
 
-  /// No description provided for @trainHeader.
+  /// No description provided for @mode_guessingHeader.
   ///
   /// In en, this message translates to:
-  /// **'TRAIN'**
-  String get trainHeader;
+  /// **'Guessing'**
+  String get mode_guessingHeader;
 
-  /// No description provided for @testHeader.
+  /// No description provided for @mode_writingHeader.
   ///
   /// In en, this message translates to:
-  /// **'TESTING'**
-  String get testHeader;
+  /// **'Writing'**
+  String get mode_writingHeader;
 
-  /// No description provided for @modeEngCards.
+  /// No description provided for @mode_langCards.
   ///
   /// In en, this message translates to:
-  /// **'TARGET SHOWN'**
-  String get modeEngCards;
+  /// **'{language} cards'**
+  String mode_langCards(String language);
 
-  /// No description provided for @modeSrpskiCards.
+  /// No description provided for @mode_training.
   ///
   /// In en, this message translates to:
-  /// **'NATIVE SHOWN'**
-  String get modeSrpskiCards;
+  /// **'Training'**
+  String get mode_training;
 
-  /// No description provided for @modeWriting.
+  /// No description provided for @mode_test.
   ///
   /// In en, this message translates to:
-  /// **'WRITING'**
-  String get modeWriting;
-
-  /// No description provided for @modeTest.
-  ///
-  /// In en, this message translates to:
-  /// **'TEST'**
-  String get modeTest;
+  /// **'Test'**
+  String get mode_test;
 
   /// No description provided for @relativeDateToday.
   ///

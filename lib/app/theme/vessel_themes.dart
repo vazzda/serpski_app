@@ -281,6 +281,16 @@ class VesselThemeData {
   final Color noteAccentBorderColor;
   final Color noteAccentTextColor;
 
+  // ==========================================================================
+  // MODE TILE (quiz mode selection bottom sheet)
+  // ==========================================================================
+  final Color modeTileBackground;
+  final Color modeTileForeground;
+  final Color modeTileBorderColor;
+  final Color modeTileAccentBackground;
+  final Color modeTileAccentForeground;
+  final Color modeTileAccentBorderColor;
+
   const VesselThemeData({
     required this.themeType,
     // Accent
@@ -439,6 +449,13 @@ class VesselThemeData {
     required this.noteAccentBackground,
     required this.noteAccentBorderColor,
     required this.noteAccentTextColor,
+    // Mode tile
+    required this.modeTileBackground,
+    required this.modeTileForeground,
+    required this.modeTileBorderColor,
+    required this.modeTileAccentBackground,
+    required this.modeTileAccentForeground,
+    required this.modeTileAccentBorderColor,
   });
 
   // Computed — derived from existing fields, no constructor param needed

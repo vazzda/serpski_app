@@ -130,4 +130,8 @@ class VesselFonts {
   // Lang picker
   static TextStyle get textLangPickerLabel => _bodyMAccented;
   static TextStyle get textLangPickerValue => _bodyLAccented;
+
+  // Mode tile (quiz mode selection sheet)
+  static TextStyle get textModeTileSectionHeader => _headerM;
+  static TextStyle get textModeTileLabel => _bodyMAccented;
 }

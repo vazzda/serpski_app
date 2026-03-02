@@ -197,4 +197,11 @@ const VesselThemeData theme04Theme = VesselThemeData(
   noteAccentBackground: Theme04Palette.deepWalnut,
   noteAccentBorderColor: Theme04Palette.deepWalnut,
   noteAccentTextColor: Theme04Palette.oldlace,
+  // Mode tile
+  modeTileBackground: Theme04Palette.oldlace,
+  modeTileForeground: Theme04Palette.deepWalnut,
+  modeTileBorderColor: Theme04Palette.dustgray,
+  modeTileAccentBackground: Theme04Palette.deepWalnut,
+  modeTileAccentForeground: Theme04Palette.oldlace,
+  modeTileAccentBorderColor: Theme04Palette.deepWalnut,
 );

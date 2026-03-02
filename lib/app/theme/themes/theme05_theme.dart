@@ -199,4 +199,11 @@ const VesselThemeData theme05Theme = VesselThemeData(
   noteAccentBackground: Theme05Palette.deepWalnut,
   noteAccentBorderColor: Theme05Palette.deepWalnut,
   noteAccentTextColor: Theme05Palette.oldlace,
+  // Mode tile
+  modeTileBackground: Theme05Palette.dustyGrape,
+  modeTileForeground: Theme05Palette.deepWalnut,
+  modeTileBorderColor: Theme05Palette.dustyGrape,
+  modeTileAccentBackground: Theme05Palette.deepWalnut,
+  modeTileAccentForeground: Theme05Palette.spaceIndigo,
+  modeTileAccentBorderColor: Theme05Palette.deepWalnut,
 );

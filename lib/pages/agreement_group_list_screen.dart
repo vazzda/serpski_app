@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
+import '../entities/language/lang_codes.dart';
 import '../l10n/app_localizations.dart';
 import '../entities/group/group_model.dart';
 import '../shared/repositories/models/deck_progress.dart';
@@ -151,16 +152,26 @@ class _AgreementGroupListScreenState extends ConsumerState<AgreementGroupListScr
     if (totalCards <= 0) return;
 
     // Agreement only supports writing mode
-    final selection = await showModeBottomSheet(context, l10n, showAllModes: false);
+    final selection = await showModeBottomSheet(
+      context, l10n,
+      showAllModes: false,
+      targetLangCode: LangCodes.serbian,
+    );
     if (selection == null || !context.mounted) return;
 
-    // Show count selection (or auto-select if ≤5)
-    final selectedCount = await showCountBottomSheet(
-      context,
-      l10n,
-      totalCount: totalCards,
-    );
-    if (selectedCount == null || !context.mounted) return;
+    // Test mode uses all cards — skip count selection
+    final int selectedCount;
+    if (selection.isTest) {
+      selectedCount = totalCards;
+    } else {
+      final picked = await showCountBottomSheet(
+        context,
+        l10n,
+        totalCount: totalCards,
+      );
+      if (picked == null || !context.mounted) return;
+      selectedCount = picked;
+    }
 
     final scrollOffset = _scrollController.hasClients
         ? _scrollController.offset

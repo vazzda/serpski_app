@@ -118,4 +118,14 @@ abstract class VesselLayout {
   // ==========================================================================
   static const double wrapSpacing = 8.0;
   static const double wrapRunSpacing = 8.0;
+
+  // ==========================================================================
+  // MODE TILE (quiz mode selection bottom sheet)
+  // ==========================================================================
+  static const double modeTileGap = 12.0;
+  static const double modeTileIconSize = 45.0;
+  static const double modeTileFlagWidth = 45.0;
+  static const double modeTileFlagHeight = 28.0;
+  static const double modeTileFlagBorderRadius = 4.0;
+  static const double modeSheetMinHeight = 360.0;
 }
