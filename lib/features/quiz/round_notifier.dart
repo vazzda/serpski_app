@@ -7,10 +7,10 @@ import '../../entities/card/vocab_card.dart';
 import '../../entities/group/group_model.dart';
 import '../../entities/deck/vocab_deck_model.dart';
 import '../../entities/language/language_pack.dart';
-import 'agreement_session_builder.dart';
+import 'agreement_round_builder.dart';
 import 'quiz_mode.dart';
 import 'services/card_generation_service.dart';
-import 'session_state.dart';
+import 'round_state.dart';
 
 /// Builds initial queue and set of distinct word IDs for a legacy group (endings/tools).
 ({List<CardModel> queue, Set<String> wordIds}) _buildQueueAndWordIds(
@@ -33,11 +33,11 @@ import 'session_state.dart';
   return (queue: queue, wordIds: wordIds);
 }
 
-/// Notifier that holds session state and applies answer (correct → remove from queue; wrong → move to end, add to missed).
-class SessionNotifier extends StateNotifier<SessionState?> {
-  SessionNotifier(Ref ref) : super(null);
+/// Notifier that holds round state and applies answer (correct → remove from queue; wrong → move to end, add to missed).
+class RoundNotifier extends StateNotifier<RoundState?> {
+  RoundNotifier(Ref ref) : super(null);
 
-  /// Start a vocabulary session from the new dictionary system.
+  /// Start a vocabulary round from the new dictionary system.
   void startVocab({
     required VocabDeckModel deck,
     required LanguagePack targetPack,
@@ -65,23 +65,23 @@ class SessionNotifier extends StateNotifier<SessionState?> {
     final resolvedName =
         nativePack.deckMeta[deck.id]?.name ?? deck.id;
 
-    state = SessionState(
+    state = RoundState(
       deckId: deck.id,
       deckName: resolvedName,
       mode: mode,
       requestedCount: questionCount,
-      sessionType: SessionType.vocabulary,
+      roundType: RoundType.vocabulary,
       originRoute: originRoute,
       originScrollOffset: originScrollOffset,
       isTest: isTest,
-      totalDeckConcepts: deck.conceptIds.length,
+      totalDeckTerms: deck.termIds.length,
       queue: queue,
       allCards: allCards,
-      sessionWordIds: wordIds,
+      roundWordIds: wordIds,
     );
   }
 
-  /// Start a legacy session (endings, tools) from the old GroupModel.
+  /// Start a legacy round (endings, tools) from the old GroupModel.
   void start({
     required GroupModel group,
     required QuizMode mode,
@@ -90,18 +90,18 @@ class SessionNotifier extends StateNotifier<SessionState?> {
     double originScrollOffset = 0.0,
   }) {
     final result = _buildQueueAndWordIds(group, questionCount);
-    final sessionType = group.type == GroupType.endings
-        ? SessionType.conjugations
-        : SessionType.vocabulary;
-    state = SessionState(
+    final roundType = group.type == GroupType.endings
+        ? RoundType.conjugations
+        : RoundType.vocabulary;
+    state = RoundState(
       deckId: group.id,
       mode: mode,
       requestedCount: questionCount,
-      sessionType: sessionType,
+      roundType: roundType,
       originRoute: originRoute,
       originScrollOffset: originScrollOffset,
       queue: result.queue,
-      sessionWordIds: result.wordIds,
+      roundWordIds: result.wordIds,
     );
   }
 
@@ -122,16 +122,16 @@ class SessionNotifier extends StateNotifier<SessionState?> {
       count: questionCount,
       random: Random(),
     );
-    state = SessionState(
+    state = RoundState(
       deckId: 'agreement:${adjectiveGroup.id}',
       mode: mode,
       requestedCount: questionCount,
-      sessionType: SessionType.agreement,
+      roundType: RoundType.agreement,
       originRoute: originRoute,
       originScrollOffset: originScrollOffset,
       adjectiveGroupId: adjectiveGroup.id,
       queue: result.queue,
-      sessionWordIds: result.wordIds,
+      roundWordIds: result.wordIds,
     );
   }
 
@@ -165,8 +165,8 @@ class SessionNotifier extends StateNotifier<SessionState?> {
     );
   }
 
-  /// Restart the current session with reshuffled cards from allCards.
-  /// Used by "Again" button for vocab sessions.
+  /// Restart the current round with reshuffled cards from allCards.
+  /// Used by "Again" button for vocab rounds.
   void restartFromAllCards() {
     if (state == null || state!.allCards == null) return;
     final allCards = state!.allCards!;
@@ -178,28 +178,28 @@ class SessionNotifier extends StateNotifier<SessionState?> {
       final c = allCards[i];
       return c is VocabCard ? c.wordId : '${state!.deckId}:${c.targetText}';
     }).toSet();
-    state = SessionState(
+    state = RoundState(
       deckId: state!.deckId,
       deckName: state!.deckName,
       mode: state!.mode,
       requestedCount: state!.requestedCount,
-      sessionType: state!.sessionType,
+      roundType: state!.roundType,
       originRoute: state!.originRoute,
       originScrollOffset: state!.originScrollOffset,
       isTest: state!.isTest,
-      totalDeckConcepts: state!.totalDeckConcepts,
+      totalDeckTerms: state!.totalDeckTerms,
       queue: queue,
       allCards: allCards,
-      sessionWordIds: wordIds,
+      roundWordIds: wordIds,
     );
   }
 
-  void endSession() {
+  void endRound() {
     state = null;
   }
 }
 
-final sessionProvider =
-    StateNotifierProvider<SessionNotifier, SessionState?>((ref) {
-  return SessionNotifier(ref);
+final roundProvider =
+    StateNotifierProvider<RoundNotifier, RoundState?>((ref) {
+  return RoundNotifier(ref);
 });

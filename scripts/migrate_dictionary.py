@@ -22,7 +22,7 @@ OUTPUT_DIR = os.path.join(PROJECT_ROOT, "assets", "data")
 
 # Manual dedup: same Serbian word appearing with different English phrasings.
 # Maps (serbian_word, english_clean_to_drop) → english_clean_to_keep.
-# The "to_drop" entry is merged into the "to_keep" concept (with alt note).
+# The "to_drop" entry is merged into the "to_keep" term (with alt note).
 DEDUP_MAP = {
     ("podići", "to lift"): "to raise",
     ("početi", "to start"): "to begin",
@@ -64,9 +64,9 @@ def parse_english_text(english_raw):
     return clean, note, is_perfective
 
 
-def generate_concept_id(english_clean, category, existing_ids):
+def generate_term_id(english_clean, category, existing_ids):
     """
-    Generate a human-readable concept ID from clean English text.
+    Generate a human-readable term ID from clean English text.
 
     Rules:
       - Lowercase, underscores for spaces
@@ -120,17 +120,17 @@ def map_category_to_pos(category):
 def process_vocabulary_groups(data):
     """
     Process all type:"words" groups.
-    Returns: concepts dict, groups list, en translations, sr translations.
+    Returns: terms dict, groups list, en translations, sr translations.
     """
-    concepts = OrderedDict()
+    terms = OrderedDict()
     groups = []
     en_translations = OrderedDict()
     sr_translations = OrderedDict()
 
-    existing_concept_ids = set()
+    existing_term_ids = set()
 
     # Track serbian words to detect duplicates
-    serbian_to_concepts = {}
+    serbian_to_terms = {}
 
     # First pass: identify aspect pairs by matching English text
     # Build a map: english_clean_lower → list of card info
@@ -177,10 +177,10 @@ def process_vocabulary_groups(data):
         consumed_cards.add((pair["pf"]["group_id"], pair["pf"]["card"]["serbian"]))
         consumed_cards.add((pair["impf"]["group_id"], pair["impf"]["card"]["serbian"]))
 
-    # Create concepts for aspect pairs first
+    # Create terms for aspect pairs first
     # Assign to the group of the imperfective form (more common/base form)
-    aspect_pair_concepts = {}  # english_clean_lower → concept_id
-    aspect_pair_group = {}     # concept_id → group_id (impf group)
+    aspect_pair_terms = {}  # english_clean_lower → term_id
+    aspect_pair_group = {}  # term_id → group_id (impf group)
 
     for key, pair in aspect_pairs.items():
         impf = pair["impf"]
@@ -188,37 +188,37 @@ def process_vocabulary_groups(data):
         category = impf["category"] or pf["category"]
         pos = map_category_to_pos(category)
 
-        concept_id = generate_concept_id(impf["english_clean"], category, existing_concept_ids)
-        existing_concept_ids.add(concept_id)
-        aspect_pair_concepts[key] = concept_id
-        aspect_pair_group[concept_id] = impf["group_id"]
+        term_id = generate_term_id(impf["english_clean"], category, existing_term_ids)
+        existing_term_ids.add(term_id)
+        aspect_pair_terms[key] = term_id
+        aspect_pair_group[term_id] = impf["group_id"]
 
-        concepts[concept_id] = {"pos": pos}
+        terms[term_id] = {"pos": pos}
 
         # English translation — one entry
         en_entry = {"text": impf["english_clean"]}
         if impf["note"]:
             en_entry["note"] = impf["note"]
-        en_translations[concept_id] = [en_entry]
+        en_translations[term_id] = [en_entry]
 
         # Serbian translations — two entries (imperfective first, then perfective)
         impf_entry = {"text": impf["card"]["serbian"], "aspect": "imperfective"}
         pf_entry = {"text": pf["card"]["serbian"], "aspect": "perfective"}
-        sr_translations[concept_id] = [impf_entry, pf_entry]
+        sr_translations[term_id] = [impf_entry, pf_entry]
 
-        print(f"  ASPECT PAIR: {concept_id} → {impf['card']['serbian']} (impf) + {pf['card']['serbian']} (pf)")
+        print(f"  ASPECT PAIR: {term_id} → {impf['card']['serbian']} (impf) + {pf['card']['serbian']} (pf)")
 
     # Second pass: process each group
     for group in data:
         if group["type"] != "words":
             continue
 
-        group_concept_ids = []
+        group_term_ids = []
 
-        # First, add aspect pair concepts that have their impf form in this group
-        for cid, gid in aspect_pair_group.items():
+        # First, add aspect pair terms that have their impf form in this group
+        for tid, gid in aspect_pair_group.items():
             if gid == group["id"]:
-                group_concept_ids.append(cid)
+                group_term_ids.append(tid)
 
         for card in group["cards"]:
             serbian = card["serbian"]
@@ -237,22 +237,22 @@ def process_vocabulary_groups(data):
             if dedup_key in DEDUP_MAP:
                 keep_english = DEDUP_MAP[dedup_key]
                 print(f"  DEDUP: '{serbian}' ({english_clean}) merged into '{keep_english}'")
-                # Find the kept concept and add to this group
-                for cid, _gid, _eng in serbian_to_concepts.get(serbian, []):
-                    if cid not in group_concept_ids:
-                        group_concept_ids.append(cid)
+                # Find the kept term and add to this group
+                for tid, _gid, _eng in serbian_to_terms.get(serbian, []):
+                    if tid not in group_term_ids:
+                        group_term_ids.append(tid)
                 continue
 
             # Check for serbian duplicates (same word already processed)
-            if serbian in serbian_to_concepts:
-                prev = serbian_to_concepts[serbian]
-                prev_concept = prev[0][0]
+            if serbian in serbian_to_terms:
+                prev = serbian_to_terms[serbian]
+                prev_term = prev[0][0]
                 prev_english = prev[0][2]
                 if english_clean.lower() == prev_english.lower():
-                    # Same word, same meaning — skip duplicate, but add concept to group
-                    print(f"  DUPLICATE SKIPPED: '{serbian}' ({english_clean}) in {group['id']}, already as '{prev_concept}'")
-                    if prev_concept not in group_concept_ids:
-                        group_concept_ids.append(prev_concept)
+                    # Same word, same meaning — skip duplicate, but add term to group
+                    print(f"  DUPLICATE SKIPPED: '{serbian}' ({english_clean}) in {group['id']}, already as '{prev_term}'")
+                    if prev_term not in group_term_ids:
+                        group_term_ids.append(prev_term)
                     continue
                 else:
                     # Check if this is a known dedup (the other direction)
@@ -264,16 +264,16 @@ def process_vocabulary_groups(data):
                     else:
                         print(f"  HOMONYM: '{serbian}' → '{english_clean}' AND '{prev_english}'")
 
-            concept_id = generate_concept_id(english_clean, category, existing_concept_ids)
-            existing_concept_ids.add(concept_id)
+            term_id = generate_term_id(english_clean, category, existing_term_ids)
+            existing_term_ids.add(term_id)
 
-            concepts[concept_id] = {"pos": pos}
+            terms[term_id] = {"pos": pos}
 
             # English translation
             en_entry = {"text": english_clean}
             if note:
                 en_entry["note"] = note
-            en_translations[concept_id] = [en_entry]
+            en_translations[term_id] = [en_entry]
 
             # Serbian translation
             sr_entry = {"text": serbian}
@@ -290,21 +290,21 @@ def process_vocabulary_groups(data):
                     forms["n"] = card["neuter"]
                 if forms:
                     sr_entry["forms"] = forms
-            sr_translations[concept_id] = [sr_entry]
+            sr_translations[term_id] = [sr_entry]
 
-            serbian_to_concepts.setdefault(serbian, []).append(
-                (concept_id, group["id"], english_clean)
+            serbian_to_terms.setdefault(serbian, []).append(
+                (term_id, group["id"], english_clean)
             )
-            group_concept_ids.append(concept_id)
+            group_term_ids.append(term_id)
 
-        if group_concept_ids:
+        if group_term_ids:
             groups.append({
                 "id": group["id"],
                 "labelKey": group["labelKey"],
-                "concepts": group_concept_ids,
+                "terms": group_term_ids,
             })
 
-    return concepts, groups, en_translations, sr_translations
+    return terms, groups, en_translations, sr_translations
 
 
 def process_endings_groups(data):
@@ -355,13 +355,13 @@ def generate_ru_stub(en_translations, fraction=0.75):
     """
     Generate a partial Russian translation file for testing incomplete dict UI.
     Placeholder entries — NOT real Russian translations.
-    Only covers `fraction` of concepts.
+    Only covers `fraction` of terms.
     """
     ru = OrderedDict()
     all_ids = list(en_translations.keys())
     count = int(len(all_ids) * fraction)
-    for cid in all_ids[:count]:
-        ru[cid] = [{"text": f"[RU:{cid}]"}]
+    for tid in all_ids[:count]:
+        ru[tid] = [{"text": f"[RU:{tid}]"}]
     return ru
 
 
@@ -378,8 +378,8 @@ def main():
 
     # Process vocabulary
     print("\n--- Processing vocabulary groups ---")
-    concepts, groups, en_trans, sr_trans = process_vocabulary_groups(data)
-    print(f"\nExtracted {len(concepts)} unique concepts across {len(groups)} groups")
+    terms, groups, en_trans, sr_trans = process_vocabulary_groups(data)
+    print(f"\nExtracted {len(terms)} unique terms across {len(groups)} groups")
 
     # Process endings
     print("\n--- Processing endings groups ---")
@@ -390,11 +390,11 @@ def main():
     print("\n--- Generating Russian stub ---")
     ru_trans = generate_ru_stub(en_trans, fraction=0.75)
     missing = len(en_trans) - len(ru_trans)
-    print(f"Russian stub: {len(ru_trans)}/{len(en_trans)} concepts ({missing} intentionally missing)")
+    print(f"Russian stub: {len(ru_trans)}/{len(en_trans)} terms ({missing} intentionally missing)")
 
     # Build dictionary.json
     dictionary = {
-        "concepts": {cid: info for cid, info in concepts.items()},
+        "terms": {tid: info for tid, info in terms.items()},
         "groups": groups,
     }
 
@@ -419,7 +419,7 @@ def main():
 
     # Summary
     print("\n=== MIGRATION SUMMARY ===")
-    print(f"Concepts: {len(concepts)}")
+    print(f"Terms: {len(terms)}")
     print(f"Groups: {len(groups)}")
     print(f"EN translations: {len(en_trans)}")
     print(f"SR translations: {len(sr_trans)}")
@@ -430,20 +430,20 @@ def main():
     print("\n=== VALIDATION ===")
     errors = 0
     for g in groups:
-        for cid in g["concepts"]:
-            if cid not in concepts:
-                print(f"  ERROR: Concept '{cid}' in group '{g['id']}' not in concepts dict!")
+        for tid in g["terms"]:
+            if tid not in terms:
+                print(f"  ERROR: Term '{tid}' in group '{g['id']}' not in terms dict!")
                 errors += 1
-    for cid in concepts:
-        if cid not in en_trans:
-            print(f"  ERROR: Concept '{cid}' missing EN translation!")
+    for tid in terms:
+        if tid not in en_trans:
+            print(f"  ERROR: Term '{tid}' missing EN translation!")
             errors += 1
-        if cid not in sr_trans:
-            print(f"  ERROR: Concept '{cid}' missing SR translation!")
+        if tid not in sr_trans:
+            print(f"  ERROR: Term '{tid}' missing SR translation!")
             errors += 1
 
     aspect_count = sum(1 for entries in sr_trans.values() if len(entries) > 1)
-    print(f"Aspect pairs (concepts with 2+ SR translations): {aspect_count}")
+    print(f"Aspect pairs (terms with 2+ SR translations): {aspect_count}")
 
     if errors == 0:
         print("All validations passed.")

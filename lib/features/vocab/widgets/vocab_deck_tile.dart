@@ -69,7 +69,7 @@ class VocabDeckTile extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Text(
-                          l10n.vocab_conceptsCount(item.cardCount),
+                          l10n.vocab_termsCount(item.cardCount),
                           textAlign: TextAlign.start,
                           style: VesselFonts.textTileCounter.copyWith(
                             color: t.tileForeground,

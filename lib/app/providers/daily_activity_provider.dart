@@ -29,7 +29,7 @@ class DailyActivityNotifier extends StateNotifier<AsyncValue<DailyActivityStats>
     }
   }
 
-  /// Set stats directly after persisting a session (avoids read-after-write timing).
+  /// Set stats directly after persisting a round (avoids read-after-write timing).
   void setStats(DailyActivityStats stats) {
     state = AsyncValue.data(stats);
   }

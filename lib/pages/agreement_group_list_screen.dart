@@ -6,7 +6,7 @@ import '../entities/language/lang_codes.dart';
 import '../l10n/app_localizations.dart';
 import '../entities/group/group_model.dart';
 import '../shared/repositories/models/deck_progress.dart';
-import '../features/quiz/session_notifier.dart';
+import '../features/quiz/round_notifier.dart';
 import '../app/providers/app_settings_provider.dart';
 import '../app/providers/deck_progress_provider.dart';
 import '../app/providers/groups_provider.dart';
@@ -21,7 +21,7 @@ import 'group_list_screen.dart' show formatRelativeDate, retentionColor, retenti
 import '../shared/ui/gap/vessel_gap.dart';
 import '../app/layout/vessel_layout.dart';
 
-/// Screen to select an adjective group for an agreement session.
+/// Screen to select an adjective group for an agreement round.
 class AgreementGroupListScreen extends ConsumerStatefulWidget {
   const AgreementGroupListScreen({super.key});
 
@@ -177,7 +177,7 @@ class _AgreementGroupListScreenState extends ConsumerState<AgreementGroupListScr
         ? _scrollController.offset
         : 0.0;
 
-    ref.read(sessionProvider.notifier).startAgreement(
+    ref.read(roundProvider.notifier).startAgreement(
           adjectiveGroup: group,
           allGroups: allGroups,
           mode: selection.mode,
@@ -185,7 +185,7 @@ class _AgreementGroupListScreenState extends ConsumerState<AgreementGroupListScr
           originRoute: AppRoutes.agreement,
           originScrollOffset: scrollOffset,
         );
-    if (context.mounted) context.go(AppRoutes.session);
+    if (context.mounted) context.go(AppRoutes.round);
   }
 }
 
@@ -215,7 +215,7 @@ class _AgreementGroupTile extends StatelessWidget {
         : l10n.wordsCount(count);
 
     // Show badge if there's any progress
-    final showBadge = progress != null && progress!.recentSessions.isNotEmpty;
+    final showBadge = progress != null && progress!.recentRounds.isNotEmpty;
 
     return VesselCard(
       onTap: onTap,
@@ -250,7 +250,7 @@ class _AgreementGroupTile extends StatelessWidget {
               ],
             ),
           ),
-          // Progress badge (if any sessions done)
+          // Progress badge (if any rounds done)
           if (showBadge)
             Positioned(
               top: 0,
@@ -288,8 +288,8 @@ class _ProgressBadge extends StatelessWidget {
     );
     final levelColor = retentionColor(level, t);
     final levelLabel = retentionLabel(level, l10n);
-    final dateText = progress.lastSessionDate != null
-        ? formatRelativeDate(progress.lastSessionDate!, l10n)
+    final dateText = progress.lastRoundDate != null
+        ? formatRelativeDate(progress.lastRoundDate!, l10n)
         : '-';
 
     const chipPadding = EdgeInsets.symmetric(horizontal: VesselLayout.chipPaddingH, vertical: VesselLayout.chipPaddingV);

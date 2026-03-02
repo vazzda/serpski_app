@@ -1,9 +1,9 @@
-/// A universal concept from dictionary.json.
+/// A universal term from dictionary.json.
 ///
-/// Concepts are abstract meaning units — language-agnostic.
+/// Terms are abstract meaning units — language-agnostic.
 /// They have a human-readable ID and a part of speech.
-class Concept {
-  const Concept({
+class Term {
+  const Term({
     required this.id,
     required this.pos,
   });
@@ -14,8 +14,8 @@ class Concept {
   /// Part of speech: "verb", "noun", "adjective", "other".
   final String pos;
 
-  factory Concept.fromJson(String id, Map<String, dynamic> json) {
-    return Concept(
+  factory Term.fromJson(String id, Map<String, dynamic> json) {
+    return Term(
       id: id,
       pos: json['pos'] as String,
     );

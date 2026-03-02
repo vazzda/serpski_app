@@ -7,7 +7,7 @@ import '../l10n/app_localizations.dart';
 import '../entities/group/group_model.dart';
 import '../shared/repositories/models/deck_progress.dart';
 import '../shared/repositories/models/retention_level.dart';
-import '../features/quiz/session_notifier.dart';
+import '../features/quiz/round_notifier.dart';
 import '../app/providers/app_settings_provider.dart';
 import '../app/providers/deck_progress_provider.dart';
 import '../app/providers/groups_provider.dart';
@@ -102,7 +102,7 @@ class _GroupTile extends StatelessWidget {
         : l10n.wordsCount(count);
 
     // Show badge if there's any progress
-    final showBadge = progress != null && progress!.recentSessions.isNotEmpty;
+    final showBadge = progress != null && progress!.recentRounds.isNotEmpty;
 
     return VesselCard(
       onTap: onTap,
@@ -137,7 +137,7 @@ class _GroupTile extends StatelessWidget {
                   ],
                 ),
               ),
-              // Progress badge (if any sessions done)
+              // Progress badge (if any rounds done)
               if (showBadge)
                 Positioned(
                   top: 0,
@@ -177,8 +177,8 @@ class _ProgressBadge extends StatelessWidget {
     );
     final levelColor = retentionColor(level, t);
     final levelLabel = retentionLabel(level, l10n);
-    final dateText = progress.lastSessionDate != null
-        ? formatRelativeDate(progress.lastSessionDate!, l10n)
+    final dateText = progress.lastRoundDate != null
+        ? formatRelativeDate(progress.lastRoundDate!, l10n)
         : '-';
 
     const chipPadding = EdgeInsets.symmetric(horizontal: VesselLayout.chipPaddingH, vertical: VesselLayout.chipPaddingV);
@@ -482,13 +482,13 @@ class _ChildGroupListScreenState extends ConsumerState<ChildGroupListScreen> {
         ? _scrollController.offset
         : 0.0;
 
-    ref.read(sessionProvider.notifier).start(
+    ref.read(roundProvider.notifier).start(
           group: group,
           mode: selection.mode,
           questionCount: selectedCount,
           originRoute: originRoute,
           originScrollOffset: scrollOffset,
         );
-    if (context.mounted) context.go(AppRoutes.session);
+    if (context.mounted) context.go(AppRoutes.round);
   }
 }

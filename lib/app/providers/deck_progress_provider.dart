@@ -24,8 +24,8 @@ class DeckProgressNotifier extends StateNotifier<Map<String, DeckProgress>> {
     if (mounted) state = data;
   }
 
-  /// Record an incremental (non-test) session. Returns true if progress increased.
-  Future<bool> recordSession({
+  /// Record an incremental (non-test) round. Returns true if progress increased.
+  Future<bool> recordRound({
     required String deckId,
     required double score,
     required QuizMode mode,
@@ -33,7 +33,7 @@ class DeckProgressNotifier extends StateNotifier<Map<String, DeckProgress>> {
     required double coverage,
     required double accuracy,
   }) async {
-    final contributed = await _repository.recordSession(
+    final contributed = await _repository.recordRound(
       targetLang: _targetLang,
       deckId: deckId,
       score: score,
@@ -51,14 +51,14 @@ class DeckProgressNotifier extends StateNotifier<Map<String, DeckProgress>> {
   Future<bool> recordTestResult({
     required String deckId,
     required double firstPassScore,
-    required double sessionScore,
+    required double roundScore,
     required QuizMode mode,
   }) async {
     final contributed = await _repository.recordTestResult(
       targetLang: _targetLang,
       deckId: deckId,
       firstPassScore: firstPassScore,
-      sessionScore: sessionScore,
+      roundScore: roundScore,
       mode: mode,
     );
     final data = await _repository.getAllProgress(_targetLang);

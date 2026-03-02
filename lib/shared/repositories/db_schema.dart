@@ -4,7 +4,7 @@ abstract final class DbSchema {
   // Table names
   static const String tableAppSettings    = 'app_settings';
   static const String tableDeckProgress   = 'deck_progress';
-  static const String tableSessionRecords = 'session_records';
+  static const String tableRoundRecords   = 'round_records';
   static const String tableDailyActivity  = 'daily_activity';
   static const String tableLanguageStats  = 'language_stats';
 
@@ -34,10 +34,10 @@ abstract final class DbSchema {
   // deck_progress columns
   static const String colProgress        = 'progress';
   static const String colPeakRetention   = 'peak_retention';
-  static const String colLastSessionDate = 'last_session_date';
+  static const String colLastRoundDate   = 'last_round_date';
 
   // language_stats columns
-  static const String colConceptsTouchedIds = 'concepts_touched_ids';
+  static const String colTermsTouchedIds = 'terms_touched_ids';
 
   // test_results columns
   static const String colPercentage = 'percentage';

@@ -7,7 +7,7 @@ import '../../../app/providers/language_settings_provider.dart';
 import '../../../app/providers/language_stats_provider.dart';
 
 /// Orchestrates a full progress reset for a single target language.
-/// Clears deck_progress, session_records, language_stats, and daily_activity.
+/// Clears deck_progress, round_records, language_stats, and daily_activity.
 class LanguageResetService {
   LanguageResetService(this._ref);
 

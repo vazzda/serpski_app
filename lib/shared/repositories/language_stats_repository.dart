@@ -4,21 +4,21 @@ import 'package:sqflite/sqflite.dart';
 
 import 'db_schema.dart';
 
-/// Tracks which concepts have been touched per target language (running total).
+/// Tracks which terms have been touched per target language (running total).
 class LanguageStatsRepository {
   LanguageStatsRepository({required Database db}) : _db = db;
 
   final Database _db;
 
-  /// Returns the set of concept IDs ever touched for a target language.
-  Future<Set<String>> getConceptsTouched(String targetLang) async {
+  /// Returns the set of term IDs ever touched for a target language.
+  Future<Set<String>> getTermsTouched(String targetLang) async {
     final rows = await _db.query(
       DbSchema.tableLanguageStats,
       where: '${DbSchema.colTargetLang} = ?',
       whereArgs: [targetLang],
     );
     if (rows.isEmpty) return {};
-    final json = rows.first[DbSchema.colConceptsTouchedIds] as String;
+    final json = rows.first[DbSchema.colTermsTouchedIds] as String;
     return (jsonDecode(json) as List<dynamic>).cast<String>().toSet();
   }
 
@@ -31,17 +31,17 @@ class LanguageStatsRepository {
     );
   }
 
-  /// Merges new concept IDs into the running set for a target language.
-  Future<int> addConceptsTouched(
-      String targetLang, Set<String> newConceptIds) async {
-    final existing = await getConceptsTouched(targetLang);
-    existing.addAll(newConceptIds);
+  /// Merges new term IDs into the running set for a target language.
+  Future<int> addTermsTouched(
+      String targetLang, Set<String> newTermIds) async {
+    final existing = await getTermsTouched(targetLang);
+    existing.addAll(newTermIds);
 
     await _db.insert(
       DbSchema.tableLanguageStats,
       {
         DbSchema.colTargetLang: targetLang,
-        DbSchema.colConceptsTouchedIds: jsonEncode(existing.toList()),
+        DbSchema.colTermsTouchedIds: jsonEncode(existing.toList()),
       },
       conflictAlgorithm: ConflictAlgorithm.replace,
     );

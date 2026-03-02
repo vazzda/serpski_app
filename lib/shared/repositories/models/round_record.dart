@@ -1,14 +1,14 @@
 import '../../../features/quiz/quiz_mode.dart';
 
-/// Record of a completed session for progress tracking.
-class SessionRecord {
-  const SessionRecord({
+/// Record of a completed round for progress tracking.
+class RoundRecord {
+  const RoundRecord({
     required this.date,
     required this.score,
     required this.mode,
   });
 
-  /// When the session was completed.
+  /// When the round was completed.
   final DateTime date;
 
   /// Score as percentage (0-100).
@@ -23,8 +23,8 @@ class SessionRecord {
         'mode': mode.name,
       };
 
-  factory SessionRecord.fromMap(Map<dynamic, dynamic> map) {
-    return SessionRecord(
+  factory RoundRecord.fromMap(Map<dynamic, dynamic> map) {
+    return RoundRecord(
       date: DateTime.parse(map['date'] as String),
       score: (map['score'] as num).toDouble(),
       mode: QuizMode.values.firstWhere(

@@ -10,13 +10,13 @@ class ProgressCalculator {
   const ProgressCalculator._();
 
   /// Calculate current retention percentage (0-100) for a deck.
-  /// Uses weighted average of recent sessions with time decay.
+  /// Uses weighted average of recent rounds with time decay.
   /// Retention cannot drop below floor (half of peak retention).
   static double calculateRetention(
     DeckProgress progress,
     DecayFormula formula,
   ) {
-    if (progress.recentSessions.isEmpty) {
+    if (progress.recentRounds.isEmpty) {
       return 0.0;
     }
 
@@ -25,12 +25,12 @@ class ProgressCalculator {
     double totalWeight = 0.0;
     double weightedSum = 0.0;
 
-    for (final session in progress.recentSessions) {
-      final daysSince = now.difference(session.date).inHours / 24.0;
+    for (final round in progress.recentRounds) {
+      final daysSince = now.difference(round.date).inHours / 24.0;
       // Exponential decay: 0.5^(days / halfLife)
       final decay = math.pow(0.5, daysSince / halfLife);
       final weight = decay;
-      weightedSum += session.score * weight;
+      weightedSum += round.score * weight;
       totalWeight += weight;
     }
 

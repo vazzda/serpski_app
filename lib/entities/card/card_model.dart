@@ -26,7 +26,7 @@ class WordCard implements CardModel {
       );
 }
 
-/// Noun card with gender for agreement sessions.
+/// Noun card with gender for agreement rounds.
 class NounCard implements CardModel {
   const NounCard({
     required this.targetText,

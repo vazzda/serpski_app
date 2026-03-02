@@ -11,7 +11,7 @@ class LanguagePack {
     required this.labelKey,
     required this.isPublic,
     required this.translations,
-    required this.totalConcepts,
+    required this.totalTerms,
     this.levelMeta = const {},
     this.deckMeta = const {},
   });
@@ -25,11 +25,11 @@ class LanguagePack {
   /// Whether this pack is visible outside dev mode.
   final bool isPublic;
 
-  /// Concept ID → one translation entry per concept.
+  /// Term ID → one translation entry per term.
   final Map<String, LangEntry> translations;
 
-  /// Total number of concepts in the universal dictionary.
-  final int totalConcepts;
+  /// Total number of terms in the universal dictionary.
+  final int totalTerms;
 
   /// Level ID → localized display metadata (name, description).
   final Map<String, LevelMeta> levelMeta;
@@ -37,18 +37,18 @@ class LanguagePack {
   /// Deck ID → localized display metadata (name, description).
   final Map<String, DeckMeta> deckMeta;
 
-  /// How many concepts have at least one translation in this pack.
+  /// How many terms have at least one translation in this pack.
   int get translatedCount => translations.length;
 
-  /// How many concepts are missing from this pack.
-  int get missingCount => totalConcepts - translatedCount;
+  /// How many terms are missing from this pack.
+  int get missingCount => totalTerms - translatedCount;
 
-  /// Whether all dictionary concepts have translations.
-  bool get isComplete => translatedCount >= totalConcepts;
+  /// Whether all dictionary terms have translations.
+  bool get isComplete => translatedCount >= totalTerms;
 
-  /// List of concept IDs that are missing translations.
-  List<String> missingConcepts(Set<String> allConceptIds) {
-    return allConceptIds
+  /// List of term IDs that are missing translations.
+  List<String> missingTerms(Set<String> allTermIds) {
+    return allTermIds
         .where((id) => !translations.containsKey(id))
         .toList();
   }

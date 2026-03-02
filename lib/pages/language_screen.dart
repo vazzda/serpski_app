@@ -569,7 +569,7 @@ class _IncompleteDictionariesCard extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    l10n.language_conceptsCount(p.translatedCount, p.totalConcepts),
+                    l10n.language_termsCount(p.translatedCount, p.totalTerms),
                     style: VesselFonts.textCaption.copyWith(color: t.dangerColor),
                   ),
                 ],

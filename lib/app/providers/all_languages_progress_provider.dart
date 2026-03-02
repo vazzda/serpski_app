@@ -8,9 +8,9 @@ import 'deck_progress_provider.dart';
 ///
 /// completionFraction = sum(group.totalProgress) / (totalDecks * 100)
 ///
-/// Watches [deckProgressProvider] so it re-evaluates after sessions are recorded.
+/// Watches [deckProgressProvider] so it re-evaluates after rounds are recorded.
 final allLanguagesProgressProvider = FutureProvider<Map<String, double>>((ref) async {
-  // Re-run whenever current language's progress changes (session recorded).
+  // Re-run whenever current language's progress changes (round recorded).
   ref.watch(deckProgressProvider);
 
   final repository = ref.read(deckProgressRepositoryProvider);

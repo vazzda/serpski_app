@@ -55,12 +55,12 @@ class DatabaseProvider {
         ${DbSchema.colDeckId} TEXT NOT NULL,
         ${DbSchema.colProgress} REAL NOT NULL DEFAULT 0,
         ${DbSchema.colPeakRetention} REAL NOT NULL DEFAULT 0,
-        ${DbSchema.colLastSessionDate} TEXT,
+        ${DbSchema.colLastRoundDate} TEXT,
         PRIMARY KEY (${DbSchema.colTargetLang}, ${DbSchema.colDeckId})
       )
     ''');
     await db.execute('''
-      CREATE TABLE ${DbSchema.tableSessionRecords} (
+      CREATE TABLE ${DbSchema.tableRoundRecords} (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         ${DbSchema.colTargetLang} TEXT NOT NULL,
         ${DbSchema.colDeckId} TEXT NOT NULL,
@@ -72,7 +72,7 @@ class DatabaseProvider {
     await db.execute('''
       CREATE TABLE ${DbSchema.tableLanguageStats} (
         ${DbSchema.colTargetLang} TEXT PRIMARY KEY,
-        ${DbSchema.colConceptsTouchedIds} TEXT NOT NULL DEFAULT '[]'
+        ${DbSchema.colTermsTouchedIds} TEXT NOT NULL DEFAULT '[]'
       )
     ''');
     await db.execute('''

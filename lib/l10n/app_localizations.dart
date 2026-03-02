@@ -124,11 +124,11 @@ abstract class AppLocalizations {
   /// **'Gender agreements'**
   String get parentAgreement;
 
-  /// No description provided for @agreementSessionGender.
+  /// No description provided for @agreementRoundGender.
   ///
   /// In en, this message translates to:
   /// **'Gender: {gender}'**
-  String agreementSessionGender(String gender);
+  String agreementRoundGender(String gender);
 
   /// No description provided for @groupWords.
   ///
@@ -160,11 +160,11 @@ abstract class AppLocalizations {
   /// **'{count} words'**
   String wordsCount(int count);
 
-  /// No description provided for @vocab_conceptsCount.
+  /// No description provided for @vocab_termsCount.
   ///
   /// In en, this message translates to:
-  /// **'{count, plural, =1{1 concept} other{{count} concepts}}'**
-  String vocab_conceptsCount(int count);
+  /// **'{count, plural, =1{1 term} other{{count} terms}}'**
+  String vocab_termsCount(int count);
 
   /// No description provided for @wordsCountWithPreview.
   ///
@@ -253,7 +253,7 @@ abstract class AppLocalizations {
   /// No description provided for @chooseQuestionsCount.
   ///
   /// In en, this message translates to:
-  /// **'How many concepts?'**
+  /// **'How many terms?'**
   String get chooseQuestionsCount;
 
   /// No description provided for @questions5.
@@ -313,7 +313,7 @@ abstract class AppLocalizations {
   /// No description provided for @resultTitle.
   ///
   /// In en, this message translates to:
-  /// **'Session result'**
+  /// **'Round result'**
   String get resultTitle;
 
   /// No description provided for @correctCount.
@@ -418,17 +418,17 @@ abstract class AppLocalizations {
   /// **'Left: {count}'**
   String questionsLeft(int count);
 
-  /// No description provided for @exitSession.
+  /// No description provided for @exitRound.
   ///
   /// In en, this message translates to:
-  /// **'Exit session'**
-  String get exitSession;
+  /// **'Exit round'**
+  String get exitRound;
 
-  /// No description provided for @exitSessionConfirm.
+  /// No description provided for @exitRoundConfirm.
   ///
   /// In en, this message translates to:
-  /// **'Exit session? Your progress will be lost.'**
-  String get exitSessionConfirm;
+  /// **'Exit round? Your progress will be lost.'**
+  String get exitRoundConfirm;
 
   /// No description provided for @exit.
   ///
@@ -808,17 +808,17 @@ abstract class AppLocalizations {
   /// **'{count} words'**
   String language_wordsTouched(int count);
 
-  /// No description provided for @language_conceptsMissing.
+  /// No description provided for @language_termsMissing.
   ///
   /// In en, this message translates to:
   /// **'{count} missing'**
-  String language_conceptsMissing(int count);
+  String language_termsMissing(int count);
 
-  /// No description provided for @language_conceptsCount.
+  /// No description provided for @language_termsCount.
   ///
   /// In en, this message translates to:
-  /// **'{done}/{total} concepts'**
-  String language_conceptsCount(int done, int total);
+  /// **'{done}/{total} terms'**
+  String language_termsCount(int done, int total);
 
   /// No description provided for @modeTargetShown.
   ///

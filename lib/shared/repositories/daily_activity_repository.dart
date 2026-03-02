@@ -60,8 +60,8 @@ class DailyActivityRepository {
     );
   }
 
-  /// Merges a completed session into today's totals for a target language.
-  Future<DailyActivityStats> addSession({
+  /// Merges a completed round into today's totals for a target language.
+  Future<DailyActivityStats> addRound({
     required String targetLang,
     required int correct,
     required int wrong,

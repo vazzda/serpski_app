@@ -21,14 +21,14 @@ class ConfigValidator {
     required Map<String, dynamic> levelsData,
     required Map<String, Map<String, dynamic>> translationsByCode,
   }) {
-    final conceptIds = _validateDictionary(dictionaryData);
-    final (deckIds, levelIds) = _validateLevels(levelsData, conceptIds);
+    final termIds = _validateDictionary(dictionaryData);
+    final (deckIds, levelIds) = _validateLevels(levelsData, termIds);
     _validatePlan(planData, levelIds, translationsByCode.keys.toSet());
     for (final entry in translationsByCode.entries) {
       _validateTranslation(
         entry.key,
         entry.value,
-        conceptIds,
+        termIds,
         levelIds,
         deckIds,
         LangGrammarProfiles.of(entry.key),
@@ -41,42 +41,42 @@ class ConfigValidator {
   // ---------------------------------------------------------------------------
 
   static Set<String> _validateDictionary(Map<String, dynamic> data) {
-    final conceptsRaw = data['concepts'];
-    if (conceptsRaw == null) {
+    final termsRaw = data['terms'];
+    if (termsRaw == null) {
       throw const ConfigValidationError(
-        'dictionary.json: missing required key "concepts"',
+        'dictionary.json: missing required key "terms"',
       );
     }
-    if (conceptsRaw is! Map<String, dynamic>) {
+    if (termsRaw is! Map<String, dynamic>) {
       throw ConfigValidationError(
-        'dictionary.json: "concepts" must be an object, got ${conceptsRaw.runtimeType}',
+        'dictionary.json: "terms" must be an object, got ${termsRaw.runtimeType}',
       );
     }
 
-    final conceptIds = <String>{};
-    for (final entry in conceptsRaw.entries) {
+    final termIds = <String>{};
+    for (final entry in termsRaw.entries) {
       final id = entry.key;
       final value = entry.value;
       if (value is! Map<String, dynamic>) {
         throw ConfigValidationError(
-          'dictionary.json: concept "$id" must be an object',
+          'dictionary.json: term "$id" must be an object',
         );
       }
       final pos = value['pos'];
       if (pos == null) {
         throw ConfigValidationError(
-          'dictionary.json: concept "$id" missing required field "pos"',
+          'dictionary.json: term "$id" missing required field "pos"',
         );
       }
       if (!_allowedPos.contains(pos)) {
         throw ConfigValidationError(
-          'dictionary.json: concept "$id" has invalid pos "$pos". '
+          'dictionary.json: term "$id" has invalid pos "$pos". '
           'Allowed: ${_allowedPos.join(", ")}',
         );
       }
-      conceptIds.add(id);
+      termIds.add(id);
     }
-    return conceptIds;
+    return termIds;
   }
 
   // ---------------------------------------------------------------------------
@@ -85,16 +85,16 @@ class ConfigValidator {
 
   static (Set<String>, Set<String>) _validateLevels(
     Map<String, dynamic> data,
-    Set<String> conceptIds,
+    Set<String> termIds,
   ) {
-    final deckIds = _validateDecks(data, conceptIds);
+    final deckIds = _validateDecks(data, termIds);
     final levelIds = _validateLevelsList(data, deckIds);
     return (deckIds, levelIds);
   }
 
   static Set<String> _validateDecks(
     Map<String, dynamic> data,
-    Set<String> conceptIds,
+    Set<String> termIds,
   ) {
     final decksRaw = data['decks'];
     if (decksRaw == null) {
@@ -120,27 +120,27 @@ class ConfigValidator {
       if (deckIds.contains(id)) {
         throw ConfigValidationError('levels.json: duplicate deck id "$id"');
       }
-      final concepts = deck['concepts'];
-      if (concepts == null) {
+      final terms = deck['terms'];
+      if (terms == null) {
         throw ConfigValidationError(
-          'levels.json: deck "$id" missing required field "concepts"',
+          'levels.json: deck "$id" missing required field "terms"',
         );
       }
-      if (concepts is! List<dynamic>) {
+      if (terms is! List<dynamic>) {
         throw ConfigValidationError(
-          'levels.json: deck "$id".concepts must be an array',
+          'levels.json: deck "$id".terms must be an array',
         );
       }
-      for (int j = 0; j < concepts.length; j++) {
-        final conceptId = concepts[j];
-        if (conceptId is! String) {
+      for (int j = 0; j < terms.length; j++) {
+        final termId = terms[j];
+        if (termId is! String) {
           throw ConfigValidationError(
-            'levels.json: deck "$id".concepts[$j] must be a string',
+            'levels.json: deck "$id".terms[$j] must be a string',
           );
         }
-        if (!conceptIds.contains(conceptId)) {
+        if (!termIds.contains(termId)) {
           throw ConfigValidationError(
-            'levels.json: deck "$id".concepts[$j] = "$conceptId" does not exist in dictionary.json',
+            'levels.json: deck "$id".terms[$j] = "$termId" does not exist in dictionary.json',
           );
         }
       }
@@ -374,26 +374,26 @@ class ConfigValidator {
   static void _validateTranslation(
     String langCode,
     Map<String, dynamic> data,
-    Set<String> conceptIds,
+    Set<String> termIds,
     Set<String> levelIds,
     Set<String> deckIds,
     LanguageGrammarProfile profile,
   ) {
     for (final entry in data.entries) {
       if (entry.key == 'meta') continue;
-      final conceptId = entry.key;
-      if (!conceptIds.contains(conceptId)) {
+      final termId = entry.key;
+      if (!termIds.contains(termId)) {
         throw ConfigValidationError(
-          'translations/$langCode.json: key "$conceptId" does not exist in dictionary.json',
+          'translations/$langCode.json: key "$termId" does not exist in dictionary.json',
         );
       }
       final value = entry.value;
       if (value is! Map<String, dynamic>) {
         throw ConfigValidationError(
-          'translations/$langCode.json: entry "$conceptId" must be an object',
+          'translations/$langCode.json: entry "$termId" must be an object',
         );
       }
-      _validateLangEntry(langCode, conceptId, value, profile);
+      _validateLangEntry(langCode, termId, value, profile);
     }
 
     final meta = data['meta'];
@@ -469,71 +469,71 @@ class ConfigValidator {
 
   static void _validateLangEntry(
     String langCode,
-    String conceptId,
+    String termId,
     Map<String, dynamic> entry,
     LanguageGrammarProfile profile,
   ) {
     if (entry.containsKey('imperfective') || entry.containsKey('perfective')) {
       if (!entry.containsKey('imperfective')) {
         throw ConfigValidationError(
-          'translations/$langCode.json: "$conceptId" has "perfective" but missing "imperfective"',
+          'translations/$langCode.json: "$termId" has "perfective" but missing "imperfective"',
         );
       }
       if (!entry.containsKey('perfective')) {
         throw ConfigValidationError(
-          'translations/$langCode.json: "$conceptId" has "imperfective" but missing "perfective"',
+          'translations/$langCode.json: "$termId" has "imperfective" but missing "perfective"',
         );
       }
       if (entry['imperfective'] is! String) {
         throw ConfigValidationError(
-          'translations/$langCode.json: "$conceptId".imperfective must be a string',
+          'translations/$langCode.json: "$termId".imperfective must be a string',
         );
       }
       if (entry['perfective'] is! String) {
         throw ConfigValidationError(
-          'translations/$langCode.json: "$conceptId".perfective must be a string',
+          'translations/$langCode.json: "$termId".perfective must be a string',
         );
       }
     } else if (entry.containsKey('m') || entry.containsKey('f') || entry.containsKey('n')) {
       if (!entry.containsKey('m')) {
         throw ConfigValidationError(
-          'translations/$langCode.json: "$conceptId" (adjective) missing required field "m"',
+          'translations/$langCode.json: "$termId" (adjective) missing required field "m"',
         );
       }
       if (!entry.containsKey('f')) {
         throw ConfigValidationError(
-          'translations/$langCode.json: "$conceptId" (adjective) missing required field "f"',
+          'translations/$langCode.json: "$termId" (adjective) missing required field "f"',
         );
       }
       if (profile.hasNeuter && !entry.containsKey('n')) {
         throw ConfigValidationError(
-          'translations/$langCode.json: "$conceptId" (adjective) missing required field "n"',
+          'translations/$langCode.json: "$termId" (adjective) missing required field "n"',
         );
       }
       if (entry['m'] is! String) {
         throw ConfigValidationError(
-          'translations/$langCode.json: "$conceptId".m must be a string',
+          'translations/$langCode.json: "$termId".m must be a string',
         );
       }
       if (entry['f'] is! String) {
         throw ConfigValidationError(
-          'translations/$langCode.json: "$conceptId".f must be a string',
+          'translations/$langCode.json: "$termId".f must be a string',
         );
       }
       if (entry.containsKey('n') && entry['n'] is! String) {
         throw ConfigValidationError(
-          'translations/$langCode.json: "$conceptId".n must be a string',
+          'translations/$langCode.json: "$termId".n must be a string',
         );
       }
     } else {
       if (!entry.containsKey('text')) {
         throw ConfigValidationError(
-          'translations/$langCode.json: "$conceptId" (simple) missing required field "text"',
+          'translations/$langCode.json: "$termId" (simple) missing required field "text"',
         );
       }
       if (entry['text'] is! String) {
         throw ConfigValidationError(
-          'translations/$langCode.json: "$conceptId".text must be a string',
+          'translations/$langCode.json: "$termId".text must be a string',
         );
       }
     }

@@ -5,8 +5,8 @@
   "parentVocabulary": "Vocabulary",
   "parentConjugations": "Conjugations",
   "parentAgreement": "Gender agreements",
-  "agreementSessionGender": "Gender: {gender}",
-  "@agreementSessionGender": {
+  "agreementRoundGender": "Gender: {gender}",
+  "@agreementRoundGender": {
     "placeholders": {
       "gender": {
         "type": "String"
@@ -25,8 +25,8 @@
       }
     }
   },
-  "vocab_conceptsCount": "{count, plural, =1{1 concept} other{{count} concepts}}",
-  "@vocab_conceptsCount": {
+  "vocab_termsCount": "{count, plural, =1{1 term} other{{count} terms}}",
+  "@vocab_termsCount": {
     "placeholders": {
       "count": {
         "type": "int"
@@ -57,7 +57,7 @@
   "groupEndingsEmUCi": "-ĆI (EM|U)",
   "groupEndingsEmEju": "-ETI (EM|EJU)",
   "groupIrregular": "Irregular",
-  "chooseQuestionsCount": "How many concepts?",
+  "chooseQuestionsCount": "How many terms?",
   "questions5": "5",
   "questions10": "10",
   "start": "Start",
@@ -67,7 +67,7 @@
   "yourAnswer": "Your answer",
   "correct": "Correct",
   "wrong": "Wrong",
-  "resultTitle": "Session result",
+  "resultTitle": "Round result",
   "correctCount": "Correct: {count}",
   "@correctCount": {
     "placeholders": {
@@ -106,8 +106,8 @@
       }
     }
   },
-  "exitSession": "Exit session",
-  "exitSessionConfirm": "Exit session? Your progress will be lost.",
+  "exitRound": "Exit round",
+  "exitRoundConfirm": "Exit round? Your progress will be lost.",
   "exit": "Exit",
   "dailyActivityTitle": "Today",
   "dailyActivityEmpty": "No activity today",
@@ -221,14 +221,14 @@
       "count": { "type": "int" }
     }
   },
-  "language_conceptsMissing": "{count} missing",
-  "@language_conceptsMissing": {
+  "language_termsMissing": "{count} missing",
+  "@language_termsMissing": {
     "placeholders": {
       "count": { "type": "int" }
     }
   },
-  "language_conceptsCount": "{done}/{total} concepts",
-  "@language_conceptsCount": {
+  "language_termsCount": "{done}/{total} terms",
+  "@language_termsCount": {
     "placeholders": {
       "done": { "type": "int" },
       "total": { "type": "int" }

@@ -1,5 +1,5 @@
 import 'package:srpski_card/shared/lib/progress_constants.dart';
-import 'session_record.dart';
+import 'round_record.dart';
 
 /// Progress tracking for a single deck, scoped by target language.
 ///
@@ -11,8 +11,8 @@ class DeckProgress {
     required this.deckId,
     this.progress = 0.0,
     this.peakRetention = 0.0,
-    this.recentSessions = const [],
-    this.lastSessionDate,
+    this.recentRounds = const [],
+    this.lastRoundDate,
   });
 
   final String deckId;
@@ -23,11 +23,11 @@ class DeckProgress {
   /// Highest retention ever achieved. Used to calculate decay floor.
   final double peakRetention;
 
-  /// Last 3 sessions for retention calculation.
-  final List<SessionRecord> recentSessions;
+  /// Last 3 rounds for retention calculation.
+  final List<RoundRecord> recentRounds;
 
-  /// Date of most recent session.
-  final DateTime? lastSessionDate;
+  /// Date of most recent round.
+  final DateTime? lastRoundDate;
 
   /// Alias for consistency with existing UI code.
   double get totalProgress => progress;
@@ -39,15 +39,15 @@ class DeckProgress {
   DeckProgress copyWith({
     double? progress,
     double? peakRetention,
-    List<SessionRecord>? recentSessions,
-    DateTime? lastSessionDate,
+    List<RoundRecord>? recentRounds,
+    DateTime? lastRoundDate,
   }) {
     return DeckProgress(
       deckId: deckId,
       progress: progress ?? this.progress,
       peakRetention: peakRetention ?? this.peakRetention,
-      recentSessions: recentSessions ?? this.recentSessions,
-      lastSessionDate: lastSessionDate ?? this.lastSessionDate,
+      recentRounds: recentRounds ?? this.recentRounds,
+      lastRoundDate: lastRoundDate ?? this.lastRoundDate,
     );
   }
 
@@ -55,22 +55,22 @@ class DeckProgress {
         'deckId': deckId,
         'progress': progress,
         'peakRetention': peakRetention,
-        'recentSessions': recentSessions.map((s) => s.toMap()).toList(),
-        'lastSessionDate': lastSessionDate?.toIso8601String(),
+        'recentRounds': recentRounds.map((s) => s.toMap()).toList(),
+        'lastRoundDate': lastRoundDate?.toIso8601String(),
       };
 
   factory DeckProgress.fromMap(Map<dynamic, dynamic> map) {
-    final sessionsList = (map['recentSessions'] as List<dynamic>?)
-            ?.map((s) => SessionRecord.fromMap(s as Map<dynamic, dynamic>))
+    final roundsList = (map['recentRounds'] as List<dynamic>?)
+            ?.map((s) => RoundRecord.fromMap(s as Map<dynamic, dynamic>))
             .toList() ??
         [];
-    final lastDateStr = map['lastSessionDate'] as String?;
+    final lastDateStr = map['lastRoundDate'] as String?;
     return DeckProgress(
       deckId: map['deckId'] as String,
       progress: (map['progress'] as num?)?.toDouble() ?? 0.0,
       peakRetention: (map['peakRetention'] as num?)?.toDouble() ?? 0.0,
-      recentSessions: sessionsList,
-      lastSessionDate:
+      recentRounds: roundsList,
+      lastRoundDate:
           lastDateStr != null ? DateTime.parse(lastDateStr) : null,
     );
   }

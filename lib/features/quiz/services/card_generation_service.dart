@@ -3,15 +3,15 @@ import '../../../entities/deck/vocab_deck_model.dart';
 import '../../../entities/language/lang_entry.dart';
 import '../../../entities/language/language_pack.dart';
 
-/// Generates VocabCards by joining a deck's concepts with target + native translations.
+/// Generates VocabCards by joining a deck's terms with target + native translations.
 class CardGenerationService {
   /// Build a list of VocabCards for a vocabulary deck.
   ///
-  /// One VocabCard per concept. Entry type determines card subtype:
+  /// One VocabCard per term. Entry type determines card subtype:
   ///   [AspectPairEntry] → [PairVocabCard] (two-input write quiz)
   ///   [SimpleEntry] / [AdjectiveEntry] → [SimpleVocabCard]
   ///
-  /// Skips concepts missing from either pack.
+  /// Skips terms missing from either pack.
   List<VocabCard> buildCards({
     required VocabDeckModel deck,
     required LanguagePack targetPack,
@@ -19,9 +19,9 @@ class CardGenerationService {
   }) {
     final cards = <VocabCard>[];
 
-    for (final conceptId in deck.conceptIds) {
-      final targetEntry = targetPack.translations[conceptId];
-      final nativeEntry = nativePack.translations[conceptId];
+    for (final termId in deck.termIds) {
+      final targetEntry = targetPack.translations[termId];
+      final nativeEntry = nativePack.translations[termId];
       if (targetEntry == null || nativeEntry == null) continue;
 
       final nativeText = _nativeText(nativeEntry);
@@ -34,7 +34,7 @@ class CardGenerationService {
             :final note,
           ):
           cards.add(PairVocabCard(
-            conceptId: conceptId,
+            termId: termId,
             nativeText: nativeText,
             imperfectiveText: imperfective,
             perfectiveText: perfective,
@@ -44,7 +44,7 @@ class CardGenerationService {
 
         case SimpleEntry(:final text, :final note):
           cards.add(SimpleVocabCard(
-            conceptId: conceptId,
+            termId: termId,
             nativeText: nativeText,
             targetText: text,
             nativeNote: nativeNote,
@@ -53,7 +53,7 @@ class CardGenerationService {
 
         case AdjectiveEntry(:final m, :final note):
           cards.add(SimpleVocabCard(
-            conceptId: conceptId,
+            termId: termId,
             nativeText: nativeText,
             targetText: m,
             nativeNote: nativeNote,

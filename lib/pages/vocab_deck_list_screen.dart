@@ -15,7 +15,7 @@ import '../entities/language/dictionary.dart';
 import '../entities/language/lang_entry.dart';
 import '../entities/language/language_pack.dart';
 import '../entities/plan/level_tier.dart';
-import '../features/quiz/session_notifier.dart';
+import '../features/quiz/round_notifier.dart';
 import '../features/vocab/services/level_fold_notifier.dart';
 import '../features/vocab/widgets/vocab_daily_activity_card.dart';
 import '../app/layout/vessel_layout.dart';
@@ -201,11 +201,11 @@ class _VocabDeckListScreenState extends ConsumerState<VocabDeckListScreen> {
               )
             : 0.0;
         final percentage =
-            progress != null && progress.recentSessions.isNotEmpty
+            progress != null && progress.recentRounds.isNotEmpty
             ? progress.totalProgress.round()
             : null;
         final words = <String>[];
-        for (final cid in deck.conceptIds) {
+        for (final cid in deck.termIds) {
           final entry = targetPack.translations[cid];
           if (entry == null) continue;
           if (entry is SimpleEntry) {
@@ -269,7 +269,7 @@ class _VocabDeckListScreenState extends ConsumerState<VocabDeckListScreen> {
   DateTime? _computeLatestDate(List<VocabDeckTileData> decks) {
     DateTime? latest;
     for (final g in decks) {
-      final d = g.progress?.lastSessionDate;
+      final d = g.progress?.lastRoundDate;
       if (d != null && (latest == null || d.isAfter(latest))) {
         latest = d;
       }
@@ -282,15 +282,15 @@ class _VocabDeckListScreenState extends ConsumerState<VocabDeckListScreen> {
     double levelProgress,
     dynamic settings,
   ) {
-    final withSessions = decks
+    final withRounds = decks
         .where(
-          (g) => g.progress != null && g.progress!.recentSessions.isNotEmpty,
+          (g) => g.progress != null && g.progress!.recentRounds.isNotEmpty,
         )
         .toList();
-    if (withSessions.isEmpty) return RetentionLevel.none;
+    if (withRounds.isEmpty) return RetentionLevel.none;
     final avgRetention =
-        withSessions.map((g) => g.retention).reduce((a, b) => a + b) /
-        withSessions.length;
+        withRounds.map((g) => g.retention).reduce((a, b) => a + b) /
+        withRounds.length;
     return ProgressCalculator.getRetentionLevel(avgRetention, levelProgress);
   }
 
@@ -314,7 +314,7 @@ class _VocabDeckListScreenState extends ConsumerState<VocabDeckListScreen> {
     LanguagePack native,
   ) {
     int count = 0;
-    for (final cid in deck.conceptIds) {
+    for (final cid in deck.termIds) {
       if (target.translations.containsKey(cid) &&
           native.translations.containsKey(cid)) {
         count++;
@@ -344,7 +344,7 @@ class _VocabDeckListScreenState extends ConsumerState<VocabDeckListScreen> {
     );
     if (selection == null || !context.mounted) return;
 
-    // Test mode uses all concepts — skip count selection
+    // Test mode uses all terms — skip count selection
     final int selectedCount;
     if (selection.isTest) {
       selectedCount = cardCount;
@@ -363,7 +363,7 @@ class _VocabDeckListScreenState extends ConsumerState<VocabDeckListScreen> {
         : 0.0;
 
     ref
-        .read(sessionProvider.notifier)
+        .read(roundProvider.notifier)
         .startVocab(
           deck: deck,
           targetPack: targetPack,
@@ -374,6 +374,6 @@ class _VocabDeckListScreenState extends ConsumerState<VocabDeckListScreen> {
           originScrollOffset: scrollOffset,
           isTest: selection.isTest,
         );
-    if (context.mounted) context.go(AppRoutes.session);
+    if (context.mounted) context.go(AppRoutes.round);
   }
 }

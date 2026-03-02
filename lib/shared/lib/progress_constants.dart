@@ -20,12 +20,12 @@ class ProgressConstants {
   static const double capTest = 100.0;
 
   // ---------------------------------------------------------------------------
-  // SESSION CONTRIBUTION — how much a single non-test session can add
+  // ROUND CONTRIBUTION — how much a single non-test round can add
   // ---------------------------------------------------------------------------
 
-  /// Base points added per session before coverage & accuracy modifiers.
+  /// Base points added per round before coverage & accuracy modifiers.
   /// Effective contribution = coverage * accuracy * baseContribution.
-  ///   coverage = conceptsInSession / totalConceptsInDeck
+  ///   coverage = termsInRound / totalTermsInDeck
   ///   accuracy = correctCount / (correctCount + wrongCount)
   static const double baseContribution = 10.0;
 

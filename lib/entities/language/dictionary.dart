@@ -1,20 +1,20 @@
-import 'concept.dart';
+import 'term.dart';
 import '../deck/vocab_deck_model.dart';
 import '../level/level.dart';
 
 /// The universal dictionary loaded from dictionary.json + levels.json.
 ///
-/// Contains all concepts, vocabulary decks, and level definitions.
+/// Contains all terms, vocabulary decks, and level definitions.
 /// Language-agnostic — translations are in separate LanguagePack files.
 class Dictionary {
   const Dictionary({
-    required this.concepts,
+    required this.terms,
     required this.decks,
     required this.levels,
   });
 
-  /// All concepts keyed by ID.
-  final Map<String, Concept> concepts;
+  /// All terms keyed by ID.
+  final Map<String, Term> terms;
 
   /// All vocabulary decks keyed by insertion order.
   final List<VocabDeckModel> decks;
@@ -22,18 +22,18 @@ class Dictionary {
   /// Ordered levels, each containing a subset of deck IDs.
   final List<Level> levels;
 
-  /// Set of all concept IDs in the dictionary.
-  Set<String> get conceptIds => concepts.keys.toSet();
+  /// Set of all term IDs in the dictionary.
+  Set<String> get termIds => terms.keys.toSet();
 
   /// All decks keyed by ID for fast lookup.
   Map<String, VocabDeckModel> get decksById =>
       {for (final g in decks) g.id: g};
 
   factory Dictionary.fromJson(Map<String, dynamic> json) {
-    final conceptsJson = json['concepts'] as Map<String, dynamic>;
-    final concepts = conceptsJson.map(
+    final termsJson = json['terms'] as Map<String, dynamic>;
+    final terms = termsJson.map(
       (id, data) =>
-          MapEntry(id, Concept.fromJson(id, data as Map<String, dynamic>)),
+          MapEntry(id, Term.fromJson(id, data as Map<String, dynamic>)),
     );
 
     final decksJson = json['decks'] as List<dynamic>;
@@ -46,6 +46,6 @@ class Dictionary {
         .map((l) => Level.fromJson(l as Map<String, dynamic>))
         .toList();
 
-    return Dictionary(concepts: concepts, decks: decks, levels: levels);
+    return Dictionary(terms: terms, decks: decks, levels: levels);
   }
 }

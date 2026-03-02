@@ -5,10 +5,10 @@ import 'package:go_router/go_router.dart';
 import '../l10n/app_localizations.dart';
 import '../app/providers/groups_provider.dart';
 import '../features/quiz/display_english.dart' show displayNativeForCard;
-import '../features/quiz/services/quiz_session_service.dart';
+import '../features/quiz/services/quiz_round_service.dart';
 import '../features/quiz/quiz_mode.dart';
-import '../features/quiz/session_notifier.dart';
-import '../features/quiz/session_state.dart';
+import '../features/quiz/round_notifier.dart';
+import '../features/quiz/round_state.dart';
 import '../app/router/app_router.dart';
 import '../app/theme/vessel_themes.dart';
 import '../shared/ui/buttons/vessel_buttons.dart';
@@ -25,10 +25,10 @@ class ResultScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = AppLocalizations.of(context)!;
     final t = VesselThemes.of(context);
-    final session = ref.watch(sessionProvider);
+    final round = ref.watch(roundProvider);
 
-    if (session == null) {
-      // Session ended - navigation should already be handled by Back/Again button
+    if (round == null) {
+      // Round ended - navigation should already be handled by Back/Again button
       return const Scaffold(body: Center(child: CircularProgressIndicator()));
     }
 
@@ -44,12 +44,12 @@ class ResultScreen extends ConsumerWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    l10n.correctCount(session.correctCount),
+                    l10n.correctCount(round.correctCount),
                     style: VesselFonts.textContentHeader.copyWith(color: t.accentColor),
                   ),
                   const VesselGap.s(),
                   Text(
-                    l10n.wrongCount(session.wrongCount),
+                    l10n.wrongCount(round.wrongCount),
                     style: VesselFonts.textContentHeader.copyWith(color: t.dangerColor),
                   ),
                 ],
@@ -62,55 +62,55 @@ class ResultScreen extends ConsumerWidget {
                   child: VesselAccentButton(
                     label: l10n.again,
                     onPressed: () {
-                      final session = ref.read(sessionProvider);
-                      if (session == null) return;
+                      final round = ref.read(roundProvider);
+                      if (round == null) return;
 
-                      // Vocab sessions: restart from allCards
-                      if (session.allCards != null) {
-                        ref.read(sessionProvider.notifier).restartFromAllCards();
+                      // Vocab rounds: restart from allCards
+                      if (round.allCards != null) {
+                        ref.read(roundProvider.notifier).restartFromAllCards();
                         if (context.mounted) {
-                          context.go(AppRoutes.session);
+                          context.go(AppRoutes.round);
                         }
                         return;
                       }
 
-                      // Agreement sessions
+                      // Agreement rounds
                       final groups = ref.read(groupsProvider).valueOrNull;
                       if (groups == null) return;
-                      if (session.sessionType == SessionType.agreement) {
-                        final adjId = session.adjectiveGroupId;
+                      if (round.roundType == RoundType.agreement) {
+                        final adjId = round.adjectiveGroupId;
                         if (adjId == null) return;
                         try {
                           final adjGroup = groups.firstWhere(
                             (g) => g.id == adjId,
                           );
-                          ref.read(sessionProvider.notifier).startAgreement(
+                          ref.read(roundProvider.notifier).startAgreement(
                                 adjectiveGroup: adjGroup,
                                 allGroups: groups,
-                                mode: session.mode,
-                                questionCount: session.requestedCount,
-                                originRoute: session.originRoute,
+                                mode: round.mode,
+                                questionCount: round.requestedCount,
+                                originRoute: round.originRoute,
                               );
                           if (context.mounted) {
-                            context.go(AppRoutes.session);
+                            context.go(AppRoutes.round);
                           }
                         } catch (_) {}
                         return;
                       }
 
-                      // Legacy tool sessions (conjugations)
+                      // Legacy tool rounds (conjugations)
                       try {
                         final group = groups.firstWhere(
-                          (g) => g.id == session.deckId,
+                          (g) => g.id == round.deckId,
                         );
-                        ref.read(sessionProvider.notifier).start(
+                        ref.read(roundProvider.notifier).start(
                               group: group,
-                              mode: session.mode,
-                              questionCount: session.requestedCount,
-                              originRoute: session.originRoute,
+                              mode: round.mode,
+                              questionCount: round.requestedCount,
+                              originRoute: round.originRoute,
                             );
                         if (context.mounted) {
-                          context.go(AppRoutes.session);
+                          context.go(AppRoutes.round);
                         }
                       } catch (_) {}
                     },
@@ -122,7 +122,7 @@ class ResultScreen extends ConsumerWidget {
                     label: l10n.back,
                     onPressed: () {
                       final originRoute =
-                          ref.read(quizSessionServiceProvider).endSession();
+                          ref.read(quizRoundServiceProvider).endRound();
                       if (context.mounted) {
                         context.go(originRoute);
                       }
@@ -131,11 +131,11 @@ class ResultScreen extends ConsumerWidget {
                 ),
               ],
             ),
-            if (!ref.read(quizSessionServiceProvider).lastSessionContributed) ...[
+            if (!ref.read(quizRoundServiceProvider).lastRoundContributed) ...[
               const VesselGap.l(),
               VesselNote(text: l10n.result_techWork),
             ],
-            if (session.missedEntries.isNotEmpty) ...[
+            if (round.missedEntries.isNotEmpty) ...[
               const VesselGap.xl(),
               Text(
                 l10n.reviewWrongTitle,
@@ -147,8 +147,8 @@ class ResultScreen extends ConsumerWidget {
                 style: VesselFonts.textBody.copyWith(color: t.textPrimary),
               ),
               const VesselGap.m(),
-              ...session.missedEntries.map(
-                (entry) => _MissedEntryTile(entry: entry, mode: session.mode),
+              ...round.missedEntries.map(
+                (entry) => _MissedEntryTile(entry: entry, mode: round.mode),
               ),
             ],
           ],

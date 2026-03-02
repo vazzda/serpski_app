@@ -3,8 +3,8 @@ import 'dart:math';
 import '../../entities/card/card_model.dart';
 import '../../entities/group/group_model.dart';
 
-/// Builds a queue of phrase cards (adjective + noun in agreement) for an agreement session.
-/// Picks a random session gender; combines random adjectives from [adjectiveGroup]
+/// Builds a queue of phrase cards (adjective + noun in agreement) for an agreement round.
+/// Picks a random round gender; combines random adjectives from [adjectiveGroup]
 /// with random nouns of that gender from [nounGroups].
 ({List<CardModel> queue, Set<String> wordIds}) buildAgreementQueue({
   required GroupModel adjectiveGroup,
@@ -33,14 +33,14 @@ import '../../entities/group/group_model.dart';
   if (gendersWithNouns.isEmpty || adjectives.isEmpty) {
     return (queue: <CardModel>[], wordIds: <String>{});
   }
-  final sessionGender = gendersWithNouns[random.nextInt(gendersWithNouns.length)];
-  final nouns = nounsByGender[sessionGender]!;
+  final roundGender = gendersWithNouns[random.nextInt(gendersWithNouns.length)];
+  final nouns = nounsByGender[roundGender]!;
   final queue = <CardModel>[];
   final wordIds = <String>{};
   for (var i = 0; i < count; i++) {
     final adj = adjectives[random.nextInt(adjectives.length)];
     final noun = nouns[random.nextInt(nouns.length)];
-    final target = '${adj.formForGender(sessionGender)} ${noun.targetText}';
+    final target = '${adj.formForGender(roundGender)} ${noun.targetText}';
     final native = '${adj.nativeText} ${noun.nativeText}';
     queue.add(PhraseCard(targetText: target, nativeText: native));
     wordIds.add('agreement:${adjectiveGroup.id}:$i');

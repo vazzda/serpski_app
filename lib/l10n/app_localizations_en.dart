@@ -24,7 +24,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get parentAgreement => 'Gender agreements';
 
   @override
-  String agreementSessionGender(String gender) {
+  String agreementRoundGender(String gender) {
     return 'Gender: $gender';
   }
 
@@ -46,12 +46,12 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String vocab_conceptsCount(int count) {
+  String vocab_termsCount(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count concepts',
-      one: '1 concept',
+      other: '$count terms',
+      one: '1 term',
     );
     return '$_temp0';
   }
@@ -101,7 +101,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get groupIrregular => 'Irregular';
 
   @override
-  String get chooseQuestionsCount => 'How many concepts?';
+  String get chooseQuestionsCount => 'How many terms?';
 
   @override
   String get questions5 => '5';
@@ -131,7 +131,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get wrong => 'Wrong';
 
   @override
-  String get resultTitle => 'Session result';
+  String get resultTitle => 'Round result';
 
   @override
   String correctCount(int count) {
@@ -191,10 +191,10 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get exitSession => 'Exit session';
+  String get exitRound => 'Exit round';
 
   @override
-  String get exitSessionConfirm => 'Exit session? Your progress will be lost.';
+  String get exitRoundConfirm => 'Exit round? Your progress will be lost.';
 
   @override
   String get exit => 'Exit';
@@ -402,13 +402,13 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String language_conceptsMissing(int count) {
+  String language_termsMissing(int count) {
     return '$count missing';
   }
 
   @override
-  String language_conceptsCount(int done, int total) {
-    return '$done/$total concepts';
+  String language_termsCount(int done, int total) {
+    return '$done/$total terms';
   }
 
   @override

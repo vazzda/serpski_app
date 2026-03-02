@@ -1,17 +1,17 @@
 import 'card_model.dart';
 
-/// A vocabulary training card. All vocab cards share a conceptId, nativeText,
+/// A vocabulary training card. All vocab cards share a termId, nativeText,
 /// and optional notes. Subtype determines quiz behaviour.
 sealed class VocabCard implements CardModel {
   const VocabCard({
-    required this.conceptId,
+    required this.termId,
     required this.nativeText,
     this.nativeNote,
     this.targetNote,
   });
 
-  /// Concept slug from dictionary.json (e.g., "buy", "city").
-  final String conceptId;
+  /// Term slug from dictionary.json (e.g., "buy", "city").
+  final String termId;
 
   @override
   final String nativeText;
@@ -22,14 +22,14 @@ sealed class VocabCard implements CardModel {
   /// Usage note for the target-language side. Show when target is the prompt.
   final String? targetNote;
 
-  /// Unique word ID for progress tracking. One card per concept.
-  String get wordId => conceptId;
+  /// Unique word ID for progress tracking. One card per term.
+  String get wordId => termId;
 }
 
 /// A single-answer card: simple verb, noun, adverb, adjective (masculine form), etc.
 class SimpleVocabCard extends VocabCard {
   const SimpleVocabCard({
-    required super.conceptId,
+    required super.termId,
     required super.nativeText,
     required this.targetText,
     super.nativeNote,
@@ -46,7 +46,7 @@ class SimpleVocabCard extends VocabCard {
 /// An aspect-pair card: requires the user to produce both imperfective and perfective forms.
 class PairVocabCard extends VocabCard {
   const PairVocabCard({
-    required super.conceptId,
+    required super.termId,
     required super.nativeText,
     required this.imperfectiveText,
     required this.perfectiveText,

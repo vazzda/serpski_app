@@ -14,9 +14,9 @@ import '../features/quiz/display_english.dart' show displayNativeForCard;
 import '../features/quiz/quiz_mode.dart';
 import '../features/quiz/quiz_options.dart';
 import '../features/quiz/quiz_utils.dart';
-import '../features/quiz/services/quiz_session_service.dart';
-import '../features/quiz/session_notifier.dart';
-import '../features/quiz/session_state.dart';
+import '../features/quiz/services/quiz_round_service.dart';
+import '../features/quiz/round_notifier.dart';
+import '../features/quiz/round_state.dart';
 import '../app/router/app_router.dart';
 import '../app/theme/vessel_themes.dart';
 import '../shared/ui/buttons/vessel_buttons.dart';
@@ -29,14 +29,14 @@ import '../shared/ui/inputs/vessel_text_input.dart';
 import '../shared/ui/gap/vessel_gap.dart';
 import '../app/layout/vessel_layout.dart';
 
-class SessionScreen extends ConsumerStatefulWidget {
-  const SessionScreen({super.key});
+class RoundScreen extends ConsumerStatefulWidget {
+  const RoundScreen({super.key});
 
   @override
-  ConsumerState<SessionScreen> createState() => _SessionScreenState();
+  ConsumerState<RoundScreen> createState() => _RoundScreenState();
 }
 
-class _SessionScreenState extends ConsumerState<SessionScreen> {
+class _RoundScreenState extends ConsumerState<RoundScreen> {
   final _writeController = TextEditingController();
   final _writeController2 = TextEditingController();
   final _random = Random();
@@ -64,38 +64,38 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     final t = VesselThemes.of(context);
-    final session = ref.watch(sessionProvider);
+    final round = ref.watch(roundProvider);
     final asyncGroups = ref.watch(groupsProvider);
 
-    ref.listen<SessionState?>(sessionProvider, (prev, next) {
+    ref.listen<RoundState?>(roundProvider, (prev, next) {
       if (next != null && next.isFinished && !_hasFinalized) {
         _hasFinalized = true;
         WidgetsBinding.instance.addPostFrameCallback((_) async {
-          await ref.read(quizSessionServiceProvider).persistSession();
+          await ref.read(quizRoundServiceProvider).persistRound();
           if (!context.mounted) return;
           context.go(AppRoutes.result);
         });
       }
     });
 
-    if (session == null) {
-      // Session ended - navigation should already be handled by exit button
+    if (round == null) {
+      // Round ended - navigation should already be handled by exit button
       return const Scaffold(body: Center(child: CircularProgressIndicator()));
     }
 
-    if (session.isFinished) {
+    if (round.isFinished) {
       return const Scaffold(body: Center(child: CircularProgressIndicator()));
     }
 
-    final card = session.currentCard!;
+    final card = round.currentCard!;
 
-    // Vocab sessions carry their own allCards; legacy/agreement need group lookup.
+    // Vocab rounds carry their own allCards; legacy/agreement need group lookup.
     GroupModel? group;
-    if (session.allCards == null) {
+    if (round.allCards == null) {
       final groupsList = asyncGroups.valueOrNull;
-      final lookupId = session.sessionType == SessionType.agreement
-          ? session.adjectiveGroupId
-          : session.deckId;
+      final lookupId = round.roundType == RoundType.agreement
+          ? round.adjectiveGroupId
+          : round.deckId;
       if (lookupId != null && groupsList != null) {
         try {
           group = groupsList.firstWhere((g) => g.id == lookupId);
@@ -103,23 +103,23 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
           group = null;
         }
       }
-      if (session.sessionType != SessionType.agreement && group == null) {
+      if (round.roundType != RoundType.agreement && group == null) {
         return const Scaffold(body: Center(child: CircularProgressIndicator()));
       }
     }
 
-    final title = session.deckName
+    final title = round.deckName
         ?? (group != null
             ? groupLabel(l10n, group.labelKey)
-            : (session.sessionType == SessionType.agreement
+            : (round.roundType == RoundType.agreement
                 ? l10n.parentAgreement
                 : ''));
-    final allCardsForOptions = session.allCards
-        ?? (session.sessionType == SessionType.agreement
-            ? session.queue
+    final allCardsForOptions = round.allCards
+        ?? (round.roundType == RoundType.agreement
+            ? round.queue
             : group!.cards);
-    final promptText = _buildPromptText(card, session.mode, l10n);
-    final correctAnswer = session.mode == QuizMode.targetShown
+    final promptText = _buildPromptText(card, round.mode, l10n);
+    final correctAnswer = round.mode == QuizMode.targetShown
         ? card.nativeText
         : card.targetAnswer;
 
@@ -128,7 +128,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
       actions: [
         IconButton(
           icon: const Icon(PhosphorIconsRegular.x),
-          tooltip: l10n.exitSession,
+          tooltip: l10n.exitRound,
           onPressed: () => _showExitConfirm(context, ref, l10n),
         ),
       ],
@@ -141,11 +141,11 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  l10n.correctCount(session.correctCount),
+                  l10n.correctCount(round.correctCount),
                   style: VesselFonts.textScore.copyWith(color: t.accentColor),
                 ),
                 Text(
-                  l10n.questionsLeft(session.queue.length),
+                  l10n.questionsLeft(round.queue.length),
                   style: VesselFonts.textScore.copyWith(color: t.textPrimary),
                 ),
               ],
@@ -161,19 +161,19 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
                     textAlign: TextAlign.center,
                   ),
                   if (card is VocabCard &&
-                      (session.mode == QuizMode.targetShown
+                      (round.mode == QuizMode.targetShown
                               ? card.targetNote
                               : card.nativeNote) !=
                           null) ...[
                     const VesselGap.s(),
                     VesselNote(
-                      text: session.mode == QuizMode.targetShown
+                      text: round.mode == QuizMode.targetShown
                           ? card.targetNote!
                           : card.nativeNote!,
                     ),
                   ],
                   if (card is PairVocabCard &&
-                      session.mode == QuizMode.write) ...[
+                      round.mode == QuizMode.write) ...[
                     const VesselGap.s(),
                     VesselNote(text: l10n.quiz_aspectPairPrompt),
                   ],
@@ -231,7 +231,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
                 ),
                 const VesselGap.s(),
                 Text(
-                  '${session.mode == QuizMode.write ? l10n.youWrote : l10n.youPicked} ${(_wrongUserAnswerDisplay ?? '').isEmpty ? l10n.emptyAnswer : _wrongUserAnswerDisplay}',
+                  '${round.mode == QuizMode.write ? l10n.youWrote : l10n.youPicked} ${(_wrongUserAnswerDisplay ?? '').isEmpty ? l10n.emptyAnswer : _wrongUserAnswerDisplay}',
                   style: VesselFonts.textBodyLarge.copyWith(color: t.textPrimary),
                 ),
                 const VesselGap.s(),
@@ -245,7 +245,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
                 label: l10n.next,
                 onPressed: () => _onNextAfterWrong(ref),
               ),
-            ] else if (session.mode == QuizMode.write) ...[
+            ] else if (round.mode == QuizMode.write) ...[
               if (card is PairVocabCard) ...[
                 Text(
                   l10n.quiz_aspectImperfective,
@@ -300,7 +300,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
             ] else ...[
               ..._buildOptions(
                 context,
-                session.mode,
+                round.mode,
                 card,
                 correctAnswer,
                 allCardsForOptions,
@@ -319,7 +319,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
     WidgetRef ref,
     AppLocalizations l10n,
   ) {
-    final sessionContext = context;
+    final roundContext = context;
     final t = VesselThemes.of(context);
     showVesselBottomSheet<void>(
       context: context,
@@ -328,12 +328,12 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
-            l10n.exitSession,
+            l10n.exitRound,
             style: VesselFonts.textSheetTitle.copyWith(color: t.textPrimary),
           ),
           const VesselGap.m(),
           Text(
-            l10n.exitSessionConfirm,
+            l10n.exitRoundConfirm,
             style: VesselFonts.textSheetContent.copyWith(color: t.textPrimary),
           ),
           const VesselGap.xl(),
@@ -350,9 +350,9 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
                 onPressed: () {
                   Navigator.of(sheetContext).pop();
                   final originRoute =
-                      ref.read(quizSessionServiceProvider).endSession();
-                  if (sessionContext.mounted) {
-                    sessionContext.go(originRoute);
+                      ref.read(quizRoundServiceProvider).endRound();
+                  if (roundContext.mounted) {
+                    roundContext.go(originRoute);
                   }
                 },
               ),
@@ -364,7 +364,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
   }
 
   void _onNextAfterWrong(WidgetRef ref) {
-    ref.read(sessionProvider.notifier).answerWrong(userTypedAnswer: _wrongUserTypedAnswer);
+    ref.read(roundProvider.notifier).answerWrong(userTypedAnswer: _wrongUserTypedAnswer);
     setState(() {
       _wrongFeedback = null;
       _wrongFeedbackDisplay = null;
@@ -387,9 +387,9 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
   }
 
   void _submitWritePair(BuildContext context, WidgetRef ref) {
-    final session = ref.read(sessionProvider);
-    if (session == null || session.currentCard == null) return;
-    final card = session.currentCard! as PairVocabCard;
+    final round = ref.read(roundProvider);
+    if (round == null || round.currentCard == null) return;
+    final card = round.currentCard! as PairVocabCard;
 
     final raw1 = _writeController.text.trim();
     final raw2 = _writeController2.text.trim();
@@ -399,7 +399,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
         normalizeForComparison(card.perfectiveText);
 
     if (ok1 && ok2) {
-      ref.read(sessionProvider.notifier).answerCorrect();
+      ref.read(roundProvider.notifier).answerCorrect();
     } else {
       setState(() {
         _wrongFeedback = card.targetAnswer;
@@ -468,7 +468,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
     AppLocalizations l10n,
   ) {
     if (identical(chosenCard, correctCard)) {
-      ref.read(sessionProvider.notifier).answerCorrect();
+      ref.read(roundProvider.notifier).answerCorrect();
     } else {
       setState(() {
         _wrongFeedback = correctCard.nativeText;
@@ -487,7 +487,7 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
     AppLocalizations l10n,
   ) {
     if (chosen == correctAnswer) {
-      ref.read(sessionProvider.notifier).answerCorrect();
+      ref.read(roundProvider.notifier).answerCorrect();
     } else {
       setState(() {
         _wrongFeedback = correctAnswer;
@@ -499,20 +499,20 @@ class _SessionScreenState extends ConsumerState<SessionScreen> {
   }
 
   void _submitWrite(BuildContext context, WidgetRef ref) {
-    final session = ref.read(sessionProvider);
-    if (session == null || session.currentCard == null) return;
-    final card = session.currentCard!;
-    final correctAnswer = session.mode == QuizMode.targetShown
+    final round = ref.read(roundProvider);
+    if (round == null || round.currentCard == null) return;
+    final card = round.currentCard!;
+    final correctAnswer = round.mode == QuizMode.targetShown
         ? card.nativeText
         : card.targetAnswer;
     final raw = _writeController.text.trim();
     final normalized = normalizeForComparison(raw);
     final expected = normalizeForComparison(correctAnswer);
     if (normalized == expected) {
-      ref.read(sessionProvider.notifier).answerCorrect();
+      ref.read(roundProvider.notifier).answerCorrect();
     } else {
       final l10n = AppLocalizations.of(context)!;
-      final display = session.mode == QuizMode.targetShown
+      final display = round.mode == QuizMode.targetShown
           ? displayNativeForCard(card, l10n)
           : correctAnswer;
       setState(() {

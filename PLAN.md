@@ -1,170 +1,273 @@
-# Vessel Rename Plan
+# Rename: Concept → Term, Session → Round
 
-Rename the design system from "App/Project" to "Vessel".
+## Context
+Two entity names are too abstract and don't match how a language learner thinks about them.
+- **Concept** (language-agnostic vocabulary unit) → **Term** — natural dictionary nomenclature, covers words and phrases
+- **Session** (quiz run over a deck) → **Round** — short, game-like, clear start/end
 
-## Phase 1 — Design system core
+This is a mechanical rename across code, JSON data, DB schema, l10n, and file names. No logic changes.
 
-Class and file renames:
+## DB Migration Note
+Current `_onUpgrade` is prototyping mode: drops all tables, recreates. Bumping `databaseVersion` from 5 → 6 wipes local data. No complex ALTER TABLE needed.
 
-| Current class | Vessel class | File rename |
-|---|---|---|
-| `AppFontStyles` | `VesselFonts` | `app_font_styles.dart` → `vessel_fonts.dart` |
-| `AppLayout` | `VesselLayout` | `app_layout.dart` → `vessel_layout.dart` |
-| `AppThemeData` | `VesselThemeData` | `app_themes.dart` → `vessel_themes.dart` |
-| `AppThemes` | `VesselThemes` | (same file as above) |
-| `AppThemeDataExtension` | `VesselThemeDataExtension` | (same file as above) |
+---
 
-`AppTheme` enum stays — just an identifier (`theme01`, `theme02`...), not a design system API.
+## Phase 1 — JSON Data Files
 
-Impact: ~315 references across ~50 files.
+| File | Change |
+|------|--------|
+| `assets/data/dictionary.json` | Top-level key `"concepts"` → `"terms"` |
+| `assets/data/levels.json` | Inside each deck object: `"concepts": [...]` → `"terms": [...]` |
 
-Steps:
-- [ ] Rename 3 files via `mv`
-- [ ] Replace class names inside each renamed file
-- [ ] Update all imports across the codebase
-- [ ] Update exports in vessel_themes.dart
-- [ ] `dart analyze` — 0 errors
+## Phase 2 — File Renames (7 files)
 
-## Phase 2 — Controls
+| Old | New |
+|-----|-----|
+| `lib/entities/language/concept.dart` | `lib/entities/language/term.dart` |
+| `lib/features/quiz/session_state.dart` | `lib/features/quiz/round_state.dart` |
+| `lib/features/quiz/session_notifier.dart` | `lib/features/quiz/round_notifier.dart` |
+| `lib/features/quiz/services/quiz_session_service.dart` | `lib/features/quiz/services/quiz_round_service.dart` |
+| `lib/features/quiz/agreement_session_builder.dart` | `lib/features/quiz/agreement_round_builder.dart` |
+| `lib/shared/repositories/models/session_record.dart` | `lib/shared/repositories/models/round_record.dart` |
+| `lib/pages/session_screen.dart` | `lib/pages/round_screen.dart` |
 
-### Widgets (file + class renames)
+## Phase 3 — Entity & Model Layer
 
-| Current file | Vessel file | Classes renamed |
-|---|---|---|
-| `project_card.dart` | `vessel_card.dart` | `ProjectCard` → `VesselCard`, `ProjectAttentionCard` → `VesselAttentionCard` |
-| `project_gap.dart` | `vessel_gap.dart` | `ProjectGap` → `VesselGap` |
-| `project_tile.dart` | `vessel_tile.dart` | `ProjectTile` → `VesselTile` |
-| `project_note.dart` | `vessel_note.dart` | `ProjectNote` → `VesselNote` |
-| `project_header.dart` | `vessel_header.dart` | `ProjectHeader` → `VesselHeader` |
-| `project_divider.dart` | `vessel_divider.dart` | `ProjectDivider` → `VesselDivider` |
-| `project_progress_bar.dart` | `vessel_progress_bar.dart` | `ProjectProgressBar` → `VesselProgressBar`, `ProgressBarMode` → `VesselProgressBarMode` |
-| `project_snackbar.dart` | `vessel_snackbar.dart` | `ProjectSnackBar` → `VesselSnackBar` |
-| `project_text_input.dart` | `vessel_text_input.dart` | `ProjectTextInput` → `VesselTextInput` |
-| `project_buttons.dart` | `vessel_buttons.dart` | `BaseButton` → `VesselButton`, `AccentButton` → `VesselAccentButton`, `DangerButton` → `VesselDangerButton`, `ProjectTextButton` → `VesselTextButton`, `AccentTextButton` → `VesselAccentTextButton`, `DangerTextButton` → `VesselDangerTextButton`, `ButtonSize` → `VesselButtonSize`, `LabelPosition` → `VesselLabelPosition` |
-| `project_button_group.dart` | `vessel_button_group.dart` | `ProjectButtonGroup` → `VesselButtonGroup`, `ProjectButtonGroupItem` → `VesselButtonGroupItem` |
-| `project_button_styles.dart` | `vessel_button_styles.dart` | `ProjectButtonColors` → `VesselButtonColors`, `ProjectButtonStyleResolver` → `VesselButtonStyleResolver` |
-| `project_input_styles.dart` | `vessel_input_styles.dart` | `ProjectInputStyles` → `VesselInputStyles` |
-| `project_input_row.dart` | `vessel_input_row.dart` | `ProjectInputRow` → `VesselInputRow`, `ProjectInputRowField` → `VesselInputRowField` |
-| `project_radio_tile.dart` | `vessel_radio_tile.dart` | `ProjectRadioTile` → `VesselRadioTile` |
-| `project_radio_grid.dart` | `vessel_radio_grid.dart` | `ProjectRadioGrid` → `VesselRadioGrid`, `ProjectRadioGridOption` → `VesselRadioGridOption` |
-| `project_date_picker.dart` | `vessel_date_picker.dart` | `ProjectDatePicker` → `VesselDatePicker` |
-| `project_hour_picker.dart` | `vessel_hour_picker.dart` | `ProjectHourPicker` → `VesselHourPicker` |
-| `project_slider_input.dart` | `vessel_slider_input.dart` | `ProjectSliderInput` → `VesselSliderInput`, `SliderInputMode` → `VesselSliderInputMode` |
-| `project_time_slider.dart` | `vessel_time_slider.dart` | `ProjectTimeSlider` → `VesselTimeSlider` |
-| `project_toggles.dart` | `vessel_toggles.dart` | `ProjectCheckbox` → `VesselCheckbox`, `ProjectCheckboxLabeled` → `VesselCheckboxLabeled`, `ProjectSwitch` → `VesselSwitch`, `ProjectSwitchLabeled` → `VesselSwitchLabeled` |
-| `project_lang_button.dart` | `vessel_lang_button.dart` | `ProjectLangButton` → `VesselLangButton` |
-| `project_bottom_sheet.dart` | `vessel_bottom_sheet.dart` | `showProjectBottomSheet` → `showVesselBottomSheet` |
-| `screen_layout_widget.dart` | `vessel_scaffold.dart` | `ScreenLayoutWidget` → `VesselScaffold` |
-| `tag_chip.dart` | `vessel_tag_chip.dart` | `TagChip` → `VesselTagChip`, `TagColorPreview` → `VesselTagColorPreview` |
-| `tag_label.dart` | `vessel_tag_label.dart` | `TagLabel` → `VesselTagLabel`, `TagLabelSize` → `VesselTagLabelSize` |
+### 3a. `lib/entities/language/term.dart` (was concept.dart)
+- `class Concept` → `class Term`
+- `Concept.fromJson` → `Term.fromJson`
 
-### Navbar internals
+### 3b. `lib/entities/language/dictionary.dart`
+- Import: `concept.dart` → `term.dart`
+- `Map<String, Concept> concepts` → `Map<String, Term> terms`
+- `Set<String> get conceptIds` → `Set<String> get termIds`
+- `fromJson`: parse `json['terms']` instead of `json['concepts']`
 
-| Current file | Vessel file | Classes renamed |
-|---|---|---|
-| `bottom_navbar_widget.dart` | `vessel_navbar.dart` | `BottomNavBarWidget` → `VesselNavBar` |
-| `navbar_icon_button.dart` | `vessel_navbar_icon.dart` | `NavBarIconButton` → `VesselNavBarIcon` |
+### 3c. `lib/entities/deck/vocab_deck_model.dart`
+- `List<String> conceptIds` → `List<String> termIds`
+- `fromJson`: read `json['terms']` instead of `json['concepts']`
 
-Steps:
-- [ ] Rename all files via `mv`
-- [ ] Replace all class/function names inside each file
-- [ ] Update all imports across the codebase
-- [ ] `dart analyze` — 0 errors
+### 3d. `lib/entities/card/vocab_card.dart`
+- `String conceptId` → `String termId`
+- `String get wordId => termId;` (wordId stays — it's a progress-tracking alias)
+- Update super calls in `SimpleVocabCard`, `PairVocabCard`
 
-## Phase 3 — CLAUDE.md
+### 3e. `lib/entities/language/language_pack.dart`
+- `int totalConcepts` → `int totalTerms`
+- `int get missingCount` → uses `totalTerms`
+- `bool get isComplete` → uses `totalTerms`
+- `missingConcepts(Set<String> allConceptIds)` → `missingTerms(Set<String> allTermIds)`
 
-Replace the 5 scattered design rules with one **Vessel Design System** section. Same restrictions, explicit and direct — just grouped under one roof.
+### 3f. `lib/shared/repositories/models/round_record.dart` (was session_record.dart)
+- `class SessionRecord` → `class RoundRecord`
+- `SessionRecord.fromMap` → `RoundRecord.fromMap`
 
-Structure:
+### 3g. `lib/shared/repositories/models/deck_progress.dart`
+- `List<SessionRecord> recentSessions` → `List<RoundRecord> recentRounds`
+- `DateTime? lastSessionDate` → `DateTime? lastRoundDate`
+- Update `copyWith`, `toMap`, `fromMap` — all serialization keys: `'recentSessions'` → `'recentRounds'`, `'lastSessionDate'` → `'lastRoundDate'`
 
-```
-### Vessel Design System
+## Phase 4 — DB Schema & Repository Layer
 
-All visual code goes through Vessel. Six layers, each with explicit restrictions.
+### 4a. `lib/shared/repositories/db_schema.dart`
+- `tableSessionRecords = 'session_records'` → `tableRoundRecords = 'round_records'`
+- `colLastSessionDate = 'last_session_date'` → `colLastRoundDate = 'last_round_date'`
+- `colConceptsTouchedIds = 'concepts_touched_ids'` → `colTermsTouchedIds = 'terms_touched_ids'`
 
-**Theme** (`VesselThemes.of(context)` → `VesselThemeData`)
-- NEVER hardcode color values (hex, RGB, `.withOpacity()`, `Color(0x...)`)
-- ALWAYS use `VesselThemeData` properties via `VesselThemes.of(context)`
-- If a needed color doesn't exist, propose adding it to `VesselThemeData` first
-- Definitions: `lib/app/theme/vessel_themes.dart`
-- Instances: `lib/app/theme/themes/theme01_theme.dart` etc.
+### 4b. `lib/app/providers/database_provider.dart`
+- DDL references: use new `DbSchema` constants (automatic via constants)
+- Bump `databaseVersion` 5 → 6 in `lib/shared/lib/constants.dart`
 
-**Fonts** (`VesselFonts`)
-- NEVER hardcode font size, weight, family, or letter spacing in widget code
-- ALWAYS use `VesselFonts` styles (e.g. `VesselFonts.textBody`, `VesselFonts.textSheetTitle`)
-- Only allowed inline modification: `.copyWith(color: ...)` for theming and `.toUpperCase()` on the string itself
-- If a needed style doesn't exist, first add it to `VesselFonts`, then use it
-- File: `lib/app/theme/vessel_fonts.dart`
+### 4c. `lib/shared/repositories/language_stats_repository.dart`
+- `getConceptsTouched()` → `getTermsTouched()`
+- `addConceptsTouched()` → `addTermsTouched()`
+- Column refs: `colTermsTouchedIds`
 
-**Layout** (`VesselLayout`, `VesselGap`)
-- NEVER hardcode heights, widths, paddings, gaps, or spacing values in widget code
-- All dimensions live in `VesselLayout`
-- All spacing between widgets uses `VesselGap` (not raw `SizedBox`)
-- Tiers: xxs(2), xs(4), s(8), m(12), l(16), xl(24), xxl(48). Vertical: `VesselGap.s()`. Horizontal: `VesselGap.hs()`
-- Files: `lib/app/layout/vessel_layout.dart`, `lib/shared/ui/gap/vessel_gap.dart`
+### 4d. `lib/shared/repositories/deck_progress_repository.dart`
+- `recordSession()` → `recordRound()`
+- `_insertSessionRecord()` → `_insertRoundRecord()`
+- `_getRecentSessions()` → `_getRecentRounds()`
+- All `SessionRecord` → `RoundRecord`
+- All `colLastSessionDate` → `colLastRoundDate`
+- All `tableSessionRecords` → `tableRoundRecords`
+- `sessionScore` param → `roundScore`
 
-**Controls** (`Vessel*` widgets in `lib/shared/ui/`)
-- NEVER use raw Material/Flutter widgets directly in screens
-- ALWAYS use Vessel controls from `lib/shared/ui/`
-- If a needed control doesn't exist, first create it as a Vessel control, then use it
-- NEVER inline/hardcode a control inside a widget unless explicitly discussed
-- NEVER pass ad-hoc overrides (iconSize, padding, margin, etc.) to bypass a control's built-in sizing — add a proper variant to the control itself
-- Every Vessel control MUST have a showcase entry on the dev screen (`controls_list_screen.dart`)
+### 4e. `lib/shared/repositories/daily_activity_repository.dart`
+- `addSession()` → `addRound()`
 
-When adding a new Vessel control:
-1. Add any required sizing/radius/color properties to `VesselThemeData` first, then to all theme files
-2. The control uses only `VesselThemeData` properties — zero hardcoded values
-3. Add the control to the inventory below
-4. Name: `Vessel` prefix + the UI concept (not the Flutter widget name). `VesselProgressBar` not `VesselLinearIndicator`
-5. Folder: `lib/shared/ui/<concept>/` matching the control name
-6. Add showcase to dev screen
+### 4f. `lib/shared/repositories/dictionary_repository.dart`
+- `conceptsJson` variable → `termsJson`
+- `'concepts':` merge key → `'terms':`
+- `dictionary.concepts.length` → `dictionary.terms.length`
+- Comment update
 
-Controls inventory:
-- **Buttons**: `VesselButton`, `VesselAccentButton`, `VesselDangerButton`, `VesselTextButton`, `VesselAccentTextButton`, `VesselDangerTextButton`
-- **Button groups**: `VesselButtonGroup`
-- **Cards**: `VesselCard`, `VesselAttentionCard`
-- **Gaps**: `VesselGap`
-- **Text input**: `VesselTextInput`
-- **Tiles**: `VesselTile`
-- **Progress bar**: `VesselProgressBar`
-- **Bottom sheets**: `showVesselBottomSheet()`
-- **Navigation**: `VesselScaffold`
-- **Toggles**: `VesselCheckbox`, `VesselSwitch` (+ labeled variants)
-- **Radio**: `VesselRadioTile`, `VesselRadioGrid`
-- **Sliders**: `VesselSliderInput`, `VesselTimeSlider`
-- **Pickers**: `VesselDatePicker`, `VesselHourPicker`
-- **Divider**: `VesselDivider`
-- **Header**: `VesselHeader`
-- **Note**: `VesselNote`
-- **Snackbar**: `VesselSnackBar`
-- **Tags**: `VesselTagChip`, `VesselTagLabel`
-- **Lang button**: `VesselLangButton`
+## Phase 5 — Quiz Feature Layer
 
-**Copy** (`AppLocalizations`)
-- NEVER hardcode user-facing text — ALWAYS use `AppLocalizations` (accessed as `l10n`)
-- If a needed string doesn't exist, first add it to `lib/l10n/app_en.arb`, then use it
-- Key naming convention: `section_descriptiveName` (e.g. `session_exitConfirm`, `common_cancel`)
-- Parameterized strings use `{placeholder}` syntax with `@key` metadata block
-```
+### 5a. `lib/features/quiz/round_state.dart` (was session_state.dart)
+- `enum SessionType` → `enum RoundType`
+- `class SessionState` → `class RoundState`
+- `sessionType` → `roundType`
+- `totalDeckConcepts` → `totalDeckTerms`
+- `sessionConceptCount` → `roundTermCount`
+- `sessionWordIds` → `roundWordIds`
+- Update `copyWith` params
 
-Steps:
-- [ ] Delete the 5 old sections: "No hardcoded colors", "No hardcoded font styles", "No raw Material controls", "No hardcoded text strings", and implicit layout rules
-- [ ] Add the single "Vessel Design System" section with all restrictions preserved
-- [ ] Update all class/file references to Vessel names
-- [ ] Verify no rule was lost compared to original
+### 5b. `lib/features/quiz/round_notifier.dart` (was session_notifier.dart)
+- `class SessionNotifier` → `class RoundNotifier`
+- `StateNotifier<SessionState?>` → `StateNotifier<RoundState?>`
+- `SessionState(...)` → `RoundState(...)`
+- `SessionType.*` → `RoundType.*`
+- `endSession()` → `endRound()`
+- `sessionProvider` → `roundProvider`
+- All field refs updated
 
-## Not renamed (intentional)
+### 5c. `lib/features/quiz/services/quiz_round_service.dart` (was quiz_session_service.dart)
+- `class QuizSessionService` → `class QuizRoundService`
+- `persistSession()` → `persistRound()`
+- `endSession()` → `endRound()`
+- `lastSessionContributed` → `lastRoundContributed`
+- `_persistTestSession()` → `_persistTestRound()`
+- `_persistTrainingSession()` → `_persistTrainingRound()`
+- `sessionProvider` → `roundProvider`
+- `quizSessionServiceProvider` → `quizRoundServiceProvider`
+- `sessionScore` → `roundScore`
+- `session.totalDeckConcepts` → `round.totalDeckTerms`
+- `session.sessionConceptCount` → `round.roundTermCount`
 
-- `AppTheme` enum — just an identifier (`theme01`...), not design API
-- `AppLocalizations` — Flutter framework, not ours
-- `quiz_bottom_sheets.dart` — feature-specific, uses Vessel controls internally
-- `ModeSelection`, `Tag`, `TagColor` — domain models, not controls
-- Theme instance files (`theme01_theme.dart` etc.) — content inside will use VesselThemeData, filenames are fine
+### 5d. `lib/features/quiz/agreement_round_builder.dart` (was agreement_session_builder.dart)
+- `sessionGender` → `roundGender`
+- Comments
 
-## Execution notes
+## Phase 6 — Provider Layer
 
-- Do one phase at a time, `dart analyze` between phases
-- File renames via `mv`, then read renamed files, then edit class names
-- Use `replace_all` for class renames within files
-- Use grep to find all import consumers, update each
-- Do NOT use `flutter build` — only `dart analyze` and `flutter gen-l10n` if ARB keys change
+### 6a. `lib/app/providers/deck_progress_provider.dart`
+- `recordSession()` → `recordRound()`
+- `sessionScore` → `roundScore`
+
+### 6b. `lib/app/providers/daily_activity_provider.dart`
+- Comment: "session" → "round"
+
+### 6c. `lib/app/providers/all_languages_progress_provider.dart`
+- Comments: "session" → "round"
+
+### 6d. `lib/app/providers/groups_provider.dart`
+- Comments: "session" → "round"
+
+## Phase 7 — Screens & UI
+
+### 7a. `lib/pages/round_screen.dart` (was session_screen.dart)
+- `class SessionScreen` → `class RoundScreen`
+- `_SessionScreenState` → `_RoundScreenState`
+- All `session` variables → `round`
+- All `sessionProvider` → `roundProvider`
+- `quizSessionServiceProvider` → `quizRoundServiceProvider`
+- `SessionState` → `RoundState`, `SessionType` → `RoundType`
+- `AppRoutes.session` → `AppRoutes.round`
+- Update imports
+
+### 7b. `lib/pages/result_screen.dart`
+- All `session` variables → `round`
+- All provider/type/route refs updated
+- Import updates
+
+### 7c. `lib/pages/vocab_deck_list_screen.dart`
+- `recentSessions` → `recentRounds`
+- `lastSessionDate` → `lastRoundDate`
+- `sessionProvider` → `roundProvider`
+- `AppRoutes.session` → `AppRoutes.round`
+- `deck.conceptIds` → `deck.termIds`
+- `withSessions` → `withRounds`
+
+### 7d. `lib/pages/group_list_screen.dart`
+- Same pattern: sessions → rounds, provider/route refs
+
+### 7e. `lib/pages/agreement_group_list_screen.dart`
+- Same pattern
+
+### 7f. `lib/pages/language_screen.dart`
+- `l10n.language_conceptsCount` → `l10n.language_termsCount`
+- `p.totalConcepts` → `p.totalTerms`
+
+## Phase 8 — Layout, Validator & Utils
+
+### 8a. `lib/app/layout/vessel_layout.dart`
+- Comment `// SESSION` → `// ROUND`
+- `sessionScoreToCardGap` → `roundScoreToCardGap`
+
+### 8b. `lib/shared/validators/config_validator.dart`
+- All `concept*` variables → `term*`
+- `data['concepts']` → `data['terms']`
+- `json['concepts']` → `json['terms']`
+- Error message strings: "concept" → "term"
+
+### 8c. `lib/shared/lib/progress_constants.dart`
+- Comments only
+
+### 8d. `lib/shared/lib/progress_calculator.dart`
+- `recentSessions` → `recentRounds`
+- Loop variable `session` → `round`
+- `session.date`, `session.score` → `round.date`, `round.score`
+
+## Phase 9 — Router
+
+### 9a. `lib/app/router/app_router.dart`
+- `static const String session = '/session'` → `static const String round = '/round'`
+- `SessionScreen()` → `RoundScreen()`
+- Import update
+
+## Phase 10 — Localization
+
+### 10a. `lib/l10n/app_en.arb` (source of truth)
+
+| Old Key | New Key | Old Value | New Value |
+|---------|---------|-----------|-----------|
+| `vocab_conceptsCount` | `vocab_termsCount` | `"...1 concept...concepts..."` | `"...1 term...terms..."` |
+| `chooseQuestionsCount` | (keep) | `"How many concepts?"` | `"How many terms?"` |
+| `language_conceptsMissing` | `language_termsMissing` | `"{count} missing"` | (keep value) |
+| `language_conceptsCount` | `language_termsCount` | `"{done}/{total} concepts"` | `"{done}/{total} terms"` |
+| `agreementSessionGender` | `agreementRoundGender` | (keep value) | (keep value) |
+| `exitSession` | `exitRound` | `"Exit session"` | `"Exit round"` |
+| `exitSessionConfirm` | `exitRoundConfirm` | `"Exit session?..."` | `"Exit round?..."` |
+| `resultTitle` | (keep) | `"Session result"` | `"Round result"` |
+
+### 10b. Regenerate: `flutter gen-l10n`
+Generated files `app_localizations.dart` and `app_localizations_en.dart` will update automatically.
+
+### 10c. Update all l10n call sites in screens
+- `l10n.vocab_conceptsCount` → `l10n.vocab_termsCount`
+- `l10n.language_conceptsCount` → `l10n.language_termsCount`
+- `l10n.language_conceptsMissing` → `l10n.language_termsMissing`
+- `l10n.agreementSessionGender` → `l10n.agreementRoundGender`
+- `l10n.exitSession` → `l10n.exitRound`
+- `l10n.exitSessionConfirm` → `l10n.exitRoundConfirm`
+
+## Phase 11 — Language Reset Service
+
+### 11a. `lib/features/language/services/language_reset_service.dart`
+- Comment: `session_records` → `round_records`
+
+## Phase 12 — Scripts & Docs
+
+### 12a. `scripts/migrate_dictionary.py`
+- `generate_concept_id()` → `generate_term_id()`
+- `concepts = OrderedDict()` → `terms = OrderedDict()`
+- `existing_concept_ids` → `existing_term_ids`
+- `serbian_to_concepts` → `serbian_to_terms`
+- `aspect_pair_concepts` → `aspect_pair_terms`
+- `group_concept_ids` → `group_term_ids`
+- `concept_id` local var → `term_id`
+- Output JSON: `"concepts": {...}` → `"terms": {...}`
+- Group output: `"concepts": group_concept_ids` → `"terms": group_term_ids`
+- All print/comment strings: "concept" → "term"
+
+### 12b. `docs/config_validation_plan.md`
+- All references to `concepts`, `conceptIds`, `concept_id` → `terms`, `termIds`, `term_id`
+- All references to `session_records` → `round_records`
+- All references to `last_session_date` → `last_round_date`
+- All references to `concepts_touched_ids` → `terms_touched_ids`
+- Error message examples: "concept" → "term"
+
+## Verification
+1. `flutter gen-l10n` — regenerates l10n without errors
+2. `flutter analyze` — zero errors, zero warnings from the rename
+3. Full build check

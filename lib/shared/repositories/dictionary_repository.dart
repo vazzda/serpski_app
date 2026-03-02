@@ -17,15 +17,15 @@ class DictionaryRepository {
   Dictionary? _cachedDictionary;
   final Map<String, LanguagePack> _cachedPacks = {};
 
-  /// Loads the universal dictionary (concepts + groups + levels).
+  /// Loads the universal dictionary (terms + decks + levels).
   Future<Dictionary> loadDictionary() async {
     if (_cachedDictionary != null) return _cachedDictionary!;
-    final conceptsJson = await rootBundle.loadString(_dictionaryPath);
+    final termsJson = await rootBundle.loadString(_dictionaryPath);
     final levelsJson = await rootBundle.loadString(_levelsPath);
     final levelsData = jsonDecode(levelsJson) as Map<String, dynamic>;
     final data = <String, dynamic>{
-      'concepts':
-          (jsonDecode(conceptsJson) as Map<String, dynamic>)['concepts'],
+      'terms':
+          (jsonDecode(termsJson) as Map<String, dynamic>)['terms'],
       'decks': levelsData['decks'],
       'levels': levelsData['levels'],
     };
@@ -75,7 +75,7 @@ class DictionaryRepository {
       labelKey: labelKey,
       isPublic: isPublic,
       translations: translations,
-      totalConcepts: dictionary.concepts.length,
+      totalTerms: dictionary.terms.length,
       levelMeta: levelMeta,
       deckMeta: deckMeta,
     );

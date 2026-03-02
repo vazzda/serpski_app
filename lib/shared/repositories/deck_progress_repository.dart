@@ -2,7 +2,7 @@ import 'package:sqflite/sqflite.dart';
 
 import 'db_schema.dart';
 import 'models/deck_progress.dart';
-import 'models/session_record.dart';
+import 'models/round_record.dart';
 import '../../features/quiz/quiz_mode.dart';
 import 'package:srpski_card/shared/lib/progress_constants.dart';
 
@@ -19,7 +19,7 @@ class DeckProgressRepository {
       where: '${DbSchema.colTargetLang} = ? AND ${DbSchema.colDeckId} = ?',
       whereArgs: [targetLang, deckId],
     );
-    final sessions = await _getRecentSessions(targetLang, deckId);
+    final rounds = await _getRecentRounds(targetLang, deckId);
 
     if (rows.isEmpty) return DeckProgress(deckId: deckId);
 
@@ -28,9 +28,9 @@ class DeckProgressRepository {
       deckId: deckId,
       progress: (row[DbSchema.colProgress] as num).toDouble(),
       peakRetention: (row[DbSchema.colPeakRetention] as num).toDouble(),
-      recentSessions: sessions,
-      lastSessionDate: row[DbSchema.colLastSessionDate] != null
-          ? DateTime.parse(row[DbSchema.colLastSessionDate] as String)
+      recentRounds: rounds,
+      lastRoundDate: row[DbSchema.colLastRoundDate] != null
+          ? DateTime.parse(row[DbSchema.colLastRoundDate] as String)
           : null,
     );
   }
@@ -46,28 +46,28 @@ class DeckProgressRepository {
 
     for (final row in rows) {
       final deckId = row[DbSchema.colDeckId] as String;
-      final sessions = await _getRecentSessions(targetLang, deckId);
+      final rounds = await _getRecentRounds(targetLang, deckId);
       results[deckId] = DeckProgress(
         deckId: deckId,
         progress: (row[DbSchema.colProgress] as num).toDouble(),
         peakRetention: (row[DbSchema.colPeakRetention] as num).toDouble(),
-        recentSessions: sessions,
-        lastSessionDate: row[DbSchema.colLastSessionDate] != null
-            ? DateTime.parse(row[DbSchema.colLastSessionDate] as String)
+        recentRounds: rounds,
+        lastRoundDate: row[DbSchema.colLastRoundDate] != null
+            ? DateTime.parse(row[DbSchema.colLastRoundDate] as String)
             : null,
       );
     }
     return results;
   }
 
-  /// Records an incremental (non-test) session and updates progress.
+  /// Records an incremental (non-test) round and updates progress.
   ///
   /// [modeCap] — ceiling for this mode (from [ProgressConstants]).
-  /// [coverage] — conceptsInSession / totalConceptsInDeck (0–1).
+  /// [coverage] — termsInRound / totalTermsInDeck (0–1).
   /// [accuracy] — correctCount / totalAttempts (0–1).
   ///
   /// Returns `true` if progress was actually increased, `false` if over-cap.
-  Future<bool> recordSession({
+  Future<bool> recordRound({
     required String targetLang,
     required String deckId,
     required double score,
@@ -79,12 +79,12 @@ class DeckProgressRepository {
     final current = await getProgress(targetLang, deckId);
     final now = DateTime.now();
 
-    // Insert session record (for retention calculation)
-    await _insertSessionRecord(targetLang, deckId, now, score, mode);
+    // Insert round record (for retention calculation)
+    await _insertRoundRecord(targetLang, deckId, now, score, mode);
 
     // Check if already at or above mode cap
     if (current.progress >= modeCap) {
-      // Still update last_session_date even if no progress gained
+      // Still update last_round_date even if no progress gained
       await _upsertProgress(targetLang, deckId, current.progress,
           current.peakRetention, now);
       return false;
@@ -110,14 +110,14 @@ class DeckProgressRepository {
     required String targetLang,
     required String deckId,
     required double firstPassScore,
-    required double sessionScore,
+    required double roundScore,
     required QuizMode mode,
   }) async {
     final current = await getProgress(targetLang, deckId);
     final now = DateTime.now();
 
-    // Insert session record (for retention calculation)
-    await _insertSessionRecord(targetLang, deckId, now, sessionScore, mode);
+    // Insert round record (for retention calculation)
+    await _insertRoundRecord(targetLang, deckId, now, roundScore, mode);
 
     // Ratchet: only upgrade
     final newProgress = firstPassScore > current.progress
@@ -157,7 +157,7 @@ class DeckProgressRepository {
     return sumByLang;
   }
 
-  /// Deletes all progress and session records for a target language.
+  /// Deletes all progress and round records for a target language.
   Future<void> deleteForLanguage(String targetLang) async {
     await _db.delete(
       DbSchema.tableDeckProgress,
@@ -165,7 +165,7 @@ class DeckProgressRepository {
       whereArgs: [targetLang],
     );
     await _db.delete(
-      DbSchema.tableSessionRecords,
+      DbSchema.tableRoundRecords,
       where: '${DbSchema.colTargetLang} = ?',
       whereArgs: [targetLang],
     );
@@ -175,9 +175,9 @@ class DeckProgressRepository {
   // Private helpers
   // ---------------------------------------------------------------------------
 
-  Future<void> _insertSessionRecord(String targetLang, String deckId,
+  Future<void> _insertRoundRecord(String targetLang, String deckId,
       DateTime now, double score, QuizMode mode) async {
-    await _db.insert(DbSchema.tableSessionRecords, {
+    await _db.insert(DbSchema.tableRoundRecords, {
       DbSchema.colTargetLang: targetLang,
       DbSchema.colDeckId: deckId,
       DbSchema.colDate: now.toIso8601String(),
@@ -185,11 +185,11 @@ class DeckProgressRepository {
       DbSchema.colMode: mode.name,
     });
 
-    // Trim to last 3 session records per (target_lang, deck)
+    // Trim to last 3 round records per (target_lang, deck)
     await _db.rawDelete('''
-      DELETE FROM ${DbSchema.tableSessionRecords}
+      DELETE FROM ${DbSchema.tableRoundRecords}
       WHERE ${DbSchema.colTargetLang} = ? AND ${DbSchema.colDeckId} = ? AND id NOT IN (
-        SELECT id FROM ${DbSchema.tableSessionRecords}
+        SELECT id FROM ${DbSchema.tableRoundRecords}
         WHERE ${DbSchema.colTargetLang} = ? AND ${DbSchema.colDeckId} = ?
         ORDER BY ${DbSchema.colDate} DESC
         LIMIT 3
@@ -206,17 +206,17 @@ class DeckProgressRepository {
         DbSchema.colDeckId: deckId,
         DbSchema.colProgress: progress,
         DbSchema.colPeakRetention: peakRetention,
-        DbSchema.colLastSessionDate: now.toIso8601String(),
+        DbSchema.colLastRoundDate: now.toIso8601String(),
       },
       conflictAlgorithm: ConflictAlgorithm.replace,
     );
   }
 
-  /// Returns the last 3 session records for a (target_lang, deck), newest first.
-  Future<List<SessionRecord>> _getRecentSessions(
+  /// Returns the last 3 round records for a (target_lang, deck), newest first.
+  Future<List<RoundRecord>> _getRecentRounds(
       String targetLang, String deckId) async {
     final rows = await _db.query(
-      DbSchema.tableSessionRecords,
+      DbSchema.tableRoundRecords,
       where:
           '${DbSchema.colTargetLang} = ? AND ${DbSchema.colDeckId} = ?',
       whereArgs: [targetLang, deckId],
@@ -224,7 +224,7 @@ class DeckProgressRepository {
       limit: 3,
     );
     return rows
-        .map((row) => SessionRecord(
+        .map((row) => RoundRecord(
               date: DateTime.parse(row[DbSchema.colDate] as String),
               score: (row[DbSchema.colScore] as num).toDouble(),
               mode: QuizMode.values.firstWhere(

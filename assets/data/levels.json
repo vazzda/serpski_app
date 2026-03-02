@@ -111,7 +111,7 @@
     {
       "id": "first_contact",
       "icon": "hand-wave",
-      "concepts": [
+      "terms": [
         "hello",
         "goodbye",
         "please",
@@ -131,7 +131,7 @@
     {
       "id": "getting_around",
       "icon": "compass-outline",
-      "concepts": [
+      "terms": [
         "want",
         "need",
         "go",
@@ -152,7 +152,7 @@
     {
       "id": "staying_alive",
       "icon": "heart-pulse",
-      "concepts": [
+      "terms": [
         "eat",
         "drink",
         "water",
@@ -173,7 +173,7 @@
     {
       "id": "making_sense",
       "icon": "lightbulb-outline",
-      "concepts": [
+      "terms": [
         "good",
         "bad",
         "big",
@@ -194,7 +194,7 @@
     {
       "id": "core_verbs",
       "icon": "alphabetical-variant",
-      "concepts": [
+      "terms": [
         "be",
         "have",
         "do",
@@ -213,7 +213,7 @@
     {
       "id": "daily_actions",
       "icon": "silverware-fork-knife",
-      "concepts": [
+      "terms": [
         "eat",
         "drink",
         "sleep",
@@ -233,7 +233,7 @@
     {
       "id": "head_to_toe",
       "icon": "human",
-      "concepts": [
+      "terms": [
         "head",
         "hand",
         "eye",
@@ -250,7 +250,7 @@
     {
       "id": "my_people",
       "icon": "account-group",
-      "concepts": [
+      "terms": [
         "man",
         "woman",
         "child",
@@ -269,7 +269,7 @@
     {
       "id": "bread_and_water",
       "icon": "bread-slice",
-      "concepts": [
+      "terms": [
         "bread",
         "water",
         "food",
@@ -288,7 +288,7 @@
     {
       "id": "four_walls",
       "icon": "home-outline",
-      "concepts": [
+      "terms": [
         "home",
         "room",
         "door",
@@ -306,7 +306,7 @@
     {
       "id": "zero_to_ten",
       "icon": "numeric",
-      "concepts": [
+      "terms": [
         "zero",
         "one",
         "two",
@@ -331,7 +331,7 @@
     {
       "id": "on_the_road",
       "icon": "road-variant",
-      "concepts": [
+      "terms": [
         "car",
         "bus",
         "ticket",
@@ -353,7 +353,7 @@
     {
       "id": "good_and_bad",
       "icon": "thumbs-up-down",
-      "concepts": [
+      "terms": [
         "good",
         "bad",
         "big",
@@ -371,7 +371,7 @@
     {
       "id": "glue_words",
       "icon": "link-variant",
-      "concepts": [
+      "terms": [
         "what",
         "where",
         "who",
@@ -393,7 +393,7 @@
     {
       "id": "doing_things",
       "icon": "run",
-      "concepts": [
+      "terms": [
         "walk",
         "run",
         "sit",
@@ -414,7 +414,7 @@
     {
       "id": "hands_on",
       "icon": "hand-back-right",
-      "concepts": [
+      "terms": [
         "cook",
         "drive",
         "wash",
@@ -437,7 +437,7 @@
     {
       "id": "laugh_and_cry",
       "icon": "emoticon-happy-outline",
-      "concepts": [
+      "terms": [
         "smile",
         "laugh",
         "cry",
@@ -459,7 +459,7 @@
     {
       "id": "shoulder_to_knee",
       "icon": "human-handsup",
-      "concepts": [
+      "terms": [
         "arm",
         "ear",
         "nose",
@@ -477,7 +477,7 @@
     {
       "id": "brothers_and_sisters",
       "icon": "human-male-female-child",
-      "concepts": [
+      "terms": [
         "boy",
         "girl",
         "brother",
@@ -495,7 +495,7 @@
     {
       "id": "market_basket",
       "icon": "basket",
-      "concepts": [
+      "terms": [
         "cheese",
         "fish",
         "chicken_meat",
@@ -515,7 +515,7 @@
     {
       "id": "around_the_house",
       "icon": "floor-plan",
-      "concepts": [
+      "terms": [
         "kitchen",
         "floor",
         "wall",
@@ -533,7 +533,7 @@
     {
       "id": "rainbow",
       "icon": "palette",
-      "concepts": [
+      "terms": [
         "red",
         "blue",
         "green",
@@ -551,7 +551,7 @@
     {
       "id": "days_and_months",
       "icon": "calendar-month",
-      "concepts": [
+      "terms": [
         "monday",
         "tuesday",
         "wednesday",
@@ -576,7 +576,7 @@
     {
       "id": "when_and_how_often",
       "icon": "clock-outline",
-      "concepts": [
+      "terms": [
         "time",
         "hour",
         "minute",
@@ -598,7 +598,7 @@
     {
       "id": "creatures_and_sky",
       "icon": "paw",
-      "concepts": [
+      "terms": [
         "dog",
         "cat",
         "bird",
@@ -622,7 +622,7 @@
     {
       "id": "city_life",
       "icon": "city",
-      "concepts": [
+      "terms": [
         "city",
         "street",
         "school",
@@ -646,7 +646,7 @@
     {
       "id": "how_things_are",
       "icon": "scale-balance",
-      "concepts": [
+      "terms": [
         "beautiful",
         "ugly",
         "happy",
@@ -668,7 +668,7 @@
     {
       "id": "world_words",
       "icon": "earth",
-      "concepts": [
+      "terms": [
         "but",
         "because",
         "if",
@@ -689,7 +689,7 @@
     {
       "id": "bags_packed",
       "icon": "bag-suitcase",
-      "concepts": [
+      "terms": [
         "train_vehicle",
         "plane",
         "bicycle",
@@ -708,7 +708,7 @@
     {
       "id": "heart_and_mind",
       "icon": "head-heart",
-      "concepts": [
+      "terms": [
         "think",
         "feel",
         "believe",
@@ -730,7 +730,7 @@
     {
       "id": "coming_and_going",
       "icon": "swap-horizontal",
-      "concepts": [
+      "terms": [
         "send",
         "stay",
         "leave",
@@ -751,7 +751,7 @@
     {
       "id": "build_and_break",
       "icon": "hammer-wrench",
-      "concepts": [
+      "terms": [
         "wake_up",
         "lie_down",
         "fight",
@@ -775,7 +775,7 @@
     {
       "id": "two_word_wonders",
       "icon": "puzzle",
-      "concepts": [
+      "terms": [
         "look_for",
         "get_up",
         "find_out",
@@ -795,7 +795,7 @@
     {
       "id": "skin_deep",
       "icon": "face-man-shimmer",
-      "concepts": [
+      "terms": [
         "back_body",
         "neck",
         "chest",
@@ -812,7 +812,7 @@
     {
       "id": "home_sweet_home",
       "icon": "sofa",
-      "concepts": [
+      "terms": [
         "apartment",
         "roof",
         "stairs",
@@ -831,7 +831,7 @@
     {
       "id": "at_the_table",
       "icon": "food-variant",
-      "concepts": [
+      "terms": [
         "butter",
         "onion",
         "tomato",
@@ -847,7 +847,7 @@
     {
       "id": "wild_side",
       "icon": "pine-tree",
-      "concepts": [
+      "terms": [
         "mouse",
         "snake",
         "bear",
@@ -866,7 +866,7 @@
     {
       "id": "taste_and_touch",
       "icon": "hand-pointing-up",
-      "concepts": [
+      "terms": [
         "warm",
         "sweet",
         "sour",
@@ -887,7 +887,7 @@
     {
       "id": "people_and_places",
       "icon": "map-marker-account",
-      "concepts": [
+      "terms": [
         "husband",
         "wife",
         "person",
@@ -907,7 +907,7 @@
     {
       "id": "life_and_work",
       "icon": "briefcase-outline",
-      "concepts": [
+      "terms": [
         "life",
         "love_n",
         "work_n",
@@ -927,7 +927,7 @@
     {
       "id": "when_and_where",
       "icon": "map-clock",
-      "concepts": [
+      "terms": [
         "when",
         "soon",
         "later",
@@ -953,7 +953,7 @@
     {
       "id": "going_places",
       "icon": "airplane",
-      "concepts": [
+      "terms": [
         "boat",
         "bridge",
         "trip",
@@ -973,7 +973,7 @@
     {
       "id": "dating_scene",
       "icon": "heart-outline",
-      "concepts": [
+      "terms": [
         "date_romantic",
         "partner",
         "boyfriend",
@@ -990,7 +990,7 @@
     {
       "id": "sick_and_stuff",
       "icon": "pill",
-      "concepts": [
+      "terms": [
         "sick",
         "healthy",
         "pain",
@@ -1007,7 +1007,7 @@
     {
       "id": "higher_ground",
       "icon": "stairs-up",
-      "concepts": [
+      "terms": [
         "explain",
         "suggest",
         "consider",
@@ -1028,7 +1028,7 @@
     {
       "id": "making_it_happen",
       "icon": "rocket-launch",
-      "concepts": [
+      "terms": [
         "invite",
         "include",
         "lead",
@@ -1049,7 +1049,7 @@
     {
       "id": "tying_loose_ends",
       "icon": "vector-curve",
-      "concepts": [
+      "terms": [
         "care",
         "keep",
         "let",
@@ -1070,7 +1070,7 @@
     {
       "id": "three_word_moves",
       "icon": "format-list-group",
-      "concepts": [
+      "terms": [
         "grow_up",
         "give_up",
         "call_back",
@@ -1090,7 +1090,7 @@
     {
       "id": "bones_and_blood",
       "icon": "bone",
-      "concepts": [
+      "terms": [
         "bone",
         "blood",
         "heart_organ",
@@ -1108,7 +1108,7 @@
     {
       "id": "what_matters",
       "icon": "star-outline",
-      "concepts": [
+      "terms": [
         "important",
         "possible",
         "necessary",
@@ -1132,7 +1132,7 @@
     {
       "id": "shades_of_grey",
       "icon": "palette-swatch",
-      "concepts": [
+      "terms": [
         "grey",
         "pink",
         "purple",
@@ -1148,7 +1148,7 @@
     {
       "id": "words_and_stories",
       "icon": "book-open-variant",
-      "concepts": [
+      "terms": [
         "word",
         "number",
         "part",
@@ -1168,7 +1168,7 @@
     {
       "id": "peace_and_war",
       "icon": "peace",
-      "concepts": [
+      "terms": [
         "peace",
         "war",
         "justice",
@@ -1189,7 +1189,7 @@
     {
       "id": "however_therefore",
       "icon": "code-braces",
-      "concepts": [
+      "terms": [
         "however",
         "therefore",
         "although",
@@ -1214,7 +1214,7 @@
     {
       "id": "stuff_and_coins",
       "icon": "cash-multiple",
-      "concepts": [
+      "terms": [
         "insurance",
         "loan",
         "credit_card",
@@ -1232,7 +1232,7 @@
     {
       "id": "after_dark",
       "icon": "moon-waning-crescent",
-      "concepts": [
+      "terms": [
         "sex",
         "condom",
         "naked",
@@ -1250,7 +1250,7 @@
     {
       "id": "last_of_the_wild",
       "icon": "elephant",
-      "concepts": [
+      "terms": [
         "elephant",
         "rabbit",
         "insect",
@@ -1268,7 +1268,7 @@
     {
       "id": "medical_anatomy",
       "icon": "stethoscope",
-      "concepts": [
+      "terms": [
         "pancreas",
         "liver",
         "lung",
@@ -1292,7 +1292,7 @@
     {
       "id": "extended_animals",
       "icon": "dolphin",
-      "concepts": [
+      "terms": [
         "whale",
         "dolphin",
         "shark",
@@ -1316,7 +1316,7 @@
     {
       "id": "extended_food",
       "icon": "pot-steam",
-      "concepts": [
+      "terms": [
         "garlic",
         "ginger",
         "cinnamon",
@@ -1340,7 +1340,7 @@
     {
       "id": "extended_colors_art",
       "icon": "brush",
-      "concepts": [
+      "terms": [
         "turquoise",
         "navy",
         "maroon",
@@ -1366,7 +1366,7 @@
     {
       "id": "business",
       "icon": "domain",
-      "concepts": [
+      "terms": [
         "company",
         "meeting",
         "salary",
@@ -1391,7 +1391,7 @@
     {
       "id": "legal",
       "icon": "gavel",
-      "concepts": [
+      "terms": [
         "court",
         "judge",
         "witness",
@@ -1415,7 +1415,7 @@
     {
       "id": "tech_it",
       "icon": "laptop",
-      "concepts": [
+      "terms": [
         "software",
         "hardware",
         "server",
@@ -1440,7 +1440,7 @@
     {
       "id": "science",
       "icon": "atom",
-      "concepts": [
+      "terms": [
         "experiment",
         "theory",
         "hypothesis",
@@ -1464,7 +1464,7 @@
     {
       "id": "furniture_utensils",
       "icon": "table-furniture",
-      "concepts": [
+      "terms": [
         "wardrobe",
         "dresser",
         "nightstand",
@@ -1488,7 +1488,7 @@
     {
       "id": "philosophy",
       "icon": "infinity",
-      "concepts": [
+      "terms": [
         "consciousness",
         "existence",
         "morality",
@@ -1513,7 +1513,7 @@
     {
       "id": "sports_fitness",
       "icon": "trophy",
-      "concepts": [
+      "terms": [
         "ball",
         "team",
         "goal",
@@ -1537,7 +1537,7 @@
     {
       "id": "hygiene",
       "icon": "toothbrush",
-      "concepts": [
+      "terms": [
         "shampoo",
         "toothbrush",
         "toothpaste",
@@ -1559,7 +1559,7 @@
     {
       "id": "entertainment",
       "icon": "movie-open",
-      "concepts": [
+      "terms": [
         "movie",
         "music",
         "song",
@@ -1582,7 +1582,7 @@
     {
       "id": "education",
       "icon": "school",
-      "concepts": [
+      "terms": [
         "classroom",
         "exam",
         "homework",
@@ -1604,7 +1604,7 @@
     {
       "id": "geography",
       "icon": "terrain",
-      "concepts": [
+      "terms": [
         "continent",
         "island",
         "desert",
@@ -1626,7 +1626,7 @@
     {
       "id": "automotive",
       "icon": "car",
-      "concepts": [
+      "terms": [
         "engine",
         "tire",
         "brake",
@@ -1650,7 +1650,7 @@
     {
       "id": "tools_repair",
       "icon": "toolbox",
-      "concepts": [
+      "terms": [
         "hammer",
         "nail_tool",
         "screw",
@@ -1674,7 +1674,7 @@
     {
       "id": "relationships",
       "icon": "ring",
-      "concepts": [
+      "terms": [
         "single",
         "divorce",
         "engagement",
@@ -1696,7 +1696,7 @@
     {
       "id": "romance_intimacy",
       "icon": "fire",
-      "concepts": [
+      "terms": [
         "passion",
         "orgasm",
         "erotic",

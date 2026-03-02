@@ -8,13 +8,13 @@ final groupsProvider = FutureProvider<List<GroupModel>>((ref) async {
   return repo.loadGroups();
 });
 
-/// Selected group (set when user taps a group). Used by mode/count and session screens.
+/// Selected group (set when user taps a group). Used by mode/count and round screens.
 final selectedGroupProvider = StateProvider<GroupModel?>((ref) => null);
 
-/// Scroll offset to restore when returning to list screen. Set by result/session exit.
+/// Scroll offset to restore when returning to list screen. Set by result/round exit.
 final scrollOffsetToRestoreProvider = StateProvider<double?>((ref) => null);
 
-/// Noun groups (for agreement sessions).
+/// Noun groups (for agreement rounds).
 List<GroupModel> nounGroups(List<GroupModel> all) =>
     all.where((g) => g.category == GroupCategory.noun).toList();
 

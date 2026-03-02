@@ -90,9 +90,9 @@ abstract class VesselLayout {
   static const double vocabProgressPercentWidth = 30.0;
 
   // ==========================================================================
-  // SESSION
+  // ROUND
   // ==========================================================================
-  static const double sessionScoreToCardGap = 16.0;
+  static const double roundScoreToCardGap = 16.0;
 
   // ==========================================================================
   // RESULT

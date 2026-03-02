@@ -7,7 +7,7 @@ import '../../pages/controls_list_screen.dart';
 import '../../pages/group_list_screen.dart';
 import '../../pages/language_screen.dart';
 import '../../pages/result_screen.dart';
-import '../../pages/session_screen.dart';
+import '../../pages/round_screen.dart';
 import '../../pages/settings_screen.dart';
 import '../../pages/tools_screen.dart';
 import '../../pages/vocab_deck_list_screen.dart';
@@ -18,7 +18,7 @@ class AppRoutes {
   static const String home = '/';
   static const String conjugations = '/conjugations';
   static const String agreement = '/agreement';
-  static const String session = '/session';
+  static const String round = '/round';
   static const String result = '/result';
   static const String language = '/language';
   static const String tools = '/tools';
@@ -34,7 +34,7 @@ Page<void> _noTransitionPage(Widget child, GoRouterState state) {
   );
 }
 
-/// Slide page for push-style navigation (session, result).
+/// Slide page for push-style navigation (round, result).
 Page<void> _slidePage(BuildContext context, Widget child, GoRouterState state) {
   final scaffoldBg = VesselThemes.of(context).scaffoldBackground;
   return CustomTransitionPage<void>(
@@ -65,7 +65,7 @@ Page<void> _slidePage(BuildContext context, Widget child, GoRouterState state) {
   );
 }
 
-/// GoRouter config. Session and result read from Riverpod.
+/// GoRouter config. Round and result read from Riverpod.
 GoRouter createAppRouter() {
   return GoRouter(
     initialLocation: AppRoutes.home,
@@ -124,10 +124,10 @@ GoRouter createAppRouter() {
       ),
       // Push-style routes — slide animation
       GoRoute(
-        path: AppRoutes.session,
+        path: AppRoutes.round,
         pageBuilder: (context, state) => _slidePage(
           context,
-          const SessionScreen(),
+          const RoundScreen(),
           state,
         ),
       ),

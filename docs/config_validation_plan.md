@@ -17,9 +17,9 @@ Not at use time. Not generic. At STARTUP.
 
 ```
 assets/data/dictionary.json
-  └─ concepts[concept_id].pos — must be one of: verb, noun, adjective, other
-       ├─ concept IDs referenced by: levels.json → groups[*].concepts[*]
-       └─ concept IDs referenced by: translations/*.json → top-level keys
+  └─ terms[term_id].pos — must be one of: verb, noun, adjective, other
+       ├─ term IDs referenced by: levels.json → decks[*].terms[*]
+       └─ term IDs referenced by: translations/*.json → top-level keys
 
 assets/data/levels.json
   ├─ groups[*].id — unique group IDs
@@ -30,7 +30,7 @@ assets/data/levels.json
        └─ referenced by: translations/*.json → meta.levels[key]
 
 assets/data/translations/{code}.json (en, sr, ru, ...)
-  ├─ top-level keys → must exist in dictionary.json concepts
+  ├─ top-level keys → must exist in dictionary.json terms
   ├─ meta.levels[key] → key must exist in levels.json levels
   └─ meta.groups[key] → key must exist in levels.json groups
 
@@ -101,7 +101,7 @@ No dependencies. Zero risk.
 abstract final class DbSchema {
   static const String tableAppSettings    = 'app_settings';
   static const String tableGroupProgress  = 'group_progress';
-  static const String tableSessionRecords = 'session_records';
+  static const String tableRoundRecords = 'round_records';
   static const String tableDailyActivity  = 'daily_activity';
   static const String tableLanguageStats  = 'language_stats';
 
@@ -119,8 +119,8 @@ abstract final class DbSchema {
   static const String colNativeShownProgress = 'native_shown_progress';
   static const String colWriteProgress       = 'write_progress';
   static const String colPeakRetention       = 'peak_retention';
-  static const String colLastSessionDate     = 'last_session_date';
-  static const String colConceptsTouchedIds  = 'concepts_touched_ids';
+  static const String colLastRoundDate       = 'last_round_date';
+  static const String colTermsTouchedIds    = 'terms_touched_ids';
   static const String colPercentage          = 'percentage';
 }
 ```
@@ -270,31 +270,31 @@ field and every cross-reference. Throws `ConfigValidationError` with exact file,
 field path, and bad value on any issue.
 
 #### dictionary.json validation
-- `concepts` key exists and is a Map
-- Each concept entry: `pos` field exists, value is one of `{'verb', 'noun', 'adjective', 'other'}`
-- Outputs: `Set<String> conceptIds`
+- `terms` key exists and is a Map
+- Each term entry: `pos` field exists, value is one of `{'verb', 'noun', 'adjective', 'other'}`
+- Outputs: `Set<String> termIds`
 
 Error format examples:
 ```
-dictionary.json: missing required key "concepts"
-dictionary.json: concept "eat_vrb" missing required field "pos"
-dictionary.json: concept "buy" has invalid pos "vreb". Allowed: verb, noun, adjective, other
+dictionary.json: missing required key "terms"
+dictionary.json: term "eat_vrb" missing required field "pos"
+dictionary.json: term "buy" has invalid pos "vreb". Allowed: verb, noun, adjective, other
 ```
 
 #### levels.json validation
 - `groups` key exists and is a List
-- Each group: `id` (string, non-duplicate), `concepts` (list) — every ID must exist in conceptIds
+- Each deck: `id` (string, non-duplicate), `terms` (list) — every ID must exist in termIds
 - `levels` key exists and is a List
 - Each level: `id` (string, non-duplicate), `groups` (list) — every ID must exist in groupIds
-- Outputs: `Set<String> groupIds`, `Set<String> levelIds`
+- Outputs: `Set<String> deckIds`, `Set<String> levelIds`
 
 Error format examples:
 ```
-levels.json: missing required key "groups"
-levels.json: groups[3] missing required field "id"
-levels.json: duplicate group id "daily_routines"
-levels.json: group "daily_routines".concepts[2] = "wak_up" does not exist in dictionary.json
-levels.json: level "foundation".groups[1] = "dailly_life" does not exist in groups
+levels.json: missing required key "decks"
+levels.json: decks[3] missing required field "id"
+levels.json: duplicate deck id "daily_routines"
+levels.json: deck "daily_routines".terms[2] = "wak_up" does not exist in dictionary.json
+levels.json: level "foundation".decks[1] = "dailly_life" does not exist in decks
 ```
 
 #### plan.json validation
@@ -318,7 +318,7 @@ plan.json: courses."sr→en".free[0] = "surrvival" does not exist in levels.json
 ```
 
 #### Translation file validation (per language code)
-- Each non-`meta` key: must exist in conceptIds
+- Each non-`meta` key: must exist in termIds
 - Each entry value: detect type by key presence, validate required fields:
   - Has `imperfective` or `perfective` → AspectPairEntry: both required
   - Has `m`, `f`, or `n` → AdjectiveEntry: all three required
@@ -374,8 +374,8 @@ App never reaches any navigator or screen. Never silently broken.
 | `"surrvival"` in plan.json courses.free | `plan.json: courses."sr→en".free[0] = "surrvival" does not exist in levels.json` |
 | `"eat_vrb"` as key in sr.json | `translations/sr.json: key "eat_vrb" does not exist in dictionary.json` |
 | `"perective"` instead of `"perfective"` in sr.json | `translations/sr.json: "jesti" has "imperfective" but missing "perfective"` |
-| Missing `pos` in dictionary.json | `dictionary.json: concept "buy" missing required field "pos"` |
-| `"vreb"` as pos value | `dictionary.json: concept "buy" has invalid pos "vreb". Allowed: verb, noun, adjective, other` |
+| Missing `pos` in dictionary.json | `dictionary.json: term "buy" missing required field "pos"` |
+| `"vreb"` as pos value | `dictionary.json: term "buy" has invalid pos "vreb". Allowed: verb, noun, adjective, other` |
 | Level ID typo in meta | `translations/sr.json: meta.levels["surrvival"] does not exist in levels.json` |
 
 ---
