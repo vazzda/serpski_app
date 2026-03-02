@@ -587,7 +587,7 @@ class VesselThemes {
         elevation: 0,
         shadowColor: Colors.transparent,
         surfaceTintColor: Colors.transparent,
-        titleTextStyle: VesselFonts.textTitle.copyWith(
+        titleTextStyle: VesselFonts.textAppBarTitle.copyWith(
           color: data.appBarTitleColor,
         ),
       ),

@@ -27,12 +27,12 @@ abstract class VesselLayout {
   // ==========================================================================
   // APPBAR
   // ==========================================================================
-  static const double appBarHeight = 40.0;
+  static const double appBarHeight = 36.0;
 
   // ==========================================================================
   // NAVBAR
   // ==========================================================================
-  static const double navbarHeight = 40.0;
+  static const double navbarHeight = 36.0;
   static const double navbarIconPadding = 8.0;
 
   // ==========================================================================

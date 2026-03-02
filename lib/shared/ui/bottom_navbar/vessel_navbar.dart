@@ -68,8 +68,8 @@ class VesselNavBar extends StatelessWidget {
                     : null,
               ),
               VesselNavBarIcon(
-                icon: PhosphorIconsRegular.wrench,
-                activeIcon: PhosphorIconsFill.wrench,
+                icon: PhosphorIconsRegular.puzzlePiece,
+                activeIcon: PhosphorIconsFill.puzzlePiece,
                 tooltip: l10n.navTools,
                 isEnabled: !isTools,
                 enabledColor: t.navbarIconColor,

@@ -62,6 +62,7 @@ class VesselFonts {
 
   // Titles & Headings
   static TextStyle get textTitle => _headerXxl;
+  static TextStyle get textAppBarTitle => _headerL;
   static TextStyle get textSubtitle => _headerXl;
   static TextStyle get textSectionHeader => _headerL;
   static TextStyle get textContentHeader => _headerXl;
