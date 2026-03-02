@@ -6,9 +6,11 @@ import 'package:phosphor_flutter/phosphor_flutter.dart';
 import '../l10n/app_localizations.dart';
 import '../l10n/app_localizations_ext.dart';
 import '../app/providers/all_languages_progress_provider.dart';
+import '../app/providers/app_settings_provider.dart';
 import '../app/providers/dev_section_provider.dart';
 import '../app/providers/dictionary_provider.dart';
 import '../app/providers/language_settings_provider.dart';
+import '../shared/repositories/models/decay_formula.dart';
 import '../app/theme/vessel_themes.dart';
 import '../entities/language/lang_codes.dart';
 import '../entities/language/language_pack.dart';
@@ -31,6 +33,7 @@ class LanguageScreen extends ConsumerWidget {
     final langSettings = ref.watch(languageSettingsProvider);
     final asyncAllPacks = ref.watch(allPacksProvider);
     final asyncAllLangProgress = ref.watch(allLanguagesProgressProvider);
+    final settings = ref.watch(appSettingsProvider);
     final showDevSection = ref.watch(devSectionEnabledProvider);
 
     return VesselScaffold(
@@ -68,39 +71,80 @@ class LanguageScreen extends ConsumerWidget {
               ],
               const VesselGap.l(),
 
-              // Progression card
+              // Progression
+              Padding(
+                padding: const EdgeInsets.only(bottom: VesselLayout.listItemGap),
+                child: Text(
+                  l10n.language_progression,
+                  style: VesselFonts.textSectionHeader.copyWith(color: t.textPrimary),
+                ),
+              ),
               _ProgressionCard(
                 asyncProgress: asyncAllLangProgress,
                 packByCode: packByCode,
                 l10n: l10n,
               ),
-              const VesselGap.m(),
+              const VesselGap.xl(),
+
+              // Decay / learning pace
+              Padding(
+                padding: const EdgeInsets.only(bottom: VesselLayout.listItemGap),
+                child: Text(
+                  l10n.settingsDecaySpeed,
+                  style: VesselFonts.textSectionHeader.copyWith(color: t.textPrimary),
+                ),
+              ),
+              _DecayOption(
+                title: l10n.decayRelaxed,
+                description: l10n.decayRelaxedDesc,
+                isSelected: settings.decayFormula == DecayFormula.relaxed,
+                onTap: () => ref
+                    .read(appSettingsProvider.notifier)
+                    .setDecayFormula(DecayFormula.relaxed),
+              ),
+              const VesselGap.s(),
+              _DecayOption(
+                title: l10n.decayStandard,
+                description: l10n.decayStandardDesc,
+                isSelected: settings.decayFormula == DecayFormula.standard,
+                onTap: () => ref
+                    .read(appSettingsProvider.notifier)
+                    .setDecayFormula(DecayFormula.standard),
+              ),
+              const VesselGap.s(),
+              _DecayOption(
+                title: l10n.decayIntensive,
+                description: l10n.decayIntensiveDesc,
+                isSelected: settings.decayFormula == DecayFormula.intensive,
+                onTap: () => ref
+                    .read(appSettingsProvider.notifier)
+                    .setDecayFormula(DecayFormula.intensive),
+              ),
+              const VesselGap.s(),
+              _DecayOption(
+                title: l10n.decayHardcore,
+                description: l10n.decayHardcoreDesc,
+                isSelected: settings.decayFormula == DecayFormula.hardcore,
+                onTap: () => ref
+                    .read(appSettingsProvider.notifier)
+                    .setDecayFormula(DecayFormula.hardcore),
+              ),
 
               // Incomplete dictionaries (dev mode only)
-              if (showDevSection) ...packs
-                  .where((p) => !p.isPublic)
-                  .map((p) => Padding(
-                        padding: const EdgeInsets.only(bottom: VesselLayout.listItemGapSmall),
-                        child: VesselCard(
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Text(
-                                  l10n.langLabel(p.labelKey),
-                                  style: VesselFonts.textListItem
-                                      .copyWith(color: t.textPrimary),
-                                ),
-                              ),
-                              Text(
-                                l10n.language_conceptsCount(
-                                    p.translatedCount, p.totalConcepts),
-                                style: VesselFonts.textCaption
-                                    .copyWith(color: t.dangerColor),
-                              ),
-                            ],
-                          ),
-                        ),
-                      )),
+              if (showDevSection) ...[
+                const VesselGap.xl(),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: VesselLayout.listItemGap),
+                  child: Text(
+                    l10n.language_incompleteDictionaries,
+                    style: VesselFonts.textSectionHeader.copyWith(color: t.textPrimary),
+                  ),
+                ),
+                _IncompleteDictionariesCard(
+                  packs: packs.where((p) => !p.isPublic).toList(),
+                  l10n: l10n,
+                ),
+              ],
             ],
           );
         },
@@ -302,10 +346,6 @@ class _ProgressionCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text(
-            l10n.language_progression,
-            style: VesselFonts.textListItem.copyWith(color: t.textPrimary),
-          ),
           asyncProgress.when(
             data: (langProgress) {
               final entries = langProgress.entries
@@ -315,7 +355,6 @@ class _ProgressionCard extends StatelessWidget {
               return Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const VesselGap.m(),
                   ...List.generate(entries.length, (i) {
                     final e = entries[i];
                     final pack = packByCode[e.key]!;
@@ -364,6 +403,103 @@ class _ProgressionCard extends StatelessWidget {
             // ignore: unnecessary_underscores
             error: (_, __) => const SizedBox.shrink(),
           ),
+        ],
+      ),
+    );
+  }
+}
+
+class _DecayOption extends StatelessWidget {
+  const _DecayOption({
+    required this.title,
+    required this.description,
+    required this.isSelected,
+    required this.onTap,
+  });
+
+  final String title;
+  final String description;
+  final bool isSelected;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = VesselThemes.of(context);
+
+    return VesselCard(
+      onTap: onTap,
+      child: Row(
+        children: [
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: isSelected
+                      ? VesselFonts.textListItemAccented
+                          .copyWith(color: t.textPrimary)
+                      : VesselFonts.textListItem.copyWith(color: t.textPrimary),
+                ),
+                const VesselGap.xxs(),
+                Text(
+                  description,
+                  style: VesselFonts.textCaption.copyWith(color: t.textSecondary),
+                ),
+              ],
+            ),
+          ),
+          if (isSelected)
+            Icon(
+              PhosphorIconsRegular.checkCircle,
+              color: t.accentColor,
+            ),
+        ],
+      ),
+    );
+  }
+}
+
+class _IncompleteDictionariesCard extends StatelessWidget {
+  const _IncompleteDictionariesCard({
+    required this.packs,
+    required this.l10n,
+  });
+
+  final List<LanguagePack> packs;
+  final AppLocalizations l10n;
+
+  @override
+  Widget build(BuildContext context) {
+    if (packs.isEmpty) return const SizedBox.shrink();
+    final t = VesselThemes.of(context);
+    return VesselCard(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          ...List.generate(packs.length, (i) {
+            final p = packs[i];
+            return Padding(
+              padding: EdgeInsets.only(
+                bottom: i < packs.length - 1 ? VesselLayout.listItemGapSmall : 0,
+              ),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      l10n.langLabel(p.labelKey),
+                      style: VesselFonts.textCaption.copyWith(color: t.textSecondary),
+                    ),
+                  ),
+                  Text(
+                    l10n.language_conceptsCount(p.translatedCount, p.totalConcepts),
+                    style: VesselFonts.textCaption.copyWith(color: t.dangerColor),
+                  ),
+                ],
+              ),
+            );
+          }),
         ],
       ),
     );

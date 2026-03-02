@@ -5,8 +5,6 @@ import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 import '../l10n/app_localizations.dart';
 import '../l10n/app_localizations_ext.dart';
-import '../shared/repositories/models/decay_formula.dart';
-import '../app/providers/app_settings_provider.dart';
 import '../app/providers/dev_section_provider.dart';
 import '../app/providers/dictionary_provider.dart';
 import '../app/providers/language_settings_provider.dart';
@@ -147,7 +145,6 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     final t = VesselThemes.of(context);
-    final settings = ref.watch(appSettingsProvider);
     final currentTheme = ref.watch(themeProvider);
     final showDevSection = ref.watch(devSectionEnabledProvider);
     final langSettings = ref.watch(languageSettingsProvider);
@@ -228,51 +225,6 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
               ],
             ),
           ),
-          const VesselGap.xl(),
-          // Decay section
-          Padding(
-            padding: const EdgeInsets.only(bottom: VesselLayout.listItemGap),
-            child: Text(
-              l10n.settingsDecaySpeed,
-              style:
-                  VesselFonts.textSectionHeader.copyWith(color: t.textPrimary),
-            ),
-          ),
-          _DecayOption(
-            title: l10n.decayRelaxed,
-            description: l10n.decayRelaxedDesc,
-            isSelected: settings.decayFormula == DecayFormula.relaxed,
-            onTap: () => ref
-                .read(appSettingsProvider.notifier)
-                .setDecayFormula(DecayFormula.relaxed),
-          ),
-          const VesselGap.s(),
-          _DecayOption(
-            title: l10n.decayStandard,
-            description: l10n.decayStandardDesc,
-            isSelected: settings.decayFormula == DecayFormula.standard,
-            onTap: () => ref
-                .read(appSettingsProvider.notifier)
-                .setDecayFormula(DecayFormula.standard),
-          ),
-          const VesselGap.s(),
-          _DecayOption(
-            title: l10n.decayIntensive,
-            description: l10n.decayIntensiveDesc,
-            isSelected: settings.decayFormula == DecayFormula.intensive,
-            onTap: () => ref
-                .read(appSettingsProvider.notifier)
-                .setDecayFormula(DecayFormula.intensive),
-          ),
-          const VesselGap.s(),
-          _DecayOption(
-            title: l10n.decayHardcore,
-            description: l10n.decayHardcoreDesc,
-            isSelected: settings.decayFormula == DecayFormula.hardcore,
-            onTap: () => ref
-                .read(appSettingsProvider.notifier)
-                .setDecayFormula(DecayFormula.hardcore),
-          ),
           // Developer section (hidden until unlocked)
           if (showDevSection) ...[
             const VesselGap.xl(),
@@ -315,53 +267,3 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
   }
 }
 
-class _DecayOption extends StatelessWidget {
-  const _DecayOption({
-    required this.title,
-    required this.description,
-    required this.isSelected,
-    required this.onTap,
-  });
-
-  final String title;
-  final String description;
-  final bool isSelected;
-  final VoidCallback onTap;
-
-  @override
-  Widget build(BuildContext context) {
-    final t = VesselThemes.of(context);
-
-    return VesselCard(
-      onTap: onTap,
-      child: Row(
-        children: [
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: isSelected
-                      ? VesselFonts.textListItemAccented
-                          .copyWith(color: t.textPrimary)
-                      : VesselFonts.textListItem.copyWith(color: t.textPrimary),
-                ),
-                const VesselGap.xxs(),
-                Text(
-                  description,
-                  style: VesselFonts.textCaption.copyWith(color: t.textSecondary),
-                ),
-              ],
-            ),
-          ),
-          if (isSelected)
-            Icon(
-              PhosphorIconsRegular.checkCircle,
-              color: t.accentColor,
-            ),
-        ],
-      ),
-    );
-  }
-}
