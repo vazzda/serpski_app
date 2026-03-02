@@ -13,7 +13,7 @@ class VesselFonts {
 
   // Body styles — Montserrat
   static TextStyle get _bodyXs =>
-      GoogleFonts.montserrat(fontSize: 9, fontWeight: FontWeight.normal);
+      GoogleFonts.montserrat(fontSize: 11, fontWeight: FontWeight.normal);
   static TextStyle get _bodyXsAccented =>
       GoogleFonts.montserrat(fontSize: 11, fontWeight: FontWeight.bold);
   static TextStyle get _bodyS =>
@@ -30,6 +30,11 @@ class VesselFonts {
       GoogleFonts.montserrat(fontSize: 16, fontWeight: FontWeight.bold);
 
   // Header styles — IosevkaCustom3
+  static const TextStyle _headerXs = TextStyle(
+    fontFamily: headerFontFamily,
+    fontSize: 12,
+    fontWeight: FontWeight.w600,
+  );
   static const TextStyle _headerS = TextStyle(
     fontFamily: headerFontFamily,
     fontSize: 14,
@@ -109,6 +114,9 @@ class VesselFonts {
   // Level styles
   static TextStyle get textLevelHeader => _headerXxl;
   static TextStyle get textLevelCounter => _bodyMAccented;
+
+  // Progress bar
+  static TextStyle get textProgressPercentage => _bodyXsAccented;
 
   // Badge styles
   static TextStyle get textBadgePercentage => _bodyMAccented;

@@ -27,7 +27,7 @@ abstract class VesselLayout {
   // ==========================================================================
   // APPBAR
   // ==========================================================================
-  static const double appBarHeight = 36.0;
+  static const double appBarHeight = 44.0;
 
   // ==========================================================================
   // NAVBAR
@@ -82,7 +82,7 @@ abstract class VesselLayout {
 
   // Vocab — tile progress row internals
   static const double vocabTileProgressPercentGap = 4.0;
-  static const double vocabTileProgressPercentWidth = 28.0;
+  static const double vocabTileProgressPercentWidth = 30.0;
 
   // Vocab — level progress bar + counter + percentage
   static const double vocabProgressPercentGap = 4.0;

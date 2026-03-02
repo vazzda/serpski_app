@@ -32,11 +32,9 @@ abstract final class DbSchema {
   static const String colWordIds  = 'word_ids';
 
   // deck_progress columns
-  static const String colTargetShownProgress = 'target_shown_progress';
-  static const String colNativeShownProgress = 'native_shown_progress';
-  static const String colWriteProgress       = 'write_progress';
-  static const String colPeakRetention       = 'peak_retention';
-  static const String colLastSessionDate     = 'last_session_date';
+  static const String colProgress        = 'progress';
+  static const String colPeakRetention   = 'peak_retention';
+  static const String colLastSessionDate = 'last_session_date';
 
   // language_stats columns
   static const String colConceptsTouchedIds = 'concepts_touched_ids';

@@ -91,8 +91,8 @@ class VocabDeckTile extends StatelessWidget {
                               width: VesselLayout.vocabTileProgressPercentWidth,
                               child: Text(
                                 '${item.percentage ?? 0}%',
-                                textAlign: TextAlign.end,
-                                style: VesselFonts.textTileCounter.copyWith(
+                                textAlign: TextAlign.start,
+                                style: VesselFonts.textProgressPercentage.copyWith(
                                   color: item.percentage != null
                                       ? t.tileForeground
                                       : t.textPrimaryDimmed,

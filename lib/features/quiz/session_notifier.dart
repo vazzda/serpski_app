@@ -46,6 +46,7 @@ class SessionNotifier extends StateNotifier<SessionState?> {
     required int questionCount,
     required String originRoute,
     double originScrollOffset = 0.0,
+    bool isTest = false,
   }) {
     final service = CardGenerationService();
     final allCards = service.buildCards(
@@ -72,6 +73,8 @@ class SessionNotifier extends StateNotifier<SessionState?> {
       sessionType: SessionType.vocabulary,
       originRoute: originRoute,
       originScrollOffset: originScrollOffset,
+      isTest: isTest,
+      totalDeckConcepts: deck.conceptIds.length,
       queue: queue,
       allCards: allCards,
       sessionWordIds: wordIds,
@@ -134,10 +137,16 @@ class SessionNotifier extends StateNotifier<SessionState?> {
 
   void answerCorrect() {
     if (state == null || state!.queue.isEmpty) return;
+    final card = state!.queue.first;
+    final cardId = card is VocabCard ? card.wordId : card.targetAnswer;
+    final isFirstAttempt = !state!.attemptedCardIds.contains(cardId);
     final rest = state!.queue.skip(1).toList();
     state = state!.copyWith(
       queue: rest,
       correctCount: state!.correctCount + 1,
+      firstPassCorrect:
+          isFirstAttempt ? state!.firstPassCorrect + 1 : state!.firstPassCorrect,
+      attemptedCardIds: {...state!.attemptedCardIds, cardId},
     );
   }
 
@@ -145,11 +154,13 @@ class SessionNotifier extends StateNotifier<SessionState?> {
   void answerWrong({String? userTypedAnswer}) {
     if (state == null || state!.queue.isEmpty) return;
     final card = state!.queue.first;
+    final cardId = card is VocabCard ? card.wordId : card.targetAnswer;
     final rest = state!.queue.skip(1).toList();
     final entry = MissedEntry(card: card, userTypedAnswer: userTypedAnswer);
     state = state!.copyWith(
       queue: [...rest, card],
       wrongCount: state!.wrongCount + 1,
+      attemptedCardIds: {...state!.attemptedCardIds, cardId},
       missedEntries: [...state!.missedEntries, entry],
     );
   }
@@ -175,6 +186,8 @@ class SessionNotifier extends StateNotifier<SessionState?> {
       sessionType: state!.sessionType,
       originRoute: state!.originRoute,
       originScrollOffset: state!.originScrollOffset,
+      isTest: state!.isTest,
+      totalDeckConcepts: state!.totalDeckConcepts,
       queue: queue,
       allCards: allCards,
       sessionWordIds: wordIds,

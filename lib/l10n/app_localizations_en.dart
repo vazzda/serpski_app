@@ -455,4 +455,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get vocab_train => 'Train';
+
+  @override
+  String get result_techWork => 'Tech work — no progress contribution';
 }

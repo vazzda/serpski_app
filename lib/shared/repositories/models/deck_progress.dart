@@ -1,12 +1,15 @@
+import 'package:srpski_card/shared/lib/progress_constants.dart';
 import 'session_record.dart';
 
 /// Progress tracking for a single deck, scoped by target language.
+///
+/// Single [progress] value (0–100) with mode-based caps:
+///   nativeShown → 20%  |  targetShown → 40%  |  write → 80%  |  test → 100%
+/// Caps overlap (not additive). See [ProgressConstants] for tuning.
 class DeckProgress {
   const DeckProgress({
     required this.deckId,
-    this.targetShownProgress = 0.0,
-    this.nativeShownProgress = 0.0,
-    this.writeProgress = 0.0,
+    this.progress = 0.0,
     this.peakRetention = 0.0,
     this.recentSessions = const [],
     this.lastSessionDate,
@@ -14,14 +17,8 @@ class DeckProgress {
 
   final String deckId;
 
-  /// Progress from targetShown mode (0-100). Contributes max 20% to total.
-  final double targetShownProgress;
-
-  /// Progress from nativeShown mode (0-100). Contributes max 20% to total.
-  final double nativeShownProgress;
-
-  /// Progress from write mode (0-100). Contributes max 60% to total.
-  final double writeProgress;
+  /// Unified deck progress (0–100).
+  final double progress;
 
   /// Highest retention ever achieved. Used to calculate decay floor.
   final double peakRetention;
@@ -32,38 +29,22 @@ class DeckProgress {
   /// Date of most recent session.
   final DateTime? lastSessionDate;
 
-  /// Mode contribution caps.
-  static const double targetShownCap = 20.0;
-  static const double nativeShownCap = 20.0;
-  static const double writeCap = 60.0;
+  /// Alias for consistency with existing UI code.
+  double get totalProgress => progress;
 
-  /// Total progress (0-100) with mode caps applied.
-  double get totalProgress {
-    final targetCapped = (targetShownProgress / 100.0 * targetShownCap)
-        .clamp(0.0, targetShownCap);
-    final nativeCapped = (nativeShownProgress / 100.0 * nativeShownCap)
-        .clamp(0.0, nativeShownCap);
-    final writeCapped =
-        (writeProgress / 100.0 * writeCap).clamp(0.0, writeCap);
-    return (targetCapped + nativeCapped + writeCapped).clamp(0.0, 100.0);
-  }
-
-  /// Decay floor - retention cannot drop below half of peak.
-  double get retentionFloor => peakRetention * 0.5;
+  /// Decay floor — retention cannot drop below this.
+  double get retentionFloor =>
+      peakRetention * ProgressConstants.retentionFloorMultiplier;
 
   DeckProgress copyWith({
-    double? targetShownProgress,
-    double? nativeShownProgress,
-    double? writeProgress,
+    double? progress,
     double? peakRetention,
     List<SessionRecord>? recentSessions,
     DateTime? lastSessionDate,
   }) {
     return DeckProgress(
       deckId: deckId,
-      targetShownProgress: targetShownProgress ?? this.targetShownProgress,
-      nativeShownProgress: nativeShownProgress ?? this.nativeShownProgress,
-      writeProgress: writeProgress ?? this.writeProgress,
+      progress: progress ?? this.progress,
       peakRetention: peakRetention ?? this.peakRetention,
       recentSessions: recentSessions ?? this.recentSessions,
       lastSessionDate: lastSessionDate ?? this.lastSessionDate,
@@ -72,9 +53,7 @@ class DeckProgress {
 
   Map<String, dynamic> toMap() => {
         'deckId': deckId,
-        'targetShownProgress': targetShownProgress,
-        'nativeShownProgress': nativeShownProgress,
-        'writeProgress': writeProgress,
+        'progress': progress,
         'peakRetention': peakRetention,
         'recentSessions': recentSessions.map((s) => s.toMap()).toList(),
         'lastSessionDate': lastSessionDate?.toIso8601String(),
@@ -88,14 +67,11 @@ class DeckProgress {
     final lastDateStr = map['lastSessionDate'] as String?;
     return DeckProgress(
       deckId: map['deckId'] as String,
-      targetShownProgress:
-          (map['targetShownProgress'] as num?)?.toDouble() ?? 0.0,
-      nativeShownProgress:
-          (map['nativeShownProgress'] as num?)?.toDouble() ?? 0.0,
-      writeProgress: (map['writeProgress'] as num?)?.toDouble() ?? 0.0,
+      progress: (map['progress'] as num?)?.toDouble() ?? 0.0,
       peakRetention: (map['peakRetention'] as num?)?.toDouble() ?? 0.0,
       recentSessions: sessionsList,
-      lastSessionDate: lastDateStr != null ? DateTime.parse(lastDateStr) : null,
+      lastSessionDate:
+          lastDateStr != null ? DateTime.parse(lastDateStr) : null,
     );
   }
 }

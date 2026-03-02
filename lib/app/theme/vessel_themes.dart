@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../l10n/app_localizations.dart';
@@ -589,6 +590,13 @@ class VesselThemes {
         surfaceTintColor: Colors.transparent,
         titleTextStyle: VesselFonts.textAppBarTitle.copyWith(
           color: data.appBarTitleColor,
+        ),
+        systemOverlayStyle: SystemUiOverlayStyle(
+          systemNavigationBarColor: data.navbarBackground,
+          systemNavigationBarIconBrightness:
+              data.navbarBackground.computeLuminance() > 0.5
+                  ? Brightness.dark
+                  : Brightness.light,
         ),
       ),
       iconTheme: IconThemeData(color: data.textPrimary),

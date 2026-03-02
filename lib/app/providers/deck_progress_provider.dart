@@ -24,20 +24,46 @@ class DeckProgressNotifier extends StateNotifier<Map<String, DeckProgress>> {
     if (mounted) state = data;
   }
 
-  /// Record a session result and update state.
-  Future<void> recordSession({
+  /// Record an incremental (non-test) session. Returns true if progress increased.
+  Future<bool> recordSession({
     required String deckId,
     required double score,
     required QuizMode mode,
+    required double modeCap,
+    required double coverage,
+    required double accuracy,
   }) async {
-    await _repository.recordSession(
+    final contributed = await _repository.recordSession(
       targetLang: _targetLang,
       deckId: deckId,
       score: score,
       mode: mode,
+      modeCap: modeCap,
+      coverage: coverage,
+      accuracy: accuracy,
     );
     final data = await _repository.getAllProgress(_targetLang);
     if (mounted) state = data;
+    return contributed;
+  }
+
+  /// Record a test result (ratchet). Returns true if progress increased.
+  Future<bool> recordTestResult({
+    required String deckId,
+    required double firstPassScore,
+    required double sessionScore,
+    required QuizMode mode,
+  }) async {
+    final contributed = await _repository.recordTestResult(
+      targetLang: _targetLang,
+      deckId: deckId,
+      firstPassScore: firstPassScore,
+      sessionScore: sessionScore,
+      mode: mode,
+    );
+    final data = await _repository.getAllProgress(_targetLang);
+    if (mounted) state = data;
+    return contributed;
   }
 
   /// Update peak retention for a deck.

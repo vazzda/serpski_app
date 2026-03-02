@@ -4,6 +4,7 @@ import 'db_schema.dart';
 import 'models/deck_progress.dart';
 import 'models/session_record.dart';
 import '../../features/quiz/quiz_mode.dart';
+import 'package:srpski_card/shared/lib/progress_constants.dart';
 
 /// Persists and reads deck progress via SQLite, scoped by target language.
 class DeckProgressRepository {
@@ -25,11 +26,7 @@ class DeckProgressRepository {
     final row = rows.first;
     return DeckProgress(
       deckId: deckId,
-      targetShownProgress:
-          (row[DbSchema.colTargetShownProgress] as num).toDouble(),
-      nativeShownProgress:
-          (row[DbSchema.colNativeShownProgress] as num).toDouble(),
-      writeProgress: (row[DbSchema.colWriteProgress] as num).toDouble(),
+      progress: (row[DbSchema.colProgress] as num).toDouble(),
       peakRetention: (row[DbSchema.colPeakRetention] as num).toDouble(),
       recentSessions: sessions,
       lastSessionDate: row[DbSchema.colLastSessionDate] != null
@@ -52,11 +49,7 @@ class DeckProgressRepository {
       final sessions = await _getRecentSessions(targetLang, deckId);
       results[deckId] = DeckProgress(
         deckId: deckId,
-        targetShownProgress:
-            (row[DbSchema.colTargetShownProgress] as num).toDouble(),
-        nativeShownProgress:
-            (row[DbSchema.colNativeShownProgress] as num).toDouble(),
-        writeProgress: (row[DbSchema.colWriteProgress] as num).toDouble(),
+        progress: (row[DbSchema.colProgress] as num).toDouble(),
         peakRetention: (row[DbSchema.colPeakRetention] as num).toDouble(),
         recentSessions: sessions,
         lastSessionDate: row[DbSchema.colLastSessionDate] != null
@@ -67,17 +60,109 @@ class DeckProgressRepository {
     return results;
   }
 
-  /// Records a session result and updates progress for a deck.
-  Future<DeckProgress> recordSession({
+  /// Records an incremental (non-test) session and updates progress.
+  ///
+  /// [modeCap] — ceiling for this mode (from [ProgressConstants]).
+  /// [coverage] — conceptsInSession / totalConceptsInDeck (0–1).
+  /// [accuracy] — correctCount / totalAttempts (0–1).
+  ///
+  /// Returns `true` if progress was actually increased, `false` if over-cap.
+  Future<bool> recordSession({
     required String targetLang,
     required String deckId,
     required double score,
+    required QuizMode mode,
+    required double modeCap,
+    required double coverage,
+    required double accuracy,
+  }) async {
+    final current = await getProgress(targetLang, deckId);
+    final now = DateTime.now();
+
+    // Insert session record (for retention calculation)
+    await _insertSessionRecord(targetLang, deckId, now, score, mode);
+
+    // Check if already at or above mode cap
+    if (current.progress >= modeCap) {
+      // Still update last_session_date even if no progress gained
+      await _upsertProgress(targetLang, deckId, current.progress,
+          current.peakRetention, now);
+      return false;
+    }
+
+    // Calculate contribution
+    final contribution =
+        coverage * accuracy * ProgressConstants.baseContribution;
+    final newProgress =
+        (current.progress + contribution).clamp(0.0, modeCap);
+
+    await _upsertProgress(
+        targetLang, deckId, newProgress, current.peakRetention, now);
+    return true;
+  }
+
+  /// Records a test result. Ratchet: only upgrades, never degrades.
+  ///
+  /// [firstPassScore] — percentage of cards correct on first attempt (0–100).
+  ///
+  /// Returns `true` if progress was actually increased.
+  Future<bool> recordTestResult({
+    required String targetLang,
+    required String deckId,
+    required double firstPassScore,
+    required double sessionScore,
     required QuizMode mode,
   }) async {
     final current = await getProgress(targetLang, deckId);
     final now = DateTime.now();
 
-    // Insert session record
+    // Insert session record (for retention calculation)
+    await _insertSessionRecord(targetLang, deckId, now, sessionScore, mode);
+
+    // Ratchet: only upgrade
+    final newProgress = firstPassScore > current.progress
+        ? firstPassScore.clamp(0.0, ProgressConstants.capTest)
+        : current.progress;
+    final progressed = newProgress > current.progress;
+
+    await _upsertProgress(
+        targetLang, deckId, newProgress, current.peakRetention, now);
+    return progressed;
+  }
+
+  /// Updates peak retention for a deck (call after calculating current retention).
+  Future<void> updatePeakRetention(
+      String targetLang, String deckId, double currentRetention) async {
+    final current = await getProgress(targetLang, deckId);
+    if (currentRetention > current.peakRetention) {
+      await _db.update(
+        DbSchema.tableDeckProgress,
+        {DbSchema.colPeakRetention: currentRetention},
+        where:
+            '${DbSchema.colTargetLang} = ? AND ${DbSchema.colDeckId} = ?',
+        whereArgs: [targetLang, deckId],
+      );
+    }
+  }
+
+  /// Returns summed progress per target language across all decks.
+  Future<Map<String, double>> getSumProgressAllLanguages() async {
+    final rows = await _db.query(DbSchema.tableDeckProgress);
+    final Map<String, double> sumByLang = {};
+    for (final row in rows) {
+      final lang = row[DbSchema.colTargetLang] as String;
+      final progress = (row[DbSchema.colProgress] as num).toDouble();
+      sumByLang[lang] = (sumByLang[lang] ?? 0.0) + progress;
+    }
+    return sumByLang;
+  }
+
+  // ---------------------------------------------------------------------------
+  // Private helpers
+  // ---------------------------------------------------------------------------
+
+  Future<void> _insertSessionRecord(String targetLang, String deckId,
+      DateTime now, double score, QuizMode mode) async {
     await _db.insert(DbSchema.tableSessionRecords, {
       DbSchema.colTargetLang: targetLang,
       DbSchema.colDeckId: deckId,
@@ -96,80 +181,21 @@ class DeckProgressRepository {
         LIMIT 3
       )
     ''', [targetLang, deckId, targetLang, deckId]);
+  }
 
-    // Calculate progress contribution
-    const sessionContribution = 10.0;
-    double newTargetShown = current.targetShownProgress;
-    double newNativeShown = current.nativeShownProgress;
-    double newWrite = current.writeProgress;
-
-    final contribution = (score / 100.0) * sessionContribution;
-
-    switch (mode) {
-      case QuizMode.targetShown:
-        newTargetShown =
-            (current.targetShownProgress + contribution).clamp(0.0, 100.0);
-        break;
-      case QuizMode.nativeShown:
-        newNativeShown =
-            (current.nativeShownProgress + contribution).clamp(0.0, 100.0);
-        break;
-      case QuizMode.write:
-        newWrite = (current.writeProgress + contribution).clamp(0.0, 100.0);
-        break;
-    }
-
-    // Upsert deck_progress
+  Future<void> _upsertProgress(String targetLang, String deckId,
+      double progress, double peakRetention, DateTime now) async {
     await _db.insert(
       DbSchema.tableDeckProgress,
       {
         DbSchema.colTargetLang: targetLang,
         DbSchema.colDeckId: deckId,
-        DbSchema.colTargetShownProgress: newTargetShown,
-        DbSchema.colNativeShownProgress: newNativeShown,
-        DbSchema.colWriteProgress: newWrite,
-        DbSchema.colPeakRetention: current.peakRetention,
+        DbSchema.colProgress: progress,
+        DbSchema.colPeakRetention: peakRetention,
         DbSchema.colLastSessionDate: now.toIso8601String(),
       },
       conflictAlgorithm: ConflictAlgorithm.replace,
     );
-
-    return getProgress(targetLang, deckId);
-  }
-
-  /// Updates peak retention for a deck (call after calculating current retention).
-  Future<void> updatePeakRetention(
-      String targetLang, String deckId, double currentRetention) async {
-    final current = await getProgress(targetLang, deckId);
-    if (currentRetention > current.peakRetention) {
-      await _db.update(
-        DbSchema.tableDeckProgress,
-        {DbSchema.colPeakRetention: currentRetention},
-        where:
-            '${DbSchema.colTargetLang} = ? AND ${DbSchema.colDeckId} = ?',
-        whereArgs: [targetLang, deckId],
-      );
-    }
-  }
-
-  /// Returns summed totalProgress per target language across all decks.
-  /// Only includes languages that have at least one deck_progress row.
-  Future<Map<String, double>> getSumProgressAllLanguages() async {
-    final rows = await _db.query(DbSchema.tableDeckProgress);
-    final Map<String, double> sumByLang = {};
-    for (final row in rows) {
-      final lang = row[DbSchema.colTargetLang] as String;
-      final dp = DeckProgress(
-        deckId: row[DbSchema.colDeckId] as String,
-        targetShownProgress:
-            (row[DbSchema.colTargetShownProgress] as num).toDouble(),
-        nativeShownProgress:
-            (row[DbSchema.colNativeShownProgress] as num).toDouble(),
-        writeProgress: (row[DbSchema.colWriteProgress] as num).toDouble(),
-      );
-      sumByLang[lang] = (sumByLang[lang] ?? 0.0) + dp.totalProgress;
-    }
-    return sumByLang;
   }
 
   /// Returns the last 3 session records for a (target_lang, deck), newest first.

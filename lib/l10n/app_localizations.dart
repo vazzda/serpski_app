@@ -909,6 +909,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Train'**
   String get vocab_train;
+
+  /// No description provided for @result_techWork.
+  ///
+  /// In en, this message translates to:
+  /// **'Tech work — no progress contribution'**
+  String get result_techWork;
 }
 
 class _AppLocalizationsDelegate

@@ -15,6 +15,7 @@ import '../shared/ui/buttons/vessel_buttons.dart';
 import '../shared/ui/card/vessel_card.dart';
 import '../shared/ui/screen_layout/vessel_scaffold.dart';
 import '../shared/ui/gap/vessel_gap.dart';
+import '../shared/ui/note/vessel_note.dart';
 import '../app/layout/vessel_layout.dart';
 
 class ResultScreen extends ConsumerWidget {
@@ -130,6 +131,10 @@ class ResultScreen extends ConsumerWidget {
                 ),
               ],
             ),
+            if (!ref.read(quizSessionServiceProvider).lastSessionContributed) ...[
+              const VesselGap.l(),
+              VesselNote(text: l10n.result_techWork),
+            ],
             if (session.missedEntries.isNotEmpty) ...[
               const VesselGap.xl(),
               Text(

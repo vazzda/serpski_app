@@ -3,6 +3,7 @@ import 'dart:math' as math;
 import '../repositories/models/decay_formula.dart';
 import '../repositories/models/deck_progress.dart';
 import '../repositories/models/retention_level.dart';
+import 'progress_constants.dart';
 
 /// Calculates retention and progress for decks.
 class ProgressCalculator {
@@ -49,17 +50,13 @@ class ProgressCalculator {
   ) {
     final rawLevel = RetentionLevelExtension.fromPercentage(retentionPercentage);
 
-    // Cap retention level based on progress
-    // 0-20% progress → max Weak
-    // 21-40% progress → max Good
-    // 41-60% progress → max Strong
-    // 61%+ progress → max Super (no cap)
+    // Cap retention level based on progress (thresholds in ProgressConstants)
     RetentionLevel maxLevel;
-    if (progressPercentage <= 20) {
+    if (progressPercentage <= ProgressConstants.retentionCapWeak) {
       maxLevel = RetentionLevel.weak;
-    } else if (progressPercentage <= 40) {
+    } else if (progressPercentage <= ProgressConstants.retentionCapGood) {
       maxLevel = RetentionLevel.good;
-    } else if (progressPercentage <= 60) {
+    } else if (progressPercentage <= ProgressConstants.retentionCapStrong) {
       maxLevel = RetentionLevel.strong;
     } else {
       maxLevel = RetentionLevel.super_;

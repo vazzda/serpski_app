@@ -24,10 +24,14 @@ class SessionState {
     this.originScrollOffset = 0.0,
     this.adjectiveGroupId,
     this.deckName,
+    this.isTest = false,
+    this.totalDeckConcepts = 0,
     this.queue = const [],
     this.allCards,
     this.correctCount = 0,
     this.wrongCount = 0,
+    this.firstPassCorrect = 0,
+    this.attemptedCardIds = const {},
     this.missedEntries = const [],
     this.sessionWordIds = const {},
   });
@@ -45,6 +49,12 @@ class SessionState {
   /// Resolved deck name for session title display (from meta system).
   final String? deckName;
 
+  /// Whether this is a test session (direct score → progress, ratchet only).
+  final bool isTest;
+
+  /// Total concepts in the deck (for coverage calculation).
+  final int totalDeckConcepts;
+
   /// Remaining cards to answer (front = current). Wrong answers are moved to end.
   final List<CardModel> queue;
 
@@ -54,6 +64,12 @@ class SessionState {
 
   final int correctCount;
   final int wrongCount;
+
+  /// Cards answered correctly on first attempt (for test scoring).
+  final int firstPassCorrect;
+
+  /// Card IDs that have been attempted at least once (for first-pass detection).
+  final Set<String> attemptedCardIds;
 
   /// Entries that were answered wrong (for review at end). Write mode stores userTypedAnswer.
   final List<MissedEntry> missedEntries;
@@ -65,10 +81,15 @@ class SessionState {
 
   bool get isFinished => queue.isEmpty;
 
+  /// Number of unique concepts in this session (for coverage calculation).
+  int get sessionConceptCount => sessionWordIds.length;
+
   SessionState copyWith({
     List<CardModel>? queue,
     int? correctCount,
     int? wrongCount,
+    int? firstPassCorrect,
+    Set<String>? attemptedCardIds,
     List<MissedEntry>? missedEntries,
     Set<String>? sessionWordIds,
   }) {
@@ -81,10 +102,14 @@ class SessionState {
       originScrollOffset: originScrollOffset,
       adjectiveGroupId: adjectiveGroupId,
       deckName: deckName,
+      isTest: isTest,
+      totalDeckConcepts: totalDeckConcepts,
       queue: queue ?? this.queue,
       allCards: allCards,
       correctCount: correctCount ?? this.correctCount,
       wrongCount: wrongCount ?? this.wrongCount,
+      firstPassCorrect: firstPassCorrect ?? this.firstPassCorrect,
+      attemptedCardIds: attemptedCardIds ?? this.attemptedCardIds,
       missedEntries: missedEntries ?? this.missedEntries,
       sessionWordIds: sessionWordIds ?? this.sessionWordIds,
     );

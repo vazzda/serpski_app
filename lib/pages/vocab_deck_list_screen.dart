@@ -372,6 +372,7 @@ class _VocabDeckListScreenState extends ConsumerState<VocabDeckListScreen> {
           questionCount: selectedCount,
           originRoute: AppRoutes.home,
           originScrollOffset: scrollOffset,
+          isTest: selection.isTest,
         );
     if (context.mounted) context.go(AppRoutes.session);
   }

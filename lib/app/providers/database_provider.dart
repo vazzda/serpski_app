@@ -53,9 +53,7 @@ class DatabaseProvider {
       CREATE TABLE ${DbSchema.tableDeckProgress} (
         ${DbSchema.colTargetLang} TEXT NOT NULL,
         ${DbSchema.colDeckId} TEXT NOT NULL,
-        ${DbSchema.colTargetShownProgress} REAL NOT NULL DEFAULT 0,
-        ${DbSchema.colNativeShownProgress} REAL NOT NULL DEFAULT 0,
-        ${DbSchema.colWriteProgress} REAL NOT NULL DEFAULT 0,
+        ${DbSchema.colProgress} REAL NOT NULL DEFAULT 0,
         ${DbSchema.colPeakRetention} REAL NOT NULL DEFAULT 0,
         ${DbSchema.colLastSessionDate} TEXT,
         PRIMARY KEY (${DbSchema.colTargetLang}, ${DbSchema.colDeckId})
