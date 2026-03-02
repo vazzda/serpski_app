@@ -107,6 +107,8 @@ abstract class VesselLayout {
   static const double langFlagHeight = 44.0;
   static const double langProgressLabelWidth = 72.0;
   static const double langProgressPercentWidth = 36.0;
+  static const double langProgressionFlagWidth = 24.0;
+  static const double langProgressionFlagHeight = 16.0;
   static const double langArrowZoneWidth = 36.0;
   static const double langBoxPaddingLeft = 12.0;
   static const double langBoxPaddingTop = 14.0;

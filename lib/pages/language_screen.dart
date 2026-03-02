@@ -5,6 +5,7 @@ import 'package:phosphor_flutter/phosphor_flutter.dart';
 
 import '../l10n/app_localizations.dart';
 import '../l10n/app_localizations_ext.dart';
+import '../features/language/services/language_reset_service.dart';
 import '../app/providers/all_languages_progress_provider.dart';
 import '../app/providers/app_settings_provider.dart';
 import '../app/providers/dev_section_provider.dart';
@@ -16,6 +17,7 @@ import '../entities/language/lang_codes.dart';
 import '../entities/language/language_pack.dart';
 import '../shared/ui/bottom_sheet/vessel_bottom_sheet.dart';
 import '../shared/ui/lang_button/vessel_lang_button.dart';
+import '../shared/ui/buttons/vessel_buttons.dart';
 import '../shared/ui/card/vessel_card.dart';
 import '../shared/ui/note/vessel_note.dart';
 import '../shared/ui/progress_bar/vessel_progress_bar.dart';
@@ -83,6 +85,7 @@ class LanguageScreen extends ConsumerWidget {
                 asyncProgress: asyncAllLangProgress,
                 packByCode: packByCode,
                 l10n: l10n,
+                onReset: (langCode) => _confirmReset(context, ref, langCode, packByCode, l10n),
               ),
               const VesselGap.xl(),
 
@@ -151,6 +154,57 @@ class LanguageScreen extends ConsumerWidget {
       ),
     );
   }
+}
+
+void _confirmReset(
+  BuildContext context,
+  WidgetRef ref,
+  String langCode,
+  Map<String, LanguagePack> packByCode,
+  AppLocalizations l10n,
+) {
+  final langName = packByCode[langCode] != null
+      ? l10n.langLabel(packByCode[langCode]!.labelKey)
+      : langCode;
+  showVesselBottomSheet<void>(
+    context: context,
+    builder: (sheetContext) {
+      final t = VesselThemes.of(sheetContext);
+      return Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Text(
+            l10n.language_resetConfirmTitle,
+            style: VesselFonts.textSheetTitle.copyWith(color: t.textPrimary),
+          ),
+          const VesselGap.m(),
+          Text(
+            l10n.language_resetConfirmBody(langName),
+            style: VesselFonts.textSheetContent.copyWith(color: t.textPrimary),
+          ),
+          const VesselGap.xl(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              VesselTextButton(
+                label: l10n.cancel,
+                onPressed: () => Navigator.of(sheetContext).pop(),
+              ),
+              const VesselGap.hs(),
+              VesselDangerButton(
+                label: l10n.language_resetButton,
+                onPressed: () {
+                  Navigator.of(sheetContext).pop();
+                  ref.read(languageResetServiceProvider).resetLanguage(langCode);
+                },
+              ),
+            ],
+          ),
+        ],
+      );
+    },
+  );
 }
 
 Future<String?> _showLangPicker(
@@ -332,11 +386,13 @@ class _ProgressionCard extends StatelessWidget {
     required this.asyncProgress,
     required this.packByCode,
     required this.l10n,
+    required this.onReset,
   });
 
   final AsyncValue<Map<String, double>> asyncProgress;
   final Map<String, LanguagePack> packByCode;
   final AppLocalizations l10n;
+  final ValueChanged<String> onReset;
 
   @override
   Widget build(BuildContext context) {
@@ -351,7 +407,9 @@ class _ProgressionCard extends StatelessWidget {
               final entries = langProgress.entries
                   .where((e) => e.value > 0 && packByCode.containsKey(e.key))
                   .toList();
-              if (entries.isEmpty) return const SizedBox.shrink();
+              if (entries.isEmpty) {
+                return VesselNote(text: l10n.language_progressionEmpty);
+              }
               return Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -360,16 +418,28 @@ class _ProgressionCard extends StatelessWidget {
                     final pack = packByCode[e.key]!;
                     final label = l10n.langLabel(pack.labelKey);
                     final pct = (e.value * 100).round();
+                    final countryCode = LangCodes.flagCountryCode(e.key);
                     return Padding(
                       padding: EdgeInsets.only(
                           bottom: i < entries.length - 1 ? VesselLayout.listItemGapSmall : 0),
                       child: Row(
                         children: [
+                          if (countryCode != null) ...[
+                            CountryFlag.fromCountryCode(
+                              countryCode,
+                              theme: const ImageTheme(
+                                width: VesselLayout.langProgressionFlagWidth,
+                                height: VesselLayout.langProgressionFlagHeight,
+                                shape: RoundedRectangle(2),
+                              ),
+                            ),
+                            const VesselGap.hs(),
+                          ],
                           SizedBox(
                             width: VesselLayout.langProgressLabelWidth,
                             child: Text(
                               label,
-                              style: VesselFonts.textCaption.copyWith(
+                              style: VesselFonts.textBodyAccent.copyWith(
                                 color: t.textSecondary,
                               ),
                             ),
@@ -391,6 +461,12 @@ class _ProgressionCard extends StatelessWidget {
                                 color: t.textPrimary,
                               ),
                             ),
+                          ),
+                          const VesselGap.hs(),
+                          VesselButton(
+                            icon: PhosphorIconsRegular.trash,
+                            size: VesselButtonSize.small,
+                            onPressed: () => onReset(e.key),
                           ),
                         ],
                       ),

@@ -458,4 +458,18 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get result_techWork => 'Tech work — no progress contribution';
+
+  @override
+  String get language_progressionEmpty => 'Time to start learning languages!';
+
+  @override
+  String get language_resetConfirmTitle => 'Reset progress';
+
+  @override
+  String language_resetConfirmBody(String language) {
+    return 'Reset all progress for $language? This cannot be undone.';
+  }
+
+  @override
+  String get language_resetButton => 'Reset';
 }

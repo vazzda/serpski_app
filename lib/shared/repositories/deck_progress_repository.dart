@@ -157,6 +157,20 @@ class DeckProgressRepository {
     return sumByLang;
   }
 
+  /// Deletes all progress and session records for a target language.
+  Future<void> deleteForLanguage(String targetLang) async {
+    await _db.delete(
+      DbSchema.tableDeckProgress,
+      where: '${DbSchema.colTargetLang} = ?',
+      whereArgs: [targetLang],
+    );
+    await _db.delete(
+      DbSchema.tableSessionRecords,
+      where: '${DbSchema.colTargetLang} = ?',
+      whereArgs: [targetLang],
+    );
+  }
+
   // ---------------------------------------------------------------------------
   // Private helpers
   // ---------------------------------------------------------------------------

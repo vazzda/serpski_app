@@ -51,6 +51,15 @@ class DailyActivityRepository {
     );
   }
 
+  /// Deletes all daily activity for a target language.
+  Future<void> deleteForLanguage(String targetLang) async {
+    await _db.delete(
+      DbSchema.tableDailyActivity,
+      where: '${DbSchema.colTargetLang} = ?',
+      whereArgs: [targetLang],
+    );
+  }
+
   /// Merges a completed session into today's totals for a target language.
   Future<DailyActivityStats> addSession({
     required String targetLang,

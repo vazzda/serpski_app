@@ -915,6 +915,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Tech work — no progress contribution'**
   String get result_techWork;
+
+  /// No description provided for @language_progressionEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Time to start learning languages!'**
+  String get language_progressionEmpty;
+
+  /// No description provided for @language_resetConfirmTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset progress'**
+  String get language_resetConfirmTitle;
+
+  /// No description provided for @language_resetConfirmBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset all progress for {language}? This cannot be undone.'**
+  String language_resetConfirmBody(String language);
+
+  /// No description provided for @language_resetButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset'**
+  String get language_resetButton;
 }
 
 class _AppLocalizationsDelegate

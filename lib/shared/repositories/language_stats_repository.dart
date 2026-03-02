@@ -22,6 +22,15 @@ class LanguageStatsRepository {
     return (jsonDecode(json) as List<dynamic>).cast<String>().toSet();
   }
 
+  /// Deletes all stats for a target language.
+  Future<void> deleteForLanguage(String targetLang) async {
+    await _db.delete(
+      DbSchema.tableLanguageStats,
+      where: '${DbSchema.colTargetLang} = ?',
+      whereArgs: [targetLang],
+    );
+  }
+
   /// Merges new concept IDs into the running set for a target language.
   Future<int> addConceptsTouched(
       String targetLang, Set<String> newConceptIds) async {
