@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
 import 'config_validator.dart';
@@ -20,19 +19,11 @@ class StartupValidator {
     required String targetLang,
     required String nativeLang,
   }) async {
-    final sw = Stopwatch()..start();
-    debugPrint('[BOOT] validate: plan.json loading...');
     final planRaw = await rootBundle.loadString(_planPath);
-    debugPrint('[BOOT] validate: plan.json loaded (${sw.elapsedMilliseconds}ms)');
     final planData = jsonDecode(planRaw) as Map<String, dynamic>;
 
-    debugPrint('[BOOT] validate: dictionary.json loading...');
     final dictRaw = await rootBundle.loadString(_dictionaryPath);
-    debugPrint('[BOOT] validate: dictionary.json loaded (${sw.elapsedMilliseconds}ms)');
-
-    debugPrint('[BOOT] validate: levels.json loading...');
     final levelsRaw = await rootBundle.loadString(_levelsPath);
-    debugPrint('[BOOT] validate: levels.json loaded (${sw.elapsedMilliseconds}ms)');
 
     // Core validation (plan structure, dictionary, levels).
     final ids = ConfigValidator.validateCore(
@@ -40,16 +31,13 @@ class StartupValidator {
       dictionaryData: jsonDecode(dictRaw) as Map<String, dynamic>,
       levelsData: jsonDecode(levelsRaw) as Map<String, dynamic>,
     );
-    debugPrint('[BOOT] validate: core validation done (${sw.elapsedMilliseconds}ms)');
 
     // Load and validate only the active translations.
     final codesToValidate = {targetLang, nativeLang};
     for (final code in codesToValidate) {
       final path = '$_translationsDir/$code.json';
       try {
-        debugPrint('[BOOT] validate: $code.json loading...');
         final raw = await rootBundle.loadString(path);
-        debugPrint('[BOOT] validate: $code.json loaded (${sw.elapsedMilliseconds}ms)');
         final data = jsonDecode(raw) as Map<String, dynamic>;
         ConfigValidator.validateTranslation(
           code,
@@ -65,7 +53,6 @@ class StartupValidator {
         );
       }
     }
-    debugPrint('[BOOT] validate: DONE (${sw.elapsedMilliseconds}ms)');
   }
 
   /// Full validation of ALL config files including every translation.
