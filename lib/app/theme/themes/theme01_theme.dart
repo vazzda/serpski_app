@@ -93,6 +93,9 @@ const VesselThemeData theme01Theme = VesselThemeData(
   bottomSheetPadding: 16.0,
   // Modal
   modalBorderRadius: 8.0,
+  // Input
+  inputBackground: Theme01Palette.platinum,
+  inputForeground: Theme01Palette.pureBlack,
   // Control
   controlBackground: Theme01Palette.alabaster,
   controlBorder: Theme01Palette.alabaster,

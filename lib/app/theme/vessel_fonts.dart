@@ -88,7 +88,7 @@ class VesselFonts {
 
   // Form styles
   static TextStyle get textFormLabel => _bodyM;
-  static TextStyle get textFormInput => _bodyM;
+  static TextStyle get textFormInput => _bodyLAccented;
   static TextStyle get textFormHint => _bodyM;
   static TextStyle get textFormError => _bodyS;
 

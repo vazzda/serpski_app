@@ -95,6 +95,9 @@ const VesselThemeData theme05Theme = VesselThemeData(
   controlBackground: Theme05Palette.spaceIndigo,
   controlBorder: Theme05Palette.spaceIndigo,
   controlForeground: Theme05Palette.deepWalnut,
+  // Input
+  inputBackground: Theme05Palette.spaceIndigo,
+  inputForeground: Theme05Palette.deepWalnut,
   controlDangerBackground: Theme05Colors.danger,
   controlDangerForeground: Theme05Palette.oldlace,
   controlBorderRadius: 8.0,

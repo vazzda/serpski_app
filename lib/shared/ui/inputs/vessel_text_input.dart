@@ -8,6 +8,7 @@ class VesselTextInput extends StatelessWidget {
   const VesselTextInput({
     super.key,
     this.controller,
+    this.focusNode,
     this.label,
     this.hint,
     this.onSubmitted,
@@ -21,6 +22,7 @@ class VesselTextInput extends StatelessWidget {
   });
 
   final TextEditingController? controller;
+  final FocusNode? focusNode;
   final String? label;
   final String? hint;
   final ValueChanged<String>? onSubmitted;
@@ -37,10 +39,11 @@ class VesselTextInput extends StatelessWidget {
     final t = VesselThemes.of(context);
     return TextField(
       controller: controller,
+      focusNode: focusNode,
       decoration: InputDecoration(
         labelText: label,
         hintText: hint,
-        fillColor: t.controlBackground,
+        fillColor: t.inputBackground,
         filled: true,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(t.controlBorderRadius),
@@ -63,7 +66,7 @@ class VesselTextInput extends StatelessWidget {
       autocorrect: autocorrect,
       enableSuggestions: enableSuggestions,
       obscureText: obscureText,
-      style: VesselFonts.textFormInput.copyWith(color: t.controlForeground),
+      style: VesselFonts.textFormInput.copyWith(color: t.inputForeground),
     );
   }
 }

@@ -99,6 +99,9 @@ const VesselThemeData theme03Theme = VesselThemeData(
   controlDangerBackground: Theme03Colors.danger,
   controlDangerForeground: Theme03Palette.platinum,
   controlForeground: Theme03Palette.gunMetal,
+  // Input
+  inputBackground: Theme03Palette.pureWhite,
+  inputForeground: Theme03Palette.gunMetal,
   controlBorderRadius: 4.0,
   controlBorderWidth: 2.0,
   // Toggle

@@ -40,6 +40,7 @@ class RoundScreen extends ConsumerStatefulWidget {
 class _RoundScreenState extends ConsumerState<RoundScreen> {
   final _writeController = TextEditingController();
   final _writeController2 = TextEditingController();
+  final _writeFocusNode = FocusNode();
   final _random = Random();
   bool _hasFinalized = false;
 
@@ -68,6 +69,7 @@ class _RoundScreenState extends ConsumerState<RoundScreen> {
   void dispose() {
     _writeController.dispose();
     _writeController2.dispose();
+    _writeFocusNode.dispose();
     _correctLabelNotifier.dispose();
     super.dispose();
   }
@@ -306,13 +308,14 @@ class _RoundScreenState extends ConsumerState<RoundScreen> {
           children: [
             Text(
               l10n.quiz_aspectImperfective,
-              style: VesselFonts.textControlLabel.copyWith(
+              style: VesselFonts.textBodyLarge.copyWith(
                 color: t.textPrimary,
               ),
             ),
             const VesselGap.s(),
             VesselTextInput(
               controller: _writeController,
+              focusNode: _writeFocusNode,
               autofocus: true,
               textInputAction: TextInputAction.next,
               autocorrect: false,
@@ -321,7 +324,7 @@ class _RoundScreenState extends ConsumerState<RoundScreen> {
             const VesselGap.m(),
             Text(
               l10n.quiz_aspectPerfective,
-              style: VesselFonts.textControlLabel.copyWith(
+              style: VesselFonts.textBodyLarge.copyWith(
                 color: t.textPrimary,
               ),
             ),
@@ -346,11 +349,12 @@ class _RoundScreenState extends ConsumerState<RoundScreen> {
         children: [
           Text(
             l10n.yourAnswer,
-            style: VesselFonts.textControlLabel.copyWith(color: t.textPrimary),
+            style: VesselFonts.textBodyLarge.copyWith(color: t.textPrimary),
           ),
           const VesselGap.s(),
           VesselTextInput(
             controller: _writeController,
+            focusNode: _writeFocusNode,
             onSubmitted: (_) => _submitWrite(context, ref),
             autofocus: true,
             textInputAction: TextInputAction.done,
@@ -448,6 +452,13 @@ class _RoundScreenState extends ConsumerState<RoundScreen> {
     });
     _writeController.clear();
     _writeController2.clear();
+    _requestWriteFocus();
+  }
+
+  void _requestWriteFocus() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) _writeFocusNode.requestFocus();
+    });
   }
 
   String _buildPromptText(
@@ -480,6 +491,7 @@ class _RoundScreenState extends ConsumerState<RoundScreen> {
     if (ok1 && ok2) {
       _fireCorrectLabel();
       ref.read(roundProvider.notifier).answerCorrect();
+      _requestWriteFocus();
     } else {
       setState(() {
         _wrongFeedback = card.targetAnswer;
@@ -619,6 +631,7 @@ class _RoundScreenState extends ConsumerState<RoundScreen> {
     if (normalized == expected) {
       _fireCorrectLabel();
       ref.read(roundProvider.notifier).answerCorrect();
+      _requestWriteFocus();
     } else {
       final l10n = AppLocalizations.of(context)!;
       final display = round.mode == QuizMode.targetShown

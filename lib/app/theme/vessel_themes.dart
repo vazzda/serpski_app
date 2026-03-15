@@ -135,6 +135,12 @@ class VesselThemeData {
   final Color controlForeground;
 
   // ==========================================================================
+  // INPUT
+  // ==========================================================================
+  final Color inputBackground;
+  final Color inputForeground;
+
+  // ==========================================================================
   // DISPLAY
   // ==========================================================================
   final Color displayBackground;
@@ -365,6 +371,9 @@ class VesselThemeData {
     required this.controlDangerBackground,
     required this.controlDangerForeground,
     required this.controlForeground,
+    // Input
+    required this.inputBackground,
+    required this.inputForeground,
     // Display
     required this.displayBackground,
     required this.displayBorderRadius,
