@@ -26,6 +26,7 @@ import '../shared/ui/card/vessel_card.dart';
 import '../shared/ui/note/vessel_note.dart';
 import '../shared/ui/screen_layout/vessel_scaffold.dart';
 import '../shared/ui/inputs/vessel_text_input.dart';
+import '../shared/ui/tile/vessel_tile.dart';
 import '../shared/ui/gap/vessel_gap.dart';
 import '../app/layout/vessel_layout.dart';
 
@@ -180,7 +181,7 @@ class _RoundScreenState extends ConsumerState<RoundScreen> {
                 ],
               ),
             ),
-            const VesselGap.xl(),
+            const Spacer(),
             if (_wrongFeedback != null) ...[
               if (_pairImperfective != null && _pairPerfective != null) ...[
                 Text(
@@ -298,7 +299,7 @@ class _RoundScreenState extends ConsumerState<RoundScreen> {
                 ),
               ],
             ] else ...[
-              ..._buildOptions(
+              _buildOptionsTileGrid(
                 context,
                 round.mode,
                 card,
@@ -414,7 +415,7 @@ class _RoundScreenState extends ConsumerState<RoundScreen> {
     _writeController2.clear();
   }
 
-  List<Widget> _buildOptions(
+  Widget _buildOptionsTileGrid(
     BuildContext context,
     QuizMode mode,
     CardModel correctCard,
@@ -423,41 +424,77 @@ class _RoundScreenState extends ConsumerState<RoundScreen> {
     WidgetRef ref,
     AppLocalizations l10n,
   ) {
+    final t = VesselThemes.of(context);
+
+    final List<Widget> tiles;
     if (mode == QuizMode.targetShown) {
       final optionCards = buildMultipleChoiceOptionCards(
         correctCard: correctCard,
         allCards: allCards,
         random: _random,
       );
-      return optionCards
+      tiles = optionCards
           .map(
-            (optionCard) => Padding(
-              padding: const EdgeInsets.only(bottom: VesselLayout.listItemGapSmall),
-              child: VesselButton(
-                label: displayNativeForCard(optionCard, l10n),
-                onPressed: () => _onOptionSelectedSerbianShown(context, ref, correctCard, optionCard, l10n),
+            (optionCard) => VesselTile(
+              variant: VesselTileVariant.roundAnswer,
+              onTap: () => _onOptionSelectedSerbianShown(
+                context, ref, correctCard, optionCard, l10n,
+              ),
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(VesselLayout.gapS),
+                  child: Text(
+                    displayNativeForCard(optionCard, l10n),
+                    style: VesselFonts.textRoundAnswer.copyWith(
+                      color: t.textPrimary,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ),
+            ),
+          )
+          .toList();
+    } else {
+      final options = buildMultipleChoiceOptions(
+        mode: mode,
+        correctAnswer: correctAnswer,
+        allCards: allCards,
+        random: _random,
+      );
+      tiles = options
+          .map(
+            (opt) => VesselTile(
+              variant: VesselTileVariant.roundAnswer,
+              onTap: () => _onOptionSelectedEnglishShown(
+                context, ref, correctAnswer, opt, l10n,
+              ),
+              child: Center(
+                child: Padding(
+                  padding: const EdgeInsets.all(VesselLayout.gapS),
+                  child: Text(
+                    opt,
+                    style: VesselFonts.textRoundAnswer.copyWith(
+                      color: t.textPrimary,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
               ),
             ),
           )
           .toList();
     }
-    final options = buildMultipleChoiceOptions(
-      mode: mode,
-      correctAnswer: correctAnswer,
-      allCards: allCards,
-      random: _random,
+
+    return GridView.count(
+      crossAxisCount: 2,
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      crossAxisSpacing: VesselLayout.gapS,
+      mainAxisSpacing: VesselLayout.gapS,
+      childAspectRatio: VesselLayout.roundOptionTileAspectRatio,
+      children: tiles,
     );
-    return options
-        .map(
-          (opt) => Padding(
-            padding: const EdgeInsets.only(bottom: VesselLayout.listItemGapSmall),
-            child: VesselButton(
-              label: opt,
-              onPressed: () => _onOptionSelectedEnglishShown(context, ref, correctAnswer, opt, l10n),
-            ),
-          ),
-        )
-        .toList();
   }
 
   void _onOptionSelectedSerbianShown(

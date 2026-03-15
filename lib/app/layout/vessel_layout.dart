@@ -93,6 +93,7 @@ abstract class VesselLayout {
   // ROUND
   // ==========================================================================
   static const double roundScoreToCardGap = 16.0;
+  static const double roundOptionTileAspectRatio = 1.8;
 
   // ==========================================================================
   // RESULT

@@ -131,6 +131,10 @@ const VesselThemeData theme05Theme = VesselThemeData(
   tileBorderColor: Theme05Palette.dustyGrape,
   tileBorderWidth: 2.0,
   tileBorderRadius: 8.0,
+  // Round answer tile
+  roundAnswerTileBackground: Theme05Palette.dustyGrape,
+  roundAnswerTileBorderColor: Theme05Palette.dustyGrape,
+  roundAnswerTileBorderWidth: 2.0,
   // Deck icon
   deckIconColor: Theme05Palette.deepWalnut,
   deckIconBackground: Theme05Palette.spaceIndigo,

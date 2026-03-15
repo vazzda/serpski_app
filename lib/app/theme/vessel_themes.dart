@@ -98,6 +98,13 @@ class VesselThemeData {
   final double tileBorderRadius;
 
   // ==========================================================================
+  // ROUND ANSWER TILE
+  // ==========================================================================
+  final Color roundAnswerTileBackground;
+  final Color roundAnswerTileBorderColor;
+  final double roundAnswerTileBorderWidth;
+
+  // ==========================================================================
   // DECK ICON
   // ==========================================================================
   final Color deckIconColor;
@@ -331,6 +338,10 @@ class VesselThemeData {
     required this.tileBorderColor,
     required this.tileBorderWidth,
     required this.tileBorderRadius,
+    // Round answer tile
+    required this.roundAnswerTileBackground,
+    required this.roundAnswerTileBorderColor,
+    required this.roundAnswerTileBorderWidth,
     // Deck icon
     required this.deckIconColor,
     required this.deckIconBackground,

@@ -28,6 +28,14 @@ class VesselFonts {
       GoogleFonts.montserrat(fontSize: 16, fontWeight: FontWeight.normal);
   static TextStyle get _bodyLAccented =>
       GoogleFonts.montserrat(fontSize: 16, fontWeight: FontWeight.bold);
+  static TextStyle get _bodyXL =>
+      GoogleFonts.montserrat(fontSize: 20, fontWeight: FontWeight.normal);
+  static TextStyle get _bodyXLAccented =>
+      GoogleFonts.montserrat(fontSize: 20, fontWeight: FontWeight.bold);
+  static TextStyle get _bodyXXL =>
+      GoogleFonts.montserrat(fontSize: 28, fontWeight: FontWeight.normal);
+  static TextStyle get _bodyXXLAccented =>
+      GoogleFonts.montserrat(fontSize: 28, fontWeight: FontWeight.bold);
 
   // Header styles — IosevkaCustom3
   static const TextStyle _headerXs = TextStyle(
@@ -124,7 +132,10 @@ class VesselFonts {
   static TextStyle get textProgressChip => _bodyXsAccented;
 
   // Prompt (quiz card)
-  static TextStyle get textPrompt => _headerXxl;
+  static TextStyle get textPrompt => _bodyXXLAccented;
+
+  // Round answer tiles
+  static TextStyle get textRoundAnswer => _bodyXLAccented;
 
   // Tag styles
   static TextStyle get textVesselTagChip => _bodySAccented;
