@@ -42,20 +42,27 @@ class _RoundScreenState extends ConsumerState<RoundScreen> {
   final _writeController2 = TextEditingController();
   final _random = Random();
   bool _hasFinalized = false;
+
   /// When non-null, user just answered wrong; show this correct answer and Next.
   String? _wrongFeedback;
+
   /// Display form of correct answer (Ti/Vi expanded in English). Shown in UI.
   String? _wrongFeedbackDisplay;
+
   /// In Write mode, what the user typed when they got it wrong (for result screen).
   String? _wrongUserTypedAnswer;
+
   /// Text to show as "the answer you gave" in wrong-feedback block (all modes).
   String? _wrongUserAnswerDisplay;
+
   /// Per-form wrong feedback for PairVocabCard. Non-null when showing pair feedback.
   ({String typed, String correct, bool ok})? _pairImperfective;
   ({String typed, String correct, bool ok})? _pairPerfective;
 
-  final _correctLabelNotifier =
-      ValueNotifier<({int seq, int col})>((seq: 0, col: -1));
+  final _correctLabelNotifier = ValueNotifier<({int seq, int col})>((
+    seq: 0,
+    col: -1,
+  ));
 
   @override
   void dispose() {
@@ -112,16 +119,16 @@ class _RoundScreenState extends ConsumerState<RoundScreen> {
       }
     }
 
-    final title = round.deckName
-        ?? (group != null
+    final title =
+        round.deckName ??
+        (group != null
             ? groupLabel(l10n, group.labelKey)
             : (round.roundType == RoundType.agreement
-                ? l10n.parentAgreement
-                : ''));
-    final allCardsForOptions = round.allCards
-        ?? (round.roundType == RoundType.agreement
-            ? round.queue
-            : group!.cards);
+                  ? l10n.parentAgreement
+                  : ''));
+    final allCardsForOptions =
+        round.allCards ??
+        (round.roundType == RoundType.agreement ? round.queue : group!.cards);
     final promptText = _buildPromptText(card, round.mode, l10n);
     final correctAnswer = round.mode == QuizMode.targetShown
         ? card.nativeText
@@ -161,7 +168,9 @@ class _RoundScreenState extends ConsumerState<RoundScreen> {
                 children: [
                   Text(
                     promptText,
-                    style: VesselFonts.textPrompt.copyWith(color: t.textPrimary),
+                    style: VesselFonts.textPrompt.copyWith(
+                      color: t.textPrimary,
+                    ),
                     textAlign: TextAlign.center,
                   ),
                   if (card is VocabCard &&
@@ -190,8 +199,14 @@ class _RoundScreenState extends ConsumerState<RoundScreen> {
               children: [
                 _CorrectLabel(notifier: _correctLabelNotifier),
                 _buildInteractiveSection(
-                  context, round, card, correctAnswer,
-                  allCardsForOptions, ref, l10n, t,
+                  context,
+                  round,
+                  card,
+                  correctAnswer,
+                  allCardsForOptions,
+                  ref,
+                  l10n,
+                  t,
                 ),
               ],
             ),
@@ -260,7 +275,9 @@ class _RoundScreenState extends ConsumerState<RoundScreen> {
           ] else ...[
             Text(
               l10n.wrong,
-              style: VesselFonts.textContentHeader.copyWith(color: t.dangerColor),
+              style: VesselFonts.textContentHeader.copyWith(
+                color: t.dangerColor,
+              ),
             ),
             const VesselGap.s(),
             Text(
@@ -289,7 +306,9 @@ class _RoundScreenState extends ConsumerState<RoundScreen> {
           children: [
             Text(
               l10n.quiz_aspectImperfective,
-              style: VesselFonts.textControlLabel.copyWith(color: t.textPrimary),
+              style: VesselFonts.textControlLabel.copyWith(
+                color: t.textPrimary,
+              ),
             ),
             const VesselGap.s(),
             VesselTextInput(
@@ -302,7 +321,9 @@ class _RoundScreenState extends ConsumerState<RoundScreen> {
             const VesselGap.m(),
             Text(
               l10n.quiz_aspectPerfective,
-              style: VesselFonts.textControlLabel.copyWith(color: t.textPrimary),
+              style: VesselFonts.textControlLabel.copyWith(
+                color: t.textPrimary,
+              ),
             ),
             const VesselGap.s(),
             VesselTextInput(
@@ -346,8 +367,13 @@ class _RoundScreenState extends ConsumerState<RoundScreen> {
     }
 
     return _buildOptionsTileGrid(
-      context, round.mode, card, correctAnswer,
-      allCardsForOptions, ref, l10n,
+      context,
+      round.mode,
+      card,
+      correctAnswer,
+      allCardsForOptions,
+      ref,
+      l10n,
     );
   }
 
@@ -393,8 +419,9 @@ class _RoundScreenState extends ConsumerState<RoundScreen> {
                 label: l10n.exit,
                 onPressed: () {
                   Navigator.of(sheetContext).pop();
-                  final originRoute =
-                      ref.read(quizRoundServiceProvider).endRound();
+                  final originRoute = ref
+                      .read(quizRoundServiceProvider)
+                      .endRound();
                   if (roundContext.mounted) {
                     roundContext.go(originRoute);
                   }
@@ -408,7 +435,9 @@ class _RoundScreenState extends ConsumerState<RoundScreen> {
   }
 
   void _onNextAfterWrong(WidgetRef ref) {
-    ref.read(roundProvider.notifier).answerWrong(userTypedAnswer: _wrongUserTypedAnswer);
+    ref
+        .read(roundProvider.notifier)
+        .answerWrong(userTypedAnswer: _wrongUserTypedAnswer);
     setState(() {
       _wrongFeedback = null;
       _wrongFeedbackDisplay = null;
@@ -421,7 +450,11 @@ class _RoundScreenState extends ConsumerState<RoundScreen> {
     _writeController2.clear();
   }
 
-  String _buildPromptText(CardModel card, QuizMode mode, AppLocalizations l10n) {
+  String _buildPromptText(
+    CardModel card,
+    QuizMode mode,
+    AppLocalizations l10n,
+  ) {
     if (card is EndingCard) {
       return mode == QuizMode.targetShown
           ? '${card.pronoun} ${card.targetText}'
@@ -437,22 +470,27 @@ class _RoundScreenState extends ConsumerState<RoundScreen> {
 
     final raw1 = _writeController.text.trim();
     final raw2 = _writeController2.text.trim();
-    final ok1 = normalizeForComparison(raw1) ==
+    final ok1 =
+        normalizeForComparison(raw1) ==
         normalizeForComparison(card.imperfectiveText);
-    final ok2 = normalizeForComparison(raw2) ==
+    final ok2 =
+        normalizeForComparison(raw2) ==
         normalizeForComparison(card.perfectiveText);
 
     if (ok1 && ok2) {
       _fireCorrectLabel();
       ref.read(roundProvider.notifier).answerCorrect();
     } else {
-
       setState(() {
         _wrongFeedback = card.targetAnswer;
         _wrongFeedbackDisplay = null;
         _wrongUserTypedAnswer = '$raw1 / $raw2';
         _wrongUserAnswerDisplay = null;
-        _pairImperfective = (typed: raw1, correct: card.imperfectiveText, ok: ok1);
+        _pairImperfective = (
+          typed: raw1,
+          correct: card.imperfectiveText,
+          ok: ok1,
+        );
         _pairPerfective = (typed: raw2, correct: card.perfectiveText, ok: ok2);
       });
     }
@@ -476,13 +514,16 @@ class _RoundScreenState extends ConsumerState<RoundScreen> {
         allCards: allCards,
         random: _random,
       );
-      tiles = optionCards
-          .indexed
+      tiles = optionCards.indexed
           .map(
             (e) => VesselAnswerTile(
               label: displayNativeForCard(e.$2, l10n),
               onTap: () => _onOptionSelectedSerbianShown(
-                context, ref, correctCard, e.$2, l10n,
+                context,
+                ref,
+                correctCard,
+                e.$2,
+                l10n,
                 col: e.$1 % 2,
               ),
             ),
@@ -495,13 +536,16 @@ class _RoundScreenState extends ConsumerState<RoundScreen> {
         allCards: allCards,
         random: _random,
       );
-      tiles = options
-          .indexed
+      tiles = options.indexed
           .map(
             (e) => VesselAnswerTile(
               label: e.$2,
               onTap: () => _onOptionSelectedEnglishShown(
-                context, ref, correctAnswer, e.$2, l10n,
+                context,
+                ref,
+                correctAnswer,
+                e.$2,
+                l10n,
                 col: e.$1 % 2,
               ),
             ),
@@ -532,7 +576,6 @@ class _RoundScreenState extends ConsumerState<RoundScreen> {
       _fireCorrectLabel(col: col);
       ref.read(roundProvider.notifier).answerCorrect();
     } else {
-
       setState(() {
         _wrongFeedback = correctCard.nativeText;
         _wrongFeedbackDisplay = displayNativeForCard(correctCard, l10n);
@@ -554,7 +597,6 @@ class _RoundScreenState extends ConsumerState<RoundScreen> {
       _fireCorrectLabel(col: col);
       ref.read(roundProvider.notifier).answerCorrect();
     } else {
-
       setState(() {
         _wrongFeedback = correctAnswer;
         _wrongFeedbackDisplay = correctAnswer;
@@ -578,7 +620,6 @@ class _RoundScreenState extends ConsumerState<RoundScreen> {
       _fireCorrectLabel();
       ref.read(roundProvider.notifier).answerCorrect();
     } else {
-
       final l10n = AppLocalizations.of(context)!;
       final display = round.mode == QuizMode.targetShown
           ? displayNativeForCard(card, l10n)
@@ -598,7 +639,13 @@ class _RoundScreenState extends ConsumerState<RoundScreen> {
 // Correct label animation (private to round screen)
 // =============================================================================
 
-const _correctLabelDuration = Duration(milliseconds: 200);
+const _correctLabelEnterMs = 100;
+const _correctLabelHoldMs = 250;
+const _correctLabelExitMs = 100;
+const _correctLabelDuration = Duration(
+  milliseconds:
+      _correctLabelEnterMs + _correctLabelHoldMs + _correctLabelExitMs,
+);
 
 class _CorrectLabel extends StatefulWidget {
   const _CorrectLabel({required this.notifier});
@@ -653,9 +700,33 @@ class _CorrectLabelState extends State<_CorrectLabel>
               return const SizedBox.shrink();
             }
 
-            final progress = _controller.value;
-            final opacity = 1.0 - progress;
-            final offsetY = -10.0 - (40.0 * progress);
+            const totalMs =
+                _correctLabelEnterMs +
+                _correctLabelHoldMs +
+                _correctLabelExitMs;
+            const enterEnd = _correctLabelEnterMs / totalMs;
+            const holdEnd =
+                (_correctLabelEnterMs + _correctLabelHoldMs) / totalMs;
+
+            final v = _controller.value;
+            final double opacity;
+            final double offsetY;
+
+            if (v <= enterEnd) {
+              // Stage 1: fade in + rise from tile area
+              final p = v / enterEnd;
+              opacity = p;
+              offsetY = -10.0 * p;
+            } else if (v <= holdEnd) {
+              // Stage 2: hold
+              opacity = 1.0;
+              offsetY = -10.0;
+            } else {
+              // Stage 3: fade out + rise further
+              final p = (v - holdEnd) / (1.0 - holdEnd);
+              opacity = 1.0 - p;
+              offsetY = -10.0 - (40.0 * p);
+            }
 
             final label = Text(
               l10n.correct.toUpperCase(),
@@ -689,10 +760,7 @@ class _CorrectLabelState extends State<_CorrectLabel>
               translation: const Offset(0, -1),
               child: Transform.translate(
                 offset: Offset(0, offsetY),
-                child: Opacity(
-                  opacity: opacity,
-                  child: positioned,
-                ),
+                child: Opacity(opacity: opacity, child: positioned),
               ),
             );
           },
