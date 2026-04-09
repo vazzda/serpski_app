@@ -1,0 +1,1 @@
+ C:\\_pet\\srpski_card\\.dart_tool\\flutter_build\\7bb16952ed00d563087bb2dfc9b2a9d6\\native_assets.json: 

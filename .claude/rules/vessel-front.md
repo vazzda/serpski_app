@@ -1,0 +1,1 @@
+../../.vessel/packages/flessel/consumer.claude.md

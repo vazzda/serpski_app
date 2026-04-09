@@ -1,0 +1,1 @@
+../../.vessel/rules/core.claude.md

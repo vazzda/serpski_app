@@ -1,0 +1,1 @@
+ C:\\_pet\\srpski_card\\lib\\l10n\\app_localizations_en.dart C:\\_pet\\srpski_card\\lib\\l10n\\app_localizations.dart:  C:\\_pet\\srpski_card\\l10n.yaml C:\\_pet\\srpski_card\\lib\\l10n\\app_en.arb
