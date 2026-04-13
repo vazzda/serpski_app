@@ -156,11 +156,13 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
     return FlesselScaffold(
       title: l10n.settingsTitle,
       uppercaseTitle: true,
-      bottomNavBar: LangwijMainNavBar(
+      navBarItems: LangwijMainNavBar.items(
+        context,
         onDevAccessTapsReached: _showDevPasswordSheet,
       ),
+      navBarCurrentIndex: LangwijMainNavBar.currentIndex(context),
       child: ListView(
-        padding: const EdgeInsets.all(FlesselLayout.screenPadding),
+        padding: FlesselLayout.screenPaddingInsets(context),
         children: [
           // App language section
           asyncAllPacks.when(

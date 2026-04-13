@@ -26,7 +26,8 @@ class ToolsScreen extends ConsumerWidget {
     return FlesselScaffold(
       title: l10n.navTools,
       uppercaseTitle: true,
-      bottomNavBar: const LangwijMainNavBar(),
+      navBarItems: LangwijMainNavBar.items(context),
+      navBarCurrentIndex: LangwijMainNavBar.currentIndex(context),
       child: tools.isEmpty
           ? Center(
               child: Text(
@@ -35,7 +36,7 @@ class ToolsScreen extends ConsumerWidget {
               ),
             )
           : ListView(
-              padding: const EdgeInsets.all(FlesselLayout.screenPadding),
+              padding: FlesselLayout.screenPaddingInsets(context),
               children: tools.map((tool) {
                 final label = _toolLabel(tool, l10n);
                 return Padding(

@@ -34,12 +34,12 @@ class LangPickerScreen extends ConsumerWidget {
       onBackPressed: () => context.pop(),
       child: asyncAllPacks.when(
         loading: () => const Center(child: FlesselSpinner()),
-        error: (_, __) => Center(child: Text(l10n.loadError)),
+        error: (_, _) => Center(child: Text(l10n.loadError)),
         data: (packs) {
           return ListView.separated(
-            padding: const EdgeInsets.all(FlesselLayout.screenPadding),
+            padding: FlesselLayout.screenPaddingInsets(context),
             itemCount: packs.length,
-            separatorBuilder: (_, __) => const FlesselGap.s(),
+            separatorBuilder: (_, _) => const FlesselGap.s(),
             itemBuilder: (_, index) {
               final pack = packs[index];
               return _LangPickerTile(

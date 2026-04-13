@@ -23,7 +23,8 @@
       "Read(//tmp/**)",
       "Bash(python3:*)",
       "Bash(flutter pub:*)",
-      "Bash(flutter build:*)"
+      "Bash(flutter build:*)",
+      "Bash(dart analyze:*)"
     ]
   }
 }

@@ -139,7 +139,7 @@ class _RoundScreenState extends ConsumerState<RoundScreen> {
         ),
       ],
       child: Padding(
-        padding: const EdgeInsets.all(FlesselLayout.screenPadding),
+        padding: FlesselLayout.screenPaddingInsets(context),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [

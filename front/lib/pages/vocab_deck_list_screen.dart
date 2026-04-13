@@ -101,7 +101,8 @@ class _VocabDeckListScreenState extends ConsumerState<VocabDeckListScreen> {
       return FlesselScaffold(
         title: l10n.navVocabulary,
         uppercaseTitle: true,
-        bottomNavBar: const LangwijMainNavBar(),
+        navBarItems: LangwijMainNavBar.items(context),
+        navBarCurrentIndex: LangwijMainNavBar.currentIndex(context),
         child: Center(
           child: hasError
               ? Text(l10n.loadError)
@@ -125,10 +126,11 @@ class _VocabDeckListScreenState extends ConsumerState<VocabDeckListScreen> {
     return FlesselScaffold(
       title: l10n.navVocabulary,
       uppercaseTitle: true,
-      bottomNavBar: const LangwijMainNavBar(),
+      navBarItems: LangwijMainNavBar.items(context),
+      navBarCurrentIndex: LangwijMainNavBar.currentIndex(context),
       child: ListView.separated(
         controller: _scrollController,
-        padding: const EdgeInsets.all(FlesselLayout.screenPadding),
+        padding: FlesselLayout.screenPaddingInsets(context),
         itemCount: levels.length + 1,
         separatorBuilder: (_, _) => const FlesselGap.m(),
         itemBuilder: (context, index) {

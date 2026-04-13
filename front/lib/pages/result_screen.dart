@@ -32,7 +32,7 @@ class ResultScreen extends ConsumerWidget {
       title: l10n.resultTitle,
       uppercaseTitle: true,
       child: SingleChildScrollView(
-        padding: const EdgeInsets.all(FlesselLayout.screenPadding),
+        padding: FlesselLayout.screenPaddingInsets(context),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [

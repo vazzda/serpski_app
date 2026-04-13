@@ -38,7 +38,8 @@ class LanguageScreen extends ConsumerWidget {
     return FlesselScaffold(
       title: l10n.navLanguage,
       uppercaseTitle: true,
-      bottomNavBar: const LangwijMainNavBar(),
+      navBarItems: LangwijMainNavBar.items(context),
+      navBarCurrentIndex: LangwijMainNavBar.currentIndex(context),
       child: asyncAllPacks.when(
         loading: () => const Center(child: FlesselSpinner()),
         // ignore: unnecessary_underscores
@@ -47,7 +48,7 @@ class LanguageScreen extends ConsumerWidget {
           final packByCode = {for (final p in packs) p.code: p};
 
           return ListView(
-            padding: const EdgeInsets.all(FlesselLayout.screenPadding),
+            padding: FlesselLayout.screenPaddingInsets(context),
             children: [
               _LangPairSelector(
                 packByCode: packByCode,

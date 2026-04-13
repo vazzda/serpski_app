@@ -94,7 +94,7 @@ class _GroupTile extends StatelessWidget {
             children: [
               // Main content
               Padding(
-                padding: const EdgeInsets.all(FlesselLayout.screenPadding),
+                padding: FlesselLayout.screenPaddingInsets(context),
                 child: Row(
                   children: [
                     Expanded(
@@ -258,7 +258,8 @@ class _ChildGroupListScreenState extends ConsumerState<ChildGroupListScreen> {
       child: FlesselScaffold(
         title: title,
         uppercaseTitle: true,
-        bottomNavBar: const LangwijMainNavBar(),
+        navBarItems: LangwijMainNavBar.items(context),
+        navBarCurrentIndex: LangwijMainNavBar.currentIndex(context),
         onBackPressed: () => context.go(AppRoutes.tools),
         child: asyncGroups.when(
           data: (groups) {
@@ -268,7 +269,7 @@ class _ChildGroupListScreenState extends ConsumerState<ChildGroupListScreen> {
             if (filterType == GroupType.endings) {
               return ListView.builder(
                 controller: _scrollController,
-                padding: const EdgeInsets.all(FlesselLayout.screenPadding),
+                padding: FlesselLayout.screenPaddingInsets(context),
                 itemCount: childGroups.length,
                 itemBuilder: (context, index) {
                   final group = childGroups[index];
@@ -339,7 +340,7 @@ class _ChildGroupListScreenState extends ConsumerState<ChildGroupListScreen> {
             }
             return ListView.builder(
               controller: _scrollController,
-              padding: const EdgeInsets.all(FlesselLayout.screenPadding),
+              padding: FlesselLayout.screenPaddingInsets(context),
               itemCount: items.length,
               itemBuilder: (context, index) {
                 final item = items[index];

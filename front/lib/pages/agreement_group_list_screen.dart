@@ -93,7 +93,8 @@ class _AgreementGroupListScreenState extends ConsumerState<AgreementGroupListScr
       child: FlesselScaffold(
         title: l10n.parentAgreement,
         uppercaseTitle: true,
-        bottomNavBar: const LangwijMainNavBar(),
+        navBarItems: LangwijMainNavBar.items(context),
+        navBarCurrentIndex: LangwijMainNavBar.currentIndex(context),
         onBackPressed: () => context.go(AppRoutes.tools),
         child: asyncGroups.when(
           data: (groups) {
@@ -108,7 +109,7 @@ class _AgreementGroupListScreenState extends ConsumerState<AgreementGroupListScr
             }
             return ListView.builder(
               controller: _scrollController,
-              padding: const EdgeInsets.all(FlesselLayout.screenPadding),
+              padding: FlesselLayout.screenPaddingInsets(context),
               itemCount: adjectiveGroupsList.length,
               itemBuilder: (context, index) {
                 final group = adjectiveGroupsList[index];
@@ -220,7 +221,7 @@ class _AgreementGroupTile extends StatelessWidget {
         children: [
           // Main content
           Padding(
-            padding: const EdgeInsets.all(FlesselLayout.screenPadding),
+            padding: FlesselLayout.screenPaddingInsets(context),
             child: Row(
               children: [
                 Expanded(
